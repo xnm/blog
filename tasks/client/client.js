@@ -3,13 +3,15 @@
 
 var config = require('../config/config');
 var logger = config.logger;
-var gulp = require('gulp');
 var runSequence = require('run-sequence');
 
 
 var clean = require('./clean');
 var index = require('./index');
+var styles = require('./styles');
 var webpack = require('./webpack');
+var watch = require('./webpack-watch');
+var stat = require('./static');
 
 module.exports.start = start;
 
@@ -17,7 +19,8 @@ function start(){
   logger.info('[task]:client');
   runSequence(
     //['clean'],
-    ['index'],
-    'webpack'
+    ['index','styles'],
+    ['webpack','watch'],
+    'stat'
   );
 }

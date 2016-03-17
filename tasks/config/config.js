@@ -11,7 +11,8 @@ var config = {
   bundle:{
     script:'bundle.js',
     style:'bundle.css'
-  }
+  },
+  port:3000
 };
 
 module.exports = initEnvironmentConfig();
