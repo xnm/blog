@@ -1,3 +1,30 @@
-<div>
-  Hi
+<div layout="column" ng-controller="headerController">
+  <md-toolbar layout="row" class="md-toolbar-tools md-whiteframe-glow-z1">
+    <div>
+      <md-button class="md-icon-button"
+                 ng-click="toggleLeft()"
+                 aria-label="Menu">
+        <ng-md-icon icon="subject"></ng-md-icon>
+      </md-button>
+    </div>
+    <div>
+      <md-button>
+        Aquariuslt Home
+      </md-button>
+    </div>
+  </md-toolbar>
+
+  <section layout="row">
+    <md-sidenav
+      class="md-sidenav-left"
+      md-component-id="left"
+      md-is-locked-open="$mdMedia('gt-md')"
+      md-whiteframe="4">
+      <md-toolbar layout="row" class="md-toolbar-tools md-whiteframe-glow-z1">
+        <md-button>About</md-button>
+      </md-toolbar>
+
+
+    </md-sidenav>
+  </section>
 </div>
