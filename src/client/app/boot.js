@@ -1,4 +1,4 @@
-/** Created by Aquariuslt on 2016-03-16.*/
+/** Created by Aquariuslt on 2016-03-19.*/
 'use strict';
-require('angular2/core');
-require('@angular2-material/core');
+
+require('./home');

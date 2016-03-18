@@ -6,9 +6,9 @@ var logger = config.logger;
 var runSequence = require('run-sequence');
 
 
-var clean = require('./clean');
 var index = require('./index');
 var styles = require('./styles');
+var templates = require('./templates');
 var webpack = require('./webpack');
 var watch = require('./webpack-watch');
 var stat = require('./static');
@@ -19,7 +19,7 @@ function start(){
   logger.info('[task]:client');
   runSequence(
     //['clean'],
-    ['index','styles'],
+    ['index','styles','templates'],
     ['webpack','watch'],
     'stat'
   );

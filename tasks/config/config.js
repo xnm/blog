@@ -7,10 +7,15 @@ var config = {
   src:'src',
   dist:'dist',
   index:'src/client/index.html',
+  scripts:'src/client/**/**/*.js',
+  styles:'src/client/styles/*.css',
+  app:'app',
+  views:'src/client/app/**/views/*.html',
   entry:'src/client/app/boot.js',
   bundle:{
     script:'bundle.js',
-    style:'bundle.css'
+    style:'bundle.css',
+    templates:'templates.js'
   },
   port:3000
 };

@@ -12,9 +12,11 @@ module.exports = gulp.task('watch',function(){
     logger.info('[watch]:'+event.path+' change.updating..');
   }
 
-  var scriptWatcher = gulp.watch(config.src+'/client/**/*.js',['webpack']);
-  var stylesWatcher = gulp.watch(config.src+'/client/**/styles/*.css',['styles']);
+  var scriptWatcher = gulp.watch(config.scripts,['webpack']);
+  var stylesWatcher = gulp.watch(config.styles,['styles']);
+  var viewsWatcher = gulp.watch(config.views,['templates']);
 
   scriptWatcher.on('change',reload);
   stylesWatcher.on('change',reload);
+  viewsWatcher.on('change',reload);
 });

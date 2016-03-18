@@ -13,9 +13,10 @@ var rename = require('gulp-rename');
  * */
 module.exports = gulp.task('styles',function(){
   logger.info('[task]:styles');
-  var stylePaths = config.src + '/client/**/styles/*.css';
+  var stylePaths = config.styles;
   gulp.src(stylePaths)
     .pipe(concat('bundledCssFile'))
     .pipe(rename(config.bundle.style))
     .pipe(gulp.dest(config.dist));
+  logger.info('[task]:styles-end');
 });
