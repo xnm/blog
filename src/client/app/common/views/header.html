@@ -1,5 +1,5 @@
-<div layout="column" ng-controller="headerController">
-  <section layout="row">
+<div layout="column">
+  <section layout="row" ng-controller="headerController">
     <md-toolbar class="md-toolbar-tools md-whiteframe-glow">
       <div>
         <md-button class="md-icon-button"
@@ -16,50 +16,61 @@
     </md-toolbar>
   </section>
 
-  <section layout="column">
+  <section layout="column" ng-controller='navbarController'>
     <md-sidenav
       class="md-sidenav-left"
       md-component-id="left"
-      md-is-locked-open="$mdMedia('xl')"
       md-whiteframe="4">
       <md-toolbar layout="row" class="md-toolbar-tools md-whiteframe-glow">
-        <md-button>Features</md-button>
+        <md-button>Aquariuslt Home</md-button>
       </md-toolbar>
 
       <md-content>
-        <md-list>
-          <md-list-item class="md-2-line">
-            <div class="md-list-item-text">
-              <h3>ChatRoom</h3>
-              <p>Online chat room using socket.io and redis</p>
-            </div>
-          </md-list-item>
-          <md-list-item class="md-2-line">
-            <div class="md-list-item-text">
-              <a class="no-decoration" href="http://blog.aquariuslt.com">
-                <h3>Blog</h3>
-              </a>
-              <p>Life Style Blog</p>
-            </div>
-          </md-list-item>
-          <md-list-item class="md-2-line">
-            <div class="md-list-item-text">
-              <a class="no-decoration" ng-href="http://debug.aquariuslt.com">
-                <h3>Debug</h3>
-              </a>
-              <p>Debug note for work projects</p>
-            </div>
-          </md-list-item>
-          <md-list-item class="md-2-line">
-            <div class="md-list-item-text">
-              <a class="no-decoration" href="http://game.aquariuslt.com">
-                <h3>Game</h3>
-              </a>
-              <p>WoW memory</p>
-            </div>
-          </md-list-item>
-        </md-list>
+        <!-- Toggle Menu -->
+        <div layout="column" class="md-2-line" ng-click="isSubSiteMenuOpen = !isSubSiteMenuOpen">
+          <md-button layout="row" class="md-button" flex-auto>
+            <div><span>Sub Sites</span></div>
+            <div flex></div>
+            <md-button class="md-icon-button" aria-label="menu" layout-align="end">
+              <ng-md-icon icon="{{isSubSiteMenuOpen?'clear_all':'reorder'}}"></ng-md-icon>
+            </md-button>
+          </md-button>
+
+          <md-button class="md-button"
+                     layout="row"
+                     ng-show="isSubSiteMenuOpen"
+                     ng-repeat="subSite in subSiteList"
+                     flex-auto>
+            <a class="no-decoration" ng-href="{{subSite.link}}">
+              <md-tooltip md-direction="right">{{subSite.description}}</md-tooltip>
+              <span>{{subSite.name}}</span>
+            </a>
+          </md-button>
+        </div>
+
+        <div layout="column" class="md-2-line" ng-click="isFeaturesMenuOpen = !isFeaturesMenuOpen">
+          <md-button layout="row" class="md-button" flex-auto>
+            <div><span>Features</span></div>
+            <div flex></div>
+            <md-button class="md-icon-button" aria-label="menu" layout-align="end">
+              <ng-md-icon icon="{{isFeaturesMenuOpen?'clear_all':'reorder'}}"></ng-md-icon>
+            </md-button>
+          </md-button>
+
+          <md-button class="md-button"
+                     layout="row"
+                     ng-show="isFeaturesMenuOpen"
+                     ng-repeat="feature in featureList"
+                     flex-auto>
+            <a class="no-decoration" ng-href="{{feature.link}}">
+              <md-tooltip md-direction="right">{{feature.description}}</md-tooltip>
+              <span>{{feature.name}}</span>
+            </a>
+          </md-button>
+
+        </div>
       </md-content>
     </md-sidenav>
   </section>
 </div>
+
