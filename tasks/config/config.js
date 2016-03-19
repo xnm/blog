@@ -17,7 +17,7 @@ var config = {
     style:'bundle.css',
     templates:'templates.js'
   },
-  port:3000
+  port:4000
 };
 
 module.exports = initEnvironmentConfig();
