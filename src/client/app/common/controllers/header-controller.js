@@ -2,24 +2,19 @@
 'use strict';
 
 
+module.exports = function headerController($scope, $timeout, $mdSidenav, $log) {
 
-module.exports = function headerController($scope, $timeout, $mdSidenav, $log){
-
-
-
-
+  
   $scope.toggleLeft = buildDelayedToggler('left');
 
 
-
-
-  function debounce(func, wait, context) {
+  function debounce(func, wait) {
     var timer;
     return function debounced() {
       var context = $scope,
         args = Array.prototype.slice.call(arguments);
       $timeout.cancel(timer);
-      timer = $timeout(function() {
+      timer = $timeout(function () {
         timer = undefined;
         func.apply(context, args);
       }, wait || 10);
@@ -27,7 +22,7 @@ module.exports = function headerController($scope, $timeout, $mdSidenav, $log){
   }
 
   function buildDelayedToggler(navID) {
-    return debounce(function() {
+    return debounce(function () {
       $mdSidenav(navID)
         .toggle()
         .then(function () {
