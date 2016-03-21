@@ -14,7 +14,7 @@ module.exports = gulp.task('watch',function(){
 
   var scriptWatcher = gulp.watch(config.scripts,['webpack']);
   var stylesWatcher = gulp.watch(config.styles,['styles']);
-  var viewsWatcher = gulp.watch(config.views,[['templates'],['webpack']]);
+  var viewsWatcher = gulp.watch(config.views,['webpack']);
 
   scriptWatcher.on('change',reload);
   stylesWatcher.on('change',reload);

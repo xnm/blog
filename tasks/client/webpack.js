@@ -5,6 +5,7 @@ var logger = config.logger;
 var path = require('path');
 var gulp = require('gulp');
 var webpack = require('webpack');
+var templates = require('./templates');
 
 var webpackOptions = {
   entry:('./'+config.entry),
@@ -14,7 +15,7 @@ var webpackOptions = {
   }
 };
 
-module.exports = gulp.task('webpack',function(callback){
+module.exports = gulp.task('webpack',['templates'],function(callback){
   logger.info('[task]:webpack');
   webpack(webpackOptions,function(error,status){
     if(error){
