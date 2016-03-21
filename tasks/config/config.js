@@ -17,7 +17,17 @@ var config = {
     style:'bundle.css',
     templates:'templates.js'
   },
-  port:4000
+  port:4000,
+  materialIcons:[
+    {
+      "sizes": [24, 48],
+      "ids": ["blue"],
+      "fills": ["#005DAA"],
+      "icons": [
+        "**.**"
+      ]
+    }
+  ]
 };
 
 module.exports = initEnvironmentConfig();

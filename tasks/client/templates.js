@@ -10,7 +10,7 @@ var config = require('../config/config');
 var logger = config.logger;
 
 
-module.exports = gulp.task('templates',function(){
+module.exports = gulp.task('templates',function(callback){
   logger.info('[task]:templates');
   gulp.src(config.views)
     .pipe(htmlmin(config.htmlminOptions))
@@ -18,5 +18,8 @@ module.exports = gulp.task('templates',function(){
     .pipe(header('module.exports = '))
     .pipe(rename(config.bundle.templates))
     .pipe(gulp.dest(config.dist));
-  logger.info('[task]:templates-end');
+  if(callback){
+    logger.info('[task]:templates-end');
+    callback();
+  }
 });

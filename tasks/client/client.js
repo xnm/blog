@@ -9,6 +9,7 @@ var runSequence = require('run-sequence');
 var index = require('./index');
 var styles = require('./styles');
 var templates = require('./templates');
+//var icons = require('./icons');
 var webpack = require('./webpack');
 var watch = require('./webpack-watch');
 var stat = require('./static');
@@ -19,6 +20,7 @@ function start(){
   logger.info('[task]:client');
   runSequence(
     //['clean'],
+    //['icons'],
     ['index','styles','templates'],
     ['webpack','watch'],
     'stat'

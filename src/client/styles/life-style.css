@@ -2,3 +2,8 @@
 .no-decoration {
   text-decoration: none;
 }
+
+/** For md-button lowercase using lowercase */
+.md-button {
+  text-transform: capitalize !important;
+}
