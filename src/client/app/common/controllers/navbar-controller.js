@@ -2,6 +2,11 @@
 'use strict';
 
 module.exports = function navbarController($scope){
+  $scope.isFabMenuOpen = false;
+  $scope.toggleFabMenuOpen = function(){
+    $scope.isFabMenuOpen = !$scope.isFabMenuOpen;
+  };
+
 
   $scope.subSiteList=[
     {

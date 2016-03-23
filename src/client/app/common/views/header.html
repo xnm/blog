@@ -16,14 +16,56 @@
     </md-toolbar>
   </section>
 
-  <section layout="column" ng-controller='navbarController'>
+  <section layout="column" ng-controller="navbarController">
     <md-sidenav
       class="md-sidenav-left"
       md-component-id="left"
       md-whiteframe="4">
-      <md-toolbar layout="row" class="md-toolbar-tools md-whiteframe-glow">
-        <md-button>Aquariuslt Home</md-button>
-      </md-toolbar>
+
+      <div flex ng-cloak>
+        <md-content>
+          <div class="navbar-header-background-grey">
+          </div>
+          <div class="lock-size" layout="row" layout-align="center center">
+            <md-fab-speed-dial
+              md-open="isFabMenuOpen" md-direction="left" class="md-fab-bottom-right"
+              ng-click="toggleFabMenuOpen()"
+              ng-class="'md-fling'"
+            >
+              <md-fab-trigger >
+                <md-button aria-label="menu" class="md-fab md-warn" >
+                  <md-icon class="md-icon-button">
+                    <ng-md-icon icon="menu"></ng-md-icon>
+                  </md-icon>
+                </md-button>
+              </md-fab-trigger>
+              <md-fab-actions>
+                <md-button aria-label="Twitter"
+                           class="md-fab md-raised md-mini"
+                           href="https://twitter.com/superaquariuslt">
+                  <md-icon class="md-icon-button">
+                    <ng-md-icon icon="twitter">
+                    </ng-md-icon>
+                  </md-icon>
+                </md-button>
+                <md-button aria-label="Github"
+                           class="md-fab md-raised md-mini"
+                           href="https://github.com/Aquariuslt">
+                  <md-icon class="md-icon-button">
+                    <ng-md-icon icon="keyboard">
+                    </ng-md-icon>
+                  </md-icon>
+                </md-button>
+              </md-fab-actions>
+            </md-fab-speed-dial>
+          </div>
+          <md-content flex layout-padding>
+            <p class="md-subheader">Coder,WoWer</p>
+          </md-content>
+        </md-content>
+
+      </div>
+
 
       <md-content>
         <!-- Toggle Menu -->
