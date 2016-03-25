@@ -15,8 +15,13 @@ var homeRoutes = require('./routes/home-routes');
 
 var templates = require('../../../../dist/templates');
 
+
+var articleService = require('../home/services/article-service');
+
+
 var headerController = require('../common/controllers/header-controller');
 var navbarController = require('../common/controllers/navbar-controller');
+var homeController = require('./controllers/home-controller');
 
 var feature = require('../feature');
 
@@ -29,8 +34,10 @@ module.exports = angular.module('home',[
   'templates',
   'feature'
 ])
+  .factory('articleService',articleService)
   .controller('headerController',headerController)
   .controller('navbarController',navbarController)
+  .controller('homeController',homeController)
   .config(themeConfig)
   .config(locationConfig)
   .config(homeRoutes)

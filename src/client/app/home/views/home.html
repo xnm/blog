@@ -1,7 +1,20 @@
-<section>
-  <md-button layout="row" class="md-button" flex-auto layout-align="center">
-    <md-button class="md-icon-button" aria-label="apple" >
-      <ng-md-icon icon="apple"></ng-md-icon>
-    </md-button>
-  </md-button>
+<section ng-controller="homeController as vm" ng-cloak>
+  <md-content class="md-padding" layout-xs="column" layout="row">
+    <div flex-xs flex-gt-xs="50" layout="column">
+      <!-- md-card template -->
+      <md-card>
+        <md-card-title>
+          <md-card-title-text>
+            <span class="md-headline">Title</span>
+          </md-card-title-text>
+        </md-card-title>
+        <md-card-content>
+          <p>Summary..</p>
+        </md-card-content>
+        <md-card-actions layout="row" layout-align="end center">
+          <md-button>View All</md-button>
+        </md-card-actions>
+      </md-card>
+    </div>
+  </md-content>
 </section>

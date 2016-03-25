@@ -25,10 +25,12 @@
     "angular-material-icons": "^0.6.0",
     "angular-messages": "^1.5.2",
     "angular-ui-router": "^0.2.18",
+    "async": "latest",
     "express": "^4.13.4",
     "lodash": "^4.6.1",
     "material-design-icons": "^2.2.3",
-    "winston": "^2.2.0"
+    "winston": "^2.2.0",
+    "xml2js": "^0.4.16"
   },
   "devDependencies": {
     "concurrently": "^2.0.0",
