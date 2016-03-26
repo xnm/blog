@@ -1,24 +1,37 @@
 <section ng-controller="homeController as vm" ng-cloak>
-  <md-content class="md-padding" layout-xs="column" layout="row">
-    <div flex-xs flex-gt-xs="50" layout="column">
+  <md-content class="md-padding" layout-gt-xs="row" layout="column">
+    <div flex="50">
       <!-- md-card template -->
-      <div ng-repeat="articleSummary in vm.articleSummaryList">
-        <md-card>
-          <md-card-title>
-            <md-card-title-text>
-              <span class="md-headline">{{articleSummary.title}}</span>
-              <span class="md-subhead">{{articleSummary.content.text | summaryFilter}}...</span>
-            </md-card-title-text>
-          </md-card-title>
-          <md-card-actions layout="row" layout-align="end center">
-            <div class="md-button">
-              <a ng-href="">View More</a>
-            </div>
-          </md-card-actions>
-        </md-card>
-      </div>
+      <md-card ng-repeat="articleSummary in vm.articleSummaryList | oddFilter:true">
+        <md-card-title>
+          <md-card-title-text>
+            <span class="md-headline">{{articleSummary.title}}</span>
+            <span class="md-subhead">{{articleSummary.content.text | summaryFilter }}...</span>
+          </md-card-title-text>
+        </md-card-title>
+        <md-card-actions layout="row" layout-align="end center">
+          <div class="md-button">
+            <a class="no-decoration" ng-href="articleSummary.link.$.href" target="_blank">View More</a>
+          </div>
+        </md-card-actions>
+      </md-card>
+    </div>
 
-
+    <div flex="50">
+      <!-- md-card template -->
+      <md-card ng-repeat="articleSummary in vm.articleSummaryList | oddFilter:false">
+        <md-card-title>
+          <md-card-title-text>
+            <span class="md-headline">{{articleSummary.title}}</span>
+            <span class="md-subhead">{{articleSummary.content.text | summaryFilter }}...</span>
+          </md-card-title-text>
+        </md-card-title>
+        <md-card-actions layout="row" layout-align="end center">
+          <div class="md-button">
+            <a class="no-decoration" ng-href="articleSummary.link.$.href" target="_blank">View More</a>
+          </div>
+        </md-card-actions>
+      </md-card>
     </div>
   </md-content>
 </section>

@@ -24,7 +24,7 @@ var navbarController = require('../common/controllers/navbar-controller');
 var homeController = require('./controllers/home-controller');
 
 var summaryFilter = require('./filters/summary-filter');
-
+var oddFilter = require('./filters/odd-filter');
 
 
 var feature = require('../feature');
@@ -43,6 +43,7 @@ module.exports = angular.module('home',[
   .controller('navbarController',navbarController)
   .controller('homeController',homeController)
   .filter('summaryFilter',summaryFilter)
+  .filter('oddFilter',oddFilter)
   .config(themeConfig)
   .config(locationConfig)
   .config(homeRoutes)
