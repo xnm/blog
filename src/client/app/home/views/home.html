@@ -2,19 +2,23 @@
   <md-content class="md-padding" layout-xs="column" layout="row">
     <div flex-xs flex-gt-xs="50" layout="column">
       <!-- md-card template -->
-      <md-card>
-        <md-card-title>
-          <md-card-title-text>
-            <span class="md-headline">Title</span>
-          </md-card-title-text>
-        </md-card-title>
-        <md-card-content>
-          <p>Summary..</p>
-        </md-card-content>
-        <md-card-actions layout="row" layout-align="end center">
-          <md-button>View All</md-button>
-        </md-card-actions>
-      </md-card>
+      <div ng-repeat="articleSummary in vm.articleSummaryList">
+        <md-card>
+          <md-card-title>
+            <md-card-title-text>
+              <span class="md-headline">{{articleSummary.title}}</span>
+              <span class="md-subhead">{{articleSummary.content.text | summaryFilter}}...</span>
+            </md-card-title-text>
+          </md-card-title>
+          <md-card-actions layout="row" layout-align="end center">
+            <div class="md-button">
+              <a ng-href="">View More</a>
+            </div>
+          </md-card-actions>
+        </md-card>
+      </div>
+
+
     </div>
   </md-content>
 </section>

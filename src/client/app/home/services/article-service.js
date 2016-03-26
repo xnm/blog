@@ -2,76 +2,91 @@
 'use strict';
 
 var angular = require('angular');
-var injector = angular.injector(['ng']);
-var $log = injector.get('$log');
-var $http = injector.get('$http');
+//noinspection JSCheckFunctionSignatures
+var $injector = angular.injector(['ng']);
+var $log = $injector.get('$log');
+var $http = $injector.get('$http');
 
 var _ = require('lodash');
 var async = require('async');
 var xml2js = require('xml2js');
-//noinspection JSUnresolvedFunction
-var xmlParser = new xml2js.Parser();
+var xmlParser = new xml2js.Parser( {
+  explicitArray : false
+});
+
+var errorUtil = require('../../common/utils/error-util');
+
 
 var articleService = function articleService() {
   return {
     loadArticleSummaryList: loadArticleSummaryList
   };
 
-
-  function loadArticleSummaryList(atomList,callback) {
-    function getAtomListFromUrlTask(atomUrl) {
-      return function (asyncCallback) {
-        $http.get(atomUrl, {})
-          .then(function successCallback(response) {
-            $log.info('getAtomListFromUrlTask success');
-            asyncCallback(response.data);
-          }).then(function failureCallback(error) {
-          if (error) {
-            $log.error('getAtomListFromUrlTask error:', error);
-          }
-        });
-      }
-    }
-
-    function parseAtomListResult(){
-      return function(responseData,asyncCallback){
-        xmlParser.parseString(responseData,function(error,result){
-          //noinspection JSUnresolvedVariable
-          asyncCallback(result.feed.entry);
-        });
-      }
-    }
-
-    function loadSingleUrlArticleSummaryListTasks(atomUrl,asyncCallback){
-      var tasks = [];
-      tasks.push(getAtomListFromUrlTask(atomUrl));
-      tasks.push(parseAtomListResult());
-
-      async.waterfall(tasks,function(error,singleUrlArticleSummaryList){
-        if(error){
-          $log.error('loadSingleUrlArticleSummaryListTasks error:',error);
-        }
-        asyncCallback(null,singleUrlArticleSummaryList);
-      });
-    }
-
-    
-
-
-    $log.info('loading atomList:', atomList);
-    var loadAtomSummaryTasks = [];
-    _.each(atomList,function(atomUrl){
-      loadAtomSummaryTasks.push(loadSingleUrlArticleSummaryListTasks(atomUrl));
+  function loadArticleSummaryList(atomList, callback) {
+    var self = this;
+    var parallelTasks = [];
+    _.each(atomList, function (singleAtomUrl) {
+      $log.info('add parallelTask:', singleAtomUrl);
+      parallelTasks.push(loadArticleSummaryTask(singleAtomUrl));
     });
-    async.parallel(loadAtomSummaryTasks,function(error,articleSummaryListArray){
-      var articleSummaryList = [];
-      _.each(articleSummaryListArray,function(singleUrlArticleSummaryList){
-        $log.debug('singleArticleSummaryList:',singleUrlArticleSummaryList);
-        articleSummaryList.push(singleUrlArticleSummaryList);
+    async.parallel(parallelTasks, function (error, articleSummaryListArray) {
+      errorUtil.handleError(error, self);
+      var resultArticleSummaryList = [];
+      _.each(articleSummaryListArray, function (articleSummaryList) {
+        _.each(articleSummaryList,function(articleSummary){
+          handleArticleSummary(articleSummary);
+          resultArticleSummaryList.push(articleSummary);
+        });
       });
-      callback(articleSummaryList);
+      callback(null, resultArticleSummaryList);
     });
   }
+
+  /**
+   * load atom info from single url.
+   * @param {String} atomUrl The url need to get info.like "http://blog.aquariuslt.com/atom"
+   * */
+  function loadArticleSummaryTask(atomUrl) {
+    function loadXmlDataFromUrl(asyncCallback) {
+      $log.info('1.loadXmlDataFromUrl:', atomUrl);
+      $http.get(atomUrl)
+        .then(function successCallback(response) {
+          var xmlData = response.data;
+          asyncCallback(null, xmlData);
+        },function failureCallback(response) {
+          errorUtil.handleError(response);
+          asyncCallback(null,null);
+        });
+    }
+
+    function convertXmlToJsonData(xmlData,asyncCallback) {
+      $log.info('2.convertXmlToJsonData:', atomUrl);
+
+      xmlParser.parseString(xmlData,function(error,result){
+        errorUtil.handleError(error);
+        asyncCallback(null,result.feed.entry);
+      });
+    }
+
+    return function (callback) {
+      $log.info('0.loadArticleSummaryTask start.');
+      async.waterfall([
+        loadXmlDataFromUrl,
+        convertXmlToJsonData
+      ], function (error, result) {
+        errorUtil.handleError(error);
+        return callback(null, result);
+      });
+    }
+  }
+
+
+  function handleArticleSummary(articleSummary){
+    var div = document.createElement("div");
+    div.innerHTML = articleSummary.content._;
+    articleSummary.content.text = div.innerText;
+  }
+
 };
 
 module.exports = articleService;

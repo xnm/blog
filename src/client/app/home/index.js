@@ -23,6 +23,10 @@ var headerController = require('../common/controllers/header-controller');
 var navbarController = require('../common/controllers/navbar-controller');
 var homeController = require('./controllers/home-controller');
 
+var summaryFilter = require('./filters/summary-filter');
+
+
+
 var feature = require('../feature');
 
 module.exports = angular.module('home',[
@@ -38,6 +42,7 @@ module.exports = angular.module('home',[
   .controller('headerController',headerController)
   .controller('navbarController',navbarController)
   .controller('homeController',homeController)
+  .filter('summaryFilter',summaryFilter)
   .config(themeConfig)
   .config(locationConfig)
   .config(homeRoutes)

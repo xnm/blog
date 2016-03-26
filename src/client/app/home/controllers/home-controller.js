@@ -4,7 +4,7 @@ var articleService = require('../services/article-service')();
 
 
 
-module.exports = function homeController(){
+module.exports = function homeController($log){
   var vm = this;
 
   vm.atomList = [
@@ -28,8 +28,10 @@ module.exports = function homeController(){
   }
 
   function loadArticleSummaryList(){
-    articleService.loadArticleSummaryList(vm.atomList,function(summaryList){
+    articleService.loadArticleSummaryList(vm.atomList,function(error,summaryList){
       vm.articleSummaryList = summaryList;
+      $log.info('load articleSummaryList complete. count of articleSummary:',summaryList.length);
+      $log.info('articleSummary schema example:',summaryList);
     });
   }
   
