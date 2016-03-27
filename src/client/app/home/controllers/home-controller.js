@@ -30,8 +30,8 @@ module.exports = function homeController($log){
   function loadArticleSummaryList(){
     articleService.loadArticleSummaryList(vm.atomList,function(error,summaryList){
       vm.articleSummaryList = summaryList;
-      $log.info('load articleSummaryList complete. count of articleSummary:',summaryList.length);
-      $log.info('articleSummary schema example:',summaryList);
+      $log.info('load articleSummaryList complete. count of articleSummary:',vm.articleSummaryList.length);
+      //$log.info('articleSummary schema example:',vm.articleSummaryList);
     });
   }
   
