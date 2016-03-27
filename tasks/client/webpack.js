@@ -3,9 +3,11 @@
 var config = require('../config/config');
 var logger = config.logger;
 var path = require('path');
+var _ = require('lodash');
 var gulp = require('gulp');
 var webpack = require('webpack');
 var templates = require('./templates');
+
 
 var webpackOptions = {
   entry:('./'+config.entry),
@@ -15,9 +17,11 @@ var webpackOptions = {
   }
 };
 
+var mergedWebpackOptions = _.merge(webpackOptions,config.webpackOptions);
+
 module.exports = gulp.task('webpack',['templates'],function(callback){
   logger.info('[task]:webpack');
-  webpack(webpackOptions,function(error,status){
+  webpack(mergedWebpackOptions,function(error,status){
     if(error){
       logger.error('webpack error:',error);
     }

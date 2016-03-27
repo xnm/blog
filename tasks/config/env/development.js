@@ -16,7 +16,20 @@ var htmlminOptions = {
   spare: true,
   quotes: true
 };
+
+var cleanCssOptions = {
+  debug:true
+};
+
+var webpackOptions = {
+  
+};
+
+
+
 module.exports = {
   logger: logger,
-  htmlminOptions: htmlminOptions
+  htmlminOptions: htmlminOptions,
+  cleanCssOptions: cleanCssOptions,
+  webpackOptions : webpackOptions
 };

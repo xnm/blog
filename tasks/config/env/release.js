@@ -2,6 +2,7 @@
 'use strict';
 
 var winston = require('winston');
+var webpack = require('webpack');
 var logger = new winston.Logger({
   level:'info',
   transports:[
@@ -17,7 +18,25 @@ var htmlminOptions = {
   quotes: true
 };
 
+var cleanCssOptions = {
+
+};
+
+//noinspection JSUnresolvedFunction
+var webpackOptions = {
+  plugins:[
+    new webpack.optimize.UglifyJsPlugin({
+      minimize:true,
+      mangle:false
+    })
+  ]
+};
+
+
+
 module.exports = {
   logger: logger,
-  htmlminOptions: htmlminOptions
+  htmlminOptions: htmlminOptions,
+  cleanCssOptions: cleanCssOptions,
+  webpackOptions : webpackOptions
 };
