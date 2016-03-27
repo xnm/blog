@@ -29,7 +29,6 @@
     "express": "^4.13.4",
     "htmlparser2": "^3.9.0",
     "lodash": "^4.6.1",
-    "material-design-icons": "^2.2.3",
     "winston": "^2.2.0",
     "xml2js": "^0.4.16"
   },
