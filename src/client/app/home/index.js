@@ -25,7 +25,7 @@ var homeController = require('./controllers/home-controller');
 
 var summaryFilter = require('./filters/summary-filter');
 var oddFilter = require('./filters/odd-filter');
-
+var publishFilter = require('./filters/publish-filter');
 
 var feature = require('../feature');
 
@@ -44,6 +44,7 @@ module.exports = angular.module('home',[
   .controller('homeController',homeController)
   .filter('summaryFilter',summaryFilter)
   .filter('oddFilter',oddFilter)
+  .filter('publishFilter',publishFilter)
   .config(themeConfig)
   .config(locationConfig)
   .config(homeRoutes)
