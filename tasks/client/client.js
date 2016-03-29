@@ -11,16 +11,25 @@ var styles = require('./styles');
 var webpack = require('./webpack');
 var watch = require('./webpack-watch');
 var stat = require('./static');
+var minify = require('./minify');
 
 module.exports.start = start;
 
 function start(){
   logger.info('[task]:client');
-  runSequence(
-    //['clean'],
-    //['icons'],
-    ['index','styles'],
-    ['webpack','watch'],
-    'stat'
-  );
+  if(process.env.NODE_ENV === 'release'){
+    runSequence(
+      ['index','styles'],
+      ['webpack'],
+      'minify',
+      'stat'
+    );
+  }
+  else{
+    runSequence(
+      ['index','styles'],
+      ['webpack','watch'],
+      'stat'
+    );
+  }
 }

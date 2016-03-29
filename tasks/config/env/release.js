@@ -24,12 +24,7 @@ var cleanCssOptions = {
 
 //noinspection JSUnresolvedFunction
 var webpackOptions = {
-  plugins:[
-    new webpack.optimize.UglifyJsPlugin({
-      minimize:true,
-      mangle:false
-    })
-  ]
+  
 };
 
 
