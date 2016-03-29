@@ -17,7 +17,7 @@ var config = {
     style:'bundle.css',
     templates:'templates.js'
   },
-  port:4000,
+  port:8080,
   materialIcons:[
     {
       "sizes": [24, 48],
