@@ -24,28 +24,32 @@ module.exports = function homeController($log,$interval){
 
 
   function init(){
-    startInterval();
     loadArticleSummaryList();
   }
 
   function loadArticleSummaryList(){
-    vm.showProgressBar = true;
+    startInterval();
     articleService.loadArticleSummaryList(vm.atomList,function(error,summaryList){
       vm.articleSummaryList = summaryList;
       $log.info('load articleSummaryList complete. count of articleSummary:',vm.articleSummaryList.length);
       $log.info('articleSummary schema example:',vm.articleSummaryList);
-      vm.showProgressBar = false;
+      stopInterval();
     });
   }
 
   function startInterval(){
+    vm.showProgressBar = true;
     $interval(function() {
-      // Increment the Determinate loader
-      vm.determinateValue += 1;
-      if (vm.determinateValue > 100) {
-        vm.determinateValue = 15;
+      if(vm.showProgressBar){
+        vm.determinateValue += 1;
+        if (vm.determinateValue > 100) {
+          vm.determinateValue = 15;
+        }
       }
     }, 100, 0, true);
   }
-  
+
+  function stopInterval(){
+    vm.showProgressBar = false;
+  }
 };

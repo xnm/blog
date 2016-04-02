@@ -64,6 +64,7 @@ var articleService = function articleService() {
 
       xmlParser.parseString(xmlData,function(error,result){
         errorUtil.handleError(error);
+        /** @namespace result.feed */
         asyncCallback(null,result.feed.entry);
       });
     }
@@ -91,9 +92,8 @@ var articleService = function articleService() {
     var imageLinkRegex = /<img\s[^>]*?src\s*=\s*['"]([^'"]*?)['"][^>]*?>/ig;
     var originalHtmlString = articleSummary.content._;
     var convertedHtmlString = originalHtmlString.replace(imageLinkRegex,'');
-    $log.info('index of img tag in converted htmlString:',_.indexOf(convertedHtmlString,'img'));
     var div = document.createElement("div");
-    div.innerHTML = originalHtmlString;
+    div.innerHTML = convertedHtmlString;
     articleSummary.content.text = div.innerText;
   }
 
