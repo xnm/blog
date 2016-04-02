@@ -25,10 +25,29 @@ module.exports = function($mdThemingProvider){
   };
   $mdThemingProvider.definePalette('whitePrimary', whitePrimary);
 
+  var bluePrimary = {
+    '50': '#ffffff',
+    '100': '#f2f4ff',
+    '200': '#d8dfff',
+    '300': '#bfc9ff',
+    '400': '#a5b4ff',
+    '500': '#8C9EFF',
+    '600': '#7288ff',
+    '700': '#5973ff',
+    '800': '#3f5dff',
+    '900': '#2648ff',
+    'A100': '#ffffff',
+    'A200': '#ffffff',
+    'A400': '#ffffff',
+    'A700': '#0c32ff'
+  };
+  $mdThemingProvider.definePalette('bluePrimary',bluePrimary);
+
 
 
 
   //noinspection JSUnresolvedFunction
   $mdThemingProvider.theme('default')
-    .primaryPalette('whitePrimary');
+    .primaryPalette('whitePrimary')
+    .warnPalette('bluePrimary');
 };

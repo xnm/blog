@@ -1,4 +1,7 @@
 <section ng-controller="homeController as vm" ng-cloak>
+  <div layout="row" layout-sm="column" layout-align="space-around" ng-show="vm.showProgressBar">
+    <md-progress-linear class="md-warn" md-mode="determinate" value="{{vm.determinateValue}}"></md-progress-linear>
+  </div>
   <md-content class="md-padding" layout="row" layout-wrap flex>
     <!-- md-card template -->
     <div flex="flex" flex-xs="100" flex-sm="50" flex-md="33" flex-gt-md="25" ng-repeat="articleSummary in vm.articleSummaryList | orderBy: '-published' " >

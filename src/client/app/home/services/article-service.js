@@ -81,9 +81,19 @@ var articleService = function articleService() {
   }
 
 
+  /**
+   * Get innerText from html body.
+   * When using document.createElement(htmlString),
+   * which htmlString contains image link, will load image from its src.
+   * it will cause much network time,so replace the image link.
+   * */
   function handleArticleSummary(articleSummary){
+    var imageLinkRegex = /<img\s[^>]*?src\s*=\s*['"]([^'"]*?)['"][^>]*?>/ig;
+    var originalHtmlString = articleSummary.content._;
+    var convertedHtmlString = originalHtmlString.replace(imageLinkRegex,'');
+    $log.info('index of img tag in converted htmlString:',_.indexOf(convertedHtmlString,'img'));
     var div = document.createElement("div");
-    div.innerHTML = articleSummary.content._;
+    div.innerHTML = originalHtmlString;
     articleSummary.content.text = div.innerText;
   }
 
