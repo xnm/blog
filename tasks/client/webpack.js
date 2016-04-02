@@ -25,8 +25,8 @@ module.exports = gulp.task('webpack',['templates'],function(callback){
     if(error){
       logger.error('webpack error:',error);
     }
-    logger.info('[task]:webpack-end');
     logger.info('[webpack]:',status.toString({}));
+    logger.info('[task]:webpack-end');
     callback();
   });
 });
