@@ -13,7 +13,7 @@ module.exports = function homeController($log,$interval){
     "http://game.aquariuslt.com/atom"
   ];
   vm.articleSummaryList = [];
-  vm.determinateValue = 0;
+  vm.indeterminateValue = 0;
   vm.showProgressBar = false;
   init();
 
@@ -37,19 +37,23 @@ module.exports = function homeController($log,$interval){
     });
   }
 
+  function updateProgressBar(){
+    if(vm.showProgressBar){
+      vm.indeterminateValue += 1;
+      if (vm.indeterminateValue > 100) {
+        vm.indeterminateValue = 15;
+      }
+    }
+  }
+
+
   function startInterval(){
     vm.showProgressBar = true;
-    $interval(function() {
-      if(vm.showProgressBar){
-        vm.determinateValue += 1;
-        if (vm.determinateValue > 100) {
-          vm.determinateValue = 15;
-        }
-      }
-    }, 100, 0, true);
+    $interval(updateProgressBar, 100, 0, true);
   }
 
   function stopInterval(){
     vm.showProgressBar = false;
+    $interval.cancel(updateProgressBar);
   }
 };
