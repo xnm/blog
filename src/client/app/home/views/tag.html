@@ -10,7 +10,7 @@
         <div class="md-list-item-text" layout="column" layout-wrap>
           <h3>{{article.title}}</h3>
           <h4>发布于:{{article.published | date:'yy-MM-dd'}}</h4>
-          <p>{{article.content.text | summaryFilter:80 }}</p>
+          <p>{{article.content.text | summaryFilter:60 }}</p>
         </div>
         <md-divider ng-if="!$last"></md-divider>
       </md-list-item>
