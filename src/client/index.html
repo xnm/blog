@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="home">
+<html lang="en" ng-app="home" ng-controller="pageController as page">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="shortcut icon" href="http://blog.aquariuslt.com/images/avator.png">
   <base href="#">
-  <title>Aquariuslt Home</title>
+  <title>{{page.service.getTitle()}}</title>
   <!-- Load CSS Bundles Here -->
   <!-- CSS -->
 </head>

@@ -1,5 +1,6 @@
 /** Created by Aquariuslt on 4/3/16 */
 
+var pageService = require('../../common/services/page-service')();
 var articleService = require('../services/article-service')();
 
 
@@ -19,7 +20,13 @@ module.exports = function tagController($stateParams,$interval){
   init();
   
   function init(){
+    initTitle();
     loadTagDetail();
+  }
+
+
+  function initTitle(){
+    pageService.setTitle('Tags Contains '+vm.tagName);
   }
 
 

@@ -1,7 +1,7 @@
 /** Created by Aquariuslt on 2016-03-25.*/
 'use strict';
 var articleService = require('../services/article-service')();
-
+var pageService = require('../../common/services/page-service')();
 
 
 module.exports = function homeController($log,$interval){
@@ -25,8 +25,14 @@ module.exports = function homeController($log,$interval){
 
 
   function init(){
+    initTitle();
     loadArticleSummaryList();
   }
+
+  function initTitle(){
+    pageService.setTitle('');
+  }
+
 
   function loadArticleSummaryList(){
     startInterval();
