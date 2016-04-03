@@ -22,6 +22,7 @@ var articleService = require('../home/services/article-service');
 var headerController = require('../common/controllers/header-controller');
 var navbarController = require('../common/controllers/navbar-controller');
 var homeController = require('./controllers/home-controller');
+var tagController = require('./controllers/tag-controller');
 
 var summaryFilter = require('./filters/summary-filter');
 var oddFilter = require('./filters/odd-filter');
@@ -42,6 +43,7 @@ module.exports = angular.module('home',[
   .controller('headerController',headerController)
   .controller('navbarController',navbarController)
   .controller('homeController',homeController)
+  .controller('tagController',tagController)
   .filter('summaryFilter',summaryFilter)
   .filter('oddFilter',oddFilter)
   .filter('publishFilter',publishFilter)

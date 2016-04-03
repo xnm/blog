@@ -19,7 +19,8 @@ var errorUtil = require('../../common/utils/error-util');
 
 var articleService = function articleService() {
   return {
-    loadArticleSummaryList: loadArticleSummaryList
+    loadArticleSummaryList : loadArticleSummaryList,
+    filterArticleListByTagName : filterArticleListByTagName
   };
 
   function loadArticleSummaryList(atomList, callback) {
@@ -116,6 +117,19 @@ var articleService = function articleService() {
       articleSummary.category = [originalCategory];
     }
   }
+
+  function filterArticleListByTagName(articleSummaryList,tagName){
+    var tagDetailList = [];
+    _.each(articleSummaryList,function(articleSummary){
+      if(!_.isUndefined(_.find(articleSummary.category,{'$':{'term':tagName}}))){
+        tagDetailList.push(articleSummary);
+      }
+    });
+    return tagDetailList;
+  }
+
+
+
 
 };
 
