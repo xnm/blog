@@ -13,6 +13,7 @@ module.exports = function homeController($log,$interval){
     "http://game.aquariuslt.com/atom"
   ];
   vm.articleSummaryList = [];
+  vm.tagLinkPrefix = '#/tag/';
   vm.indeterminateValue = 0;
   vm.showProgressBar = false;
   init();
