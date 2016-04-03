@@ -89,12 +89,32 @@ var articleService = function articleService() {
    * it will cause much network time,so replace the image link.
    * */
   function handleArticleSummary(articleSummary){
+    handleArticleSummaryContent(articleSummary);
+    handleArticleSummaryCategories(articleSummary);
+  }
+
+  function handleArticleSummaryContent(articleSummary){
     var imageLinkRegex = /<img\s[^>]*?src\s*=\s*['"]([^'"]*?)['"][^>]*?>/ig;
     var originalHtmlString = articleSummary.content._;
     var convertedHtmlString = originalHtmlString.replace(imageLinkRegex,'');
     var div = document.createElement("div");
     div.innerHTML = convertedHtmlString;
     articleSummary.content.text = div.innerText;
+  }
+
+  /**
+   * In xml2js, when set options {explicitArray : false}
+   * ChildNode which should be an array but convert to an object
+   * when array has only one value.
+   * Categories/Tags should be an array
+   * */
+
+  function handleArticleSummaryCategories(articleSummary){
+    /** @namespace articleSummary.category */
+    if(!_.isArray(articleSummary.category)){
+      var originalCategory = _.clone(articleSummary.category);
+      articleSummary.category = [originalCategory];
+    }
   }
 
 };

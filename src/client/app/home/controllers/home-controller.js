@@ -41,7 +41,7 @@ module.exports = function homeController($log,$interval){
     if(vm.showProgressBar){
       vm.indeterminateValue += 1;
       if (vm.indeterminateValue > 100) {
-        vm.indeterminateValue = 15;
+        vm.indeterminateValue = 0;
       }
     }
   }
