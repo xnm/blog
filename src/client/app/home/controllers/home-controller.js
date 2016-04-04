@@ -7,11 +7,6 @@ var pageService = require('../../common/services/page-service')();
 module.exports = function homeController($log,$interval){
   var vm = this;
 
-  vm.atomList = [
-    "http://blog.aquariuslt.com/atom",
-    "http://debug.aquariuslt.com/atom",
-    "http://game.aquariuslt.com/atom"
-  ];
   vm.articleSummaryList = [];
   vm.tagLinkPrefix = '#/tag/';
   vm.indeterminateValue = 0;
@@ -36,7 +31,7 @@ module.exports = function homeController($log,$interval){
 
   function loadArticleSummaryList(){
     startInterval();
-    articleService.loadArticleSummaryList(vm.atomList,function(error,summaryList){
+    articleService.loadArticleSummaryList(function(error,summaryList){
       vm.articleSummaryList = summaryList;
       $log.info('load articleSummaryList complete. count of articleSummary:',vm.articleSummaryList.length);
       $log.info('articleSummary schema example:',vm.articleSummaryList);

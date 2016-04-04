@@ -10,20 +10,23 @@ var $http = $injector.get('$http');
 var _ = require('lodash');
 var async = require('async');
 var xml2js = require('xml2js');
-var xmlParser = new xml2js.Parser( {
-  explicitArray : false
+var xmlParser = new xml2js.Parser({
+  explicitArray: false
 });
 
 var errorUtil = require('../../common/utils/error-util');
 
-
 var articleService = function articleService() {
-  return {
-    loadArticleSummaryList : loadArticleSummaryList,
-    filterArticleListByTagName : filterArticleListByTagName
-  };
 
-  function loadArticleSummaryList(atomList, callback) {
+  var atomList = [
+    "http://blog.aquariuslt.com/atom",
+    "http://debug.aquariuslt.com/atom",
+    "http://game.aquariuslt.com/atom"
+  ];
+
+  var articleSummaryListCache = [];
+
+  function loadArticleSummaryList(callback) {
     var self = this;
     var parallelTasks = [];
     _.each(atomList, function (singleAtomUrl) {
@@ -34,11 +37,14 @@ var articleService = function articleService() {
       errorUtil.handleError(error, self);
       var resultArticleSummaryList = [];
       _.each(articleSummaryListArray, function (articleSummaryList) {
-        _.each(articleSummaryList,function(articleSummary){
+        _.each(articleSummaryList, function (articleSummary) {
           handleArticleSummary(articleSummary);
           resultArticleSummaryList.push(articleSummary);
         });
       });
+      //update articleCache
+      articleSummaryListCache = resultArticleSummaryList;
+
       callback(null, resultArticleSummaryList);
     });
   }
@@ -54,34 +60,33 @@ var articleService = function articleService() {
         .then(function successCallback(response) {
           var xmlData = response.data;
           asyncCallback(null, xmlData);
-        },function failureCallback(response) {
+        }, function failureCallback(response) {
           errorUtil.handleError(response);
-          asyncCallback(null,null);
+          asyncCallback(null, null);
         });
     }
 
-    function convertXmlToJsonData(xmlData,asyncCallback) {
+    function convertXmlToJsonData(xmlData, asyncCallback) {
       $log.info('2.convertXmlToJsonData:', atomUrl);
 
-      xmlParser.parseString(xmlData,function(error,result){
+      xmlParser.parseString(xmlData, function (error, result) {
         errorUtil.handleError(error);
         /** @namespace result.feed */
-        asyncCallback(null,result.feed.entry);
+        asyncCallback(null, result.feed.entry);
       });
     }
 
     return function (callback) {
       $log.info('0.loadArticleSummaryTask start.');
       async.waterfall([
-        loadXmlDataFromUrl,
-        convertXmlToJsonData
-      ], function (error, result) {
+                        loadXmlDataFromUrl,
+                        convertXmlToJsonData
+                      ], function (error, result) {
         errorUtil.handleError(error);
         return callback(null, result);
       });
     }
   }
-
 
   /**
    * Get innerText from html body.
@@ -89,15 +94,15 @@ var articleService = function articleService() {
    * which htmlString contains image link, will load image from its src.
    * it will cause much network time,so replace the image link.
    * */
-  function handleArticleSummary(articleSummary){
+  function handleArticleSummary(articleSummary) {
     handleArticleSummaryContent(articleSummary);
     handleArticleSummaryCategories(articleSummary);
   }
 
-  function handleArticleSummaryContent(articleSummary){
+  function handleArticleSummaryContent(articleSummary) {
     var imageLinkRegex = /<img\s[^>]*?src\s*=\s*['"]([^'"]*?)['"][^>]*?>/ig;
     var originalHtmlString = articleSummary.content._;
-    var convertedHtmlString = originalHtmlString.replace(imageLinkRegex,'');
+    var convertedHtmlString = originalHtmlString.replace(imageLinkRegex, '');
     var div = document.createElement("div");
     div.innerHTML = convertedHtmlString;
     articleSummary.content.text = div.innerText;
@@ -110,27 +115,54 @@ var articleService = function articleService() {
    * Categories/Tags should be an array
    * */
 
-  function handleArticleSummaryCategories(articleSummary){
+  function handleArticleSummaryCategories(articleSummary) {
     /** @namespace articleSummary.category */
-    if(!_.isArray(articleSummary.category)){
+    if (!_.isArray(articleSummary.category)) {
       var originalCategory = _.clone(articleSummary.category);
       articleSummary.category = [originalCategory];
     }
   }
 
-  function filterArticleListByTagName(articleSummaryList,tagName){
+  function filterArticleListByTagName(articleSummaryList, tagName) {
     var tagDetailList = [];
-    _.each(articleSummaryList,function(articleSummary){
-      if(!_.isUndefined(_.find(articleSummary.category,{'$':{'term':tagName}}))){
+    _.each(articleSummaryList, function (articleSummary) {
+      if (!_.isUndefined(_.find(articleSummary.category, {'$': {'term': tagName}}))) {
         tagDetailList.push(articleSummary);
       }
     });
     return tagDetailList;
   }
 
+  function loadPostDetail(postLink, callback) {
+    /**
+     * Find article summary Detail
+     * @example postLink:'2016/04/03/angular-dynamic-title-using-factory/'
+     * will find this post link in detail
+     * */
+    function findDetailFromCache() {
+      $log.info('load detail from articleSummaryListCache.');
+      var postDetail = _.find(articleSummaryListCache, function (post) {
+        return post.link.$.href.indexOf(postLink) >= 0;
+      });
+      var error = _.isUndefined(postDetail) ? new Error('can not find post detail') : null;
+      callback(error, postDetail);
+    }
 
+    if (_.isEmpty(articleSummaryListCache)) {
+      loadArticleSummaryList(function () {
+        findDetailFromCache();
+      });
+    }
+    else {
+      findDetailFromCache();
+    }
+  }
 
-
+  return {
+    loadArticleSummaryList: loadArticleSummaryList,
+    filterArticleListByTagName: filterArticleListByTagName,
+    loadPostDetail: loadPostDetail
+  };
 };
 
 module.exports = articleService;

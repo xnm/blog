@@ -7,11 +7,7 @@ var articleService = require('../services/article-service')();
 module.exports = function tagController($stateParams,$interval){
   var vm = this;
 
-  vm.atomList = [
-    "http://blog.aquariuslt.com/atom",
-    "http://debug.aquariuslt.com/atom",
-    "http://game.aquariuslt.com/atom"
-  ];
+  vm.tagLinkPrefix = '#/tag/';
   vm.tagName = $stateParams.tagName;
   vm.indeterminateValue = 0;
   vm.showProgressBar = false;
@@ -32,7 +28,7 @@ module.exports = function tagController($stateParams,$interval){
 
   function loadTagDetail(){
     startInterval();
-    articleService.loadArticleSummaryList(vm.atomList,function(error,summaryList){
+    articleService.loadArticleSummaryList(function(error,summaryList){
       vm.tagDetailList = articleService.filterArticleListByTagName(summaryList,vm.tagName);
       stopInterval();
     });

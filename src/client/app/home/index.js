@@ -23,10 +23,15 @@ var headerController = require('../common/controllers/header-controller');
 var navbarController = require('../common/controllers/navbar-controller');
 var homeController = require('./controllers/home-controller');
 var tagController = require('./controllers/tag-controller');
+var postController = require('./controllers/post-controller');
+
 
 var summaryFilter = require('./filters/summary-filter');
 var oddFilter = require('./filters/odd-filter');
 var publishFilter = require('./filters/publish-filter');
+var innerLinkFilter = require('./filters/inner-link-filter');
+var trustAsHtmlFilter = require('./filters/trust-html-filter');
+
 
 var feature = require('../feature');
 
@@ -46,9 +51,12 @@ module.exports = angular.module('home',[
   .controller('navbarController',navbarController)
   .controller('homeController',homeController)
   .controller('tagController',tagController)
+  .controller('postController',postController)
   .filter('summaryFilter',summaryFilter)
   .filter('oddFilter',oddFilter)
   .filter('publishFilter',publishFilter)
+  .filter('innerLinkFilter',innerLinkFilter)
+  .filter('trustAsHtmlFilter',trustAsHtmlFilter)
   .config(themeConfig)
   .config(locationConfig)
   .config(homeRoutes)
