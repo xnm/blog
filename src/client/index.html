@@ -5,13 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="shortcut icon" href="http://blog.aquariuslt.com/images/avator.png">
   <base href="#">
-  <title>{{page.service.getTitle()}}</title>
+  <title ng-bind="page.service.getTitle()">Aquariuslt Home</title>
   <!-- Load CSS Bundles Here -->
   <!-- CSS -->
 </head>
 <body>
   <header ng-include="'app/common/views/header.html'"></header>
-
   <ui-view></ui-view>
   <!-- Load JavaScript Bundles Here -->
   <!-- JS -->

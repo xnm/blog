@@ -3,18 +3,43 @@
     <md-progress-linear class="md-warn" md-mode="indeterminate"></md-progress-linear>
   </div>
 
-  <md-content class="md-padding" layout-wrap flex>
-    <md-subheader class="md-no-sticky">Tags Contains "{{vm.tagName}}"</md-subheader>
-    <md-list>
-      <md-list-item class="md-3-line" ng-repeat="article in vm.tagDetailList" >
-        <div class="md-list-item-text" layout="column" layout-wrap>
-          <h3>{{article.title}}</h3>
-          <h4>发布于:{{article.published | date:'yy-MM-dd'}}</h4>
-          <p>{{article.content.text | summaryFilter:60 }}</p>
-        </div>
-        <md-divider ng-if="!$last"></md-divider>
-      </md-list-item>
-
-    </md-list>
+  <md-subheader class="md-no-sticky" >Tags Contains "{{vm.tagName}}"</md-subheader>
+  <md-content class="md-padding" layout="row" layout-wrap flex>
+    <!-- md-card template -->
+    <div layout="layout-fill" flex="flex" flex-xs="100" flex-sm="50" flex-md="33" flex-gt-md="25" ng-repeat="articleSummary in vm.tagDetailList | orderBy: '-published' " >
+      <md-card >
+        <md-card-title>
+          <md-card-title-text>
+            <span class="md-headline">
+              <a class="no-decoration" ng-href="{{articleSummary.link.$.href}}">
+                {{articleSummary.title}}
+              </a>
+            </span>
+            <span class="md-subhead">{{articleSummary.content.text | summaryFilter }}...</span>
+          </md-card-title-text>
+        </md-card-title>
+        <md-card-content>
+          <md-chips ng-model="articleSummary.category" readonly="true" md-max-chips="3">
+            <md-chip-template >
+              <div class="md-caption">
+                <strong>
+                  <a ng-href="{{vm.tagLinkPrefix}}{{$chip.$.term}}" class="no-decoration">
+                    <span>{{$chip.$.term}}</span>
+                  </a>
+                </strong>
+              </div>
+            </md-chip-template>
+          </md-chips>
+        </md-card-content>
+        <md-card-actions layout="row" layout-align="end center">
+          <div class="md-button">
+            {{articleSummary.published | date:'yy-MM-dd' }}
+          </div>
+          <div class="md-button">
+            <a class="no-decoration" ng-href="{{articleSummary.link.$.href}}" target="_blank">View More</a>
+          </div>
+        </md-card-actions>
+      </md-card>
+    </div>
   </md-content>
 </section>
