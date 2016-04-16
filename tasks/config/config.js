@@ -18,16 +18,8 @@ var config = {
     templates:'templates.js'
   },
   port:8080,
-  materialIcons:[
-    {
-      "sizes": [24, 48],
-      "ids": ["blue"],
-      "fills": ["#005DAA"],
-      "icons": [
-        "**.**"
-      ]
-    }
-  ]
+  domPort:8090,//backend port
+  articles:'src/server/posts/articles/*.md'
 };
 
 module.exports = initEnvironmentConfig();
