@@ -6,7 +6,7 @@ var errorUtil = require('../../common/utils/error-util');
 var pageService = require('../../common/services/page-service')();
 var articleService = require('../services/article-service')();
 
-module.exports = function postController($log,$stateParams,$state){
+module.exports = function postController($location,$log,$stateParams,$state){
   var vm = this;
   vm.tagLinkPrefix = '#/tag/';
   vm.postLink = $stateParams.postLink;
@@ -14,10 +14,12 @@ module.exports = function postController($log,$stateParams,$state){
   vm.showProgressBar = false;
   vm.postContent = {};
 
+  vm.disqusShortLink = $stateParams.postLink.replace(/\//g,'-');
+  vm.disqusUrl = $location.absUrl();
   vm.disqusConfig = {
     disqus_shortname:'althome',
-    disqus_identifier: vm.postLink,
-    disqus_url: vm.postLink
+    disqus_identifier: vm.disqusShortLink,
+    disqus_url: vm.disqusUrl
   };
 
   init();
