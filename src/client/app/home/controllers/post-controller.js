@@ -14,6 +14,12 @@ module.exports = function postController($log,$stateParams,$state){
   vm.showProgressBar = false;
   vm.postContent = {};
 
+  vm.disqusConfig = {
+    disqus_shortname:'althome',
+    disqus_identifier: vm.postLink,
+    disqus_url: vm.postLink
+  };
+
   init();
 
 

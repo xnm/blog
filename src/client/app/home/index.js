@@ -5,7 +5,7 @@ var ngMaterial = require('angular-material');
 var ngMessages = require('angular-messages');
 var ngAnimate = require('angular-animate');
 var ngMdIcons = require('angular-material-icons');
-
+var ngDisqus = require('angular-utils-disqus');
 
 
 var themeConfig = require('../common/configs/theme');
@@ -42,7 +42,8 @@ module.exports = angular.module('home',[
   'ngMdIcons',
   'ui.router',
   'templates',
-  'feature'
+  'feature',
+  'angularUtils.directives.dirDisqus'
 ])
   .factory('pageService',pageService)
   .factory('articleService',articleService)
