@@ -16,7 +16,7 @@
         </md-card-title>
 
         <md-card-content>
-          <div ng-bind-html="vm.postDetail.html | trustAsHtmlFilter" ></div>
+          <div ng-bind-html="vm.postDetail.html | trustAsHtmlFilter" class="markdown-body"></div>
           <md-divider></md-divider>
           <md-chips ng-model="vm.postDetail.tags" readonly="true" md-max-chips="3">
             <md-chip-template >
