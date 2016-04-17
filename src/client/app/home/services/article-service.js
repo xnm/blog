@@ -15,7 +15,7 @@ var errorUtil = require('../../common/utils/error-util');
 var articleService = function articleService() {
 
   var atomList = [
-    "http://localhost:8090/api/rss/articleList"
+    "http://"+document.domain+":8090/api/rss/articleList"
   ];
 
   var articleSummaryListCache = [];
