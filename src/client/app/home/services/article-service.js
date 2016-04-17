@@ -109,7 +109,7 @@ var articleService = function articleService() {
   function filterArticleListByTagName(articleSummaryList, tagName) {
     var tagDetailList = [];
     _.each(articleSummaryList, function (articleSummary) {
-      if (!_.isUndefined(_.indexOf(articleSummary.tags, tagName))){
+      if (_.indexOf(articleSummary.tags, tagName)>=0){
         tagDetailList.push(articleSummary);
       }
     });
