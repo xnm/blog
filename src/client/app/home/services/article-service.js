@@ -9,19 +9,13 @@ var $http = $injector.get('$http');
 
 var _ = require('lodash');
 var async = require('async');
-var xml2js = require('xml2js');
-var xmlParser = new xml2js.Parser({
-  explicitArray: false
-});
 
 var errorUtil = require('../../common/utils/error-util');
 
 var articleService = function articleService() {
 
   var atomList = [
-    "http://blog.aquariuslt.com/atom",
-    "http://debug.aquariuslt.com/atom",
-    "http://game.aquariuslt.com/atom"
+    "http://localhost:8090/api/rss/articleList"
   ];
 
   var articleSummaryListCache = [];
@@ -58,22 +52,17 @@ var articleService = function articleService() {
       $log.info('1.loadXmlDataFromUrl:', atomUrl);
       $http.get(atomUrl)
         .then(function successCallback(response) {
-          var xmlData = response.data;
-          asyncCallback(null, xmlData);
+          var jsonData = response.data;
+          asyncCallback(null, jsonData);
         }, function failureCallback(response) {
           errorUtil.handleError(response);
           asyncCallback(null, null);
         });
     }
 
-    function convertXmlToJsonData(xmlData, asyncCallback) {
-      $log.info('2.convertXmlToJsonData:', atomUrl);
-
-      xmlParser.parseString(xmlData, function (error, result) {
-        errorUtil.handleError(error);
-        /** @namespace result.feed */
-        asyncCallback(null, result.feed.entry);
-      });
+    function convertXmlToJsonData(jsonData, asyncCallback) {
+      $log.info('2.convertToJsonData:', atomUrl);
+      asyncCallback(null, jsonData);
     }
 
     return function (callback) {
@@ -101,32 +90,26 @@ var articleService = function articleService() {
 
   function handleArticleSummaryContent(articleSummary) {
     var imageLinkRegex = /<img\s[^>]*?src\s*=\s*['"]([^'"]*?)['"][^>]*?>/ig;
-    var originalHtmlString = articleSummary.content._;
+    var originalHtmlString = articleSummary.html;
     var convertedHtmlString = originalHtmlString.replace(imageLinkRegex, '');
     var div = document.createElement("div");
     div.innerHTML = convertedHtmlString;
-    articleSummary.content.text = div.innerText;
+    articleSummary.text = div.innerText;
   }
 
-  /**
-   * In xml2js, when set options {explicitArray : false}
-   * ChildNode which should be an array but convert to an object
-   * when array has only one value.
-   * Categories/Tags should be an array
-   * */
 
   function handleArticleSummaryCategories(articleSummary) {
-    /** @namespace articleSummary.category */
-    if (!_.isArray(articleSummary.category)) {
-      var originalCategory = _.clone(articleSummary.category);
-      articleSummary.category = [originalCategory];
+    /** @namespace articleSummary.tags */
+    if (!_.isArray(articleSummary.tags)) {
+      var originalCategory = _.clone(articleSummary.tags);
+      articleSummary.tags = [originalCategory];
     }
   }
 
   function filterArticleListByTagName(articleSummaryList, tagName) {
     var tagDetailList = [];
     _.each(articleSummaryList, function (articleSummary) {
-      if (!_.isUndefined(_.find(articleSummary.category, {'$': {'term': tagName}}))) {
+      if (!_.isUndefined(_.indexOf(articleSummary.tags, tagName))){
         tagDetailList.push(articleSummary);
       }
     });
@@ -142,7 +125,7 @@ var articleService = function articleService() {
     function findDetailFromCache() {
       $log.info('load detail from articleSummaryListCache.');
       var postDetail = _.find(articleSummaryListCache, function (post) {
-        return post.link.$.href.indexOf(postLink) >= 0;
+        return post.link.indexOf(postLink) >= 0;
       });
       var error = _.isUndefined(postDetail) ? new Error('can not find post detail') : null;
       callback(error, postDetail);

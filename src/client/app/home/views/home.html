@@ -9,20 +9,20 @@
         <md-card-title>
           <md-card-title-text>
             <span class="md-headline">
-              <a class="no-decoration" ng-href="{{articleSummary.link.$.href}}">
+              <a class="no-decoration" ng-href="{{articleSummary.link | innerLinkFilter}}">
                 {{articleSummary.title}}
               </a>
             </span>
-            <span class="md-subhead">{{articleSummary.content.text | summaryFilter }}...</span>
+            <span class="md-subhead">{{articleSummary.text | summaryFilter }}...</span>
           </md-card-title-text>
         </md-card-title>
         <md-card-content>
-          <md-chips ng-model="articleSummary.category" readonly="true" md-max-chips="3">
+          <md-chips ng-model="articleSummary.tags" readonly="true" md-max-chips="3">
             <md-chip-template >
               <div class="md-caption">
                 <strong>
-                  <a ng-href="{{vm.tagLinkPrefix}}{{$chip.$.term}}" class="no-decoration">
-                    <span>{{$chip.$.term}}</span>
+                  <a ng-href="{{vm.tagLinkPrefix}}{{$chip}}" class="no-decoration">
+                    <span>{{$chip}}</span>
                   </a>
                 </strong>
               </div>
@@ -34,7 +34,7 @@
             {{articleSummary.published | date:'yy-MM-dd' }}
           </div>
           <div class="md-button">
-            <a class="no-decoration" ng-href="{{articleSummary.link.$.href | innerLinkFilter }}" target="_blank">View More</a>
+            <a class="no-decoration" ng-href="{{articleSummary.link | innerLinkFilter }}" target="_blank">View More</a>
           </div>
         </md-card-actions>
       </md-card>

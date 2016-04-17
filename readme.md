@@ -1,3 +1,3 @@
-## Site-Pro
-Rewrite Site using `Angular2` + `Angular Material`
+## Site
+Rewrite Site using `Angular` + `Angular Material`
 Fuck TypeScript.

@@ -16,6 +16,8 @@ module.exports = gulp.task('server',function(next){
   }
 });
 
+
+
 function start(callback){
   init(function(app){
     app.listen(config.domPort,function(error){
@@ -31,8 +33,8 @@ function start(callback){
 
 function initExpress(){
   var app = express();
-  initModulesServerRoutes(app);
   initModulesConfiguration(app);
+  initModulesServerRoutes(app);
   initModulePreSetup();
   return app;
 }
@@ -61,8 +63,23 @@ function initModulesServerRoutes(app) {
 
 //TODO:Add 'bodyParser' for request adding
 function initModulesConfiguration(app) {
-  process.on('uncaughtException',function(error){
-    errorUtil.handleError(error);
+  process.on('uncaughtException', function (error) {
+    errorUtil.handleError(error)
+  });
+
+  process.on('SIGINT', function () {
+    process.exit(0);
+  });
+
+
+
+  //Allow Cross domain/port access
+  app.all('*',function(req,res,next){
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    res.header("Access-Control-Allow-Methods","PUT,POST,GET,DELETE,OPTIONS");
+    res.header("Content-Type", "application/json;charset=utf-8");
+    next();
   });
 }
 

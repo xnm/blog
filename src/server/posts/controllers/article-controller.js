@@ -9,6 +9,6 @@ module.exports.getAll = getAll;
 
 
 
-function getAll(req,res,next){
+function getAll(req,res){
   res.json(articleFacade.getAll());
 }

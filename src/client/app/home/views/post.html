@@ -16,14 +16,14 @@
         </md-card-title>
 
         <md-card-content>
-          <div ng-bind-html="vm.postDetail.content._ | trustAsHtmlFilter" ></div>
+          <div ng-bind-html="vm.postDetail.html | trustAsHtmlFilter" ></div>
           <md-divider></md-divider>
-          <md-chips ng-model="vm.postDetail.category" readonly="true" md-max-chips="3">
+          <md-chips ng-model="vm.postDetail.tags" readonly="true" md-max-chips="3">
             <md-chip-template >
               <div class="md-caption">
                 <strong>
-                  <a ng-href="{{vm.tagLinkPrefix}}{{$chip.$.term}}" class="no-decoration">
-                    <span>{{$chip.$.term}}</span>
+                  <a ng-href="{{vm.tagLinkPrefix}}{{$chip}}" class="no-decoration">
+                    <span>{{$chip}}</span>
                   </a>
                 </strong>
               </div>
