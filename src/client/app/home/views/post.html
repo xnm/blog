@@ -10,7 +10,7 @@
         <md-card-title>
           <md-card-title-text>
             <span class="md-headline">
-              {{vm.postDetail.title}}
+              {{::vm.postDetail.title}}
             </span>
           </md-card-title-text>
         </md-card-title>
@@ -22,7 +22,7 @@
             <md-chip-template >
               <div class="md-caption">
                 <strong>
-                  <a ng-href="{{vm.tagLinkPrefix}}{{$chip}}" class="no-decoration">
+                  <a ng-href="{{::vm.tagLinkPrefix}}{{$chip}}" class="no-decoration">
                     <span>{{$chip}}</span>
                   </a>
                 </strong>
