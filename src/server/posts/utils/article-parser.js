@@ -62,10 +62,9 @@ function getMetaData(fileNamePrefix,mdContent){
 
 function constructExtraInfo(fileNamePrefix,metadata){
   var published = moment(metadata.date);
-  var year = published.get('year');
-  var month = published.get('month')+1;
-  var day = published.get('date');
-  
-  metadata.published = metadata.date;
-  metadata.link = year+'/'+month+'/'+day+'/'+fileNamePrefix;
+  var publishPrefix = published.format('YYYY/MM/DD');
+
+  //noinspection JSUnresolvedFunction
+  metadata.published = published.toDate();
+  metadata.link = publishPrefix+'/'+fileNamePrefix;
 }
