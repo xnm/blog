@@ -48,6 +48,11 @@ module.exports = function navbarController($scope) {
       name:'xgezhange博客',
       link:'http://xgezhang.com',
       description:'坚持更新的技术博客,实在难得'
+    },
+    {
+      name:'lousama',
+      link:'http://lousama.com',
+      description:'为女人拒绝阿里的楼总'
     }
 
   ];
