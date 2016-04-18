@@ -53,6 +53,11 @@ module.exports = function navbarController($scope) {
       name:'lousama',
       link:'http://lousama.com',
       description:'为女人拒绝阿里的楼总'
+    },
+    {
+      name:'NotFound404',
+      link:'https://github.com/404NoFound',
+      description:'良哥的Github'
     }
 
   ];
