@@ -5,6 +5,7 @@ var ngMaterial = require('angular-material');
 var ngMessages = require('angular-messages');
 var ngAnimate = require('angular-animate');
 var ngMdIcons = require('angular-material-icons');
+//noinspection JSUnusedLocalSymbols
 var ngDisqus = require('angular-utils-disqus');
 
 
@@ -24,7 +25,7 @@ var navbarController = require('../common/controllers/navbar-controller');
 var homeController = require('./controllers/home-controller');
 var tagController = require('./controllers/tag-controller');
 var postController = require('./controllers/post-controller');
-
+var friendLinkController = require('./controllers/friend-link-controller');
 
 var summaryFilter = require('./filters/summary-filter');
 var oddFilter = require('./filters/odd-filter');
@@ -53,6 +54,7 @@ module.exports = angular.module('home',[
   .controller('homeController',homeController)
   .controller('tagController',tagController)
   .controller('postController',postController)
+  .controller('friendLinkController',friendLinkController)
   .filter('summaryFilter',summaryFilter)
   .filter('oddFilter',oddFilter)
   .filter('publishFilter',publishFilter)

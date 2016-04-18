@@ -19,6 +19,10 @@ module.exports = function($stateProvider){
       url:'/post/{postLink:.*}',
       templateUrl:'app/home/views/post.html'
     })
+    .state('friend-links',{
+      url:'/friend-links',
+      templateUrl:'app/home/views/friend-link.html'
+    })
     .state('otherwise',{
       url:'*path',
       templateUrl:'app/common/views/not-found.html'

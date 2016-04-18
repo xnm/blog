@@ -11,3 +11,10 @@ a:link,a:visited{
 .md-button {
   text-transform: capitalize !important;
 }
+
+
+/** For md-avator compact */
+.md-item-text.compact{
+  padding-top: 8px;
+  padding-bottom: 8px;
+}

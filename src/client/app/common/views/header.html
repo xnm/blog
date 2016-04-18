@@ -93,27 +93,33 @@
           </md-button>
         </div>
 
-        <div layout="column" class="md-2-line" ng-click="isFeaturesMenuOpen = !isFeaturesMenuOpen">
+
+        <div layout="column" class="md-2-line" ng-click="isFriendLinkMenuOpen = !isFriendLinkMenuOpen">
           <md-button layout="row" class="md-button" flex-auto>
-            <div><span>Features</span></div>
+            <div>
+              <a ng-href="{{friendLinkRegisterLink}}" class="no-decoration">
+                <span>Friend Links</span>
+              </a>
+            </div>
             <div flex></div>
             <md-button class="md-icon-button" aria-label="menu" layout-align="end">
-              <ng-md-icon icon="{{isFeaturesMenuOpen?'clear_all':'reorder'}}"></ng-md-icon>
+              <ng-md-icon icon="{{isFriendLinkMenuOpen?'clear_all':'reorder'}}"></ng-md-icon>
             </md-button>
           </md-button>
 
           <md-button class="md-button"
                      layout="row"
-                     ng-show="isFeaturesMenuOpen"
-                     ng-repeat="feature in featureList"
+                     ng-show="isFriendLinkMenuOpen"
+                     ng-repeat="friendLink in friendLinkList"
                      flex-auto>
-            <a class="no-decoration" ng-href="{{feature.link}}">
-              <md-tooltip md-direction="right">{{feature.description}}</md-tooltip>
-              <span>{{feature.name}}</span>
+            <a class="no-decoration" ng-href="{{friendLink.link}}">
+              <md-tooltip md-direction="right">{{friendLink.description}}</md-tooltip>
+              <span>{{friendLink.name}}</span>
             </a>
           </md-button>
-
         </div>
+
+
       </md-content>
     </md-sidenav>
   </section>
