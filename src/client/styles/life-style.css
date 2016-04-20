@@ -18,3 +18,15 @@ a:link,a:visited{
   padding-top: 8px;
   padding-bottom: 8px;
 }
+
+
+/** For Markdown Editor menu padding*/
+.md-editor-title{
+  padding-left: 15px !important;
+  padding-right: 15px !important;
+}
+
+.md-editor-menu{
+  padding-left: 7px !important;
+  padding-right: 7px !important;
+}

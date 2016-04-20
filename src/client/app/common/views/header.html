@@ -35,8 +35,8 @@
               ng-click="toggleFabMenuOpen()"
               ng-class="'md-scale'"
             >
-              <md-fab-trigger >
-                <md-button aria-label="menu" class="md-fab md-primary" >
+              <md-fab-trigger>
+                <md-button aria-label="menu" class="md-fab md-primary">
                   <md-icon class="md-icon-button">
                     <ng-md-icon icon="menu"></ng-md-icon>
                   </md-icon>
@@ -86,18 +86,19 @@
                      ng-show="isSubSiteMenuOpen"
                      ng-repeat="subSite in subSiteList"
                      flex-auto>
-            <a class="no-decoration" ng-href="{{subSite.link}}">
-              <md-tooltip md-direction="right">{{subSite.description}}</md-tooltip>
-              <span>{{subSite.name}}</span>
+            <a class="no-decoration" ng-href="{{::subSite.link}}">
+              <md-tooltip md-direction="right">{{::subSite.description}}</md-tooltip>
+              <span>{{::subSite.name}}</span>
             </a>
           </md-button>
         </div>
 
 
-        <div layout="column" class="md-2-line" ng-click="isFriendLinkMenuOpen = !isFriendLinkMenuOpen">
+        <div layout="column" class="md-2-line"
+             ng-click="isFriendLinkMenuOpen = !isFriendLinkMenuOpen">
           <md-button layout="row" class="md-button" flex-auto>
             <div>
-              <a ng-href="{{friendLinkRegisterLink}}" class="no-decoration">
+              <a ng-href="{{::friendLinkRegisterLink}}" class="no-decoration">
                 <span>Friend Links</span>
               </a>
             </div>
@@ -112,9 +113,33 @@
                      ng-show="isFriendLinkMenuOpen"
                      ng-repeat="friendLink in friendLinkList"
                      flex-auto>
-            <a class="no-decoration" ng-href="{{friendLink.link}}">
-              <md-tooltip md-direction="right">{{friendLink.description}}</md-tooltip>
-              <span>{{friendLink.name}}</span>
+            <a class="no-decoration" ng-href="{{::friendLink.link}}">
+              <md-tooltip md-direction="right">{{::friendLink.description}}</md-tooltip>
+              <span>{{::friendLink.name}}</span>
+            </a>
+          </md-button>
+        </div>
+
+
+        <div layout="column" class="md-2-line" ng-click="isFeatureListOpen = !isFeatureListOpen">
+          <md-button layout="row" class="md-button" flex-auto>
+            <div>
+              <span>Features</span>
+            </div>
+            <div flex></div>
+            <md-button class="md-icon-button" aria-label="menu" layout-align="end">
+              <ng-md-icon icon="{{isFeatureListOpen?'clear_all':'reorder'}}"></ng-md-icon>
+            </md-button>
+          </md-button>
+
+          <md-button class="md-button"
+                     layout="row"
+                     ng-show="isFeatureListOpen"
+                     ng-repeat="feature in featureList"
+                     flex-auto>
+            <a class="no-decoration" ng-href="{{::feature.link}}">
+              <md-tooltip md-direction="right">{{::feature.description}}</md-tooltip>
+              <span>{{::feature.name}}</span>
             </a>
           </md-button>
         </div>

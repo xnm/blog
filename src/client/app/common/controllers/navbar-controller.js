@@ -27,9 +27,9 @@ module.exports = function navbarController($scope) {
 
   $scope.featureList = [
     {
-      name: 'Chat Room',
-      link: '#/features/chatroom',
-      description: 'Online chatroom using socket.io + redis'
+      name: 'Markdown Editor',
+      link: '#/features/md-editor',
+      description: 'Markdown Editor with simple features'
     }
   ];
 
@@ -59,6 +59,7 @@ module.exports = function navbarController($scope) {
       link:'https://github.com/404NoFound',
       description:'良哥的Github'
     }
-
   ];
+  
+
 };

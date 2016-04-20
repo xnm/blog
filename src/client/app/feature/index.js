@@ -4,7 +4,13 @@ var angular = require('angular');
 
 var featureRoute = require('./routes/feature-routes');
 
-module.exports = angular.module('feature',[
 
+var mdEditorController = require('./controllers/md-editor-controller');
+
+
+
+module.exports = angular.module('feature',[
+  'ngMessages'
 ]).config(featureRoute)
+  .controller('mdEditorController',mdEditorController)
 ;
