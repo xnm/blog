@@ -14,7 +14,7 @@ var marked = require('marked');
 
 var mdService = function mdService(){
   var svc = this;
-
+  
 
 
 
@@ -24,8 +24,10 @@ var mdService = function mdService(){
 };
 
 
-function compile(mdContent){
-  return marked(mdContent, {});
+function compile(mdContent,compileOptions){
+  return marked(mdContent, {
+    
+  });
 }
 
 

@@ -36,7 +36,7 @@ var trustAsHtmlFilter = require('./filters/trust-html-filter');
 
 var feature = require('../feature');
 
-module.exports = angular.module('home',[
+module.exports = angular.module('site',[
   'ngMaterial',
   'ngMessages',
   'ngAnimate',

@@ -23,6 +23,14 @@
               </md-menu-item>
             </md-menu-content>
           </md-menu>
+          <md-menu>
+            <button ng-click="$mdOpenMenu()">Format</button>
+            <md-menu-content>
+              <md-menu-item>
+                <md-button id="popupFormatOptionsMenu" ng-click="vm.showOptionsTagDialog($event)">Options</md-button>
+              </md-menu-item>
+            </md-menu-content>
+          </md-menu>
         </md-menu-bar>
       </div>
     </div>
