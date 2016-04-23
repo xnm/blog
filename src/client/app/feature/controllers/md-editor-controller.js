@@ -41,11 +41,12 @@ module.exports = function mdEditorController($window,$scope,$mdDialog,$mdMedia,$
    * */
   function constructCompileOptions(){
     var formatOptions = JSON.parse($cookies.get('formatOptions'));
+    return formatOptions;
   }
   
   function compileMarkdownContent(){
 
-    vm.previewContent = mdService.compile(vm.editorContent);
+    vm.previewContent = mdService.compile(vm.editorContent,constructCompileOptions());
   }
 
 
