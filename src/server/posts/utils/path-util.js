@@ -15,7 +15,7 @@ module.exports.getFilePrefix = getFilePrefix;
  * @return {*} the folder path without '*'
  * */
 function getGlobalPaths(globPatterns, excludes) {
-  var urlRegex = new RegExp('^(?:[a-z]+:)?\/\/', 'i');
+  var urlRegex = new RegExp('^(?:[a-z]+:)?\/\/', 'tagIndex');
   var output = [];
   if (_.isArray(globPatterns)) {
     globPatterns.forEach(function (globPattern) {
