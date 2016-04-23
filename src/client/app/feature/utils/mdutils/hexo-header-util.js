@@ -35,7 +35,7 @@ module.exports.constructTokens = function constructHexoTokens(tokens) {
 
   //combine all headers
   var hexoHeaderString = '';
-  for (var headerIndex = 0; headerIndex < hexoTagStartIndex; headerIndex++) {
+  for (var headerIndex = 0; headerIndex < hexoMetadataIndex; headerIndex++) {
     if (_.isEqual(hexoMetadataTokens[headerIndex].type, 'paragraph')) {
       hexoHeaderString += hexoMetadataTokens[headerIndex].text;
     }
