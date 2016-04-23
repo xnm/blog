@@ -3,7 +3,7 @@
 
 module.exports = function($stateProvider){
   $stateProvider
-    .state('chatroom',{
+    .state('md-editor',{
       url:'/features/md-editor',
       templateUrl:'app/feature/views/md-editor.html'
     })
