@@ -9,6 +9,7 @@ var errorUtil = require('../../src/server/posts/utils/error-util');
 var pathUtil = require('../../src/server/posts/utils/path-util');
 var articleCompileUtils = require('../../src/server/posts/utils/article-compile-util');
 
+module.exports.start = start;
 module.exports = gulp.task('server',function(next){
   start();
   if(next){
@@ -19,6 +20,7 @@ module.exports = gulp.task('server',function(next){
 
 
 function start(callback){
+  logger.info('Starting Application');
   init(function(app){
     app.listen(config.domPort,function(error){
       errorUtil.handleError(error);

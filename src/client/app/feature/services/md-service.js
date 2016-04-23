@@ -33,11 +33,11 @@ function compile(mdContent,compileOptions){
 
 function constructTokens(tokens,compileOptions){
   var combinedTokens = _.clone(tokens);
-  for(var compileOption in compileOptions){
-    if(compileOptions.hasOwnProperty(compileOption)){
-      $log.info('compileOption:',compileOption);
-    }
-  }
+  _.forEach(compileOptions,function(compileOption){
+    $log.info('compileOption:',compileOption);
+    combinedTokens =  eval(compileOption+'Util.constructTokens')(combinedTokens);
+  });
+  combinedTokens.links = {};
   return combinedTokens;
 }
 
