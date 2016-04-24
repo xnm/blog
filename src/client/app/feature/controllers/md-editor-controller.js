@@ -43,6 +43,7 @@ module.exports = function mdEditorController($window,$scope,$mdDialog,$mdMedia,$
     if(!_.isEmpty(editorContentFromCache)){
       $log.info('found editor content from cache');
       vm.editorContent = editorContentFromCache;
+      compileMarkdownContent();
     }
   }
 
