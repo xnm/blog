@@ -39,10 +39,12 @@ function compile(mdContent,compileOptions){
 
 function constructTokens(tokens,compileOptions){
   var combinedTokens = _.clone(tokens);
-  _.forEach(compileOptions,function(compileOption){
-    $log.info('compileOption:',compileOption);
-    combinedTokens = compileUtils[compileOption](combinedTokens);
-  });
+
+  _.reduce(compileOptions,function(accumulateTokens,compileUtilName){
+    $log.info('compileOption:',compileUtilName);
+    return compileUtils[compileUtilName](accumulateTokens);
+  },combinedTokens);
+
   combinedTokens.links = {};
   return combinedTokens;
 }
