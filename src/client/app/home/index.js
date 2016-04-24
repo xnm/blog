@@ -5,12 +5,14 @@ var ngMaterial = require('angular-material');
 var ngMessages = require('angular-messages');
 var ngAnimate = require('angular-animate');
 var ngMdIcons = require('angular-material-icons');
+
 //noinspection JSUnusedLocalSymbols
 var ngDisqus = require('angular-utils-disqus');
-
+var ngLocalStorage = require('angular-local-storage');
 
 var themeConfig = require('../common/configs/theme');
 var locationConfig = require('../common/configs/location');
+var localStorageConfig = require('../common/configs/local-storage');
 
 var homeRoutes = require('./routes/home-routes');
 
@@ -18,6 +20,7 @@ var templates = require('../../../../dist/templates');
 
 var pageService = require('../common/services/page-service');
 var articleService = require('../home/services/article-service');
+
 
 var pageController = require('../common/controllers/page-controller');
 var headerController = require('../common/controllers/header-controller');
@@ -44,7 +47,8 @@ module.exports = angular.module('site',[
   'ui.router',
   'templates',
   'feature',
-  'angularUtils.directives.dirDisqus'
+  'angularUtils.directives.dirDisqus',
+  'LocalStorageModule'
 ])
   .factory('pageService',pageService)
   .factory('articleService',articleService)
@@ -63,4 +67,5 @@ module.exports = angular.module('site',[
   .config(themeConfig)
   .config(locationConfig)
   .config(homeRoutes)
+  .config(localStorageConfig)
 ;

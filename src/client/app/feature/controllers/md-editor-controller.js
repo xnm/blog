@@ -9,9 +9,9 @@ var errorUtil = require('../../common/utils/error-util');
 var pageService = require('../../common/services/page-service')();
 var mdService = require('../../feature/services/md-service')();
 
-
-module.exports = function mdEditorController($window,$scope,$mdDialog,$mdMedia,$log,$document,$cookies){
+module.exports = function mdEditorController($window,$scope,$mdDialog,$mdMedia,$log,$document,$cookies,$interval,localStorageService){
   var vm = this;
+
 
   vm.editorContent = '';
   vm.previewContent = '';
@@ -29,13 +29,34 @@ module.exports = function mdEditorController($window,$scope,$mdDialog,$mdMedia,$
 
   function init(){
     initTitle();
+    loadEditorContentFromCache();
+    startAutoSaveEditorContent();
   }
 
 
   function initTitle(){
     pageService.setTitle('Markdown Editor');
   }
-  
+
+  function loadEditorContentFromCache(){
+    var editorContentFromCache = localStorageService.get('editorContentCache');
+    if(!_.isEmpty(editorContentFromCache)){
+      $log.info('found editor content from cache');
+      vm.editorContent = editorContentFromCache;
+    }
+  }
+
+  function saveEditorContentToCache(){
+    if(!_.isEmpty(vm.editorContent)){
+      $log.info('auto save');
+      localStorageService.set('editorContentCache',vm.editorContent);
+    }
+  }
+
+  function startAutoSaveEditorContent(){
+    $interval(saveEditorContentToCache,30*1000);
+  }
+
   /**
    * Get selected compiled from cookies
    * @return {Array} should return a formatOptions as array
