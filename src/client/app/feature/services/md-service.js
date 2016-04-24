@@ -10,7 +10,7 @@ var _ = require('lodash');
 var marked = require('marked');
 
 var hexoHeaderUtil = require('../utils/mdutils/hexo-header-util');
-
+var nonStrictModeUtil = require('../utils/mdutils/non-strict-mode-util');
 
 var mdService = function mdService(){
   var svc = this;

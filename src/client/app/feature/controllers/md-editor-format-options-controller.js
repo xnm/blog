@@ -11,6 +11,10 @@ module.exports = function mdEditorFormatOptionsController($log, $mdDialog, $cook
     {
       name:'Hexo Header',
       value:'hexoHeader'
+    },
+    {
+      name:'Non-Strict Mode',
+      value:'nonStrictMode'
     }
   ];
   vm.selectedOptions = getOptions();
