@@ -12,7 +12,7 @@ var $log = $injector.get('$log');
 var _ = require('lodash');
 
 module.exports.constructTokens = function constructHexoTokens(tokens) {
-  $log.info('using hexo header for construct tokens');
+  //$log.info('using hexo header for construct tokens');
 
   //for Hexo Parser,we regards the first '---' as hr
   //before <hr> all are Hexo metadata

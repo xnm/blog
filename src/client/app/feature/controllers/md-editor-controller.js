@@ -38,10 +38,14 @@ module.exports = function mdEditorController($window,$scope,$mdDialog,$mdMedia,$
   
   /**
    * Get selected compiled from cookies
+   * @return {Array} should return a formatOptions as array
    * */
   function constructCompileOptions(){
-    var formatOptions = JSON.parse($cookies.get('formatOptions'));
-    return formatOptions;
+    var formatOptionsFromCookies = $cookies.get('formatOptions');
+    if(!_.isEmpty(formatOptionsFromCookies)){
+      return JSON.parse(formatOptionsFromCookies);
+    }
+    return [];
   }
   
   function compileMarkdownContent(){
