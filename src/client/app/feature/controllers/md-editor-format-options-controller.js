@@ -15,6 +15,10 @@ module.exports = function mdEditorFormatOptionsController($log, $mdDialog, $cook
     {
       name:'Non-Strict Mode',
       value:'nonStrictMode'
+    },
+    {
+      name:'TOC',
+      value:'toc'
     }
   ];
   vm.selectedOptions = getOptions();

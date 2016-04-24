@@ -11,10 +11,13 @@ var marked = require('marked');
 
 var hexoHeaderUtil = require('../utils/mdutils/hexo-header-util');
 var nonStrictModeUtil = require('../utils/mdutils/non-strict-mode-util');
+var tocUtil = require('../utils/mdutils/toc-util');
+
 
 var compileUtils = {
   hexoHeader:hexoHeaderUtil,
-  nonStrictMode:nonStrictModeUtil
+  nonStrictMode:nonStrictModeUtil,
+  toc:tocUtil
 };
 
 
