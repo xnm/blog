@@ -8,7 +8,7 @@ var $log = $injector.get('$log');
 
 var _ = require('lodash');
 
-module.exports.constructTokens = function constructNonStrictModeTokens(tokens){
+module.exports = function constructNonStrictModeTokens(tokens){
 
   var replaceRegex = /\n/ig;
   var replacementRegex = '  \n';

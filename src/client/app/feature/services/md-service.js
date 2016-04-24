@@ -12,6 +12,12 @@ var marked = require('marked');
 var hexoHeaderUtil = require('../utils/mdutils/hexo-header-util');
 var nonStrictModeUtil = require('../utils/mdutils/non-strict-mode-util');
 
+var compileUtils = {
+  hexoHeader:hexoHeaderUtil,
+  nonStrictMode:nonStrictModeUtil
+};
+
+
 var mdService = function mdService(){
   var svc = this;
   
@@ -35,7 +41,7 @@ function constructTokens(tokens,compileOptions){
   var combinedTokens = _.clone(tokens);
   _.forEach(compileOptions,function(compileOption){
     $log.info('compileOption:',compileOption);
-    combinedTokens =  eval(compileOption+'Util.constructTokens')(combinedTokens);
+    combinedTokens = compileUtils[compileOption](combinedTokens);
   });
   combinedTokens.links = {};
   return combinedTokens;
