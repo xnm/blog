@@ -16,7 +16,7 @@
     </md-toolbar>
   </section>
 
-  <section layout="column" ng-controller="navbarController">
+  <section layout="column" ng-controller="navbarController as vm">
     <md-sidenav
       class="md-sidenav-left"
       md-component-id="left"
@@ -32,7 +32,7 @@
           <div class="lock-size" layout="row" layout-align="center center">
             <md-fab-speed-dial
               md-open="isFabMenuOpen" md-direction="left" class="md-fab-bottom-right"
-              ng-click="toggleFabMenuOpen()"
+              ng-click="vm.toggleFabMenuOpen()"
               ng-class="'md-scale'"
             >
               <md-fab-trigger>
@@ -72,19 +72,21 @@
 
       <md-content>
         <!-- Toggle Menu -->
-        <div layout="column" class="md-2-line" ng-click="isSubSiteMenuOpen = !isSubSiteMenuOpen">
-          <md-button layout="row" class="md-button" flex-auto>
+        <div layout="column" class="md-2-line">
+          <md-button layout="row" class="md-button"
+                     ng-click="vm.toggleSubSiteMenuOpen()"
+                     flex-auto>
             <div><span>Sub Sites</span></div>
             <div flex></div>
             <md-button class="md-icon-button" aria-label="menu" layout-align="end">
-              <ng-md-icon icon="{{isSubSiteMenuOpen?'clear_all':'reorder'}}"></ng-md-icon>
+              <ng-md-icon icon="{{vm.isSubSiteMenuOpen?'clear_all':'reorder'}}"></ng-md-icon>
             </md-button>
           </md-button>
 
           <md-button class="md-button"
                      layout="row"
-                     ng-show="isSubSiteMenuOpen"
-                     ng-repeat="subSite in subSiteList"
+                     ng-show="vm.isSubSiteMenuOpen"
+                     ng-repeat="subSite in vm.subSiteList"
                      flex-auto>
             <a class="no-decoration" ng-href="{{::subSite.link}}">
               <md-tooltip md-direction="right">{{::subSite.description}}</md-tooltip>
@@ -95,23 +97,23 @@
 
 
         <div layout="column" class="md-2-line"
-             ng-click="isFriendLinkMenuOpen = !isFriendLinkMenuOpen">
+             ng-click="vm.toggleFriendLinkMenuOpen()">
           <md-button layout="row" class="md-button" flex-auto>
             <div>
-              <a ng-href="{{::friendLinkRegisterLink}}" class="no-decoration">
+              <a ng-href="{{::vm.friendLinkRegisterLink}}" class="no-decoration">
                 <span>Friend Links</span>
               </a>
             </div>
             <div flex></div>
             <md-button class="md-icon-button" aria-label="menu" layout-align="end">
-              <ng-md-icon icon="{{isFriendLinkMenuOpen?'clear_all':'reorder'}}"></ng-md-icon>
+              <ng-md-icon icon="{{vm.isFriendLinkMenuOpen?'clear_all':'reorder'}}"></ng-md-icon>
             </md-button>
           </md-button>
 
           <md-button class="md-button"
                      layout="row"
-                     ng-show="isFriendLinkMenuOpen"
-                     ng-repeat="friendLink in friendLinkList"
+                     ng-show="vm.isFriendLinkMenuOpen"
+                     ng-repeat="friendLink in vm.friendLinkList"
                      flex-auto>
             <a class="no-decoration" ng-href="{{::friendLink.link}}">
               <md-tooltip md-direction="right">{{::friendLink.description}}</md-tooltip>
@@ -121,23 +123,23 @@
         </div>
 
 
-        <div layout="column" class="md-2-line" ng-click="isFeatureListOpen = !isFeatureListOpen">
+        <div layout="column" class="md-2-line" ng-click="vm.toggleFeatureListOpen()">
           <md-button layout="row" class="md-button" flex-auto>
             <div>
               <span>Features</span>
             </div>
             <div flex></div>
             <md-button class="md-icon-button" aria-label="menu" layout-align="end">
-              <ng-md-icon icon="{{isFeatureListOpen?'clear_all':'reorder'}}"></ng-md-icon>
+              <ng-md-icon icon="{{vm.isFeatureListOpen?'clear_all':'reorder'}}"></ng-md-icon>
             </md-button>
           </md-button>
 
           <md-button class="md-button"
                      layout="row"
-                     ng-show="isFeatureListOpen"
-                     ng-repeat="feature in featureList"
+                     ng-show="vm.isFeatureListOpen"
+                     ng-repeat="feature in vm.featureList"
                      flex-auto>
-            <a class="no-decoration" ng-href="{{::feature.link}}">
+            <a class="no-decoration" ng-click="vm.goState(feature.state)">
               <md-tooltip md-direction="right">{{::feature.description}}</md-tooltip>
               <span>{{::feature.name}}</span>
             </a>

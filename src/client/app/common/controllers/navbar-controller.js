@@ -1,13 +1,41 @@
 /** Created by Aquariuslt on 2016-03-19.*/
 'use strict';
 
-module.exports = function navbarController($scope) {
-  $scope.isFabMenuOpen = false;
-  $scope.toggleFabMenuOpen = function () {
-    $scope.isFabMenuOpen = !$scope.isFabMenuOpen;
+module.exports = function navbarController($state, $log) {
+
+  var vm = this;
+
+  vm.goState = goState;
+
+  vm.isFabMenuOpen = false;
+  vm.toggleFabMenuOpen = function () {
+    vm.isFabMenuOpen = !vm.isFabMenuOpen;
+    $log.info('isFabMenuOpen:', vm.isFabMenuOpen);
   };
 
-  $scope.subSiteList = [
+  vm.isSubSiteMenuOpen = false;
+  vm.toggleSubSiteMenuOpen = toggleSubSiteMenuOpen;
+
+  vm.isFriendLinkMenuOpen = false;
+  vm.toggleFriendLinkMenuOpen = toggleFriendLinkMenuOpen;
+
+  vm.isFeatureListOpen = false;
+  vm.toggleFeatureListOpen = toggleFeatureListOpen;
+
+  function toggleSubSiteMenuOpen() {
+    vm.isSubSiteMenuOpen = !vm.isSubSiteMenuOpen;
+    $log.info('isSubSiteMenuOpen:', vm.isSubSiteMenuOpen);
+  }
+
+  function toggleFriendLinkMenuOpen() {
+    vm.isFriendLinkMenuOpen = !vm.isFriendLinkMenuOpen;
+  }
+
+  function toggleFeatureListOpen() {
+    vm.isFeatureListOpen = !vm.isFeatureListOpen;
+  }
+
+  vm.subSiteList = [
     {
       name: 'Blog',
       link: 'http://blog.aquariuslt.com',
@@ -25,41 +53,46 @@ module.exports = function navbarController($scope) {
     }
   ];
 
-  $scope.featureList = [
+  vm.featureList = [
     {
       name: 'Markdown Editor',
       link: '#/features/md-editor',
+      state: 'md-editor',
       description: 'Markdown Editor with simple features'
     }
   ];
 
-  $scope.friendLinkRegisterLink = '#/friend-links';
-  $scope.friendLinkList = [
+  vm.friendLinkRegisterLink = '#/friend-links';
+  vm.friendLinkList = [
     {
-      name:'wxsm\'s blog',
-      link:'http://wxsm.top',
-      description:'Kary Gor博客,前端大神'
+      name: 'wxsm\'s blog',
+      link: 'http://wxsm.top',
+      description: 'Kary Gor博客,前端大神'
     },
     {
-      name:'Goovier Blog',
-      link:'http://goovier.com'
+      name: 'Goovier Blog',
+      link: 'http://goovier.com'
     },
     {
-      name:'xgezhange博客',
-      link:'http://xgezhang.com',
-      description:'坚持更新的技术博客,实在难得'
+      name: 'xgezhange博客',
+      link: 'http://xgezhang.com',
+      description: '坚持更新的技术博客,实在难得'
     },
     {
-      name:'lousama',
-      link:'http://lousama.com',
-      description:'为女人拒绝阿里的楼总'
+      name: 'lousama',
+      link: 'http://lousama.com',
+      description: '为女人拒绝阿里的楼总'
     },
     {
-      name:'NotFound404',
-      link:'https://github.com/404NoFound',
-      description:'良哥的Github'
+      name: 'NotFound404',
+      link: 'https://github.com/404NoFound',
+      description: '良哥的Github'
     }
   ];
-  
+
+  function goState(stateName) {
+    $log.info('go state:',stateName)
+    $state.go(stateName,{});
+  }
 
 };

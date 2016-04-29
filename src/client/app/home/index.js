@@ -5,6 +5,7 @@ var ngMaterial = require('angular-material');
 var ngMessages = require('angular-messages');
 var ngAnimate = require('angular-animate');
 var ngMdIcons = require('angular-material-icons');
+var uiRouter = require('angular-ui-router');
 
 //noinspection JSUnusedLocalSymbols
 var ngDisqus = require('angular-utils-disqus');
@@ -40,9 +41,9 @@ var trustAsHtmlFilter = require('./filters/trust-html-filter');
 var feature = require('../feature');
 
 module.exports = angular.module('site',[
-  'ngMaterial',
   'ngMessages',
   'ngAnimate',
+  'ngMaterial',
   'ngMdIcons',
   'ui.router',
   'templates',
@@ -69,3 +70,4 @@ module.exports = angular.module('site',[
   .config(homeRoutes)
   .config(localStorageConfig)
 ;
+
