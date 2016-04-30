@@ -2,7 +2,7 @@
 
 var _ =require('lodash');
 
-module.exports = function mdEditorFormatOptionsController($log, $mdDialog, $cookies) {
+module.exports = function markdownEditorFormatOptionsController($log, $mdDialog, $cookies) {
 
 
   var vm = this;

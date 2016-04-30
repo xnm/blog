@@ -7,9 +7,9 @@ var _ = require('lodash');
 var errorUtil = require('../../common/utils/error-util');
 
 var pageService = require('../../common/services/page-service')();
-var mdService = require('../../feature/services/md-service')();
+var markdownService = require('../services/markdown-service')();
 
-module.exports = function mdEditorController($window,$scope,$mdDialog,$mdMedia,$log,$document,$cookies,$interval,localStorageService){
+module.exports = function markdownEditorController($window, $scope, $mdDialog, $mdMedia, $log, $document, $cookies, $interval, localStorageService){
   var vm = this;
 
 
@@ -72,7 +72,7 @@ module.exports = function mdEditorController($window,$scope,$mdDialog,$mdMedia,$
   
   function compileMarkdownContent(){
 
-    vm.previewContent = mdService.compile(vm.editorContent,constructCompileOptions());
+    vm.previewContent = markdownService.compileMarkdown(vm.editorContent, constructCompileOptions());
   }
 
 
@@ -80,7 +80,7 @@ module.exports = function mdEditorController($window,$scope,$mdDialog,$mdMedia,$
     
     //noinspection JSCheckFunctionSignatures
     $mdDialog.show({
-      templateUrl:'app/feature/views/md-editor-format-options-template.html',
+      templateUrl:'app/feature/views/markdown-editor-format-options-template.html',
       parent:angular.element($document.body),
       targetEvent:$event,
       clickOutsideToClose:true

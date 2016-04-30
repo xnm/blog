@@ -6,7 +6,13 @@ var $log = $injector.get('$log');
 
 module.exports = function($stateProvider){
   $log.info('load home route');
+
+  
   $stateProvider
+    .state('editor',{
+      url:'/markdown-editor',
+      templateUrl:'app/feature/views/markdown-editor.html'
+    })
     .state('default',{
       url:'',
       templateUrl:'app/home/views/home.html'

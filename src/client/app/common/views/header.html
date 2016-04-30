@@ -9,7 +9,7 @@
         </md-button>
       </div>
       <div>
-        <md-button href="/#/">
+        <md-button ui-sref="default">
           Aquariuslt Home
         </md-button>
       </div>
@@ -139,7 +139,7 @@
                      ng-show="vm.isFeatureListOpen"
                      ng-repeat="feature in vm.featureList"
                      flex-auto>
-            <a class="no-decoration" ng-click="vm.goState(feature.state)">
+            <a class="no-decoration" ng-href="{{::feature.link}}">
               <md-tooltip md-direction="right">{{::feature.description}}</md-tooltip>
               <span>{{::feature.name}}</span>
             </a>

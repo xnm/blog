@@ -5,10 +5,10 @@ var $injector = angular.injector(['ng']);
 var $log = $injector.get('$log');
 
 module.exports = function($stateProvider){
-  $log.info('load feature route');
-  $stateProvider
-    .state('md-editor',{
-      url:'/features/md-editor',
-      templateUrl:'app/feature/views/md-editor.html'
-    })
+  // $log.info('load feature route');
+  // $stateProvider
+  //   .state('markdown', {
+  //     url:'/features/markdown-editor',
+  //     templateUrl:'app/feature/views/markdown-editor.html'
+  //   })
 };

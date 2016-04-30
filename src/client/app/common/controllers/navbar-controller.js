@@ -56,8 +56,8 @@ module.exports = function navbarController($state, $log) {
   vm.featureList = [
     {
       name: 'Markdown Editor',
-      link: '#/features/md-editor',
-      state: 'md-editor',
+      link: '#/markdown-editor',
+      state: 'markdown',
       description: 'Markdown Editor with simple features'
     }
   ];
@@ -91,7 +91,7 @@ module.exports = function navbarController($state, $log) {
   ];
 
   function goState(stateName) {
-    $log.info('go state:',stateName)
+    $log.info('go state:',stateName);
     $state.go(stateName,{});
   }
 
