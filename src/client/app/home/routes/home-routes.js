@@ -9,10 +9,6 @@ module.exports = function($stateProvider){
 
   
   $stateProvider
-    .state('editor',{
-      url:'/markdown-editor',
-      templateUrl:'app/feature/views/markdown-editor.html'
-    })
     .state('default',{
       url:'',
       templateUrl:'app/home/views/home.html'

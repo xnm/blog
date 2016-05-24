@@ -80,7 +80,7 @@ module.exports = function markdownEditorController($window, $scope, $mdDialog, $
     
     //noinspection JSCheckFunctionSignatures
     $mdDialog.show({
-      templateUrl:'app/feature/views/markdown-editor-format-options-template.html',
+      templateUrl:'app/markdown/views/markdown-editor-format-options-template.html',
       parent:angular.element($document.body),
       targetEvent:$event,
       clickOutsideToClose:true

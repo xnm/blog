@@ -139,11 +139,11 @@
           <md-button class="md-button"
                      layout="row"
                      ng-show="vm.isFeatureListOpen"
-                     ng-repeat="feature in vm.featureList"
+                     ng-repeat="markdown in vm.featureList"
                      flex-auto>
-            <a class="no-decoration" ng-href="{{::feature.link}}">
-              <md-tooltip md-direction="right">{{::feature.description}}</md-tooltip>
-              <span>{{::feature.name}}</span>
+            <a class="no-decoration" ng-href="{{::markdown.link}}">
+              <md-tooltip md-direction="right">{{::markdown.description}}</md-tooltip>
+              <span>{{::markdown.name}}</span>
             </a>
           </md-button>
         </div>

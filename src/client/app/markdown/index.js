@@ -7,7 +7,7 @@ var ngMessages = require('angular-messages');
 var ngAnimate = require('angular-animate');
 var ngMdIcons = require('angular-material-icons');
 
-var featureRoute = require('./routes/feature-routes');
+var markdownRoute = require('./routes/markdown-editor-routes');
 
 var markdownService = require('./services/markdown-service');
 
@@ -16,7 +16,8 @@ var markdownEditorController = require('./controllers/markdown-editor-controller
 var markdownEditorFormatOptionsController = require('./controllers/markdown-editor-format-options-controller');
 
 
-module.exports = angular.module('feature',[
+module.exports = angular.module('markdown', [
+  'ngMaterial',
   'ngMessages',
   'ngAnimate',
   'ngMdIcons',
@@ -24,7 +25,7 @@ module.exports = angular.module('feature',[
   'templates',
   'ngCookies'
 ]).factory(markdownService)
-  .config(featureRoute)
+  .config(markdownRoute)
   .controller('markdownEditorController', markdownEditorController)
   .controller('markdownEditorFormatOptionsController', markdownEditorFormatOptionsController)
 ;

@@ -38,7 +38,7 @@ var innerLinkFilter = require('./filters/inner-link-filter');
 var trustAsHtmlFilter = require('./filters/trust-html-filter');
 
 
-var feature = require('../feature');
+var markdown = require('../markdown');
 
 module.exports = angular.module('site',[
   'ngMessages',
@@ -47,7 +47,7 @@ module.exports = angular.module('site',[
   'ngMdIcons',
   'ui.router',
   'templates',
-  'feature',
+  'markdown',
   'angularUtils.directives.dirDisqus',
   'LocalStorageModule'
 ])
