@@ -84,16 +84,120 @@
 ```
 
 ### Use variable instead function expression
+之前遇到一个需求,在业务逻辑上需要显示一个模型,这个模型大概是下面这样的:
 
+```json
+{
+  "businessKeys":[
+    {
+      "type":"a",
+      "value":"aValue"
+    },
+    {
+      "type":"b",
+      "value":"bValue"
+    },
+    {
+      "type":"c",
+      "value":"cValue"
+    },
+    {
+      "type":"c",
+      "value":"cValue"
+    }
+  ],
+  "otherInfo":"otherInfo..."
+}
+```
+在字段里面是有一个不定长的数组,数组里面实际上是一堆key-value形式的键值对.
+之所以不定长是因为里面有时候有些key是没有对应的值的.
+在UI上显示出来的时候,先前的做法就是绑定一个方法:
+```
+{{vm.getValueByBusinessKeysType(object,keyName)}}
+```
+在页面上使用一个方法表达式而不是直接的变量表达式的时候,会导致方法执行多次.
+由于这个`getValueByBusinessKeysType`的方法,需要通过数组查找而不是直接一个map
+所以就会导致性能问题.
+
+目前的解决方案是:将数据在加载的时候经过扁平化处理,即将key直接以property的形式直接赋予Object.
+通过直接绑定property表达式来显示.
+这样也有效提高了一些性能
 
 ### Chain Filter
+Angular的Filter性能一直不够好.
+在刚刚接触Angular的时候,阅读文档发现Filter的功能还挺好用的,特别是做一些关键字过滤表格数据,格式处理等方面的工作,  
+实在是太方便了,于是我们在为我们的table的header上每个column都添加了一个关键字过滤框,使用angular的filter做分页的工作.  
+
+由于我们的表格需要显示的业务数据比较多,column数大概在15-25左右.
+在每一个header的column上添加独立的关键字过滤框,大概就添加了20个.
 
 
-### Using ng-model delay update
+假设当前页面的总数据 会有有30条.
+用户喜欢在几个过滤框上输入一些相关的关键字信息过滤.(filterA,filterB)
+```js
+function filterA(dataArray,filterCriteria){
+  return filteredDataArrayByFilterCriteriaA;
+}
+
+function filterB(dataArray,filterCriteria){
+  return filteredDataArrayByFilterCriteriaB;
+}
+```
+当每一个过滤框都属于一个单独的filter去绑定的话,如果执行AB filter,将会按照下面的顺序执行
+
+> `dataArray` length:30
+> `filteredDataArrayByFilterCriteriaA`  (至少两次filterA,此时length约20)  
+> `filteredDataArrayByFilterCriteriaB`  (至少两次filterB,此时length约5)
+
+如果我们在计算关键字过滤的时候使用的是遍历查询,以单次对单个元素对比的操作工作量为1.  
+那么在这两重filter的总计算工作量就会变成`30*2+20*2=100`次
+
+回到实际业务,通过在filter中添加log来记录filter循环运算的次数,惊讶的发现实际上filter的运算次数在25个column的情况下,  
+普遍一次过滤框的查询,会导致3K左右的运算次数,相当惊人.
 
 
+目前的解决方案是通过降低工程代码的可读性,将多个filter的功能合并成一个总的filter,在总的filter里面处理一连串的单个filter过滤过程.
 
+之前的代码可能是这样:
+```html
+<tr ng-repeat="singleData in vm.dataArray | filterA | filterB | filterC ..... | filterZ"></tr>
+```
+```js
+function filterA(dataArray){
+  //implement filterA
+}
+
+function filterB(dataArray){
+  //implement filterB
+}
+
+function filterC(dataArray){
+  //implement filterC
+}
+```
+
+合并之后看起来是这样
+```html
+<tr ng-repeat="singleData in vm.dataArray | combinedFilter" 
+```
+```js
+function combinedFilter(dataArrat){
+  //implement filterA
+  //implement filterB
+  //implement filterC
+}
+```
+
+### Using ng-model-option delay update
+因为使用了angular的filter功能做前端的关键词过滤,实际上所有的查询工作都是同步的.
+因为是同步,所以在前端javascript进行相对较密集的查询运算的时候,卡顿就会相当明显.
+如果对过滤输入框进行了`ng-model`的绑定,则当输入框的内容进行改变的时候,会立刻出发filter运算.
+通常用户输入的时候大部分可能是连续的单词或者子字符串的输入,在一次主观上的输入还没有结束的时候,因为输入框中文字的改变,  
+而频繁触发查询,实际上页面性能也会相当不好.
+这里有一个小tips就是为一些实时查询性不是很高的输入区域添加ng-model-options,增加angular检查数据update的时间间隔,
+相当于可以等用户把想要的搜索关键词输入完毕之后,再执行js代码的查询工作.
 
 ## Summary
-
+本次结合了一些实际工作中使用angular遇到的性能问题的解决方案,当然也有遇到一些与原生js,socket.io相关的性能问题.
+由于tag不同,不混淆在一起说了.
 
