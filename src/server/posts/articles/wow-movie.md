@@ -2,7 +2,7 @@
 {
   "title": "Warcraft",
   "date": "2016-06-9 18:33:51",
-  "tags": ["WoW","Diary]
+  "tags": ["WoW","Diary"]
 }
 ```
 
