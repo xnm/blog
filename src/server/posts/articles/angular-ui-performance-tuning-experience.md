@@ -3,7 +3,7 @@
   "title":"Angular常规性能优化阶段总结",
   "date":"2016-04-30 15:33:50",
   "tags":[
-    "Angular",
+    "AngularJS",
     "JavaScript"
   ]
 }
