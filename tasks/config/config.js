@@ -12,11 +12,6 @@ var config = {
   app:'app',
   views:'src/client/app/**/views/*.html',
   entry:'src/client/app/boot.js',
-  bundle:{
-    script:'bundle.js',
-    style:'bundle.css',
-    templates:'templates.js'
-  },
   port:8080,
   domPort:8090,//backend port
   articles:'src/server/posts/articles/*.md'
