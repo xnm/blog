@@ -2,10 +2,10 @@
 'use strict';
 var angular = require('angular');
 //noinspection JSCheckFunctionSignatures
-var $injector = angular.injector(['ng']);
+var $injector = angular.injector(['ng'],false);
 var $log = $injector.get('$log');
-
 var _ = require('lodash');
+
 module.exports = function constructTocTokens(tokens){
 
   //Construct Toc Html Blocks
@@ -18,8 +18,8 @@ module.exports = function constructTocTokens(tokens){
       for(var i=0;i<depth-1;i++){
         treeNodePrefix += '&nbsp;&nbsp;';
       }
-      //console.log(treeNodePrefix+currentToken.text);
-      tagStart+= (treeNodePrefix+'<a href="#' + tocLinkCase(currentToken.text) + '">'  + currentToken.text + '</a>\n');
+      var currentLocationUrl = window.location.href;
+      tagStart+= (treeNodePrefix+'<a href="'+currentLocationUrl+'#' + tocLinkCase(currentToken.text) + '">'  + currentToken.text + '</a>\n');
     }
 
   });

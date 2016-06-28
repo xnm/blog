@@ -3,7 +3,7 @@
 
 module.exports = function innerLinkFilter(){
   return function(externalLink){
-    var innerLinkPrefix = '#/post/';
+    var innerLinkPrefix = '#!/post/';
     return innerLinkPrefix+externalLink;
   }
 };

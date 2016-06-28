@@ -7,7 +7,7 @@ var articleService = require('../services/article-service')();
 module.exports = function tagController($stateParams,$interval){
   var vm = this;
 
-  vm.tagLinkPrefix = '#/tag/';
+  vm.tagLinkPrefix = '#!/tag/';
   vm.tagName = $stateParams.tagName;
   vm.indeterminateValue = 0;
   vm.showProgressBar = false;

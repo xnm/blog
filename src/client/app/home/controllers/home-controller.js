@@ -8,7 +8,7 @@ module.exports = function homeController($log,$interval){
   var vm = this;
 
   vm.articleSummaryList = [];
-  vm.tagLinkPrefix = '#/tag/';
+  vm.tagLinkPrefix = '#!/tag/';
   vm.indeterminateValue = 0;
   vm.showProgressBar = false;
   init();

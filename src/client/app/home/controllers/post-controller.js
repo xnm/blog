@@ -8,7 +8,7 @@ var articleService = require('../services/article-service')();
 
 module.exports = function postController($location,$log,$stateParams,$state){
   var vm = this;
-  vm.tagLinkPrefix = '#/tag/';
+  vm.tagLinkPrefix = '#!/tag/';
   vm.postLink = $stateParams.postLink;
   vm.postDetail = {};
   vm.showProgressBar = false;
