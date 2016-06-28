@@ -8,13 +8,12 @@
  * */
 var fs = require('fs');
 
-var config = require('../../../../tasks/config/config');
+var config = require('../config/config');
 var logger = config.logger;
 var pathUtil = require('./path-util');
 
 var articleParser = require('./article-parser');
 
-var articleFacade = require('../facade/article-facade');
 
 module.exports.loadArticles = loadArticles;
 
@@ -25,12 +24,13 @@ module.exports.loadArticles = loadArticles;
 function loadArticles(){
   logger.info('Loading Articles');
   var articlePath = pathUtil.getGlobalPaths(config.articles);
-
+  var articles = [];
   articlePath.forEach(function(mdFilePath){
     logger.info('Loading Article:',mdFilePath);
-    loadArticle(mdFilePath);
+    var article = loadArticle(mdFilePath);
+    articles.push(article);
   });
-
+  return articles;
 }
 
 
@@ -42,6 +42,5 @@ function loadArticles(){
 function loadArticle(mdFilePath){
   var fileNamePrefix = pathUtil.getFilePrefix(mdFilePath);
   var mdContent = fs.readFileSync(mdFilePath).toString();
-  var article = articleParser.parseMarkdownString(fileNamePrefix,mdContent);
-  articleFacade.insert(article);
+  return articleParser.parseMarkdownString(fileNamePrefix, mdContent);
 }

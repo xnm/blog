@@ -1,7 +1,7 @@
 /** Created by Aquariuslt on 4-17-2016.*/
 'use strict';
 
-var config = require('../../../../tasks/config/config');
+var config = require('../config/config');
 var logger = config.logger;
 
 var _ = require('lodash');

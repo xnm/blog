@@ -45,6 +45,7 @@
     "gulp-concat": "^2.6.0",
     "gulp-header": "^1.7.1",
     "gulp-htmlmin": "^1.3.0",
+    "gulp-inject-string": "^1.1.0",
     "gulp-material-icons": "^1.0.4",
     "gulp-rename": "^1.2.2",
     "gulp-replace": "^0.5.4",

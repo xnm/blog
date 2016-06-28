@@ -26,7 +26,8 @@ var webpackOptions = {};
 var bundledFileName = {
 	script: 'bundle.min.js',
 	style: 'bundle.min.css',
-	templates: 'templates.js'
+	templates: 'templates.js',
+	articles:'articles.js'
 };
 
 module.exports = {

@@ -8,74 +8,26 @@ var $log = $injector.get('$log');
 var $http = $injector.get('$http');
 
 var _ = require('lodash');
-var async = require('async');
 
-var errorUtil = require('../../common/utils/error-util');
+
+var articlesList = require('../../../../../dist/articles');
 
 var articleService = function articleService() {
-
-  var atomList = [
-    "http://"+document.domain+":8090/api/rss/articleList"
-  ];
 
   var articleSummaryListCache = [];
 
   function loadArticleSummaryList(callback) {
-    var self = this;
-    var parallelTasks = [];
-    _.each(atomList, function (singleAtomUrl) {
-      $log.info('add parallelTask:', singleAtomUrl);
-      parallelTasks.push(loadArticleSummaryTask(singleAtomUrl));
+    var resultArticleSummaryList = [];
+    _.each(articlesList, function (articleSummary) {
+      handleArticleSummary(articleSummary);
+      resultArticleSummaryList.push(articleSummary);
     });
-    async.parallel(parallelTasks, function (error, articleSummaryListArray) {
-      errorUtil.handleError(error, self);
-      var resultArticleSummaryList = [];
-      _.each(articleSummaryListArray, function (articleSummaryList) {
-        _.each(articleSummaryList, function (articleSummary) {
-          handleArticleSummary(articleSummary);
-          resultArticleSummaryList.push(articleSummary);
-        });
-      });
-      //update articleCache
-      articleSummaryListCache = resultArticleSummaryList;
-
-      callback(null, resultArticleSummaryList);
-    });
+    //update articleCache
+    articleSummaryListCache = resultArticleSummaryList;
+    callback(null,articleSummaryListCache);
   }
 
-  /**
-   * load atom info from single url.
-   * @param {String} atomUrl The url need to get info.like "http://blog.aquariuslt.com/atom"
-   * */
-  function loadArticleSummaryTask(atomUrl) {
-    function loadXmlDataFromUrl(asyncCallback) {
-      $log.info('1.loadXmlDataFromUrl:', atomUrl);
-      $http.get(atomUrl)
-        .then(function successCallback(response) {
-          var jsonData = response.data;
-          asyncCallback(null, jsonData);
-        }, function failureCallback(response) {
-          errorUtil.handleError(response);
-          asyncCallback(null, null);
-        });
-    }
-
-    function convertXmlToJsonData(jsonData, asyncCallback) {
-      $log.info('2.convertToJsonData:', atomUrl);
-      asyncCallback(null, jsonData);
-    }
-
-    return function (callback) {
-      $log.info('0.loadArticleSummaryTask start.');
-      async.waterfall([
-                        loadXmlDataFromUrl,
-                        convertXmlToJsonData
-                      ], function (error, result) {
-        errorUtil.handleError(error);
-        return callback(null, result);
-      });
-    }
-  }
+  
 
   /**
    * Get innerText from html body.
