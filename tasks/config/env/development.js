@@ -27,7 +27,8 @@ var bundledFileName = {
 	script: 'bundle.js',
 	style: 'bundle.css',
 	templates: 'templates.js',
-	articles:'articles.js'
+	articles:'articles.js',
+	siteConfig:'siteConfig.js'
 };
 
 module.exports = {

@@ -34,7 +34,6 @@ module.exports = function homeController($log,$interval){
     articleService.loadArticleSummaryList(function(error,summaryList){
       vm.articleSummaryList = summaryList;
       $log.info('load articleSummaryList complete. count of articleSummary:',vm.articleSummaryList.length);
-      $log.info('articleSummary schema example:',vm.articleSummaryList);
       stopInterval();
     });
   }

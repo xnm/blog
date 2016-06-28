@@ -1,6 +1,8 @@
 /** Created by Aquariuslt on 2016-03-19.*/
 'use strict';
 
+var siteVariables = require('../../../../../dist/siteConfig');
+
 module.exports = function navbarController($state, $log) {
 
   var vm = this;
@@ -35,62 +37,21 @@ module.exports = function navbarController($state, $log) {
     vm.isFeatureListOpen = !vm.isFeatureListOpen;
   }
 
-  vm.subSiteList = [
-    {
-      name: 'Blog',
-      link: 'http://blog.aquariuslt.com',
-      description: 'Tech Blog'
-    },
-    {
-      name: 'Debug',
-      link: 'http://debug.aquariuslt.com',
-      description: 'Debug Log'
-    },
-    {
-      name: 'Game',
-      link: 'http://game.aquariuslt.com',
-      description: 'WoW Daily'
-    }
-  ];
+  vm.subSiteList = siteVariables.subSiteLinks;
 
   vm.featureList = [
     {
       name: 'Markdown Editor',
-      link: '#/markdown-editor',
+      link: '#!/markdown-editor',
       state: 'markdown',
       description: 'Markdown Editor with simple features'
     }
   ];
 
-  vm.friendLinkRegisterLink = '#/friend-links';
-  vm.friendLinkList = [
-    {
-      name: 'wxsm\'s blog',
-      link: 'http://wxsm.top',
-      description: 'Kary Gor博客,前端大神'
-    },
-    {
-      name: 'Goovier Blog',
-      link: 'http://goovier.com'
-    },
-    {
-      name: 'xgezhange博客',
-      link: 'http://xgezhang.com',
-      description: '坚持更新的技术博客,实在难得'
-    },
-    {
-      name: 'lousama',
-      link: 'http://lousama.com',
-      description: '为女人拒绝阿里的楼总'
-    },
-    {
-      name: 'NotFound404',
-      link: 'https://github.com/404NoFound',
-      description: '良哥的Github'
-    }
-  ];
+  vm.friendLinkRegisterLink = '#!/friend-links';
+  vm.friendLinkList = siteVariables.friendLinks;
 
-  function goState(stateName) {
+  function goState(stateName) {       
     $log.info('go state:',stateName);
     $state.go(stateName,{});
   }

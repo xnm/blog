@@ -1,6 +1,7 @@
 /** Created by Aquariuslt on 4/4/16.*/
 var _ = require('lodash');
 
+var siteVariables = require('../../../../../dist/siteConfig');
 var errorUtil = require('../../common/utils/error-util');
 
 var pageService = require('../../common/services/page-service')();
@@ -17,7 +18,7 @@ module.exports = function postController($location,$log,$stateParams,$state){
   vm.disqusShortLink = $stateParams.postLink.replace(/\//g,'-');
   vm.disqusUrl = $location.absUrl();
   vm.disqusConfig = {
-    disqus_shortname:'althome',
+    disqus_shortname:siteVariables.disqusShortName,
     disqus_identifier: vm.disqusShortLink,
     disqus_url: vm.disqusUrl
   };
@@ -38,7 +39,7 @@ module.exports = function postController($location,$log,$stateParams,$state){
     showProgressBar();
     articleService.loadPostDetail(vm.postLink,function(error,postDetail){
       errorUtil.handleError(error);
-      $log.info('postDetail:',postDetail);
+      //$log.info('postDetail:',postDetail);
       if(_.isUndefined(postDetail)){
         hideProgressBar();
         $state.go('otherwise');

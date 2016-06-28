@@ -1,6 +1,7 @@
 /** Created by Aquariuslt on 4/18/16.*/
 
 
+var siteVariables = require('../../../../../dist/siteConfig');
 var pageService = require('../../common/services/page-service')();
 
 module.exports = function friendLinkController($location) {
@@ -17,33 +18,7 @@ module.exports = function friendLinkController($location) {
                    + '链接:\n'
                    + '描述:\n';
 
-  vm.friendLinkList = [
-    {
-      name:'wxsm\'s blog',
-      link:'http://wxsm.top',
-      description:'Kary Gor博客,前端大神'
-    },
-    {
-      name:'Goovier Blog',
-      link:'http://goovier.com'
-    },
-    {
-      name:'xgezhange博客',
-      link:'http://xgezhang.com',
-      description:'坚持更新的技术博客,实在难得'
-    },
-    {
-      name:'lousama',
-      link:'http://lousama.com',
-      description:'为女人拒绝阿里的楼总'
-    },
-    {
-      name:'NotFound404',
-      link:'https://github.com/404NoFound',
-      description:'良哥的Github'
-    }
-
-  ];
+  vm.friendLinkList = siteVariables.friendLinks;
 
 
 
@@ -51,7 +26,7 @@ module.exports = function friendLinkController($location) {
   vm.disqusShortLink = 'friend-link';
   vm.disqusUrl = $location.absUrl();
   vm.disqusConfig = {
-    disqus_shortname:'althome',
+    disqus_shortname:siteVariables.disqusShortName,
     disqus_identifier: vm.disqusShortLink,
     disqus_url: vm.disqusUrl
   };

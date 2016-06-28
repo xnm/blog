@@ -15,7 +15,8 @@ var config = {
   port:8080,
   domPort:8090,//backend port
   articles:'src/articles/*.md',
-  emptyFile:'tasks/client/empty.js'
+  emptyFile:'tasks/client/empty.js',
+  siteConfig:'tasks/config/siteConfig.js'
 };
 
 module.exports = initEnvironmentConfig();

@@ -10,7 +10,7 @@
       </div>
       <div>
         <md-button ui-sref="default">
-          <a class="md-title no-decoration">Aquariuslt Home</a>
+          <a class="md-title no-decoration" ng-bind="page.service.getDefaultTitle()">Home</a>
         </md-button>
       </div>
     </md-toolbar>
@@ -26,7 +26,7 @@
         <md-content>
           <div class="navbar-header-background-grey">
             <md-content class="md-padding grey" flex layout-padding layout-align="center center">
-              <h2>Aquariuslt Home</h2>
+              <h2 ng-bind="page.service.getDefaultTitle()">Home</h2>
             </md-content>
           </div>
           <div class="lock-size" layout="row" layout-align="center center">
@@ -124,7 +124,7 @@
 
         
         <!-- Unsolved Problem in Angular-Material $mdCompile Service -->
-        <!--
+        
         <div layout="column" class="md-2-line" ng-click="vm.toggleFeatureListOpen()">
           <md-button layout="row" class="md-button" flex-auto>
             <div>
@@ -147,7 +147,7 @@
             </a>
           </md-button>
         </div>
-        -->
+        
 
       </md-content>
     </md-sidenav>

@@ -24,10 +24,11 @@ var cleanCssOptions = {};
 var webpackOptions = {};
 
 var bundledFileName = {
-	script: 'bundle.min.js',
-	style: 'bundle.min.css',
+	script: 'bundle.js',
+	style: 'bundle.css',
 	templates: 'templates.js',
-	articles:'articles.js'
+	articles:'articles.js',
+	siteConfig:'siteConfig.js'
 };
 
 module.exports = {
