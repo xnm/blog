@@ -15,7 +15,8 @@
     "blog"
   ],
   "scripts": {
-    "test":"node client"
+    "test":"gulp env:test",
+    "start":"gulp"
   },
   "private": true,
   "version": "0.0.1",

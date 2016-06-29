@@ -1,3 +1,4 @@
+/**Created by CUIJA on 2016-06-29.*/
 /** Created by Aquariuslt on 2016-03-16.*/
 'use strict';
 
@@ -11,34 +12,28 @@ var index = require('./index');
 var styles = require('./styles');
 var webpack = require('./webpack');
 var watch = require('./webpack-watch');
-var stat = require('./static');
 var minify = require('./minify');
 var articles = require('./articles');
 var variables = require('./variables');
 
-module.exports.start = start;
 
-function start(){
+
+gulp.task('test',function(){
   logger.info('[task]:client');
   if(process.env.NODE_ENV === 'release'){
     runSequence(
       ['compile-articles','export-variables'],
       ['index','styles'],
       ['webpack'],
-      'minify',
-      'stat'
+      'minify'
     );
   }
   else{
     runSequence(
       ['compile-articles','export-variables'],
       ['index','styles'],
-      ['webpack','watch'],
-      'stat'
+      ['webpack']
     );
   }
-}
-
-gulp.task('client',function(){
-  start();
+  logger.info('[task]:end');
 });

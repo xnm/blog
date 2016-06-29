@@ -1,5 +1,8 @@
 ## Site
 Rewrite Site using `Angular`+`Angular Material`  
-Fuck TypeScript.
+
+
+
+[![Build Status](https://travis-ci.org/Aquariuslt/Site.png)](https://travis-ci.org/Aquariuslt/Site)
 
 
