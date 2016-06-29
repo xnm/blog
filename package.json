@@ -14,6 +14,9 @@
     "web",
     "blog"
   ],
+  "scripts": {
+    "test":"node client"
+  },
   "private": true,
   "version": "0.0.1",
   "license": "MIT",
