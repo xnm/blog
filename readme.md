@@ -9,9 +9,34 @@ But I have no ability to deep customize the styles about `WordPress` themes
 and hate to read php code.
 
 So I change to `Hexo`.
-Hexo is a good static blog,and my tech blog was deploy on 
+Hexo is a good static blog,and my tech blog was deploy on [aquariuslt.github.io](http://blog.aquariuslt.com)
+
+But its default using swig as view template which I cant full control its style because   
+IntelliJ IDEA not support swig view engine well.  
+
+Then I began to write the blog site using `Angular` and `Angular Material`.
+Then I update the code to make it configurable.
 
 ## Getting Start
+1. Clone the project.
+2. Run `npm install` to install the package.(make sure you have node.js running environment)
+3. Delete the articles I wrote under `src/articles`
+4. Customize your config at `tasks/config/siteConfig`
+5. Start writing your articles using markdown:write as markdown and all you need to do extra is add meta info in the .md file like below:  
+```
+'''metadata
+{
+  "title": "IntelliJ IDEA 技巧系列:MEAN Stack 开发配置与常用插件",
+  "date": "2015-12-03 10:16:29",
+  "tags": ["IntelliJ IDEA","Node.js","JavaScript"]
+}
+'''
+```
+6. Run `gulp` or `node client`to see your project in [http://localhost:8080](http://localhost:8080)
+> You can customize the port config in `tasks/config/config.js`.  
+> You can run it without node.js static web server just open the `dist/index.html`.  
+> You can also deploy it in your github pages.  
+
 
 
 ## Features
@@ -63,44 +88,44 @@ In current version a site-config file:
 
 ```js
 module.exports = {
-	siteName:'Aquariuslt Home',
-	subSiteLinks:[
-		{
-			name: 'Blog',
-			link: 'http://blog.aquariuslt.com',
-			description: 'Tech Blog'
-		},
-		{
-			name: 'Debug',
-			link: 'http://debug.aquariuslt.com',
-			description: 'Debug Log'
-		},
-		{
-			name: 'Game',
-			link: 'http://game.aquariuslt.com',
-			description: 'WoW Daily'
-		}
-	],
-	
-	friendLinks:[
-		{
-			name: 'wxsm blog',
-			link: 'http://anubarak.com',
-			description: 'Kary Gor博客,前端大神'
-		},
-		{
-			name: 'lousama',
-			link: 'http://lousama.com',
-			description: '为女人拒绝阿里的楼总'
-		},
-		{
-			name: 'NotFound404',
-			link: 'https://github.com/404NoFound',
-			description: '良哥的Github'
-		}
-	],
-	
-	disqusShortName:'althome'
+  siteName:'Aquariuslt Home',
+  subSiteLinks:[
+    {
+      name: 'Blog',
+      link: 'http://blog.aquariuslt.com',
+      description: 'Tech Blog'
+    },
+    {
+      name: 'Debug',
+      link: 'http://debug.aquariuslt.com',
+      description: 'Debug Log'
+    },
+    {
+      name: 'Game',
+      link: 'http://game.aquariuslt.com',
+      description: 'WoW Daily'
+    }
+  ],
+  
+  friendLinks:[
+    {
+      name: 'wxsm blog',
+      link: 'http://anubarak.com',
+      description: 'Kary Gor博客,前端大神'
+    },
+    {
+      name: 'lousama',
+      link: 'http://lousama.com',
+      description: '为女人拒绝阿里的楼总'
+    },
+    {
+      name: 'NotFound404',
+      link: 'https://github.com/404NoFound',
+      description: '良哥的Github'
+    }
+  ],
+  
+  disqusShortName:'althome'
 };
 
 ```
@@ -128,17 +153,17 @@ You can find your disqus shortname in below:
 #### SubSites and FriendLinks
 As social friend links and your sub websites, you can add its link like below format:  
 ```js
-	friendLinks:[
-		{
-			name: 'wxsm blog',
-			link: 'http://anubarak.com',
-			description: 'Kary Gor博客,前端大神'
-		},
-		{
-			name: 'NotFound404',
-			link: 'https://github.com/404NoFound',
-			description: '良哥的Github'
-		}
-	]
+friendLinks:[
+  {
+    name: 'wxsm blog',
+    link: 'http://anubarak.com',
+    description: 'Kary Gor博客,前端大神'
+  },
+  {
+    name: 'NotFound404',
+    link: 'https://github.com/404NoFound',
+    description: '良哥的Github'
+  }
+]
 ```
 
