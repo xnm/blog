@@ -1,7 +1,7 @@
 ## Site
 Rewrite Site using `Angular`+`Angular Material`  
 
-[![Build Status](https://travis-ci.org/Aquariuslt/Site.png)](https://travis-ci.org/Aquariuslt/Site)  
+[![Build Status](https://api.travis-ci.org/Aquariuslt/Site.png)](https://travis-ci.org/Aquariuslt/Site)  
 
 ## Background
 When I was young,I choose `WordPress` as a blog platform.  
