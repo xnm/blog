@@ -13,7 +13,6 @@ var config = {
   views:'src/client/app/**/views/*.html',
   entry:'src/client/app/boot.js',
   port:8080,
-  domPort:8090,//backend port
   articles:'src/articles/*.md',
   emptyFile:'tasks/client/empty.js',
   siteConfig:'tasks/config/siteConfig.js'
