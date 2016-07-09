@@ -24,8 +24,8 @@ var cleanCssOptions = {};
 var webpackOptions = {};
 
 var bundledFileName = {
-	script: 'bundle.js',
-	style: 'bundle.css',
+	script: 'bundle.min.js',
+	style: 'bundle.min.css',
 	templates: 'templates.js',
 	articles:'articles.js',
 	siteConfig:'siteConfig.js'
