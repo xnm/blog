@@ -38,7 +38,7 @@ function parseMarkdownString(fileNamePrefix,mdContent){
     title:metadata.title,
     published:metadata.published,
     tags: metadata.tags,
-    md: mdContent,
+    //md: mdContent,
     html: htmlContent
   };
 }
