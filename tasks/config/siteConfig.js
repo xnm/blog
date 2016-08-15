@@ -1,8 +1,6 @@
 /** Created by Aquariuslt on 6/28/16.*/
 module.exports = {
   siteName: 'Aquariuslt Home',
-
-
   subSiteLinks: [
     {
       name: 'Blog',
@@ -39,5 +37,16 @@ module.exports = {
     }
   ],
 
-  disqusShortName: 'althome'
+  disqusShortName: 'althome',
+  
+  
+  /* 
+  * git deploy config,should in server site
+  * */
+  deployOptions:{
+    remoteUrl:'https://github.com/GuAquariuslt/guaquariuslt.github.io.git',
+    origin:'origin',
+    branch:'master',
+    cacheDir:'.cache'
+  }
 };

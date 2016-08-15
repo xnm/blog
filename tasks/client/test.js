@@ -1,4 +1,3 @@
-/**Created by CUIJA on 2016-06-29.*/
 /** Created by Aquariuslt on 2016-03-16.*/
 'use strict';
 
