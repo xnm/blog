@@ -1,7 +1,7 @@
 /** Created by Aquariuslt on 2016-03-19.*/
 'use strict';
 
-var siteVariables = require('../../../../../dist/siteConfig');
+var siteVariables = require('../../../../../dest/siteConfig');
 
 module.exports = function navbarController($state, $log) {
 

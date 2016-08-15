@@ -17,7 +17,7 @@ var localStorageConfig = require('../common/configs/local-storage');
 
 var homeRoutes = require('./routes/home-routes');
 
-var templates = require('../../../../dist/templates');
+var templates = require('../../../../dest/templates');
 
 var pageService = require('../common/services/page-service');
 var articleService = require('../home/services/article-service');

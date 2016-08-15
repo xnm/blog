@@ -11,7 +11,7 @@ module.exports = gulp.task('export-variables', function () {
 
   gulp.src(config.siteConfig)
     .pipe(rename(config.bundle.siteConfig))
-    .pipe(gulp.dest(config.dist));
+    .pipe(gulp.dest(config.dest));
 
   logger.info('[task]:export-variables-end');
 });

@@ -9,8 +9,8 @@ var minify = require('gulp-uglify');
 
 module.exports = gulp.task('minify', function () {
   logger.info('[task]:minify');
-  gulp.src(config.dist + '/' + config.bundle.script)
+  gulp.src(config.dest + '/' + config.bundle.script)
     .pipe(minify({mangle: false}))
-    .pipe(gulp.dest(config.dist));
+    .pipe(gulp.dest(config.dest));
   logger.info('[task]:minify-end');
 });

@@ -1,7 +1,7 @@
 /** Created by Aquariuslt on 4/4/16.*/
 var _ = require('lodash');
 
-var siteVariables = require('../../../../../dist/siteConfig');
+var siteVariables = require('../../../../../dest/siteConfig');
 var errorUtil = require('../../common/utils/error-util');
 
 var pageService = require('../../common/services/page-service')();

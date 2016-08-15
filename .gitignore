@@ -8,6 +8,5 @@
 # Node.js
 node_modules
 
-# Distribution
-dist
-database
+# Destination
+dest

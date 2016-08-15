@@ -17,7 +17,7 @@ module.exports = gulp.task('templates', function (callback) {
     .pipe(templateCache({root: config.app, standalone: true}))
     .pipe(header('module.exports = '))
     .pipe(rename(config.bundle.templates))
-    .pipe(gulp.dest(config.dist))
+    .pipe(gulp.dest(config.dest))
     .on('end', function () {
       if (callback) {
         logger.info('[task]:templates-end');

@@ -12,7 +12,7 @@ var templates = require('./templates');
 var webpackOptions = {
   entry: ('./' + config.entry),
   output: {
-    path: config.dist,
+    path: config.dest,
     filename: config.bundle.script
   }
 };

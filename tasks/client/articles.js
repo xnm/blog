@@ -21,7 +21,7 @@ module.exports = gulp.task('compile-articles', function () {
       'module.exports = ' + articles + ';'
     ))
     .pipe(rename(config.bundle.articles))
-    .pipe(gulp.dest(config.dist));
+    .pipe(gulp.dest(config.dest));
 
   logger.info('[task]:compile-articles-end');
 });

@@ -1,7 +1,7 @@
 /** Created by Aquariuslt on 4/18/16.*/
 
 
-var siteVariables = require('../../../../../dist/siteConfig');
+var siteVariables = require('../../../../../dest/siteConfig');
 var pageService = require('../../common/services/page-service')();
 
 module.exports = function friendLinkController($location) {

@@ -7,7 +7,7 @@ var $injector = angular.injector(['ng']);
 var $log = $injector.get('$log');
 var _ = require('lodash');
 
-var siteVariables = require('../../../../../dist/siteConfig');
+var siteVariables = require('../../../../../dest/siteConfig');
 
 var pageService = function pageService() {
   var svc = this;

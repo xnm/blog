@@ -702,8 +702,8 @@ module.exports = {
   client: {
     lib: {
       css: [
-        'bower_components/bootstrap/dist/css/bootstrap.css',
-        'bower_components/bootstrap/dist/css/bootstrap-theme.css'
+        dest,
+        dest
       ],
       js: [
         'bower_components/angular/angular.js',
@@ -715,7 +715,7 @@ module.exports = {
         'bower_components/angular-bootstrap/ui-bootstrap.js',
         'bower_components/angular-bootstrap/ui-bootstrap-tpls.js',
         'bower_components/angular-file-upload/angular-file-upload.js',
-        'bower_components/live-reload-js/dist/livereload.js'
+        dest
         ],
       tests: ['bower_components/angular-mocks/angular-mocks.js']
     },

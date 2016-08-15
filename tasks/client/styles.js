@@ -20,6 +20,6 @@ module.exports = gulp.task('styles', function () {
     .pipe(concat('bundledCssFile'))
     .pipe(rename(config.bundle.style))
     .pipe(cleanCss(cleanCssOptions))
-    .pipe(gulp.dest(config.dist));
+    .pipe(gulp.dest(config.dest));
   logger.info('[task]:styles-end');
 });

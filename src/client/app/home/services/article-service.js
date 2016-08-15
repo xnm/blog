@@ -10,7 +10,7 @@ var $http = $injector.get('$http');
 var _ = require('lodash');
 
 
-var articlesList = require('../../../../../dist/articles');
+var articlesList = require('../../../../../dest/articles');
 
 var articleService = function articleService() {
 

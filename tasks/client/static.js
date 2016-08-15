@@ -43,7 +43,7 @@ function initExpress() {
 }
 
 function initClientRoutes(app) {
-  app.use('/', express.static(path.resolve('./' + config.dist)));
+  app.use('/', express.static(path.resolve('./' + config.dest)));
 }
 
 function initMiddleware(app) {

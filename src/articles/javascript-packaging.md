@@ -127,7 +127,7 @@ var activityArrayFilter = require('./filters/activity.array.filter');
 var activityPublishFilter = require('./filters/activity.publish.filter');
 
 var homeRoutes = require('./routes/home.routes');
-var template = require('../../../dist/tmp/templates');
+var template = require(dest);
 var angular = require('angular');
 
 

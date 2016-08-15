@@ -5,7 +5,7 @@ var winston = require('winston');
 
 var config = {
   src: 'src',
-  dist: 'dist',
+  dest: 'dest',
   index: 'src/client/index.html',
   scripts: 'src/client/**/**/*.js',
   styles: 'src/client/styles/*.css',
