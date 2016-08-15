@@ -2,13 +2,13 @@
 'use strict';
 
 
-module.exports = function summaryFilter(){
-  return function(content,summaryLength){
-    if(summaryLength){
-      return content.substring(0,summaryLength);
+module.exports = function summaryFilter() {
+  return function (content, summaryLength) {
+    if (summaryLength) {
+      return content.substring(0, summaryLength);
     }
-    else{
-      return content.substring(0,80);
+    else {
+      return content.substring(0, 80);
     }
   }
 };

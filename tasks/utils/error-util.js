@@ -9,8 +9,8 @@ var _ = require('lodash');
 module.exports.handleError = handleError;
 
 
-function handleError(error){
-  if(!_.isEmpty(error)){
+function handleError(error) {
+  if (!_.isEmpty(error)) {
     logger.error(error);
   }
 }

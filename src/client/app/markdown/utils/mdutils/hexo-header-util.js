@@ -63,12 +63,12 @@ module.exports = function constructHexoTokens(tokens) {
 
 
   var headerTokens = {
-    type:'code',
-    lang:'json',
-    text:JSON.stringify(hexoHeader,null,2)
+    type: 'code',
+    lang: 'json',
+    text: JSON.stringify(hexoHeader, null, 2)
   };
 
-  var contentTokens = tokens.slice(hexoMetadataIndex+1);
+  var contentTokens = tokens.slice(hexoMetadataIndex + 1);
 
   var combinedTokens = [headerTokens].concat(contentTokens);
   combinedTokens.links = {};

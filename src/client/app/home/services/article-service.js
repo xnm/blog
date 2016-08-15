@@ -24,10 +24,9 @@ var articleService = function articleService() {
     });
     //update articleCache
     articleSummaryListCache = resultArticleSummaryList;
-    callback(null,articleSummaryListCache);
+    callback(null, articleSummaryListCache);
   }
 
-  
 
   /**
    * Get innerText from html body.
@@ -61,7 +60,7 @@ var articleService = function articleService() {
   function filterArticleListByTagName(articleSummaryList, tagName) {
     var tagDetailList = [];
     _.each(articleSummaryList, function (articleSummary) {
-      if (_.indexOf(articleSummary.tags, tagName)>=0){
+      if (_.indexOf(articleSummary.tags, tagName) >= 0) {
         tagDetailList.push(articleSummary);
       }
     });

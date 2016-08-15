@@ -9,7 +9,7 @@ var errorUtil = require('../../common/utils/error-util');
 var pageService = require('../../common/services/page-service')();
 var markdownService = require('../services/markdown-service')();
 
-module.exports = function markdownEditorController($window, $scope, $mdDialog, $mdMedia, $log, $document, $cookies, $interval, localStorageService){
+module.exports = function markdownEditorController($window, $scope, $mdDialog, $mdMedia, $log, $document, $cookies, $interval, localStorageService) {
   var vm = this;
 
 
@@ -22,71 +22,69 @@ module.exports = function markdownEditorController($window, $scope, $mdDialog, $
   vm.showOptionsTagDialog = showOptionsTagDialog;
 
 
-
-
   init();
 
 
-  function init(){
+  function init() {
     initTitle();
     loadEditorContentFromCache();
     startAutoSaveEditorContent();
   }
 
 
-  function initTitle(){
+  function initTitle() {
     pageService.setTitle('Markdown Editor');
   }
 
-  function loadEditorContentFromCache(){
+  function loadEditorContentFromCache() {
     var editorContentFromCache = localStorageService.get('editorContentCache');
-    if(!_.isEmpty(editorContentFromCache)){
+    if (!_.isEmpty(editorContentFromCache)) {
       $log.info('found editor content from cache');
       vm.editorContent = editorContentFromCache;
       compileMarkdownContent();
     }
   }
 
-  function saveEditorContentToCache(){
-    if(!_.isEmpty(vm.editorContent)){
+  function saveEditorContentToCache() {
+    if (!_.isEmpty(vm.editorContent)) {
       $log.info('auto save');
-      localStorageService.set('editorContentCache',vm.editorContent);
+      localStorageService.set('editorContentCache', vm.editorContent);
     }
   }
 
-  function startAutoSaveEditorContent(){
-    $interval(saveEditorContentToCache,30*1000);
+  function startAutoSaveEditorContent() {
+    $interval(saveEditorContentToCache, 30 * 1000);
   }
 
   /**
    * Get selected compiled from cookies
    * @return {Array} should return a formatOptions as array
    * */
-  function constructCompileOptions(){
+  function constructCompileOptions() {
     var formatOptionsFromCookies = $cookies.get('formatOptions');
-    if(!_.isEmpty(formatOptionsFromCookies)){
+    if (!_.isEmpty(formatOptionsFromCookies)) {
       return JSON.parse(formatOptionsFromCookies);
     }
     return [];
   }
-  
-  function compileMarkdownContent(){
+
+  function compileMarkdownContent() {
 
     vm.previewContent = markdownService.compileMarkdown(vm.editorContent, constructCompileOptions());
   }
 
 
-  function showOptionsTagDialog($event){
-    
+  function showOptionsTagDialog($event) {
+
     //noinspection JSCheckFunctionSignatures
     $mdDialog.show({
-      templateUrl:'app/markdown/views/markdown-editor-format-options-template.html',
-      parent:angular.element($document.body),
-      targetEvent:$event,
-      clickOutsideToClose:true
-    }).then(function(){
+      templateUrl: 'app/markdown/views/markdown-editor-format-options-template.html',
+      parent: angular.element($document.body),
+      targetEvent: $event,
+      clickOutsideToClose: true
+    }).then(function () {
       compileMarkdownContent();
-    },function(){
+    }, function () {
       $log.info('cancel edit format options.');
     });
   }

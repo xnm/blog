@@ -223,11 +223,11 @@
     content: "";
 }
 
-.markdown-body>*:first-child {
+.markdown-body > *:first-child {
     margin-top: 0 !important;
 }
 
-.markdown-body>*:last-child {
+.markdown-body > *:last-child {
     margin-bottom: 0 !important;
 }
 
@@ -375,7 +375,7 @@
     margin-bottom: 0;
 }
 
-.markdown-body li>p {
+.markdown-body li > p {
     margin-top: 16px;
 }
 
@@ -402,11 +402,11 @@
     border-left: 4px solid #ddd;
 }
 
-.markdown-body blockquote>:first-child {
+.markdown-body blockquote > :first-child {
     margin-top: 0;
 }
 
-.markdown-body blockquote>:last-child {
+.markdown-body blockquote > :last-child {
     margin-bottom: 0;
 }
 
@@ -448,7 +448,7 @@
     padding-bottom: 0.2em;
     margin: 0;
     font-size: 85%;
-    background-color: rgba(0,0,0,0.04);
+    background-color: rgba(0, 0, 0, 0.04);
     border-radius: 3px;
 }
 
@@ -458,7 +458,7 @@
     content: "\00a0";
 }
 
-.markdown-body pre>code {
+.markdown-body pre > code {
     padding: 0;
     margin: 0;
     font-size: 100%;
@@ -639,7 +639,7 @@
     list-style-type: none;
 }
 
-.markdown-body .task-list-item+.task-list-item {
+.markdown-body .task-list-item + .task-list-item {
     margin-top: 3px;
 }
 
@@ -648,7 +648,7 @@
     vertical-align: middle;
 }
 
-.markdown-body :checked+.radio-label {
+.markdown-body :checked + .radio-label {
     z-index: 1;
     position: relative;
     border-color: #4078c0;

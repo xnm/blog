@@ -5,7 +5,7 @@ var angular = require('angular');
 //noinspection JSUnusedLocalSymbols
 var uiRouter = require('angular-ui-router');
 
-module.exports = ['$locationProvider',function($locationProvider){
+module.exports = ['$locationProvider', function ($locationProvider) {
   $locationProvider.hashPrefix('!');
   $locationProvider.html5Mode(false);
 }];

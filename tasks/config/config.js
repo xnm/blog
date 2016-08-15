@@ -4,30 +4,30 @@ var _ = require('lodash');
 var winston = require('winston');
 
 var config = {
-  src:'src',
-  dist:'dist',
-  index:'src/client/index.html',
-  scripts:'src/client/**/**/*.js',
-  styles:'src/client/styles/*.css',
-  app:'app',
-  views:'src/client/app/**/views/*.html',
-  entry:'src/client/app/boot.js',
-  port:8080,
-  articles:'src/articles/*.md',
-  emptyFile:'tasks/client/empty.js',
-  siteConfig:'tasks/config/siteConfig.js'
+  src: 'src',
+  dist: 'dist',
+  index: 'src/client/index.html',
+  scripts: 'src/client/**/**/*.js',
+  styles: 'src/client/styles/*.css',
+  app: 'app',
+  views: 'src/client/app/**/views/*.html',
+  entry: 'src/client/app/boot.js',
+  port: 8080,
+  articles: 'src/articles/*.md',
+  emptyFile: 'tasks/client/empty.js',
+  siteConfig: 'tasks/config/siteConfig.js'
 };
 
 module.exports = initEnvironmentConfig();
 
-function initEnvironmentConfig(){
+function initEnvironmentConfig() {
   //noinspection JSUnresolvedVariable
-  var environment = process.env.NODE_ENV||'development';
+  var environment = process.env.NODE_ENV || 'development';
   var environmentConfig = {};
-  if(_.isEqual(environment,'release')){
+  if (_.isEqual(environment, 'release')) {
     environmentConfig = require('./env/release');
   }
-  else{
+  else {
     environmentConfig = require('./env/development');
   }
   return _.extend(config, environmentConfig);

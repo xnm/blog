@@ -10,19 +10,19 @@ var config = require('../config/config');
 var logger = config.logger;
 
 
-module.exports = gulp.task('templates',function(callback){
+module.exports = gulp.task('templates', function (callback) {
   logger.info('[task]:templates');
   gulp.src(config.views)
     .pipe(htmlmin(config.htmlminOptions))
-    .pipe(templateCache({root:config.app ,standalone:true}))
+    .pipe(templateCache({root: config.app, standalone: true}))
     .pipe(header('module.exports = '))
     .pipe(rename(config.bundle.templates))
     .pipe(gulp.dest(config.dist))
-    .on('end',function(){
-      if(callback){
+    .on('end', function () {
+      if (callback) {
         logger.info('[task]:templates-end');
         callback();
       }
     });
-  
+
 });

@@ -6,17 +6,17 @@ var path = require('path');
 var gulp = require('gulp');
 var webpack = require('webpack-stream');
 
-module.exports = gulp.task('watch',function(){
+module.exports = gulp.task('watch', function () {
   logger.info('[task]:watch');
-  function reload(event){
-    logger.info('[watch]:'+event.path+' change.updating..');
+  function reload(event) {
+    logger.info('[watch]:' + event.path + ' change.updating..');
   }
 
-  var scriptWatcher = gulp.watch(config.scripts,['webpack']);
-  var stylesWatcher = gulp.watch(config.styles,['styles']);
-  var viewsWatcher = gulp.watch(config.views,['webpack']);
+  var scriptWatcher = gulp.watch(config.scripts, ['webpack']);
+  var stylesWatcher = gulp.watch(config.styles, ['styles']);
+  var viewsWatcher = gulp.watch(config.views, ['webpack']);
 
-  scriptWatcher.on('change',reload);
-  stylesWatcher.on('change',reload);
-  viewsWatcher.on('change',reload);
+  scriptWatcher.on('change', reload);
+  stylesWatcher.on('change', reload);
+  viewsWatcher.on('change', reload);
 });

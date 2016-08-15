@@ -15,30 +15,30 @@ var tocUtil = require('../utils/mdutils/toc-util');
 
 
 var compileUtils = {
-  hexoHeader:hexoHeaderUtil,
-  nonStrictMode:nonStrictModeUtil,
-  toc:tocUtil
+  hexoHeader: hexoHeaderUtil,
+  nonStrictMode: nonStrictModeUtil,
+  toc: tocUtil
 };
 
 
-var markdownService = function markdownService(){
+var markdownService = function markdownService() {
   var svc = this;
   svc.name = 'markdownService';
 
-  function compileMarkdown(mdContent,compileOptions){
+  function compileMarkdown(mdContent, compileOptions) {
     var lexer = new marked.Lexer();
     var tokens = lexer.lex(mdContent);
-    var combinedTokens = constructTokens(tokens,compileOptions);
+    var combinedTokens = constructTokens(tokens, compileOptions);
     return marked.parser(combinedTokens);
   }
 
-  function constructTokens(tokens,compileOptions){
+  function constructTokens(tokens, compileOptions) {
     var combinedTokens = _.clone(tokens);
 
-    _.reduce(compileOptions,function(accumulateTokens,compileUtilName){
-      $log.info('compileOption:',compileUtilName);
+    _.reduce(compileOptions, function (accumulateTokens, compileUtilName) {
+      $log.info('compileOption:', compileUtilName);
       return compileUtils[compileUtilName](accumulateTokens);
-    },combinedTokens);
+    }, combinedTokens);
 
     combinedTokens.links = {};
     return combinedTokens;
@@ -46,11 +46,9 @@ var markdownService = function markdownService(){
 
 
   return {
-    compileMarkdown:compileMarkdown
+    compileMarkdown: compileMarkdown
   }
 };
-
-
 
 
 module.exports = markdownService;

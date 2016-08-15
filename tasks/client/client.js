@@ -18,27 +18,27 @@ var variables = require('./variables');
 
 module.exports.start = start;
 
-function start(){
+function start() {
   logger.info('[task]:client');
-  if(process.env.NODE_ENV === 'release'){
+  if (process.env.NODE_ENV === 'release') {
     runSequence(
-      ['compile-articles','export-variables'],
-      ['index','styles'],
+      ['compile-articles', 'export-variables'],
+      ['index', 'styles'],
       ['webpack'],
       'minify',
       'stat'
     );
   }
-  else{
+  else {
     runSequence(
-      ['compile-articles','export-variables'],
-      ['index','styles'],
-      ['webpack','watch'],
+      ['compile-articles', 'export-variables'],
+      ['index', 'styles'],
+      ['webpack', 'watch'],
       'stat'
     );
   }
 }
 
-gulp.task('client',function(){
+gulp.task('client', function () {
   start();
 });

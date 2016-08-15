@@ -13,8 +13,8 @@ var $log = $injector.get('$log');
 
 module.exports.handleError = handleError;
 
-function handleError(error){
-  if(!_.isEmpty(error)){
+function handleError(error) {
+  if (!_.isEmpty(error)) {
     $log.error(error);
   }
 }

@@ -17,21 +17,20 @@ var articles = require('./articles');
 var variables = require('./variables');
 
 
-
-gulp.task('test',function(){
+gulp.task('test', function () {
   logger.info('[task]:client');
-  if(process.env.NODE_ENV === 'release'){
+  if (process.env.NODE_ENV === 'release') {
     runSequence(
-      ['compile-articles','export-variables'],
-      ['index','styles'],
+      ['compile-articles', 'export-variables'],
+      ['index', 'styles'],
       ['webpack'],
       'minify'
     );
   }
-  else{
+  else {
     runSequence(
-      ['compile-articles','export-variables'],
-      ['index','styles'],
+      ['compile-articles', 'export-variables'],
+      ['index', 'styles'],
       ['webpack']
     );
   }

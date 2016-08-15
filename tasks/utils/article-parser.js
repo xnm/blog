@@ -27,16 +27,16 @@ module.exports.parseMarkdownString = parseMarkdownString;
  * html:
  * md:
  * */
-function parseMarkdownString(fileNamePrefix,mdContent){
-  var htmlContent = marked(mdContent,{
-    renderer:articleRenderer
+function parseMarkdownString(fileNamePrefix, mdContent) {
+  var htmlContent = marked(mdContent, {
+    renderer: articleRenderer
   });
-  var metadata = getMetaData(fileNamePrefix,mdContent);
+  var metadata = getMetaData(fileNamePrefix, mdContent);
 
   return {
-    link:metadata.link,
-    title:metadata.title,
-    published:metadata.published,
+    link: metadata.link,
+    title: metadata.title,
+    published: metadata.published,
     tags: metadata.tags,
     //md: mdContent,
     html: htmlContent
@@ -44,27 +44,27 @@ function parseMarkdownString(fileNamePrefix,mdContent){
 }
 
 
-function getMetaData(fileNamePrefix,mdContent){
+function getMetaData(fileNamePrefix, mdContent) {
   var lexer = new marked.Lexer();
   var tokens = lexer.lex(mdContent);
-  var metadataText = _.find(tokens,{
-    type:'code',
-    lang:'metadata'
+  var metadataText = _.find(tokens, {
+    type: 'code',
+    lang: 'metadata'
   });
   var text = metadataText.text;
   var metadata = JSON.parse(text);
 
-  constructExtraInfo(fileNamePrefix,metadata);
-  logger.info('Parsed metadata:',metadata);
+  constructExtraInfo(fileNamePrefix, metadata);
+  logger.info('Parsed metadata:', metadata);
   return metadata;
 }
 
 
-function constructExtraInfo(fileNamePrefix,metadata){
+function constructExtraInfo(fileNamePrefix, metadata) {
   var published = moment(metadata.date);
   var publishPrefix = published.format('YYYY/MM/DD');
 
   //noinspection JSUnresolvedFunction
   metadata.published = published.toDate();
-  metadata.link = publishPrefix+'/'+fileNamePrefix;
+  metadata.link = publishPrefix + '/' + fileNamePrefix;
 }

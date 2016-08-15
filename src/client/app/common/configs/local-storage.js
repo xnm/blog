@@ -4,6 +4,6 @@ var angular = require('angular');
 var $injector = angular.injector(['ng']);
 var $log = $injector.get('$log');
 
-module.exports = function (localStorageServiceProvider){
+module.exports = function (localStorageServiceProvider) {
   localStorageServiceProvider.setPrefix('site');
 };

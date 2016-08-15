@@ -3,38 +3,38 @@
 
 var winston = require('winston');
 var logger = new winston.Logger({
-	level: 'debug',
-	transports: [
-		new (winston.transports.Console)({
-			timestamp: Date.now()
-		})
-	]
+  level: 'debug',
+  transports: [
+    new (winston.transports.Console)({
+      timestamp: Date.now()
+    })
+  ]
 });
 var htmlminOptions = {
-	comments: false,
-	empty: true,
-	spare: true,
-	quotes: true
+  comments: false,
+  empty: true,
+  spare: true,
+  quotes: true
 };
 
 var cleanCssOptions = {
-	debug: true
+  debug: true
 };
 
 var webpackOptions = {};
 
 var bundledFileName = {
-	script: 'bundle.js',
-	style: 'bundle.css',
-	templates: 'templates.js',
-	articles:'articles.js',
-	siteConfig:'siteConfig.js'
+  script: 'bundle.js',
+  style: 'bundle.css',
+  templates: 'templates.js',
+  articles: 'articles.js',
+  siteConfig: 'siteConfig.js'
 };
 
 module.exports = {
-	logger: logger,
-	bundle: bundledFileName,
-	htmlminOptions: htmlminOptions,
-	cleanCssOptions: cleanCssOptions,
-	webpackOptions: webpackOptions
+  logger: logger,
+  bundle: bundledFileName,
+  htmlminOptions: htmlminOptions,
+  cleanCssOptions: cleanCssOptions,
+  webpackOptions: webpackOptions
 };

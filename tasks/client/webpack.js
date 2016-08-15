@@ -10,22 +10,22 @@ var templates = require('./templates');
 
 
 var webpackOptions = {
-  entry:('./'+config.entry),
-  output:{
-    path:config.dist,
-    filename:config.bundle.script
+  entry: ('./' + config.entry),
+  output: {
+    path: config.dist,
+    filename: config.bundle.script
   }
 };
 
-var mergedWebpackOptions = _.merge(webpackOptions,config.webpackOptions);
+var mergedWebpackOptions = _.merge(webpackOptions, config.webpackOptions);
 
-module.exports = gulp.task('webpack',['templates'],function(callback){
+module.exports = gulp.task('webpack', ['templates'], function (callback) {
   logger.info('[task]:webpack');
-  webpack(mergedWebpackOptions,function(error,status){
-    if(error){
-      logger.error('webpack error:',error);
+  webpack(mergedWebpackOptions, function (error, status) {
+    if (error) {
+      logger.error('webpack error:', error);
     }
-    logger.info('[webpack]:',status.toString({}));
+    logger.info('[webpack]:', status.toString({}));
     logger.info('[task]:webpack-end');
     callback();
   });

@@ -15,7 +15,7 @@ module.exports.getFilePrefix = getFilePrefix;
  * @return {*} the folder path without '*'
  * */
 function getGlobalPaths(globPatterns, excludes) {
-  var urlRegex = new RegExp('^(?:[a-z]+:)?\/\/','i');
+  var urlRegex = new RegExp('^(?:[a-z]+:)?\/\/', 'i');
   var output = [];
   if (_.isArray(globPatterns)) {
 
@@ -56,8 +56,8 @@ function getGlobalPaths(globPatterns, excludes) {
  * filePath:'src/server/posts/articles/site-code-structure.md'
  * output:'site-code-structure'
  * */
-function getFilePrefix(filePath){
+function getFilePrefix(filePath) {
   var pathArray = filePath.split('/');
-  var fileName = pathArray[pathArray.length-1];
+  var fileName = pathArray[pathArray.length - 1];
   return fileName.split('.')[0];
 }

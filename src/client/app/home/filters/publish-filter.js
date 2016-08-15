@@ -8,9 +8,9 @@ var _ = require('lodash');
 
 
 module.exports = function publishFilter() {
-  return function(summary){
+  return function (summary) {
     //noinspection JSUnresolvedVariable
-    if(_.isEqual(summary.published,summary.updated)){
+    if (_.isEqual(summary.published, summary.updated)) {
       return 'Published';
     }
     return 'Published';

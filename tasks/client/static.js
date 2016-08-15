@@ -6,46 +6,46 @@ var gulp = require('gulp');
 var express = require('express');
 var path = require('path');
 
-module.exports = gulp.task('stat',function(callback){
+module.exports = gulp.task('stat', function (callback) {
   logger.info('[task]:static');
   start();
-  if(callback){
+  if (callback) {
     callback();
   }
 });
 
 
-function start(callback){
-  init(function(app){
-    app.listen(config.port,function(error){
-      if(error){
+function start(callback) {
+  init(function (app) {
+    app.listen(config.port, function (error) {
+      if (error) {
         logger.error(error);
       }
-      if(callback){
+      if (callback) {
         callback(app);
       }
     });
   });
 }
 
-function init(callback){
+function init(callback) {
   var app = initExpress();
-  if(callback){
+  if (callback) {
     callback(app);
   }
 }
 
-function initExpress(){
+function initExpress() {
   var app = express();
   initClientRoutes(app);
   initMiddleware(app);
   return app;
 }
 
-function initClientRoutes(app){
+function initClientRoutes(app) {
   app.use('/', express.static(path.resolve('./' + config.dist)));
 }
 
-function initMiddleware(app){
+function initMiddleware(app) {
   app.set('showStackError', true);
 }

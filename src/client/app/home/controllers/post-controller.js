@@ -7,7 +7,7 @@ var errorUtil = require('../../common/utils/error-util');
 var pageService = require('../../common/services/page-service')();
 var articleService = require('../services/article-service')();
 
-module.exports = function postController($location,$log,$stateParams,$state){
+module.exports = function postController($location, $log, $stateParams, $state) {
   var vm = this;
   vm.tagLinkPrefix = '#!/tag/';
   vm.postLink = $stateParams.postLink;
@@ -15,10 +15,10 @@ module.exports = function postController($location,$log,$stateParams,$state){
   vm.showProgressBar = false;
   vm.postContent = {};
 
-  vm.disqusShortLink = $stateParams.postLink.replace(/\//g,'-');
+  vm.disqusShortLink = $stateParams.postLink.replace(/\//g, '-');
   vm.disqusUrl = $location.absUrl();
   vm.disqusConfig = {
-    disqus_shortname:siteVariables.disqusShortName,
+    disqus_shortname: siteVariables.disqusShortName,
     disqus_identifier: vm.disqusShortLink,
     disqus_url: vm.disqusUrl
   };
@@ -26,37 +26,37 @@ module.exports = function postController($location,$log,$stateParams,$state){
   init();
 
 
-  function init(){
+  function init() {
     initTitle();
     loadPostDetail();
   }
 
-  function initTitle(){
+  function initTitle() {
     pageService.setTitle('Post');
   }
-  
-  function loadPostDetail(){
+
+  function loadPostDetail() {
     showProgressBar();
-    articleService.loadPostDetail(vm.postLink,function(error,postDetail){
+    articleService.loadPostDetail(vm.postLink, function (error, postDetail) {
       errorUtil.handleError(error);
       //$log.info('postDetail:',postDetail);
-      if(_.isUndefined(postDetail)){
+      if (_.isUndefined(postDetail)) {
         hideProgressBar();
         $state.go('otherwise');
       }
-      else{
+      else {
         vm.postDetail = postDetail;
         pageService.setTitle(postDetail.title);
         hideProgressBar();
       }
     });
   }
-  
-  function showProgressBar(){
+
+  function showProgressBar() {
     vm.showProgressBar = true;
   }
-  
-  function hideProgressBar(){
+
+  function hideProgressBar() {
     vm.showProgressBar = false;
   }
 

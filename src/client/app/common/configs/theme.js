@@ -6,7 +6,7 @@
  *
  * */
 
-module.exports = function($mdThemingProvider){
+module.exports = function ($mdThemingProvider) {
   var whitePrimary = {
     '50': '#ffffff',
     '100': '#ffffff',
@@ -41,9 +41,7 @@ module.exports = function($mdThemingProvider){
     'A400': '#ffffff',
     'A700': '#0c32ff'
   };
-  $mdThemingProvider.definePalette('bluePrimary',bluePrimary);
-
-
+  $mdThemingProvider.definePalette('bluePrimary', bluePrimary);
 
 
   //noinspection JSUnresolvedFunction

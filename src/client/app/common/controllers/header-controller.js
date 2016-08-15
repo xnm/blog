@@ -4,7 +4,7 @@
 
 module.exports = function headerController($scope, $timeout, $mdSidenav, $log) {
 
-  
+
   $scope.toggleLeft = buildDelayedToggler('left');
 
 

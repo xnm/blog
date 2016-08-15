@@ -2,12 +2,12 @@
 
 var pageService = require('../services/page-service')();
 
-module.exports = function pageController(){
-  
+module.exports = function pageController() {
+
   var page = this;
-  
+
   page.service = pageService;
-  
+
 };
 
 

@@ -14,12 +14,8 @@ var htmlmin = require('gulp-htmlmin');
  * 2.replace scripts and styles tag
  * 3.move to 'dist' folder
  * */
-module.exports = gulp.task('index',function(){
+module.exports = gulp.task('index', function () {
   logger.info('[task]:index');
-  gulp.src(config.index).
-    pipe(replace('<!-- CSS -->','<link href="'+config.bundle.style+'" rel="stylesheet">')).
-    pipe(replace('<!-- JS -->','<script src="' + config.bundle.script + '"></script>')).
-    pipe(htmlmin(config.htmlminOptions)).
-    pipe(gulp.dest(config.dist));
+  gulp.src(config.index).pipe(replace('<!-- CSS -->', '<link href="' + config.bundle.style + '" rel="stylesheet">')).pipe(replace('<!-- JS -->', '<script src="' + config.bundle.script + '"></script>')).pipe(htmlmin(config.htmlminOptions)).pipe(gulp.dest(config.dist));
   logger.info('[task]:index-end');
 });

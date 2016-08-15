@@ -2,11 +2,11 @@
 'use strict';
 var _ = require('lodash');
 
-module.exports = function oddFilter(){
-  return function(itemList,oddFlag){
+module.exports = function oddFilter() {
+  return function (itemList, oddFlag) {
     var filteredItemList = [];
-    _.each(itemList,function(item,index){
-      if(_.isEqual((index%2===0),oddFlag)){
+    _.each(itemList, function (item, index) {
+      if (_.isEqual((index % 2 === 0), oddFlag)) {
         filteredItemList.push(item);
       }
     });

@@ -20,21 +20,14 @@ var ignoreLanguageList = [
 
 
 //ignore custom language
-articleRenderer.code = function(code,lang,escaped){
-  if(!_.isEmpty(lang) && _.indexOf(ignoreLanguageList,lang)>=0){
+articleRenderer.code = function (code, lang, escaped) {
+  if (!_.isEmpty(lang) && _.indexOf(ignoreLanguageList, lang) >= 0) {
     return '';
   }
-  else{
-    return new marked.Renderer().code(code,lang,escaped);
+  else {
+    return new marked.Renderer().code(code, lang, escaped);
   }
 };
-
-
-
-
-
-
-
 
 
 module.exports = articleRenderer;

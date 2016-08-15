@@ -4,7 +4,7 @@ var pageService = require('../../common/services/page-service')();
 var articleService = require('../services/article-service')();
 
 
-module.exports = function tagController($stateParams,$interval){
+module.exports = function tagController($stateParams, $interval) {
   var vm = this;
 
   vm.tagLinkPrefix = '#!/tag/';
@@ -12,34 +12,31 @@ module.exports = function tagController($stateParams,$interval){
   vm.indeterminateValue = 0;
   vm.showProgressBar = false;
   vm.tagDetailList = [];
-  
+
   init();
-  
-  function init(){
+
+  function init() {
     initTitle();
     loadTagDetail();
   }
 
 
-  function initTitle(){
-    pageService.setTitle('Tags Contains '+vm.tagName);
+  function initTitle() {
+    pageService.setTitle('Tags Contains ' + vm.tagName);
   }
 
 
-  function loadTagDetail(){
+  function loadTagDetail() {
     startInterval();
-    articleService.loadArticleSummaryList(function(error,summaryList){
-      vm.tagDetailList = articleService.filterArticleListByTagName(summaryList,vm.tagName);
+    articleService.loadArticleSummaryList(function (error, summaryList) {
+      vm.tagDetailList = articleService.filterArticleListByTagName(summaryList, vm.tagName);
       stopInterval();
     });
   }
-  
-  
 
 
-
-  function updateProgressBar(){
-    if(vm.showProgressBar){
+  function updateProgressBar() {
+    if (vm.showProgressBar) {
       vm.indeterminateValue += 1;
       if (vm.indeterminateValue > 100) {
         vm.indeterminateValue = 0;
@@ -48,14 +45,14 @@ module.exports = function tagController($stateParams,$interval){
   }
 
 
-  function startInterval(){
+  function startInterval() {
     vm.showProgressBar = true;
     $interval(updateProgressBar, 100, 0, true);
   }
 
-  function stopInterval(){
+  function stopInterval() {
     vm.showProgressBar = false;
     $interval.cancel(updateProgressBar);
   }
-  
+
 };

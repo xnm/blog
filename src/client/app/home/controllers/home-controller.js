@@ -4,7 +4,7 @@ var articleService = require('../services/article-service')();
 var pageService = require('../../common/services/page-service')();
 
 
-module.exports = function homeController($log,$interval){
+module.exports = function homeController($log, $interval) {
   var vm = this;
 
   vm.articleSummaryList = [];
@@ -14,32 +14,27 @@ module.exports = function homeController($log,$interval){
   init();
 
 
-
-
- 
-
-
-  function init(){
+  function init() {
     initTitle();
     loadArticleSummaryList();
   }
 
-  function initTitle(){
+  function initTitle() {
     pageService.setTitle('');
   }
 
 
-  function loadArticleSummaryList(){
+  function loadArticleSummaryList() {
     startInterval();
-    articleService.loadArticleSummaryList(function(error,summaryList){
+    articleService.loadArticleSummaryList(function (error, summaryList) {
       vm.articleSummaryList = summaryList;
-      $log.info('load articleSummaryList complete. count of articleSummary:',vm.articleSummaryList.length);
+      $log.info('load articleSummaryList complete. count of articleSummary:', vm.articleSummaryList.length);
       stopInterval();
     });
   }
 
-  function updateProgressBar(){
-    if(vm.showProgressBar){
+  function updateProgressBar() {
+    if (vm.showProgressBar) {
       vm.indeterminateValue += 1;
       if (vm.indeterminateValue > 100) {
         vm.indeterminateValue = 0;
@@ -48,12 +43,12 @@ module.exports = function homeController($log,$interval){
   }
 
 
-  function startInterval(){
+  function startInterval() {
     vm.showProgressBar = true;
     $interval(updateProgressBar, 100, 0, true);
   }
 
-  function stopInterval(){
+  function stopInterval() {
     vm.showProgressBar = false;
     $interval.cancel(updateProgressBar);
   }

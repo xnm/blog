@@ -13,7 +13,7 @@ var cleanCssOptions = config.cleanCssOptions;
  * with internal image,fonts,and other resources with it.
  * So just bundle plain css file.
  * */
-module.exports = gulp.task('styles',function(){
+module.exports = gulp.task('styles', function () {
   logger.info('[task]:styles');
   var stylePaths = config.styles;
   gulp.src(stylePaths)

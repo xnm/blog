@@ -40,7 +40,7 @@ var trustAsHtmlFilter = require('./filters/trust-html-filter');
 
 var markdown = require('../markdown');
 
-module.exports = angular.module('site',[
+module.exports = angular.module('site', [
   'ngMessages',
   'ngAnimate',
   'ngMaterial',
@@ -51,20 +51,20 @@ module.exports = angular.module('site',[
   'angularUtils.directives.dirDisqus',
   'LocalStorageModule'
 ])
-  .factory('pageService',pageService)
-  .factory('articleService',articleService)
-  .controller('pageController',pageController)
-  .controller('headerController',headerController)
-  .controller('navbarController',navbarController)
-  .controller('homeController',homeController)
-  .controller('tagController',tagController)
-  .controller('postController',postController)
-  .controller('friendLinkController',friendLinkController)
-  .filter('summaryFilter',summaryFilter)
-  .filter('oddFilter',oddFilter)
-  .filter('publishFilter',publishFilter)
-  .filter('innerLinkFilter',innerLinkFilter)
-  .filter('trustAsHtmlFilter',trustAsHtmlFilter)
+  .factory('pageService', pageService)
+  .factory('articleService', articleService)
+  .controller('pageController', pageController)
+  .controller('headerController', headerController)
+  .controller('navbarController', navbarController)
+  .controller('homeController', homeController)
+  .controller('tagController', tagController)
+  .controller('postController', postController)
+  .controller('friendLinkController', friendLinkController)
+  .filter('summaryFilter', summaryFilter)
+  .filter('oddFilter', oddFilter)
+  .filter('publishFilter', publishFilter)
+  .filter('innerLinkFilter', innerLinkFilter)
+  .filter('trustAsHtmlFilter', trustAsHtmlFilter)
   .config(themeConfig)
   .config(locationConfig)
   .config(homeRoutes)

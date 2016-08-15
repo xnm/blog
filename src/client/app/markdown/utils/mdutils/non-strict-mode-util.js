@@ -8,19 +8,17 @@ var $log = $injector.get('$log');
 
 var _ = require('lodash');
 
-module.exports = function constructNonStrictModeTokens(tokens){
+module.exports = function constructNonStrictModeTokens(tokens) {
 
   var replaceRegex = /\n/ig;
   var replacementRegex = '  \n';
 
 
-
-
   var nonStrictModeTokens = _.clone(tokens);
 
-  _.forEach(nonStrictModeTokens,function(currentToken){
-    if(_.isEqual(currentToken.type,'paragraph')){
-      currentToken.text = _.replace(currentToken.text,replaceRegex,replacementRegex);
+  _.forEach(nonStrictModeTokens, function (currentToken) {
+    if (_.isEqual(currentToken.type, 'paragraph')) {
+      currentToken.text = _.replace(currentToken.text, replaceRegex, replacementRegex);
     }
   });
 

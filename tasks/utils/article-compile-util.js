@@ -18,15 +18,12 @@ var articleParser = require('./article-parser');
 module.exports.loadArticles = loadArticles;
 
 
-
-
-
-function loadArticles(){
+function loadArticles() {
   logger.info('Loading Articles');
   var articlePath = pathUtil.getGlobalPaths(config.articles);
   var articles = [];
-  articlePath.forEach(function(mdFilePath){
-    logger.info('Loading Article:',mdFilePath);
+  articlePath.forEach(function (mdFilePath) {
+    logger.info('Loading Article:', mdFilePath);
     var article = loadArticle(mdFilePath);
     articles.push(article);
   });
@@ -39,7 +36,7 @@ function loadArticles(){
  * 2.Convert to markdown object using custom marked parser and renderer
  * 3.Saving to database
  * */
-function loadArticle(mdFilePath){
+function loadArticle(mdFilePath) {
   var fileNamePrefix = pathUtil.getFilePrefix(mdFilePath);
   var mdContent = fs.readFileSync(mdFilePath).toString();
   return articleParser.parseMarkdownString(fileNamePrefix, mdContent);

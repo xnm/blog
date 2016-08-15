@@ -9,33 +9,33 @@ var _ = require('lodash');
 
 var siteVariables = require('../../../../../dist/siteConfig');
 
-var pageService = function pageService(){
+var pageService = function pageService() {
   var svc = this;
   svc.defaultTitle = siteVariables.siteName;
   svc.title = svc.defaultTitle;
-  
-  function getTitle(){
+
+  function getTitle() {
     return svc.title;
   }
-  
-  function getDefaultTitle(){
+
+  function getDefaultTitle() {
     return svc.defaultTitle;
   }
-  
-  function setTitle(newTitle){
-    if(!_.isEmpty(newTitle)){
+
+  function setTitle(newTitle) {
+    if (!_.isEmpty(newTitle)) {
       svc.title = newTitle + ' - ' + svc.defaultTitle;
     }
-    else{
+    else {
       svc.title = svc.defaultTitle;
     }
-    $log.info('set new title:',svc.title);
+    $log.info('set new title:', svc.title);
   }
 
-  return{
-    getTitle:getTitle,
-    getDefaultTitle:getDefaultTitle,
-    setTitle:setTitle
+  return {
+    getTitle: getTitle,
+    getDefaultTitle: getDefaultTitle,
+    setTitle: setTitle
   };
 };
 
