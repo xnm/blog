@@ -10,7 +10,6 @@ var angular = require('angular');
 var $injector = angular.injector(['ng']);
 var $log = $injector.get('$log');
 
-
 module.exports.handleError = handleError;
 
 function handleError(error) {

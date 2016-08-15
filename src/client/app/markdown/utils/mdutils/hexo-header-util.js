@@ -22,7 +22,6 @@ module.exports = function constructHexoTokens(tokens) {
 
   var hexoMetadataTokens = tokens.slice(0, hexoMetadataIndex + 1);
 
-
   //combine tags
   var hexoTags = [];
   var hexoTagStartIndex = _.findIndex(hexoMetadataTokens, {type: 'list_start'});
@@ -43,7 +42,6 @@ module.exports = function constructHexoTokens(tokens) {
 
   var headerKeyValueList = hexoHeaderString.split('\n');
 
-
   //construct final hexo header
   var hexoHeader = {};
   for (var i = 0, headerLength = headerKeyValueList.length; i < headerLength; i++) {
@@ -60,7 +58,6 @@ module.exports = function constructHexoTokens(tokens) {
       hexoHeader[key] = value;
     }
   }
-
 
   var headerTokens = {
     type: 'code',

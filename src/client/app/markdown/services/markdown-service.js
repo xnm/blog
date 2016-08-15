@@ -13,13 +13,11 @@ var hexoHeaderUtil = require('../utils/mdutils/hexo-header-util');
 var nonStrictModeUtil = require('../utils/mdutils/non-strict-mode-util');
 var tocUtil = require('../utils/mdutils/toc-util');
 
-
 var compileUtils = {
   hexoHeader: hexoHeaderUtil,
   nonStrictMode: nonStrictModeUtil,
   toc: tocUtil
 };
-
 
 var markdownService = function markdownService() {
   var svc = this;
@@ -44,11 +42,9 @@ var markdownService = function markdownService() {
     return combinedTokens;
   }
 
-
   return {
     compileMarkdown: compileMarkdown
   }
 };
-
 
 module.exports = markdownService;

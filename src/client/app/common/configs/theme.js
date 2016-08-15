@@ -43,7 +43,6 @@ module.exports = function ($mdThemingProvider) {
   };
   $mdThemingProvider.definePalette('bluePrimary', bluePrimary);
 
-
   //noinspection JSUnresolvedFunction
   $mdThemingProvider.theme('default')
     .primaryPalette('whitePrimary')

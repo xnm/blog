@@ -3,7 +3,6 @@
 var pageService = require('../../common/services/page-service')();
 var articleService = require('../services/article-service')();
 
-
 module.exports = function tagController($stateParams, $interval) {
   var vm = this;
 
@@ -20,11 +19,9 @@ module.exports = function tagController($stateParams, $interval) {
     loadTagDetail();
   }
 
-
   function initTitle() {
     pageService.setTitle('Tags Contains ' + vm.tagName);
   }
-
 
   function loadTagDetail() {
     startInterval();
@@ -34,7 +31,6 @@ module.exports = function tagController($stateParams, $interval) {
     });
   }
 
-
   function updateProgressBar() {
     if (vm.showProgressBar) {
       vm.indeterminateValue += 1;
@@ -43,7 +39,6 @@ module.exports = function tagController($stateParams, $interval) {
       }
     }
   }
-
 
   function startInterval() {
     vm.showProgressBar = true;

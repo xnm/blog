@@ -6,7 +6,6 @@
 'use strict';
 var _ = require('lodash');
 
-
 module.exports = function publishFilter() {
   return function (summary) {
     //noinspection JSUnresolvedVariable

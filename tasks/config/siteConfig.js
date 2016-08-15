@@ -1,6 +1,19 @@
 /** Created by Aquariuslt on 6/28/16.*/
 module.exports = {
   siteName: 'Aquariuslt Home',
+  siteDescription:'Coder,WoWer',
+  profileLinks:[
+    {
+      link:'Github',
+      icon:'keyboard',
+      description:'https://github.com/Aquariuslt'
+    },
+    {
+      link:'Twitter',
+      icon:'twitter',
+      description:'https://twitter.com/superaquariuslt'
+    }
+  ],
   subSiteLinks: [
     {
       name: 'Blog',
@@ -44,9 +57,10 @@ module.exports = {
   * git deploy config,should in server site
   * */
   deployOptions:{
-    remoteUrl:'https://github.com/GuAquariuslt/guaquariuslt.github.io.git',
+    remoteUrl:'https://github.com/Aquariuslt/aquariuslt.github.io.git',
     origin:'origin',
     branch:'master',
     cacheDir:'.cache'
-  }
+  },
+  cname:'blog.aquariuslt.com'
 };

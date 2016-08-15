@@ -19,7 +19,9 @@ module.exports = function constructTocTokens(tokens) {
         treeNodePrefix += '&nbsp;&nbsp;';
       }
       var currentLocationUrl = window.location.href;
-      tagStart += (treeNodePrefix + '<a href="' + currentLocationUrl + '#' + tocLinkCase(currentToken.text) + '">' + currentToken.text + '</a>\n');
+      tagStart +=
+        (treeNodePrefix + '<a href="' + currentLocationUrl + '#' + tocLinkCase(currentToken.text)
+         + '">' + currentToken.text + '</a>\n');
     }
 
   });

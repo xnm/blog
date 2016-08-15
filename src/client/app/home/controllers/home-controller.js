@@ -3,7 +3,6 @@
 var articleService = require('../services/article-service')();
 var pageService = require('../../common/services/page-service')();
 
-
 module.exports = function homeController($log, $interval) {
   var vm = this;
 
@@ -12,7 +11,6 @@ module.exports = function homeController($log, $interval) {
   vm.indeterminateValue = 0;
   vm.showProgressBar = false;
   init();
-
 
   function init() {
     initTitle();
@@ -23,12 +21,12 @@ module.exports = function homeController($log, $interval) {
     pageService.setTitle('');
   }
 
-
   function loadArticleSummaryList() {
     startInterval();
     articleService.loadArticleSummaryList(function (error, summaryList) {
       vm.articleSummaryList = summaryList;
-      $log.info('load articleSummaryList complete. count of articleSummary:', vm.articleSummaryList.length);
+      $log.info('load articleSummaryList complete. count of articleSummary:',
+                vm.articleSummaryList.length);
       stopInterval();
     });
   }
@@ -41,7 +39,6 @@ module.exports = function homeController($log, $interval) {
       }
     }
   }
-
 
   function startInterval() {
     vm.showProgressBar = true;

@@ -7,11 +7,28 @@ var siteConfig = require('../config/siteConfig');
 
 var gulp = require('gulp');
 var ghPages = require('gulp-gh-pages');
+var runSequence = require('run-sequence');
 
 
-gulp.task('deploy', function () {
-  var deployOptions = siteConfig.deployOptions;
-  logger.info('[task]:deploy:', deployOptions.remoteUrl);
-  gulp.src(config.dest)
-    .pipe(ghPages(deployOptions));
+var cname = require('./cname');
+
+gulp.task('upload',function(next){
+	var deployOptions = siteConfig.deployOptions;
+	logger.info('[task]:push:', deployOptions.remoteUrl);
+	gulp.src(config.dest + '/**/*')
+		.pipe(ghPages(deployOptions));
+	logger.info('[task]:push end.');
+	next();
+});
+
+
+gulp.task('gh-pages', function () {
+	runSequence(
+		['compile-articles', 'export-variables'],
+		['index', 'styles'],
+		['webpack'],
+		['minify'],
+		['cname'],
+	  ['upload']
+	);
 });

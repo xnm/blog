@@ -14,12 +14,18 @@ var pageService = function pageService() {
   svc.defaultTitle = siteVariables.siteName;
   svc.title = svc.defaultTitle;
 
+  svc.siteDescription = siteVariables.siteDescription;
+
   function getTitle() {
     return svc.title;
   }
 
   function getDefaultTitle() {
     return svc.defaultTitle;
+  }
+
+  function getSiteDescription() {
+    return svc.siteDescription;
   }
 
   function setTitle(newTitle) {
@@ -35,9 +41,9 @@ var pageService = function pageService() {
   return {
     getTitle: getTitle,
     getDefaultTitle: getDefaultTitle,
+    getSiteDescription: getSiteDescription,
     setTitle: setTitle
   };
 };
-
 
 module.exports = pageService;

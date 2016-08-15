@@ -22,7 +22,6 @@ var templates = require('../../../../dest/templates');
 var pageService = require('../common/services/page-service');
 var articleService = require('../home/services/article-service');
 
-
 var pageController = require('../common/controllers/page-controller');
 var headerController = require('../common/controllers/header-controller');
 var navbarController = require('../common/controllers/navbar-controller');
@@ -36,7 +35,6 @@ var oddFilter = require('./filters/odd-filter');
 var publishFilter = require('./filters/publish-filter');
 var innerLinkFilter = require('./filters/inner-link-filter');
 var trustAsHtmlFilter = require('./filters/trust-html-filter');
-
 
 var markdown = require('../markdown');
 

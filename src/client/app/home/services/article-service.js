@@ -9,7 +9,6 @@ var $http = $injector.get('$http');
 
 var _ = require('lodash');
 
-
 var articlesList = require('../../../../../dest/articles');
 
 var articleService = function articleService() {
@@ -26,7 +25,6 @@ var articleService = function articleService() {
     articleSummaryListCache = resultArticleSummaryList;
     callback(null, articleSummaryListCache);
   }
-
 
   /**
    * Get innerText from html body.
@@ -47,7 +45,6 @@ var articleService = function articleService() {
     div.innerHTML = convertedHtmlString;
     articleSummary.text = div.innerText;
   }
-
 
   function handleArticleSummaryCategories(articleSummary) {
     /** @namespace articleSummary.tags */

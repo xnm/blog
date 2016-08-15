@@ -25,7 +25,6 @@ module.exports = function postController($location, $log, $stateParams, $state) 
 
   init();
 
-
   function init() {
     initTitle();
     loadPostDetail();

@@ -51,6 +51,8 @@ module.exports = function navbarController($state, $log) {
   vm.friendLinkRegisterLink = '#!/friend-links';
   vm.friendLinkList = siteVariables.friendLinks;
 
+  vm.profileLinks = siteVariables.profileLinks;
+
   function goState(stateName) {
     $log.info('go state:', stateName);
     $state.go(stateName, {});

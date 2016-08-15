@@ -7,16 +7,15 @@ var client = require('./tasks/client/client');
 var test = require('./tasks/client/test');
 var deploy = require('./tasks/client/deploy');
 
-
-gulp.task('default',function(){
+gulp.task('default', function () {
   runSequence('client');
 });
 
+gulp.task('deploy', function () {
+  runSequence('gh-pages');
+});
 
-gulp.task('env:test',function(){
+gulp.task('env:test', function () {
   runSequence('test');
 });
 
-gulp.task('deploy',function(){
-  runSequence('deploy');
-});

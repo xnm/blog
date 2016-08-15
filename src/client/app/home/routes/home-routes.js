@@ -6,7 +6,6 @@ var $log = $injector.get('$log');
 
 module.exports = function ($stateProvider) {
 
-
   $stateProvider
     .state('default', {
       url: '',

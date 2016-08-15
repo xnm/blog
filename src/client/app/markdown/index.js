@@ -11,10 +11,9 @@ var markdownRoute = require('./routes/markdown-editor-routes');
 
 var markdownService = require('./services/markdown-service');
 
-
 var markdownEditorController = require('./controllers/markdown-editor-controller');
-var markdownEditorFormatOptionsController = require('./controllers/markdown-editor-format-options-controller');
-
+var markdownEditorFormatOptionsController = require(
+  './controllers/markdown-editor-format-options-controller');
 
 module.exports = angular.module('markdown', [
   'ngMaterial',

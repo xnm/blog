@@ -13,7 +13,6 @@ module.exports = function constructNonStrictModeTokens(tokens) {
   var replaceRegex = /\n/ig;
   var replacementRegex = '  \n';
 
-
   var nonStrictModeTokens = _.clone(tokens);
 
   _.forEach(nonStrictModeTokens, function (currentToken) {

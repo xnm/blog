@@ -4,7 +4,6 @@ var _ = require('lodash');
 
 module.exports = function markdownEditorFormatOptionsController($log, $mdDialog, $cookies) {
 
-
   var vm = this;
 
   vm.formatOptions = [
@@ -23,13 +22,11 @@ module.exports = function markdownEditorFormatOptionsController($log, $mdDialog,
   ];
   vm.selectedOptions = getOptions();
 
-
   vm.exists = exists;
   vm.toggle = toggle;
 
   vm.cancel = cancel;
   vm.saveOptions = saveOptions;
-
 
   function cancel() {
     $log.info('click cancel');
@@ -69,6 +66,5 @@ module.exports = function markdownEditorFormatOptionsController($log, $mdDialog,
       list.push(item.value);
     }
   }
-
 
 };
