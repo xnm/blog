@@ -12,23 +12,21 @@ var runSequence = require('run-sequence');
 
 var cname = require('./cname');
 
-gulp.task('upload',function(next){
-	var deployOptions = siteConfig.deployOptions;
-	logger.info('[task]:push:', deployOptions.remoteUrl);
-	gulp.src(config.dest + '/**/*')
-		.pipe(ghPages(deployOptions));
-	logger.info('[task]:push end.');
-	next();
+gulp.task('upload', ['cname'],function () {
+  var deployOptions = siteConfig.deployOptions;
+  logger.info('[task]:push:', deployOptions.remoteUrl);
+  gulp.src(config.dest + '/**/*')
+    .pipe(ghPages(deployOptions));
+  logger.info('[task]:push-end');
 });
 
 
 gulp.task('gh-pages', function () {
-	runSequence(
-		['compile-articles', 'export-variables'],
-		['index', 'styles'],
-		['webpack'],
-		['minify'],
-		['cname'],
-	  ['upload']
-	);
+  runSequence(
+    ['compile-articles', 'export-variables'],
+    ['index', 'styles'],
+    ['webpack'],
+    ['minify'],
+    ['upload']
+  );
 });

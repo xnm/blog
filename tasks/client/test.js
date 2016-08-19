@@ -7,6 +7,7 @@ var runSequence = require('run-sequence');
 
 var gulp = require('gulp');
 
+var clean = require('./clean');
 var index = require('./index');
 var styles = require('./styles');
 var webpack = require('./webpack');
@@ -16,10 +17,11 @@ var articles = require('./articles');
 var variables = require('./variables');
 
 
-gulp.task('test', function () {
+gulp.task('env:test', function () {
   logger.info('[task]:client');
   if (process.env.NODE_ENV === 'release') {
     runSequence(
+      ['clean'],
       ['compile-articles', 'export-variables'],
       ['index', 'styles'],
       ['webpack'],
@@ -28,6 +30,7 @@ gulp.task('test', function () {
   }
   else {
     runSequence(
+      ['clean'],
       ['compile-articles', 'export-variables'],
       ['index', 'styles'],
       ['webpack']
