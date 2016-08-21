@@ -35,10 +35,13 @@ a:link, a:visited {
 }
 
 /** For other Material Design use STHeiTi font for Chinese rendering */
-.md-title  .md-subhead{
+.md-title {
     font-family: Roboto, RobotoDraft, "STHeiTi", Arial, sans-serif !important;
 }
 .md-headline {
     font-family: Roboto, RobotoDraft, "STHeiTi", Arial, sans-serif !important;
 }
 
+.md-subhead {
+    font-family: Roboto, RobotoDraft, "STHeiTi", Arial, sans-serif !important;
+}
