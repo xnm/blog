@@ -33,3 +33,12 @@ a:link, a:visited {
 .post-content {
     max-width: 900px;
 }
+
+/** For other Material Design use STHeiTi font for Chinese rendering */
+.md-title  .md-subhead{
+    font-family: Roboto, RobotoDraft, "STHeiTi", Arial, sans-serif !important;
+}
+.md-headline {
+    font-family: Roboto, RobotoDraft, "STHeiTi", Arial, sans-serif !important;
+}
+
