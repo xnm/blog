@@ -47,6 +47,11 @@ module.exports = {
       name: 'NotFound404',
       link: 'https://github.com/404NoFound',
       description: '良哥的Github'
+    },
+    {
+      name: '购物狂魔13c',
+      link: 'http://corydon.cc',
+      description:  'Android Big Deal in Beijing'
     }
   ],
 
