@@ -3,11 +3,10 @@
 
 # IDEA
 .idea
-*.iml
 
 # Node.js
 node_modules
 
 # Destination
-dest
+dist
 .cache
