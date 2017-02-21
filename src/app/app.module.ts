@@ -5,8 +5,11 @@ import {FormsModule} from "@angular/forms";
 import {HttpModule} from "@angular/http";
 import {MaterialModule} from "@angular/material";
 import {FlexLayoutModule} from "@angular/flex-layout";
-import {AppComponent} from "./app.component";
 import {RouterModule} from "@angular/router";
+import {AppComponent} from "./app.component";
+import {LogFactory} from "./shared/log.factory";
+import {CoreModule} from "./core/core.module";
+import {ArticlesModule} from "./articles/articles.module";
 
 @NgModule({
   declarations: [
@@ -18,9 +21,14 @@ import {RouterModule} from "@angular/router";
     HttpModule,
     FlexLayoutModule,
     MaterialModule,
-    RouterModule.forRoot([])
+    RouterModule.forRoot([]),
+
+    CoreModule,
+    ArticlesModule
   ],
-  providers: [],
+  providers: [
+    LogFactory
+  ],
   bootstrap: [
     AppComponent
   ]

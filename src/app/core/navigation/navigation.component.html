@@ -1,0 +1,14 @@
+<md-toolbar color="primary" fxLayout="column">
+  <span>Aquariuslt Blog</span>
+  <span fxFlex></span>
+
+  <md-input-container floatPlaceholder="auto" *ngIf="searchInputOpened">
+    <input mdInput name="searchCriteria"  type="text"
+           placeholder="Input Criteria">
+  </md-input-container>
+
+  <button md-icon-button (click)="toggleSearchInput()">
+    <md-icon aria-label="search" *ngIf="!searchInputOpened">search</md-icon>
+    <md-icon aria-label="search" *ngIf="searchInputOpened">cancel</md-icon>
+  </button>
+</md-toolbar>

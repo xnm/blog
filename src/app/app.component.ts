@@ -5,7 +5,7 @@ import {Component, OnInit} from "@angular/core";
   selector: 'app-root',
   template: `
     <!-- header area -->
-    <!--<navigation></navigation>-->
+    <navigation></navigation>
     <!-- ui view -->
     <router-outlet></router-outlet>
   `
