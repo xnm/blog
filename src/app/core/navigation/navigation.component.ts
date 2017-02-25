@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component} from "@angular/core";
 
 @Component({
   selector: 'navigation',
@@ -6,13 +6,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./navigation.component.css']
 })
 export class NavigationComponent {
-  constructor() { }
+  constructor() {
+  }
 
-  private searchInputOpened:boolean = false;
-  private searchCriteria:string = '';
+  private searchInputOpened: boolean = false;
 
-  toggleSearchInput():void{
+  toggleSearchInput(): void {
     let vm = this;
     vm.searchInputOpened = !vm.searchInputOpened;
   }
+
+
 }

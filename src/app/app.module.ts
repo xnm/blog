@@ -1,15 +1,16 @@
 import "hammerjs";
+import "rxjs";
 import {BrowserModule} from "@angular/platform-browser";
 import {NgModule} from "@angular/core";
 import {FormsModule} from "@angular/forms";
 import {HttpModule} from "@angular/http";
 import {MaterialModule} from "@angular/material";
-import {FlexLayoutModule} from "@angular/flex-layout";
 import {RouterModule} from "@angular/router";
 import {AppComponent} from "./app.component";
 import {LogFactory} from "./shared/log.factory";
 import {CoreModule} from "./core/core.module";
 import {ArticlesModule} from "./articles/articles.module";
+import {CovalentCoreModule, CovalentLayoutModule} from "@covalent/core";
 
 @NgModule({
   declarations: [
@@ -19,9 +20,10 @@ import {ArticlesModule} from "./articles/articles.module";
     BrowserModule,
     FormsModule,
     HttpModule,
-    FlexLayoutModule,
     MaterialModule,
     RouterModule.forRoot([]),
+    CovalentCoreModule.forRoot(),
+    CovalentLayoutModule.forRoot(),
 
     CoreModule,
     ArticlesModule

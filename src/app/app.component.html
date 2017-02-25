@@ -1,0 +1,13 @@
+<td-layout #layout>
+  <td-navigation-drawer sidenavTitle="Aquariuslt Home">
+    <md-nav-list>
+      <a *ngFor="let item of routes" md-list-item (click)="layout.close()" [routerLink]="[item.route]">
+        <md-icon>{{item.icon}}</md-icon>
+        {{item.title}}</a>
+    </md-nav-list>
+  </td-navigation-drawer>
+  <router-outlet></router-outlet>
+  <td-layout-footer>
+    Copyright © 2014 - 2017 Aquariuslt. All rights reserved
+  </td-layout-footer>
+</td-layout>
