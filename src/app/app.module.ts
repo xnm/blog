@@ -8,9 +8,8 @@ import {MaterialModule} from "@angular/material";
 import {RouterModule} from "@angular/router";
 import {AppComponent} from "./app.component";
 import {LogFactory} from "./shared/log.factory";
+import {CovalentLayoutModule, CovalentCoreModule} from "@covalent/core";
 import {CoreModule} from "./core/core.module";
-import {ArticlesModule} from "./articles/articles.module";
-import {CovalentCoreModule, CovalentLayoutModule} from "@covalent/core";
 
 @NgModule({
   declarations: [
@@ -25,8 +24,8 @@ import {CovalentCoreModule, CovalentLayoutModule} from "@covalent/core";
     CovalentCoreModule.forRoot(),
     CovalentLayoutModule.forRoot(),
 
-    CoreModule,
-    ArticlesModule
+
+    CoreModule
   ],
   providers: [
     LogFactory

@@ -1,22 +1,24 @@
 import {NgModule} from "@angular/core";
 import {CommonModule} from "@angular/common";
-import {NavigationComponent} from "./navigation/navigation.component";
+import {NavHeaderComponent} from "./nav-header/nav-header.component";
+import {NavSidebarComponent} from "./nav-sidebar/nav-sidebar.component";
 import {MaterialModule} from "@angular/material";
-import {FlexLayoutModule} from "@angular/flex-layout";
-import {CovalentCoreModule} from "@covalent/core";
+import {CovalentLayoutModule, CovalentCoreModule} from "@covalent/core";
 
 @NgModule({
   imports: [
     CommonModule,
     MaterialModule,
-    FlexLayoutModule,
-    CovalentCoreModule
+    CovalentCoreModule,
+    CovalentLayoutModule
   ],
   declarations: [
-    NavigationComponent
+    NavHeaderComponent,
+    NavSidebarComponent
   ],
-  exports: [
-    NavigationComponent
+  exports:[
+    NavHeaderComponent,
+    NavSidebarComponent
   ]
 })
 export class CoreModule {

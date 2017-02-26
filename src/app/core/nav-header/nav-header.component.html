@@ -1,0 +1,24 @@
+<md-sidenav-container>
+  <md-sidenav  *ngIf="sideNavbarOpened">
+    <!-- sidenav content -->
+
+  </md-sidenav>
+
+  <!-- primary content -->
+  <md-toolbar color="primary" layout="row" layout-padding>
+    <button md-icon-button (click)="toggleNavSidebar()">
+      <md-icon>menu</md-icon>
+    </button>
+    <span>Aquariuslt Home</span>
+    <div flex></div>
+
+    <div>
+      <button md-icon-button *ngIf="!searchInputOpened" (click)="toggleSearchInput()">
+        <md-icon>search</md-icon>
+      </button>
+      <button md-icon-button *ngIf="searchInputOpened" (click)="toggleSearchInput()">
+        <md-icon>cancel</md-icon>
+      </button>
+    </div>
+  </md-toolbar>
+</md-sidenav-container>
