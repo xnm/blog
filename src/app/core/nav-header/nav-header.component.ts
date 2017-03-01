@@ -7,17 +7,9 @@ import {LogFactory} from "../../shared/log.factory";
   styleUrls: ['./nav-header.component.css'],
   animations: [
     trigger('sidenavState', [
-      transition('show => *', [
-        style({
-          opacity: 0,
-          transform: 'translateX(-100%)'
-        }),
-        animate('0.2s ease-in')
-      ]),
       transition('* => show', [
         style({
-          opacity: 0,
-          transform: 'translateX(100%)'
+          transform: 'none'
         }),
         animate('0.2s ease-in')
       ])
@@ -33,7 +25,7 @@ export class NavHeaderComponent {
   
   searchInputOpened: boolean = false;
   sideNavbarOpened: boolean = false;
-  sideNavbarShowStatus: string = 'show';
+  sideNavbarShowStatus: string = 'hide';
 
   toggleSearchInput(): void {
     let vm = this;
@@ -43,8 +35,7 @@ export class NavHeaderComponent {
   toggleNavSidebar(): void {
     let vm = this;
     vm.sideNavbarOpened = !vm.sideNavbarOpened;
-    vm.sideNavbarShowStatus = vm.sideNavbarShowStatus == 'show' ? 'hide' : 'show';
-    vm.logger.info('navbar show status:',vm.sideNavbarShowStatus);
+    vm.sideNavbarShowStatus = vm.sideNavbarOpened?'show':'hide';
   }
 
 }

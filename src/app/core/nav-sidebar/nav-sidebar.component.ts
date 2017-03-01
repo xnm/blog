@@ -1,5 +1,6 @@
 import {Component, OnInit, OnDestroy, trigger, style, transition, animate} from "@angular/core";
 import {LogFactory} from "../../shared/log.factory";
+import {BlogConfigService} from "../../blog/shared/blog-config.service";
 
 
 @Component({
@@ -27,7 +28,8 @@ import {LogFactory} from "../../shared/log.factory";
 export class NavSidebarComponent implements OnInit,OnDestroy {
 
 
-  constructor(private logFactory: LogFactory) {
+  constructor(private logFactory: LogFactory,
+              private blogConfigService: BlogConfigService) {
   }
 
   private logger = this.logFactory.getLog(NavSidebarComponent.name);
@@ -35,32 +37,7 @@ export class NavSidebarComponent implements OnInit,OnDestroy {
 
   sideNavbarState: string = 'show';
 
-  linkMap = {
-    'Social':[
-      {
-        name:'Github',
-        link:'https://github.com/Aquariuslt',
-        desc:'Github'
-      }
-    ],
-    'Friend Links':[
-      {
-        name:'',
-        link:'',
-        desc:''
-      },
-      {
-        name:'',
-        link:'',
-        desc:''
-      },
-      {
-        name:'',
-        link:'',
-        desc:''
-      }
-    ]
-  };
+  linkMap = this.blogConfigService.getBlogConfig();
 
   subMenuOpenStatusList = [false, false];
 
@@ -75,7 +52,7 @@ export class NavSidebarComponent implements OnInit,OnDestroy {
     vm.sideNavbarState = 'hide';
   }
 
-  toggleSubMenuOpenStatus(index):void{
+  toggleSubMenuOpenStatus(index): void {
     let vm = this;
     vm.subMenuOpenStatusList[index] = !vm.subMenuOpenStatusList[index];
   }

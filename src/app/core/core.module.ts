@@ -4,6 +4,7 @@ import {NavHeaderComponent} from "./nav-header/nav-header.component";
 import {NavSidebarComponent} from "./nav-sidebar/nav-sidebar.component";
 import {MaterialModule} from "@angular/material";
 import {CovalentLayoutModule, CovalentCoreModule} from "@covalent/core";
+import {BlogConfigService} from "../blog/shared/blog-config.service";
 
 @NgModule({
   imports: [
@@ -19,6 +20,9 @@ import {CovalentLayoutModule, CovalentCoreModule} from "@covalent/core";
   exports:[
     NavHeaderComponent,
     NavSidebarComponent
+  ],
+  providers:[
+    BlogConfigService
   ]
 })
 export class CoreModule {

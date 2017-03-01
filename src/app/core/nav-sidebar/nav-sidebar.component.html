@@ -14,18 +14,30 @@
 
   <md-list layout="column">
     <md-list-item>
-      <button md-button flex layout-fill>
+      <button md-button flex layout-fill [disabled]="true">
         <span class="raised-text" flex></span>
       </button>
     </md-list-item>
     <md-list-item>
-      <button md-button flex layout-fill>
-        <span class="raised-text" flex>Socials</span>
+      <button md-button flex layout-fill layout-wrap >
+        <span layout="row" layout-align="center center">
+          <span class="raised-text">Socials</span>
+          <span flex></span>
+          <button md-icon-button [disabled]="true">
+            <md-icon class="raised">keyboard_arrow_down</md-icon>
+          </button>
+        </span>
       </button>
     </md-list-item>
     <md-list-item>
-      <button md-button flex layout-fill>
-        <span class="raised-text">Friend Links</span>
+      <button md-button flex layout-fill layout-wrap >
+        <span layout="row" layout-align="center center">
+          <span class="raised-text">Friend Links</span>
+          <span flex></span>
+          <button md-icon-button [disabled]="true">
+            <md-icon class="raised">keyboard_arrow_down</md-icon>
+          </button>
+        </span>
       </button>
     </md-list-item>
   </md-list>
