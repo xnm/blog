@@ -10,6 +10,8 @@ import {AppComponent} from "./app.component";
 import {LogFactory} from "./shared/log.factory";
 import {CovalentLayoutModule, CovalentCoreModule} from "@covalent/core";
 import {CoreModule} from "./core/core.module";
+import {BlogModule} from "./blog/blog.module";
+import {BlogConfigService} from "./blog/shared/blog-config.service";
 
 @NgModule({
   declarations: [
@@ -24,8 +26,8 @@ import {CoreModule} from "./core/core.module";
     CovalentCoreModule.forRoot(),
     CovalentLayoutModule.forRoot(),
 
-
-    CoreModule
+    CoreModule,
+    BlogModule
   ],
   providers: [
     LogFactory

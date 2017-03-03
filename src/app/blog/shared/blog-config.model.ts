@@ -1,57 +1,84 @@
-/* Created by Aquariuslt on 2017-03-02. */
+/* Created by Aquariuslt on 2017-03-04. */
 
 
 export class BlogConfig {
-  private _outerLinkMap: Map<string,Array<OuterLink>>;
+  private _avatorUrl: string = 'assets/images/avator.png';
+  private _blogName: string = 'Aquariuslt Home';
+  private _author: string = 'Aquariuslt';
+  private _description: string = 'Coder,WoWer';
+
+  private _socialLinks: Array<BlogLink> = [
+    {
+      url: 'https://github.com/aquariuslt',
+      displayName: 'Github',
+      description: 'Github',
+      icon: 'github'
+    },
+    {
+      url: 'https://twitter.com/superaquariuslt',
+      displayName: 'Twitter',
+      description: 'Twitter',
+      icon: 'twitter'
+    }
+  ];
+
+  private _friendLinks: Array<BlogLink> = [
+    {
+      displayName: 'wxsm blog',
+      url: 'https://wxsm.space',
+      description: 'Kary Gor博客,前端大神'
+    },
+    {
+      displayName: 'lousama',
+      url: 'http://lousama.com',
+      description: ''
+    },
+    {
+      displayName: 'NotFound404',
+      url: 'https://github.com/404NoFound',
+      description: '车底良哥'
+    },
+    {
+      displayName: '13c',
+      url: 'http://corydon.cc',
+      description:  'Android Big Deal in Beijing'
+    }
+  ];
+
 
   constructor() {
   }
 
 
-  get outerLinkMap(): Map<string, Array<OuterLink>> {
-    return this._outerLinkMap;
+  get avatorUrl(): string {
+    return this._avatorUrl;
   }
 
-  set outerLinkMap(value: Map<string, Array<OuterLink>>) {
-    this._outerLinkMap = value;
-  }
-}
-
-
-class OuterLink {
-  private _url: string;
-  private _name: string;
-  private _description?: string;
-
-
-  constructor(url: string, name: string, description: string) {
-    this._url = url;
-    this._name = name;
-    this._description = description;
+  get blogName(): string {
+    return this._blogName;
   }
 
-  get url(): string {
-    return this._url;
-  }
-
-  set url(value: string) {
-    this._url = value;
-  }
-
-  get name(): string {
-    return this._name;
-  }
-
-  set name(value: string) {
-    this._name = value;
+  get author(): string {
+    return this._author;
   }
 
   get description(): string {
     return this._description;
   }
 
-  set description(value: string) {
-    this._description = value;
+
+  get socialLinks(): Array<BlogLink> {
+    return this._socialLinks;
+  }
+
+  get friendLinks(): Array<BlogLink> {
+    return this._friendLinks;
   }
 }
 
+class BlogLink {
+  url: string;
+  icon?: string;
+  displayName: string;
+  description: string;
+}

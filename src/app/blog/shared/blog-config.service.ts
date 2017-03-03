@@ -1,28 +1,16 @@
-/* Created by Aquariuslt on 2017-03-02. */
-
-import {Injectable, OnInit} from "@angular/core";
-import {LogFactory} from "../../shared/log.factory";
+import {Injectable} from "@angular/core";
+import {BlogConfig} from "./blog-config.model";
 
 @Injectable()
-export class BlogConfigService implements OnInit{
+export class BlogConfigService {
 
+  private _blogConfig: BlogConfig = new BlogConfig();
 
-  constructor(private logFactory:LogFactory) {}
-
-  private logger = this.logFactory.getLog(BlogConfigService.name);
-
-  ngOnInit(): void {
-    let vm = this;
-    vm.logger.info('blog config service is running');
+  constructor() {
   }
 
-  loadBlogConfig():void{
 
+  getBlogConfigs(): BlogConfig {
+    return this._blogConfig;
   }
-
-  getBlogConfig(){
-    let vm = this;
-    vm.logger.info('get blog config:');
-  }
-
 }
