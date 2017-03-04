@@ -1,0 +1,24 @@
+<section>
+  <md-card layout-fill layout="column" class="post-card">
+    <div>
+      <p class="mat-card-title">{{post.title}}</p>
+      <p class="mat-card-subtitle">{{post.created}}</p>
+    </div>
+    <div>
+      {{post.summary}}
+    </div>
+
+    <div layout="row" layout-align="start end" flex>
+      <md-chip-list>
+        <md-chip *ngFor="let tag of post.tags">
+          {{tag}}
+        </md-chip>
+      </md-chip-list>
+    </div>
+    <div layout="row" layout-align="end">
+      <button md-button>
+        <span>View More</span>
+      </button>
+    </div>
+  </md-card>
+</section>

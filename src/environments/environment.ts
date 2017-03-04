@@ -6,6 +6,10 @@
 export const environment = {
   production: false,
 
+  // Development environment data source url settings
+  datasource :{
+    posts:'./build/posts.json'
+  },
 
   // Update your blog settings here
   blog: {

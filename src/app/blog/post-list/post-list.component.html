@@ -1,0 +1,12 @@
+<section layout-xs="column"
+         layout-gt-xs="row"
+         layout-wrap>
+  <post-card *ngFor="let post of postList"
+             flex="flex"
+             flex-xs="100"
+             flex-md="33"
+             flex-lg="25"
+             flex-gt-lg="20"
+             [data]="post">
+  </post-card>
+</section>
