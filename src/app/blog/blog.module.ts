@@ -1,19 +1,14 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import {BlogConfigService} from "./shared/blog-config.service";
+import {NgModule} from "@angular/core";
+import {CommonModule} from "@angular/common";
 
 @NgModule({
   imports: [
     CommonModule
 
   ],
-  declarations: [
-  ],
-  exports:[
-
-  ],
-  providers:[
-    BlogConfigService
-  ]
+  declarations: [],
+  exports: [],
+  providers: []
 })
-export class BlogModule { }
+export class BlogModule {
+}

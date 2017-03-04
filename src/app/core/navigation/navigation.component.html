@@ -6,11 +6,11 @@
        [@sideNavState]="sideNavState"
        [hidden]="hideSideNav">
     <div class="md-padding" layout="row" layout-align="center center">
-      <img class="avator" src="assets/images/avator.png">
+      <img class="avator" src="{{blog.avatorUrl}}">
     </div>
     <div class="md-padding" layout="column" layout-align="center center">
-      <h4 class="raised">{{blogConfig.author}}</h4>
-      <span class="raised">{{blogConfig.description}}</span>
+      <h4 class="raised">{{blog.author}}</h4>
+      <span class="raised">{{blog.description}}</span>
     </div>
 
 
@@ -20,71 +20,42 @@
           <span class="raised-text" flex></span>
         </button>
       </md-list-item>
-      <md-list-item>
-        <button md-button flex
-                (click)="toggleLinksOpenStatus(0)"
-                layout-fill layout-wrap>
-        <span layout="row" layout-align="center center">
-          <span class="raised">Socials</span>
-          <span flex></span>
-          <button md-icon-button [disabled]="true">
-            <md-icon class="raised">
-              {{linkOpenStatus[0]?'keyboard_arrow_up':'keyboard_arrow_down'}}
-            </md-icon>
-          </button>
-        </span>
-        </button>
-      </md-list-item>
-      <div [hidden]="!linkOpenStatus[0]">
-        <md-list-item *ngFor="let blogLink of blogConfig.socialLinks">
+
+      <div *ngFor="let blogLinksCategory of blog.blogLinks;let i = index;">
+        <md-list-item>
           <button md-button flex
-                  mdTooltip="{{blogLink.description}}"
-                  [mdTooltipPosition]="'right'"
-                  (click)="openExternalLink(blogLink.url)"
+                  (click)="toggleLinksOpenStatus(i)"
                   layout-fill layout-wrap>
-        <span layout="row" layout-align="center center">
-          <span class="raised no-decoration">
-            {{blogLink.displayName}}
+          <span layout="row" layout-align="center center">
+            <span class="raised">{{blogLinksCategory.category}}</span>
+            <span flex></span>
+            <button md-icon-button [disabled]="true">
+              <md-icon class="raised">
+                {{subLinksOpenStatus[i]?'keyboard_arrow_up':'keyboard_arrow_down'}}
+              </md-icon>
+            </button>
           </span>
-          <span flex></span>
-        </span>
           </button>
         </md-list-item>
+
+        <div [hidden]="!subLinksOpenStatus[i]">
+          <md-list-item *ngFor="let link of blogLinksCategory.links">
+            <button md-button flex mdTooltip="{{link.description}}"
+                    [mdTooltipPosition]="'right'"
+                    (click)="openExternalLink(link.url)"
+                    layout-fill layout-wrap>
+              <span layout="row" layout-align="center center">
+                <span class="raised no-decoration">
+                  {{link.displayName}}
+                </span>
+                <span flex></span>
+              </span>
+            </button>
+          </md-list-item>
+        </div>
       </div>
 
-      <md-list-item>
-        <button md-button flex
-                (click)="toggleLinksOpenStatus(1)"
-                layout-fill layout-wrap>
-        <span layout="row" layout-align="center center">
-          <span class="raised">Friend Links</span>
-          <span flex></span>
-          <button md-icon-button [disabled]="true">
-            <md-icon class="raised">
-              {{linkOpenStatus[1]?'keyboard_arrow_up':'keyboard_arrow_down'}}
-            </md-icon>
-          </button>
-        </span>
-        </button>
 
-      </md-list-item>
-
-      <div [hidden]="!linkOpenStatus[1]">
-        <md-list-item *ngFor="let blogLink of blogConfig.friendLinks">
-          <button md-button flex
-                  mdTooltip="{{blogLink.description}}"
-                  [mdTooltipPosition]="'right'"
-                  (click)="openExternalLink(blogLink.url)"
-                  layout-fill layout-wrap>
-        <span layout="row" layout-align="center center">
-          <span class="raised no-decoration">
-            {{blogLink.displayName}}
-          </span>
-          <span flex></span>
-        </span>
-          </button>
-        </md-list-item>
-      </div>
     </md-list>
 
 
@@ -103,7 +74,7 @@
       <button md-icon-button (click)="toggleSideNavShowStatus()">
         <md-icon>menu</md-icon>
       </button>
-      <span>{{blogConfig.blogName}}</span>
+      <span>{{blog.siteName}}</span>
       <div flex></div>
     </md-toolbar>
   </div>

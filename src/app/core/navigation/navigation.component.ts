@@ -1,13 +1,9 @@
 import {Component, style, trigger, transition, animate, OnInit} from "@angular/core";
 import {LogFactory} from "../../shared/log.factory";
-import {BlogConfigService} from "../../blog/shared/blog-config.service";
-import {BlogConfig} from "../../blog/shared/blog-config.model";
+import {environment} from "../../../environments/environment";
 
 @Component({
   selector: 'navigation',
-  providers: [
-    BlogConfigService
-  ],
   templateUrl: './navigation.component.html',
   styleUrls: ['./navigation.component.css'],
   animations: [
@@ -33,20 +29,19 @@ import {BlogConfig} from "../../blog/shared/blog-config.model";
 export class NavigationComponent implements OnInit {
 
 
-  constructor(private logFactory: LogFactory,
-              private blogConfigService: BlogConfigService) {
+  constructor(private logFactory: LogFactory) {
   }
 
   private logger = this.logFactory.getLog(NavigationComponent.name);
 
   private hideSideNav: boolean = true;
   private sideNavState: string = 'hide';
-  private blogConfig: BlogConfig;
-  private linkOpenStatus = [false, false];
+  private blog = environment.blog;
+  private subLinksOpenStatus = environment.blog.blogLinks.map(() => {
+    return false
+  });
 
   ngOnInit(): void {
-    let vm = this;
-    vm.blogConfig = vm.blogConfigService.getBlogConfigs();
   }
 
   toggleSideNavShowStatus(): void {
@@ -58,13 +53,13 @@ export class NavigationComponent implements OnInit {
 
   toggleLinksOpenStatus(index: number): void {
     let vm = this;
-    if (index <= vm.linkOpenStatus.length - 1) {
-      vm.linkOpenStatus [index] = !vm.linkOpenStatus[index];
+    if (index <= vm.subLinksOpenStatus.length - 1) {
+      vm.subLinksOpenStatus [index] = !vm.subLinksOpenStatus[index];
     }
   }
 
   openExternalLink(url: string): void {
-    window.open(url,'_blank');
+    window.open(url, '_blank');
   }
 
 }

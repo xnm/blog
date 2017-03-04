@@ -6,15 +6,17 @@ import * as _ from "lodash";
 @Injectable()
 export class LogFactory {
   private loggerMap = new Map<string,Logger>();
-  constructor() {}
 
-  public getLog(className:string):Logger {
+  constructor() {
+  }
+
+  public getLog(className: string): Logger {
     let self = this;
-    if(self.loggerMap.has(className)){
+    if (self.loggerMap.has(className)) {
       return self.loggerMap.get(className);
     }
-    else{
-      self.loggerMap.set(className,new Logger(className));
+    else {
+      self.loggerMap.set(className, new Logger(className));
       return self.loggerMap.get(className);
     }
   }

@@ -20,8 +20,7 @@ import {BlogModule} from "../blog/blog.module";
   exports: [
     NavigationComponent
   ],
-  providers: [
-  ]
+  providers: []
 })
 export class CoreModule {
 }

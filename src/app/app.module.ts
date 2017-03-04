@@ -11,7 +11,6 @@ import {LogFactory} from "./shared/log.factory";
 import {CovalentLayoutModule, CovalentCoreModule} from "@covalent/core";
 import {CoreModule} from "./core/core.module";
 import {BlogModule} from "./blog/blog.module";
-import {BlogConfigService} from "./blog/shared/blog-config.service";
 
 @NgModule({
   declarations: [
