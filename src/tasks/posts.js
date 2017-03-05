@@ -1,29 +1,26 @@
 /* Created by Aquariuslt on 2017-03-04.*/
 import gulp from "gulp";
-import rename from 'gulp-rename';
-import inject from 'gulp-inject-string';
-import _ from 'lodash';
+import rename from "gulp-rename";
+import inject from "gulp-inject-string";
+import _ from "lodash";
+import logger from "./util/logger";
+import config from "./config/gulp.config";
+import * as pathUtil from "./util/path-util";
+import * as markdownUtil from "./util/markdown-util";
 
-import logger from './util/logger';
-import config from './config/gulp.config';
-
-
-import * as pathUtil from './util/path-util';
-import * as markdownUtil from './util/markdown-util';
-
-gulp.task('posts',function(){
+gulp.task('posts', function () {
   logger.info('Generate Posts:');
   let postDataList = pathUtil.getGlobalPaths(config.input.posts);
   let postList = [];
 
-  _.each(postDataList,function(postUrl){
-    logger.info('Load:',postUrl);
-    let post =  markdownUtil.parseMarkdown(postUrl);
+  _.each(postDataList, function (postUrl) {
+    logger.info('Load:', postUrl);
+    let post = markdownUtil.parseMarkdown(postUrl);
     postList.push(post);
   });
 
-  postList = postList.sort(function(a,b){
-    return a.created < b.created ? 1:-1;
+  postList = postList.sort(function (a, b) {
+    return a.created < b.created ? 1 : -1;
   });
 
   return gulp.src(config.emptyFile)

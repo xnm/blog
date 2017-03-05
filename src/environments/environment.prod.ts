@@ -2,8 +2,8 @@
 export const environment = {
   production: true,
 
-  datasource :{
-    posts:'./posts.json'
+  datasource: {
+    posts: './posts.json'
   },
 
   blog: {

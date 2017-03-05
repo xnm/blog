@@ -13,7 +13,3 @@ gulp.task('build:prod', ['posts', 'cname'], function () {
     .pipe(gulp.dest(config.distDir));
   logger.info('Move done');
 });
-
-gulp.task('deploy',function(){
-
-});

@@ -5,7 +5,7 @@ import {LogFactory} from "../../shared/log.factory";
 import {PostsService} from "../shared/posts.service";
 import "rxjs/add/operator/switchMap";
 import {Post} from "../shared/post.model";
-import marked from 'marked';
+import marked from "marked";
 
 @Component({
   providers: [
@@ -49,7 +49,7 @@ export class PostDetailComponent implements OnInit {
     });
   }
 
-  renderPostContent(){
+  renderPostContent() {
     let vm = this;
     let tokens = vm.post.tokens;
     tokens.links = {};

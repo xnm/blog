@@ -4,7 +4,7 @@ import marked from "marked";
 import _ from "lodash";
 import moment from "moment";
 import logger from "./logger";
-import * as pathUtil from './path-util';
+import * as pathUtil from "./path-util";
 
 function readMarkdownSource(sourceUrl) {
   return fs.readFileSync(sourceUrl).toString();
@@ -13,12 +13,12 @@ function readMarkdownSource(sourceUrl) {
 function parseMarkdown(sourceUrl) {
   let mdString = readMarkdownSource(sourceUrl);
   let fileNamePrefix = parseFileNamePrefix(sourceUrl);
-  let metadata = parseMarkdownMetaData(mdString,fileNamePrefix);
+  let metadata = parseMarkdownMetaData(mdString, fileNamePrefix);
   let mdTokens = parseMarkdownTokens(mdString);
   return constructMarkdown(metadata, mdTokens);
 }
 
-function parseMarkdownMetaData(markdownString,fileNamePrefix) {
+function parseMarkdownMetaData(markdownString, fileNamePrefix) {
   let mdString = _.clone(markdownString);
   let lexer = new marked.Lexer();
   let tokens = lexer.lex(mdString);
@@ -40,13 +40,13 @@ function parseMarkdownMetaData(markdownString,fileNamePrefix) {
   parsedMetadata.created = baseDate.format('YYYY-MM-DD');
   parsedMetadata.updated = baseDate.format('YYYY-MM-DD');
   let linkPrefix = baseDate.format('YYYY/MM/DD');
-  parsedMetadata.link = linkPrefix + '/'+ fileNamePrefix;
+  parsedMetadata.link = linkPrefix + '/' + fileNamePrefix;
 
 
   return parsedMetadata;
 }
 
-function parseFileNamePrefix(sourceUrl){
+function parseFileNamePrefix(sourceUrl) {
   return pathUtil.getFilePrefix(sourceUrl);
 }
 
@@ -80,7 +80,6 @@ function parseMarkdownTokens(markdownString) {
 
   return filteredTokens;
 }
-
 
 
 function constructMarkdown(metadata, mdTokens) {
