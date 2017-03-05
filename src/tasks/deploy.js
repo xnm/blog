@@ -22,7 +22,7 @@ gulp.task('upload', ['sap'], function (next) {
 
   ghpages.publish(config.distDir,config.deployOptions,function(err){
     if(err){
-      logger.error('Publish Error:',err);
+      logger.error('Publish Error:',JSON.stringify(err));
     }
 
     logger.info('Publish End');
