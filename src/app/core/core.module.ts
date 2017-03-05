@@ -4,10 +4,11 @@ import {MaterialModule} from "@angular/material";
 import {CovalentLayoutModule, CovalentCoreModule} from "@covalent/core";
 import {NavigationComponent} from "./navigation/navigation.component";
 import {BlogModule} from "../blog/blog.module";
-
+import {RouterModule} from "@angular/router";
 @NgModule({
   imports: [
     CommonModule,
+    RouterModule,
     MaterialModule,
     CovalentCoreModule,
     CovalentLayoutModule,

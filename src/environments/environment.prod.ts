@@ -2,6 +2,10 @@
 export const environment = {
   production: true,
 
+  datasource :{
+    posts:'./posts.json'
+  },
+
   blog: {
     avatorUrl: 'assets/images/avator.png',
     siteName: 'Aquariuslt Home',

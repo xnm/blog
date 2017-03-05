@@ -3,19 +3,26 @@
 
 let config = {
 
-  cname:'blog.aquariuslt.com',
+  cname: 'blog.aquariuslt.com',
 
-  buildDir:'build',
+  buildDir: 'build',
   distDir: 'dist',
-  emptyFile:'src/tasks/empty.js',
+  emptyFile: 'src/tasks/empty.js',
 
-  input:{
-    posts:'src/data/posts/**/*.md'
+  deployOptions: {
+    remoteUrl: 'https://github.com/Aquariuslt/aquariuslt.github.io.git',
+    origin: 'origin',
+    branch: 'master',
+    cacheDir: '.cache'
+  },
+
+  input: {
+    posts: 'src/data/posts/**/*.md'
   },
 
   //posts
-  output:{
-    posts:'posts.json'
+  output: {
+    posts: 'posts.json'
   }
 };
 

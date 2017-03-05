@@ -4,23 +4,27 @@ import * as _ from "lodash";
 export class Post {
   /* From response data */
   title: string;
+  link: string;
   created: string;
   updated: string;
   tags: Array<any>;
   category: string;
   metadata: any;
-  tokens: Array<any>;
+  tokens;
 
   /* Custom convert field*/
   summary: string;
 
-  constructor(data) {
-    this.fillBuiltInData(data);
-    this.fillCalculateData(data);
+  constructor(data?) {
+    if (data) {
+      this.fillBuiltInData(data);
+      this.fillCalculateData(data);
+    }
   }
 
   private fillBuiltInData(data) {
     this.title = data.title;
+    this.link = data.link;
     this.created = data.created;
     this.updated = data.updated;
     this.tags = data.tags;
@@ -39,15 +43,15 @@ export class Post {
 
     let firstSummaryToken = undefined;
 
-    for(let token of tokens){
-      if(token.type =='paragraph'){
+    for (let token of tokens) {
+      if (token.type == 'paragraph') {
         firstSummaryToken = token;
         break;
       }
     }
 
     if (!_.isUndefined(firstSummaryToken)) {
-      self.summary = firstSummaryToken.text;
+      self.summary = firstSummaryToken.text.substring(0, 80);
     }
   }
 }

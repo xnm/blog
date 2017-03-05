@@ -5,6 +5,8 @@ import {PostCardComponent} from "./post-card/post-card.component";
 import {BlogRoutingModule} from "./blog-routing.module";
 import {MaterialModule} from "@angular/material";
 import {CovalentLayoutModule, CovalentCoreModule} from "@covalent/core";
+import {PostDetailComponent} from "./post-detail/post-detail.component";
+import {NotFoundComponent} from "./not-found/not-found.component";
 
 @NgModule({
   imports: [
@@ -16,7 +18,9 @@ import {CovalentLayoutModule, CovalentCoreModule} from "@covalent/core";
   ],
   declarations: [
     PostListComponent,
-    PostCardComponent
+    PostCardComponent,
+    PostDetailComponent,
+    NotFoundComponent
   ],
   exports: [],
   providers: []

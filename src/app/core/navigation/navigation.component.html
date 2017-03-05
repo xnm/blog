@@ -72,7 +72,7 @@
       <button md-icon-button (click)="toggleSideNavShowStatus()">
         <md-icon>menu</md-icon>
       </button>
-      <span>{{blog.siteName}}</span>
+      <a [routerLink]="'/'" class="raised">{{blog.siteName}}</a>
       <div flex></div>
     </md-toolbar>
   </div>

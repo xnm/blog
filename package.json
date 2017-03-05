@@ -6,7 +6,8 @@
     "ng": "ng",
     "build": "ng build --prod",
     "start": "gulp build && ng serve",
-    "test": "ng test"
+    "test": "ng test",
+    "deploy":"ng build --prod && gulp build:prod && gulp deploy"
   },
   "private": true,
   "dependencies": {
@@ -42,6 +43,7 @@
     "codelyzer": "~2.0.0-beta.4",
     "glob": "latest",
     "gulp": "^3.9.1",
+    "gulp-gh-pages": "^0.5.4",
     "gulp-inject-string": "^1.1.0",
     "gulp-rename": "^1.2.2",
     "gulp-rimraf": "^0.2.1",
