@@ -10,7 +10,7 @@ let config = {
   emptyFile: 'src/tasks/empty.js',
 
   deployOptions: {
-    remoteUrl: 'https://github.com/Aquariuslt/aquariuslt.github.io.git',
+    remoteUrl: 'https://github.com/aquariuslt/aquariuslt.github.io.git',
     origin: 'origin',
     branch: 'master',
     cacheDir: '.cache'

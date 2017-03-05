@@ -7,7 +7,8 @@
     "build": "ng build --prod",
     "start": "gulp build && ng serve",
     "test": "ng test",
-    "deploy":"ng build --prod && gulp build:prod && gulp deploy"
+    "compile":"ng build --prod && gulp build:prod",
+    "deploy":"ng build --prod && gulp build:prod && gulp upload"
   },
   "private": true,
   "dependencies": {
