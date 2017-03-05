@@ -10,10 +10,14 @@ let config = {
   emptyFile: 'src/tasks/empty.js',
 
   deployOptions: {
-    remoteUrl: 'https://github.com/aquariuslt/aquariuslt.github.io.git',
-    origin: 'origin',
+    repo: 'https://github.com/aquariuslt/aquariuslt.github.io.git',
+    remote: 'origin',
     branch: 'master',
-    cacheDir: '.cache'
+    cacheDir: '.cache',
+    clone:'.cache',
+    logger: function(message) {
+      console.log(message);
+    }
   },
 
   input: {

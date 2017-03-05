@@ -7,8 +7,8 @@
     "build": "ng build --prod",
     "start": "gulp build && ng serve",
     "test": "ng test",
-    "compile":"ng build --prod && gulp build:prod",
-    "deploy":"ng build --prod && gulp build:prod && gulp upload"
+    "compile": "ng build --prod && gulp build:prod",
+    "deploy": "ng build --prod && gulp build:prod && gulp upload"
   },
   "private": true,
   "dependencies": {
@@ -42,6 +42,7 @@
     "babel-core": "^6.23.1",
     "babel-preset-es2015": "^6.22.0",
     "codelyzer": "~2.0.0-beta.4",
+    "gh-pages": "^0.12.0",
     "glob": "latest",
     "gulp": "^3.9.1",
     "gulp-gh-pages": "^0.5.4",
