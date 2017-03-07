@@ -30,6 +30,23 @@ export class PostsService {
       });
   }
 
+  public queryByTagName(tagName: string) {
+    let svc = this;
+    return svc.http.get(svc.datasource.posts)
+      .map(function (response) {
+        let postList = response.json();
+
+        let queryResultList = [];
+
+        _.each(postList, function (post) {
+          if (_.indexOf(post.tags, tagName) > -1) {
+            queryResultList.push(post);
+          }
+        });
+        return queryResultList;
+      });
+  }
+
   public getPost(postLink: string) {
     let svc = this;
     return svc.http.get(svc.datasource.posts)

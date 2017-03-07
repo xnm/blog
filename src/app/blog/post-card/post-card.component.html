@@ -17,7 +17,7 @@
          layout-align="start end" flex>
       <md-chip-list>
         <md-chip *ngFor="let tag of post.tags">
-          {{tag}}
+          <a [routerLink]="'/tag/'+tag">{{tag}}</a>
         </md-chip>
       </md-chip-list>
     </div>

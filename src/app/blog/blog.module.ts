@@ -7,6 +7,7 @@ import {MaterialModule} from "@angular/material";
 import {CovalentLayoutModule, CovalentCoreModule} from "@covalent/core";
 import {PostDetailComponent} from "./post-detail/post-detail.component";
 import {NotFoundComponent} from "./not-found/not-found.component";
+import { TagDetailComponent } from './tag-detail/tag-detail.component';
 
 @NgModule({
   imports: [
@@ -20,7 +21,8 @@ import {NotFoundComponent} from "./not-found/not-found.component";
     PostListComponent,
     PostCardComponent,
     PostDetailComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    TagDetailComponent
   ],
   exports: [],
   providers: []
