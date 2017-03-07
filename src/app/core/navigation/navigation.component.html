@@ -5,21 +5,19 @@
        layout-fill
        [@sideNavState]="sideNavState"
        [hidden]="hideSideNav">
-    <div class="md-padding" layout="row" layout-align="center center">
-      <img class="avator" src="{{blog.avatorUrl}}">
+    <div class="md-padding avator-background" layout="row" >
+      <div flex="30">
+        <img class="avator" [src]="blog.avatorUrl">
+      </div>
+      <div class="md-padding" layout="column" layout-align="center center" flex>
+        <h4 class="raised">{{blog.author}}</h4>
+        <span class="raised">{{blog.description}}</span>
+      </div>
     </div>
-    <div class="md-padding" layout="column" layout-align="center center">
-      <h4 class="raised">{{blog.author}}</h4>
-      <span class="raised">{{blog.description}}</span>
-    </div>
+    
 
 
     <md-list layout="column">
-      <md-list-item>
-        <button md-button flex layout-fill [disabled]="true">
-          <span class="raised-text" flex></span>
-        </button>
-      </md-list-item>
 
       <div *ngFor="let blogLinksCategory of blog.blogLinks;let i = index;">
         <md-list-item>

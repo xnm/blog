@@ -11,9 +11,14 @@
 
 /*SideNav*/
 .avator {
-  width: 60%;
+  width: 100%;
   height: auto;
+  padding:15px;
   border-radius: 50%;
+}
+
+.avator-background{
+  background:url("./../../../assets/images/avator-background.png");
 }
 
 .sidenav {

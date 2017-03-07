@@ -20,6 +20,10 @@ const blogRoutes: Routes = [
     component: PostDetailComponent
   },
   {
+    path :'tag/:tagName',
+    component:null
+  },
+  {
     path: '**',
     component: NotFoundComponent
   }
