@@ -58,6 +58,10 @@ export const environment = {
           }
         ]
       }
-    ]
+    ],
+    disqus:{
+      enable:true,
+      shortName:'althome'
+    }
   }
 };

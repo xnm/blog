@@ -10,8 +10,8 @@ let config = {
   emptyFile: 'src/tasks/empty.js',
 
   deployOptions: {
-    // repo: 'https://github.com/Aquariuslt/aquariuslt.github.io.git',
-    repo: 'https://git.coding.net/Aquariuslt/aquariuslt.coding.me.git',
+    repo: 'https://github.com/Aquariuslt/aquariuslt.github.io.git',
+    // repo: 'https://gitrm.coding.net/Aquariuslt/aquariuslt.coding.me.git',
     remote: 'origin',
     branch: 'master',
     cacheDir: '.cache',
