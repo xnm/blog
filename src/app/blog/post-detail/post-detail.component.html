@@ -17,6 +17,14 @@
       </div>
     </div>
 
+    <div class="post-detail-actions">
+      <md-chip-list >
+        <md-chip *ngFor="let tag of post.tags">
+          <a [routerLink]="'/tag/'+tag">{{tag}}</a>
+        </md-chip>
+      </md-chip-list>
+    </div>
+
     <div class="post-detail-actions" *ngIf="disqus && disqus.enable">
       <div flex>
         <disqus [shortname]="disqus.shortName"

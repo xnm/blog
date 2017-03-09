@@ -1,5 +1,8 @@
-<div class="md-padding">
-  <span class="tag-title">Tag:{{tagName}}</span>
+<div class="tag-detail" layout="row" layout-align="none center">
+  <span class="tag-title" layout="row" layout-align="center center">Tag:</span>
+  <md-chip-list>
+    <md-chip>{{tagName}}</md-chip>
+  </md-chip-list>
 </div>
 <section class="post-list"
          layout-xs="column"
