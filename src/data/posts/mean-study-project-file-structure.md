@@ -21,7 +21,7 @@
 >   这些部分都是经验之谈,必然要有遇到过不同项目结构的才能够有比较深刻的认识
 >   不然选型之后遇到别人刁难当前选型就没法理据服的说出当初决定的优缺点,配合业务使用的场景
 
-通过比较几个Node.JS WebApp Generator 与 [MEAN.IO](http://mean.io)  的官方项目
+通过比较几个Node.JS WebApp Generator 与 [MEAN.IO](https://mean.io)  的官方项目
 记录下初步学习的时候对项目结构的认识.方便在接下来的开发当中能够对应的进化出更科学的结构.
 
 
@@ -242,7 +242,7 @@ Macbook:Snacksbar Aquariuslt$ tree -L 4
   "private": false,
   "author": "Aquariuslt",
   "description": "Snacksbar Management System",
-  "homepage": "http://github.com/Aquariuslt/Snacksbar",
+  "homepage": "https://github.com/Aquariuslt/Snacksbar",
   "license": "MIT",
   "repository": {
     "type": "git",
@@ -284,7 +284,7 @@ Macbook:Snacksbar Aquariuslt$ tree -L 4
 {
   "name": "Snacksbar",
   "description": "Snacksbar Management System",
-  "homepage": "http://github.com/Aquariuslt/Snacksbar",
+  "homepage": "https://github.com/Aquariuslt/Snacksbar",
   "license": "MIT",
   "dependencies": {
     "bootstrap": "~3",

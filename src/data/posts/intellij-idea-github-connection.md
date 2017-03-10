@@ -18,7 +18,7 @@
 
 1.安装Git
 
-Git下载: [http://git-scm.com/downloads](http://git-scm.com/downloads) 最新版本是2.1.2
+Git下载: [https://git-scm.com/downloads](https://git-scm.com/downloads) 最新版本是2.1.2
 
 2.注册GitHub账号
 

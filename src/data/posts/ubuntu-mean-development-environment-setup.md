@@ -66,7 +66,7 @@ Macbook:redis-2.8.23 Aquariuslt$ tree -L 1
 看到有`makefile`就知道需要自己编译一边,其实这里按照官网的Installation就可以.
 直接输入`make`编译
 ```
-$ wget http://download.redis.io/releases/redis-3.0.5.tar.gz
+$ wget https://download.redis.io/releases/redis-3.0.5.tar.gz
 $ tar xzf redis-3.0.5.tar.gz
 $ cd redis-3.0.5
 $ make
@@ -166,7 +166,7 @@ Linux 下搭建好node-oracledb 也是相当操蛋.
 
 ### 下载 OracleInstantClient for Linux
 官网还要登陆下载,太过傻逼.所以放出了个某度的链接
-[http://pan.baidu.com/s/1boxV2iV](http://pan.baidu.com/s/1boxV2iV)
+[https://pan.baidu.com/s/1boxV2iV](https://pan.baidu.com/s/1boxV2iV)
 
 ### 设置环境变量
 先将下载的两个zip包解压到`/opt/oracle/instantclient`下.

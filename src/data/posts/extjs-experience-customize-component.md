@@ -216,7 +216,7 @@ Ext.define('Register.store.CityStore',{
 
 ### 效果预览
 
-![Register](http://7xn6p8.com1.z0.glb.clouddn.com/register-city-autocomplete.gif)
+![Register](https://7xn6p8.com1.z0.glb.clouddn.com/register-city-autocomplete.gif)
 
 ## 常见组件效果
 
@@ -411,7 +411,7 @@ Ext.define('Ext.component.DateField',{
 
 
 ### 多看官方文档
-[官方文档](http://docs.sencha.com/extjs/4.2.2/#!/guide/application_architecture)
+[官方文档](https://docs.sencha.com/extjs/4.2.2/#!/guide/application_architecture)
 不要看所谓的`脚本娃娃`之流的汉化版.缺经断骨,看了还以为ExtJS本身没有这个方法或者事件,需要自己去实现呢
 在了解已有API功能的情况下再尝试增加新的轮子
 ### 多横向比较

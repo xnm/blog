@@ -19,8 +19,8 @@ Apache Shiro 是一款Java的安全框架,通常用作Web应用的权限校验,�
 > largest web and enterprise applications.
 
 
-在参考过 IBM 开发社区关于Shiro的博客 一篇文章 [在Web项目中应用Apache Shiro](http://www.ibm.com/developerworks/cn/java/j-lo-shiro/)
-与开涛博客的一个跟我学Shiro系列文章 [开涛博客-跟我学Shiro](http://jinnianshilongnian.iteye.com/blog/2024723)
+在参考过 IBM 开发社区关于Shiro的博客 一篇文章 [在Web项目中应用Apache Shiro](https://www.ibm.com/developerworks/cn/java/j-lo-shiro/)
+与开涛博客的一个跟我学Shiro系列文章 [开涛博客-跟我学Shiro](https://jinnianshilongnian.iteye.com/blog/2024723)
 
 > 不得不说的是IBM Developer社区的文章一向属于生动易懂.
 > 但是上面的这篇讲得并没有之前推荐的讲Spring-DataJPA的那篇文章那样浅显,
@@ -108,8 +108,8 @@ Apache Shiro 是一款Java的安全框架,通常用作Web应用的权限校验,�
 先将整个 shiro的xml配置贴出来,接下来在逐一解说其内容
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
-<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd"
+<beans xmlns="https://www.springframework.org/schema/beans" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="https://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans-3.1.xsd"
        default-lazy-init="true">
 
     <description>Shiro安全配置</description>

@@ -16,9 +16,9 @@
 <title>
 <![CDATA[ Angular Material md-button 不全部大写 ]]>
 </title>
-<link href="http://debug.aquariuslt.com/2016/03/20/angular-material-md-button-using-lowercase/"/>
+<link href="https://debug.aquariuslt.com/2016/03/20/angular-material-md-button-using-lowercase/"/>
 <id>
-http://debug.aquariuslt.com/2016/03/20/angular-material-md-button-using-lowercase/
+https://debug.aquariuslt.com/2016/03/20/angular-material-md-button-using-lowercase/
 </id>
 <published>2016-03-20T07:33:50.000Z</published>
 <updated>2016-03-22T05:42:44.939Z</updated>

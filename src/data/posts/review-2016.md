@@ -46,7 +46,7 @@
 我一直在等待WebDriver的出现带动黑苹果
 
 
-![6700K+32G+GTX1070](http://wx2.sinaimg.cn/large/7755dd69gy1fceizh66juj215u16m79s.jpg)
+![6700K+32G+GTX1070](https://wx2.sinaimg.cn/large/7755dd69gy1fceizh66juj215u16m79s.jpg)
 
 
 ## Google Pixel

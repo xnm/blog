@@ -18,7 +18,7 @@
 大概是根据`npm install`的提示,更换lib的名字或者升级lib的版本到最新版.
 然后删除了一些没必要的模块.
 
-目前已经在我的VPS上运行,[主站](http://aquariuslt.com)是目前的效果.
+目前已经在我的VPS上运行,[主站](https://aquariuslt.com)是目前的效果.
 
 ## Agenda
 整个项目的结构从以下几个部分开始介绍,但是在过程中会交错穿插一点互相引用的地方.
@@ -241,7 +241,7 @@
 ## GulpTask
 ### Gulp
 #### What is Gulp
-[Gulp官方网站](http://gulpjs.com/)
+[Gulp官方网站](https://gulpjs.com/)
 Gulp.js 是一个自动化构建工具，开发者可以使用它在项目开发过程中自动执行常见任务。
 
 #### How to Use

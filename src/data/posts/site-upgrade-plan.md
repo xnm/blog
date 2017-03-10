@@ -41,7 +41,7 @@
 > CNAME`debug.aquariuslt.com`作为主要的跌坑笔记手册
 > -- CNAME`game.aquariuslt.com`作为我的(粗口)游戏哲学理论 --
 
-[主站](http://aquariuslt.com)正在重建ing,已经可以访问
+[主站](https://aquariuslt.com)正在重建ing,已经可以访问
 目前使用的是`iptables`命令进行端口转发
 当然日后也可能考虑`httpd`转发or`nginx`.
 

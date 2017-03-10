@@ -17,7 +17,7 @@
 可用于服务类实时通讯、表示和需求响应服务中的XML数据元流式传输。XMPP以Jabber协议为基础，而Jabber是即时通讯中常用的开放式协议。XMPP is the IETF's formalization of the base XML streaming protocols for instant messaging and presence developed within the Jabber open-source community in 1999 XMPP（可扩展消息处理现场协议）是基于可扩展标记语言（XML）的协议，它用于即时消息（IM）以及在线现场探测。它在促进服务器之间的准即时操作。这个协议可能最终允许因特网用户向因特网上的其他任何人发送即时消息，即使其操作系统和浏览器不同。 XMPP的前身是Jabber，一个开源形式组织产生的网络即时通信协议。XMPP目前被IETF国际标准组织完成了标准化工作。标准化的核心结果分为两部分； 核心的XML流传输协议 基于XMLFreeEIM流传输的即时通讯扩展应用 XMPP的核心XML流传输协议的定义使得XMPP能够在一个比以往网络通信协议更规范的平台上。借助于XML易于解析和阅读的特性，使得XMPP的协议能够非常漂亮。 XMPP的即时通讯扩展应用部分是根据IETF在这之前对即时通讯的一个抽象定义的，与其他业已得到广泛使用的即时通讯协议，诸如AIM，QQ等有功能完整，完善等先进性。 XMPP的扩展协议Jingle使得其支持语音和视频。
 
 ## 安装OpenFire
-1.下载地址：[http://www.igniterealtime.org/downloads/index.jsp#openfire](http://www.igniterealtime.org/downloads/index.jsp)
+1.下载地址：[https://www.igniterealtime.org/downloads/index.jsp#openfire](https://www.igniterealtime.org/downloads/index.jsp)
 
 ![]()
 
@@ -60,7 +60,7 @@ source /opt/openfire/resources/database/openfire_mysql.sql
 
 启动之后，现在可以通过你的域名/IP的9090端口访问openfire了。
 
-[http://aquariuslt.com:9090](http://aquariuslt.com:9090)
+[https://aquariuslt.com:9090](https://aquariuslt.com:9090)
 
 1.  配置openfire参数
 第一次进入这个9090端口的页面之后，是一个首次安装的页面

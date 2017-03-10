@@ -17,7 +17,7 @@
 
 ### 从原运营商那里拿到 原来的域名锁密钥
 这一步就非常只麻烦，需要分成以下几小步
-1. 登陆万网[http://wanwang.aliyun.com/](http://wanwang.aliyun.com/)，(登了才发现 万网改成aliyun域名了)解除域名保护的锁。
+1. 登陆万网[https://wanwang.aliyun.com/](https://wanwang.aliyun.com/)，(登了才发现 万网改成aliyun域名了)解除域名保护的锁。
 点击域名进入管理页面
 [![Domain Management]()]
 2. 关闭各种安全验证

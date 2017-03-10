@@ -55,7 +55,7 @@ export const environment = {
     ],
     disqus:{
       enable:true,
-      shortName:'blog-aquariuslt'
+      shortName:'aquariuslt'
     }
   }
 };

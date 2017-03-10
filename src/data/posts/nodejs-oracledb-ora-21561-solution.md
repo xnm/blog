@@ -14,7 +14,7 @@
 
 ## Solution
 原因是虚拟机下的`CentOS`连接到oracle服务器的时候,本地没有有效的连接名称(机器名)
-[Origin Post](http://chaos667.tumblr.com/post/20006357466/ora-21561-and-oracle-instant-client-112)
+[Origin Post](https://chaos667.tumblr.com/post/20006357466/ora-21561-and-oracle-instant-client-112)
 
 需要在`hosts`列表中添加本地的机器名.
 假设我local机器名为`centos-vm`

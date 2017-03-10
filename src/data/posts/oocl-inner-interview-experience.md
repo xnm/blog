@@ -26,7 +26,7 @@
 2. 说说项目中的修改之后 相比以前有没有什么收获比较大的地方
 我这里就说之前项目中的内容，在修改使用了Spring MVC架构之后 降低了代码的耦合度，使得能够后台的代码与页面设置分开出来，减少了以后维护代码的成本。然后想到Android开发 本身就是界面，控制器 很系统的分开，就把学习Android的时候的对这种模式的理解。
 这里记得逼乎上面有个 解答，我觉得这里的概念有帮助与理解
-[http://www.zhihu.com/question/19703369](http://www.zhihu.com/question/19703369)
+[https://www.zhihu.com/question/19703369](https://www.zhihu.com/question/19703369)
 
 
 

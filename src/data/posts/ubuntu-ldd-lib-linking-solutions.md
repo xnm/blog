@@ -7,7 +7,7 @@
 ```
 
 
-> This is a patch/enhancement about [http://debug.aquariuslt.com/2015/12/14/libclntsh-so-11-1-cannot-open-shared-object-file/](http://debug.aquariuslt.com/2015/12/14/libclntsh-so-11-1-cannot-open-shared-object-file/)
+> This is a patch/enhancement about [https://debug.aquariuslt.com/2015/12/14/libclntsh-so-11-1-cannot-open-shared-object-file/](https://debug.aquariuslt.com/2015/12/14/libclntsh-so-11-1-cannot-open-shared-object-file/)
 
 ## Description
 I was install Ubuntu 15.10 for tasting the new version of Ubuntu.

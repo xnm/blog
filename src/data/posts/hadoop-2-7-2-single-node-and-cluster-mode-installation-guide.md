@@ -93,7 +93,7 @@ $ sudo vi /etc/hosts
 
 
 ### Download Hadoop
-下载地址:[http://mirrors.noc.im/apache/hadoop/common/current/](http://mirrors.noc.im/apache/hadoop/common/current/)
+下载地址:[https://mirrors.noc.im/apache/hadoop/common/current/](https://mirrors.noc.im/apache/hadoop/common/current/)
 
 下载之后,会得到一个`Hadoop2.7.2`的解压包.
 在下一步章节我们将会将其移动到其他目录.
@@ -387,8 +387,8 @@ hduser@hd-worker-a:~$ jps
 6409 Jps
 ```
 
-或者可以通过浏览器访问[http://master:8088](http://master:8088)
-或者[http://master:50070](http://master:50070)
+或者可以通过浏览器访问[https://master:8088](https://master:8088)
+或者[https://master:50070](https://master:50070)
 查看Hadoop服务状态.
 
 ![Nodes of the cluster](https://img.alicdn.com/tfscom/TB1vHd.MpXXXXXDXFXXXXXXXXXX.png)

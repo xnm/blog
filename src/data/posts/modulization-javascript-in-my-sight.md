@@ -206,7 +206,7 @@ Ext.define('Booking.view.BookingCreateView',{
 
 
 ### AMD,RequireJS与CMD规范
-> 此处AMD,RequireJS,CommonJS规范说明出自[前端模块化-Samaritans-博客园](http://www.cnblogs.com/dolphinX/p/4381855.html)
+> 此处AMD,RequireJS,CommonJS规范说明出自[前端模块化-Samaritans-博客园](https://www.cnblogs.com/dolphinX/p/4381855.html)
 
 #### AMD 与 RequireJS
 AMD 即`Asynchronous Module Definition`，中文名是异步模块定义的意思。它是一个在浏览器端模块化开发的规范
@@ -250,4 +250,4 @@ module.exports = function () {
 
 ### Reference
 > 1. [前端模块化的价值](https://github.com/seajs/seajs/issues/547)
-> 2. [深入Node.js的模块化机制](http://www.infoq.com/cn/articles/nodejs-module-mechanism)
+> 2. [深入Node.js的模块化机制](https://www.infoq.com/cn/articles/nodejs-module-mechanism)

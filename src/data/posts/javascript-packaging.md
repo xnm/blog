@@ -92,7 +92,7 @@ N个js文件,就必须发送N个http请求.
 
 ### Webpack/Browserify
 之前对JavaScript的认识的一部分说到Node.js的模块加载方式.
-参考文章之一 [深入Node.js的模块机制](http://www.infoq.com/cn/articles/nodejs-module-mechanism)
+参考文章之一 [深入Node.js的模块机制](https://www.infoq.com/cn/articles/nodejs-module-mechanism)
 
 贴出其中的一段内容:
 CommonJS规范
@@ -105,7 +105,7 @@ CommonJS规范
 > - JavaScript没有标准库。除了一些核心库外，没有文件系统的API，没有IO流API等。
 > - JavaScript没有标准接口。没有如Web Server或者数据库的统一接口。
 > - JavaScript没有包管理系统。不能自动加载和安装依赖。
-> - 于是便有了[CommonJS](http://www.commonjs.org)规范的出现，其目标是为了构建JavaScript在包括Web服务器，桌面，命令行工具，及浏览器方面的生态系统。
+> - 于是便有了[CommonJS](https://www.commonjs.org)规范的出现，其目标是为了构建JavaScript在包括Web服务器，桌面，命令行工具，及浏览器方面的生态系统。
 
 CommonJS制定了解决这些问题的一些规范，而Node.js就是这些规范的一种实现。
 Node.js自身实现了require方法作为其引入模块的方法，同时NPM也基于CommonJS定义的包规范，实现了依赖管理和模块自动安装等功能。

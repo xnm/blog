@@ -11,6 +11,6 @@
 Blog的SourceCode也会上传到Github做备份
 
 
-![hexo-in-idea](http://7xn6p8.com1.z0.glb.clouddn.com/hexo-in-idea.png)
+![hexo-in-idea](https://7xn6p8.com1.z0.glb.clouddn.com/hexo-in-idea.png)
 
 

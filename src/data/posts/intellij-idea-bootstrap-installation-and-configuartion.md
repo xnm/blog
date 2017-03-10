@@ -120,7 +120,7 @@ Windows下Idea默认的代码字体显示简直就是屎,不换都对不起自�
 > `转载` 转载官网的或者Tips中的实用技巧
 > `实战` 实战经验[推荐]
 
-系列文章可以 通过点击标签:[IntelliJ IDEA](http://blog.aquariuslt.com/tags/IntelliJ-IDEA/) 获得.
+系列文章可以 通过点击标签:[IntelliJ IDEA](https://blog.aquariuslt.com/tags/IntelliJ-IDEA/) 获得.
 
 
 Idea 系列文章纯属个人经验之谈,抛开技术部分的讲解其余全部带有非客观的个人色彩.

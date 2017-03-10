@@ -87,7 +87,7 @@ index.html:
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="shortcut icon" href="http://blog.aquariuslt.com/images/avator.png">
+  <link rel="shortcut icon" href="https://blog.aquariuslt.com/images/avator.png">
   <base href="#">
   <title ng-bind="page.service.getTitle()">Aquariuslt Home</title>
   <!-- Load CSS Bundles Here -->
@@ -105,7 +105,7 @@ index.html:
 
 ### 其他子controller的调用方法
 比如我有一个tag页面:
-[http://aquariuslt.com/#/tag/Java](http://aquariuslt.com/#/tag/Java)
+[https://aquariuslt.com/#/tag/Java](https://aquariuslt.com/#/tag/Java)
 
 我需要将当前页面的标题前缀加上`Tag Contains Java`
 则需要在这个页面的controller中这样调用:
@@ -118,9 +118,9 @@ module.exports = function tagController($stateParams,$interval){
   var vm = this;
 
   vm.atomList = [
-    "http://blog.aquariuslt.com/atom",
-    "http://debug.aquariuslt.com/atom",
-    "http://game.aquariuslt.com/atom"
+    "https://blog.aquariuslt.com/atom",
+    "https://debug.aquariuslt.com/atom",
+    "https://game.aquariuslt.com/atom"
   ];
   vm.tagName = $stateParams.tagName;
   vm.indeterminateValue = 0;

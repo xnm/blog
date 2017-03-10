@@ -20,7 +20,7 @@
 
 一层的户型图大概如下图:
 从结构上分,个人申请只能申请一房一厅或者单身公寓了.  
-![IMG_0916.JPG](http://ww3.sinaimg.cn/large/006tNbRwgw1f5nswirc5fj30zk0my42b.jpg)
+![IMG_0916.JPG](https://ww3.sinaimg.cn/large/006tNbRwgw1f5nswirc5fj30zk0my42b.jpg)
 抽到了个08户型,一房一厅,实用面积才30多.
 
 ## 布置
@@ -29,15 +29,15 @@
 大概是这样子的:  
 
 #### 空洞的过道
-![空洞的过道](http://ww2.sinaimg.cn/large/006tNbRwgw1f5ntaislpcj31kw23u1i4.jpg)
+![空洞的过道](https://ww2.sinaimg.cn/large/006tNbRwgw1f5ntaislpcj31kw23u1i4.jpg)
 #### 空洞的客厅
-![空洞的客厅](http://ww3.sinaimg.cn/large/006tNbRwgw1f5ntaknst1j31kw23ue5u.jpg)
+![空洞的客厅](https://ww3.sinaimg.cn/large/006tNbRwgw1f5ntaknst1j31kw23ue5u.jpg)
 #### 空洞的睡房
-![空洞的睡房](http://ww2.sinaimg.cn/large/006tNbRwgw1f5ntanbwkbj31kw23ue7y.jpg)
+![空洞的睡房](https://ww2.sinaimg.cn/large/006tNbRwgw1f5ntanbwkbj31kw23ue7y.jpg)
 #### 空洞的厨房
-![空洞的厨房](http://ww1.sinaimg.cn/large/006tNbRwgw1f5ntadsxnvj31kw23ux4c.jpg)
+![空洞的厨房](https://ww1.sinaimg.cn/large/006tNbRwgw1f5ntadsxnvj31kw23ux4c.jpg)
 #### 空洞的阳台
-![空洞的阳台](http://ww3.sinaimg.cn/large/006tNbRwgw1f5ntaqatgsj31kw23ub29.jpg)
+![空洞的阳台](https://ww3.sinaimg.cn/large/006tNbRwgw1f5ntaqatgsj31kw23ub29.jpg)
 
 
 ### 购置刚需家具
@@ -62,28 +62,28 @@
 下面是上图时间:  
 
 #### 大门过道就加了一个垫子
-![21:37:44.jpg](http://ww2.sinaimg.cn/large/006tNbRwgw1f5nze6dxhqj31kw23u7rf.jpg)
+![21:37:44.jpg](https://ww2.sinaimg.cn/large/006tNbRwgw1f5nze6dxhqj31kw23u7rf.jpg)
 #### 只有骨架的电脑桌
-![21:39:14.jpg](http://ww2.sinaimg.cn/large/006tNbRwgw1f5nzfqeev8j31kw2t4hdt.jpg)
+![21:39:14.jpg](https://ww2.sinaimg.cn/large/006tNbRwgw1f5nzfqeev8j31kw2t4hdt.jpg)
 #### 上百螺丝还要反过来装
-![21:51:48.jpg](http://ww2.sinaimg.cn/large/006tNbRwgw1f5nzstrui8j31kw23unoc.jpg)
+![21:51:48.jpg](https://ww2.sinaimg.cn/large/006tNbRwgw1f5nzstrui8j31kw23unoc.jpg)
 #### 安装完毕 配上西昊M18 P2415Q+2414H 强 无敌
-![21:56:42.jpg](http://ww4.sinaimg.cn/large/006tNbRwgw1f5nzxwv747j31kw16ok78.jpg)
+![21:56:42.jpg](https://ww4.sinaimg.cn/large/006tNbRwgw1f5nzxwv747j31kw16ok78.jpg)
 #### 原来的电脑桌变成了饭桌
-![21:57:22.jpg](http://ww2.sinaimg.cn/large/006tNbRwgw1f5nzymbcpmj31kw16onej.jpg)
+![21:57:22.jpg](https://ww2.sinaimg.cn/large/006tNbRwgw1f5nzymbcpmj31kw16onej.jpg)
 #### 室内衣架和一个杂物柜
-![21:30:18.jpg](http://ww3.sinaimg.cn/large/006tNbRwgw1f5nz6fvo2vj31kw23ue5w.jpg)
+![21:30:18.jpg](https://ww3.sinaimg.cn/large/006tNbRwgw1f5nz6fvo2vj31kw23ue5w.jpg)
 #### 低到类似榻榻米的床与床头柜
-![21:28:49.jpg](http://ww2.sinaimg.cn/large/006tNbRwgw1f5nz4wdp7sj31kw16owvj.jpg)
+![21:28:49.jpg](https://ww2.sinaimg.cn/large/006tNbRwgw1f5nz4wdp7sj31kw16owvj.jpg)
 #### 楼再高一点就是海景啦
-![22:01:15.jpg](http://ww4.sinaimg.cn/large/006tNbRwgw1f5o02np97tj31kw23unp4.jpg)
+![22:01:15.jpg](https://ww4.sinaimg.cn/large/006tNbRwgw1f5o02np97tj31kw23unp4.jpg)
 
 ## 憧憬
 配置齐全 感觉每天晚上专注 ~~学习~~ 的时间变长了.
 `wakatime`的report 
-![22:10:03.jpg](http://ww1.sinaimg.cn/large/006tNbRwgw1f5o0br69xbj31kw0kmtc0.jpg)
+![22:10:03.jpg](https://ww1.sinaimg.cn/large/006tNbRwgw1f5o0br69xbj31kw0kmtc0.jpg)
 
-![22:19:24.jpg](http://ww4.sinaimg.cn/large/006tNbRwgw1f5o0lgzik4j30q209adgk.jpg)
+![22:19:24.jpg](https://ww4.sinaimg.cn/large/006tNbRwgw1f5o0lgzik4j30q209adgk.jpg)
 
 
 

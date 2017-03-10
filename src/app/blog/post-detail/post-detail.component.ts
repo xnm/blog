@@ -1,5 +1,5 @@
 import {Component, OnInit} from "@angular/core";
-import {LocationStrategy} from "@angular/common";
+import {Location, LocationStrategy, PathLocationStrategy} from "@angular/common";
 import {Params, ActivatedRoute} from "@angular/router";
 import {LogFactory} from "../../shared/log.factory";
 import {PostsService} from "../shared/posts.service";
@@ -11,7 +11,12 @@ import * as _ from "lodash";
 
 @Component({
   providers: [
-    PostsService
+    PostsService,
+    Location,
+    {
+      provide: LocationStrategy,
+      useClass: PathLocationStrategy
+    }
   ],
   selector: 'post-detail',
   templateUrl: './post-detail.component.html',
@@ -29,7 +34,7 @@ export class PostDetailComponent implements OnInit {
   constructor(private logFactory: LogFactory,
               private posts: PostsService,
               private route: ActivatedRoute,
-              private locationStrategy: LocationStrategy) {
+              private location: Location) {
     let vm = this;
     vm.disqusConfig = environment.blog.disqus;
   }
@@ -69,11 +74,12 @@ export class PostDetailComponent implements OnInit {
   renderDisqusContent() {
     let vm = this;
     if (!_.isUndefined(vm.disqusConfig) && !_.isUndefined(vm.disqusConfig.enable) && _.isEqual(vm.disqusConfig.enable, true)) {
+      let url = location.protocol + '//' + location.hostname + vm.location.path();
       vm.disqus = {
         enable: true,
         shortName: environment.blog.disqus.shortName,
         identifier: vm.postLink,
-        url: vm.locationStrategy.prepareExternalUrl
+        url: url
       };
       vm.logger.info('Load Disqus Config:', vm.disqus);
     }
