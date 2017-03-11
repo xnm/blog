@@ -18,6 +18,11 @@
   padding-bottom: 5px;
 }
 
+.post-meta{
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
 .post-detail-content {
   padding: 15px;
 }

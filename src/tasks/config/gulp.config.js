@@ -27,7 +27,9 @@ let config = {
 
   //posts
   output: {
-    posts: 'posts.json'
+    posts: 'posts.json',
+    categories: 'categories.json',
+    tags: 'tags.json'
   }
 };
 

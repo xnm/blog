@@ -9,6 +9,11 @@ import {CovalentLayoutModule, CovalentCoreModule} from "@covalent/core";
 import {PostDetailComponent} from "./post-detail/post-detail.component";
 import {NotFoundComponent} from "./not-found/not-found.component";
 import {TagDetailComponent} from "./tag-detail/tag-detail.component";
+import {TagListComponent} from "./tag-list/tag-list.component";
+import {CategoryListComponent} from "./category-list/category-list.component";
+import {CategoryMenuListComponent} from "./category-menu-list/category-menu-list.component";
+import {CategoryDetailComponent} from "./category-detail/category-detail.component";
+import {TagMenuListComponent} from "./tag-menu-list/tag-menu-list.component";
 
 @NgModule({
   imports: [
@@ -24,9 +29,17 @@ import {TagDetailComponent} from "./tag-detail/tag-detail.component";
     PostCardComponent,
     PostDetailComponent,
     NotFoundComponent,
-    TagDetailComponent
+    TagDetailComponent,
+    TagListComponent,
+    CategoryListComponent,
+    CategoryMenuListComponent,
+    CategoryDetailComponent,
+    TagMenuListComponent
   ],
-  exports: [],
+  exports: [
+    CategoryMenuListComponent,
+    TagMenuListComponent
+  ],
   providers: []
 })
 export class BlogModule {

@@ -4,6 +4,7 @@ import rename from "gulp-rename";
 import ghpages  from "gh-pages";
 import logger from "./util/logger";
 import config from "./config/gulp.config";
+import "./clean";
 
 gulp.task('sap', function (next) {
   gulp.src(config.distDir + '/index.html')
@@ -16,7 +17,7 @@ gulp.task('sap', function (next) {
     });
 });
 
-gulp.task('upload', ['sap'], function (next) {
+gulp.task('upload', ['clean-cache','sap',], function (next) {
   let deployOptions = config.deployOptions;
   logger.info('Pushing into:', deployOptions.repo);
 

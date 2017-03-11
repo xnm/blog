@@ -3,7 +3,9 @@ export const environment = {
   production: true,
 
   datasource: {
-    posts: './posts.json'
+    posts: './posts.json',
+    tags: './tags.json',
+    categories: './categories.json'
   },
   blog: {
     avatorUrl: 'assets/images/avator.png',
@@ -52,14 +54,33 @@ export const environment = {
         ]
       }
     ],
-    disqus:{
-      enable:true,
-      shortName:'aquariuslt'
-    }
+    // Enable posts data menus in sidenav
+    tags: {
+      sidenav: true,
+      // filter the data from home post list, only show the non-hidden at home page
+      // but can will detail when click into tags list
+      filter: true,
+      hidden: [],
+    },
+    categories: {
+      sidenav: true,
+      filter: true,
+      hidden: []
+    },
+
+    about: {},
+
+
+    disqus: {
+      enable: true,
+      shortName: 'aquariuslt'
+    },
+
+
   },
 
-  https:{
-    enable:true,
-    force:true
+  https: {
+    enable: true,
+    force: true
   }
 };

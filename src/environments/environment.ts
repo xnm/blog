@@ -8,7 +8,9 @@ export const environment = {
 
   // Development environment data source url settings
   datasource: {
-    posts: './build/posts.json'
+    posts: './build/posts.json',
+    tags: './build/tags.json',
+    categories: './build/categories.json'
   },
 
   // Update your blog settings here
@@ -59,6 +61,24 @@ export const environment = {
         ]
       }
     ],
+
+    // Enable posts data menus in sidenav
+    tags: {
+      sidenav: true,
+      // filter the data from home post list, only show the non-hidden at home page
+      // but can will be seem detail when click into tags list
+      filter: true,
+      hidden: [],
+    },
+    categories: {
+      sidenav: true,
+      filter: true,
+      hidden: []
+    },
+
+    about: {},
+
+
     disqus: {
       enable: true,
       shortName: 'aquariuslt'

@@ -2,7 +2,8 @@
 {
   "title": "答辩",
   "date": "2015-05-05 16:30:39",
-  "tags":["Diary"]
+  "tags":["Diary"],
+  "category":"Diary"
 }
 ```
 

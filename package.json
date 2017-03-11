@@ -8,7 +8,7 @@
     "start": "gulp build && ng serve",
     "test": "ng test",
     "compile": "ng build --prod && gulp build:prod",
-    "deploy": "ng build --prod && gulp build:prod && gulp upload"
+    "deploy": "gulp clean && ng build --prod && gulp build:prod && gulp upload"
   },
   "private": true,
   "dependencies": {
@@ -50,6 +50,7 @@
     "gulp-inject-string": "^1.1.0",
     "gulp-rename": "^1.2.2",
     "gulp-rimraf": "^0.2.1",
+    "gulp-sequence": "^0.4.6",
     "gulp-typescript": "^3.1.5",
     "jasmine-core": "2.5.2",
     "jasmine-spec-reporter": "3.1.0",

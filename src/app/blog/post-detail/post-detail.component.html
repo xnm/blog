@@ -18,7 +18,19 @@
     </div>
 
     <div class="post-detail-actions">
-      <md-chip-list >
+      <div class="post-meta" *ngIf="post.category!=undefined">
+        Category:
+      </div>
+
+      <md-chip *ngIf="post.category!=undefined">
+        <a [routerLink]="'/category/'+post.category">{{post.category}}</a>
+      </md-chip>
+
+
+      <div class="post-meta">
+        Tags:
+      </div>
+      <md-chip-list>
         <md-chip *ngFor="let tag of post.tags">
           <a [routerLink]="'/tag/'+tag">{{tag}}</a>
         </md-chip>

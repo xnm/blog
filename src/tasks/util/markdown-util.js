@@ -41,7 +41,9 @@ function parseMarkdownMetaData(markdownString, fileNamePrefix) {
   parsedMetadata.updated = baseDate.format('YYYY-MM-DD');
   let linkPrefix = baseDate.format('YYYY/MM/DD');
   parsedMetadata.link = linkPrefix + '/' + fileNamePrefix;
-
+  if (!_.isUndefined(metadata.category)) {
+    parsedMetadata.category = metadata.category
+  }
 
   return parsedMetadata;
 }

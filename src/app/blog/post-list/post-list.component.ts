@@ -26,7 +26,7 @@ export class PostListComponent implements OnInit {
 
   loadPostList(): void {
     let vm = this;
-    vm.posts.getPostList()
+    vm.posts.getFilteredPostList()
       .subscribe(function (postList) {
         vm.postList = postList;
         vm.logger.info('Post List status update:', vm.postList.length);

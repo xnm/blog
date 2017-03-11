@@ -8,7 +8,7 @@ import config from "./config/gulp.config";
 import * as pathUtil from "./util/path-util";
 import * as markdownUtil from "./util/markdown-util";
 
-gulp.task('posts', function () {
+gulp.task('posts', function (next) {
   logger.info('Generate Posts:');
   let postDataList = pathUtil.getGlobalPaths(config.input.posts);
   let postList = [];
@@ -23,8 +23,14 @@ gulp.task('posts', function () {
     return a.created < b.created ? 1 : -1;
   });
 
-  return gulp.src(config.emptyFile)
+  gulp.src(config.emptyFile)
     .pipe(inject.append(JSON.stringify(postList)))
     .pipe(rename(config.output.posts))
-    .pipe(gulp.dest(config.buildDir));
+    .pipe(gulp.dest(config.buildDir))
+    .on('end', function () {
+      if (next) {
+        next();
+      }
+    })
+  ;
 });

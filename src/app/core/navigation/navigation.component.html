@@ -5,7 +5,7 @@
        layout-fill
        [@sideNavState]="sideNavState"
        [hidden]="hideSideNav">
-    <div class="md-padding avator-background" layout="row" >
+    <div class="md-padding avator-background" layout="row">
       <div flex="30">
         <img class="avator" [src]="blog.avatorUrl">
       </div>
@@ -14,11 +14,13 @@
         <span class="raised">{{blog.description}}</span>
       </div>
     </div>
-    
 
 
     <md-list layout="column">
-
+      <category-menu-list *ngIf="blog.categories.sidenav">
+      </category-menu-list>
+      <tag-menu-list *ngIf="blog.tags.sidenav">
+      </tag-menu-list>
       <div *ngFor="let blogLinksCategory of blog.blogLinks;let i = index;">
         <md-list-item>
           <button md-button flex
@@ -43,7 +45,7 @@
                     (click)="openExternalLink(link.url)"
                     layout-fill layout-wrap>
               <span layout="row" layout-align="center center">
-                <span class="raised no-decoration">
+                <span class="raised no-decoration sub-link">
                   {{link.displayName}}
                 </span>
                 <span flex></span>

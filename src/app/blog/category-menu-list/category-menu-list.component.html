@@ -1,0 +1,43 @@
+<md-list-item>
+  <button md-button flex
+          (click)="toggleCategoryMenuOpenStatus()"
+          layout-fill layout-wrap>
+    <span layout="row" layout-align="center center">
+      <span class="raised">Categories</span>
+      <span flex></span>
+      <button md-icon-button [disabled]="true">
+        <md-icon class="raised">
+           {{categoryMenuOpenStatus?'keyboard_arrow_up':'keyboard_arrow_down'}}
+        </md-icon>
+      </button>
+    </span>
+  </button>
+</md-list-item>
+
+<div [hidden]="!categoryMenuOpenStatus">
+  <md-list-item>
+    <button md-button flex
+            layout-fill layout-wrap
+            [routerLink]="'/categories'">
+      <span layout="row" layout-align="center center">
+        <span class="raised no-decoration sub-link">
+          All
+        </span>
+        <span flex></span>
+      </span>
+    </button>
+  </md-list-item>
+
+  <md-list-item *ngFor="let category of categoryList">
+    <button md-button flex
+            [routerLink]="'/category/'+category.category"
+            layout-fill layout-wrap>
+      <span layout="row" layout-align="center center">
+        <span class="raised no-decoration sub-link">
+          {{category.category}}
+        </span>
+        <span flex></span>
+      </span>
+    </button>
+  </md-list-item>
+</div>
