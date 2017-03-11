@@ -59,9 +59,13 @@ export const environment = {
         ]
       }
     ],
-    disqus:{
-      enable:true,
-      shortName:'aquariuslt'
+    disqus: {
+      enable: true,
+      shortName: 'aquariuslt'
     }
+  },
+  https: {
+    enable: false,
+    force: false
   }
 };

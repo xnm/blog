@@ -5,7 +5,6 @@ export const environment = {
   datasource: {
     posts: './posts.json'
   },
-
   blog: {
     avatorUrl: 'assets/images/avator.png',
     siteName: 'Aquariuslt Home',
@@ -57,5 +56,10 @@ export const environment = {
       enable:true,
       shortName:'aquariuslt'
     }
+  },
+
+  https:{
+    enable:true,
+    force:true
   }
 };
