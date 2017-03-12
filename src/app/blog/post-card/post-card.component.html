@@ -16,7 +16,7 @@
          class="post-card-actions"
          layout-align="start end" flex>
       <md-chip-list>
-        <md-chip *ngFor="let tag of post.tags">
+        <md-chip class="tag-chip" *ngFor="let tag of post.tags">
           <a [routerLink]="'/tag/'+tag">{{tag}}</a>
         </md-chip>
       </md-chip-list>

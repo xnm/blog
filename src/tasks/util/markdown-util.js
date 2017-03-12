@@ -39,9 +39,15 @@ function parseMarkdownMetaData(markdownString, fileNamePrefix) {
   let baseDate = null;
   if (!_.isUndefined(metadata.created)) {
     baseDate = moment(new Date(metadata.created));
-    let updated = moment(new Date(metadata.updated));
+
     parsedMetadata.created = baseDate.format('YYYY-MM-DD');
-    parsedMetadata.updated = updated.format('YYYY-MM-DD');
+    if (metadata.updated) {
+      let updated = moment(new Date(metadata.updated));
+      parsedMetadata.updated = updated.format('YYYY-MM-DD');
+    }
+    else {
+      parsedMetadata.updated = baseDate.format('YYYY-MM-DD');
+    }
   }
   else {
     baseDate = moment(new Date(metadata.date));

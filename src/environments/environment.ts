@@ -32,6 +32,11 @@ export const environment = {
             url: 'https://twitter.com/superaquariuslt',
             displayName: 'Twitter',
             description: 'Twitter'
+          },
+          {
+            url: 'https://aquariuslt.com',
+            displayName: 'Posts Archive',
+            description: 'Past Version Blog'
           }
         ]
       },
