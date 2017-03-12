@@ -1,0 +1,17 @@
+{
+  "name": "Aquariuslt Home",
+  "short_name": "Aquariuslt Home",
+  "icons": [
+    {
+      "src": "assets/images/avator.png",
+      "sizes": "144x144",
+      "type": "image/png",
+      "density": 0.75
+    }
+  ],
+  "theme_color": "#1976d2",
+  "background_color": "#1976d2",
+  "start_url": "index.html",
+  "display": "standalone",
+  "orientation": "portrait"
+}

@@ -36,9 +36,19 @@ function parseMarkdownMetaData(markdownString, fileNamePrefix) {
   let parsedMetadata = _.clone(metadata);
 
 
-  let baseDate = moment(new Date(metadata.date));
-  parsedMetadata.created = baseDate.format('YYYY-MM-DD');
-  parsedMetadata.updated = baseDate.format('YYYY-MM-DD');
+  let baseDate = null;
+  if (!_.isUndefined(metadata.created)) {
+    baseDate = moment(new Date(metadata.created));
+    let updated = moment(new Date(metadata.updated));
+    parsedMetadata.created = baseDate.format('YYYY-MM-DD');
+    parsedMetadata.updated = updated.format('YYYY-MM-DD');
+  }
+  else {
+    baseDate = moment(new Date(metadata.date));
+    parsedMetadata.created = baseDate.format('YYYY-MM-DD');
+    parsedMetadata.updated = baseDate.format('YYYY-MM-DD');
+  }
+
   let linkPrefix = baseDate.format('YYYY/MM/DD');
   parsedMetadata.link = linkPrefix + '/' + fileNamePrefix;
   if (!_.isUndefined(metadata.category)) {
