@@ -25,23 +25,38 @@ const blogRoutes: Routes = [
   },
   {
     path: 'tag/:tagName',
-    component: TagDetailComponent
+    component: TagDetailComponent,
+    data:{
+      title: 'Tag'
+    }
   },
   {
     path: 'tags',
-    component: TagListComponent
+    component: TagListComponent,
+    data:{
+      title: 'Tags'
+    }
   },
   {
     path: 'category/:categoryName',
-    component: CategoryDetailComponent
+    component: CategoryDetailComponent,
+    data:{
+      title:'Category'
+    }
   },
   {
     path: 'categories',
-    component: CategoryListComponent
+    component: CategoryListComponent,
+    data: {
+      title: 'Categories'
+    }
   },
   {
     path: '**',
-    component: NotFoundComponent
+    component: NotFoundComponent,
+    data: {
+      title: 'Oops... Not Found'
+    }
   }
 ];
 

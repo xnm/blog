@@ -2,10 +2,12 @@ import {Component, OnInit} from "@angular/core";
 import {ActivatedRoute, Params} from "@angular/router";
 import {PostsService} from "../shared/posts.service";
 import {LogFactory} from "../../shared/log.factory";
+import {BlogTitleService} from "../shared/blog.title.service";
 
 @Component({
   providers: [
-    PostsService
+    PostsService,
+    BlogTitleService
   ],
   selector: 'tag-detail',
   templateUrl: './tag-detail.component.html',
@@ -14,6 +16,7 @@ import {LogFactory} from "../../shared/log.factory";
 export class TagDetailComponent implements OnInit {
 
   constructor(private logFactory: LogFactory,
+              private titleService: BlogTitleService,
               private posts: PostsService,
               private route: ActivatedRoute) {
   }
@@ -34,6 +37,7 @@ export class TagDetailComponent implements OnInit {
       let tagName = params['tagName'];
       vm.logger.info('Load Post by Tag:',tagName);
       vm.tagName = tagName;
+      vm.titleService.setTitle('Tag:'+tagName);
       return vm.posts.queryByTagName(tagName);
     }).subscribe(function (postList) {
       vm.postList = postList;

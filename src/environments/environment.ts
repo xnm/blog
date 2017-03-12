@@ -80,7 +80,7 @@ export const environment = {
 
 
     disqus: {
-      enable: true,
+      enable: false,
       shortName: 'aquariuslt'
     }
   },

@@ -1,10 +1,12 @@
 import {Component, OnInit} from "@angular/core";
 import {PostsService} from "../shared/posts.service";
 import {LogFactory} from "../../shared/log.factory";
+import {BlogTitleService} from "../shared/blog.title.service";
 
 @Component({
   providers: [
-    PostsService
+    PostsService,
+    BlogTitleService
   ],
   selector: 'post-list',
   templateUrl: './post-list.component.html',
@@ -13,6 +15,7 @@ import {LogFactory} from "../../shared/log.factory";
 export class PostListComponent implements OnInit {
 
   constructor(private posts: PostsService,
+              private titleService:BlogTitleService,
               private logFactory: LogFactory) {
   }
 
@@ -21,6 +24,8 @@ export class PostListComponent implements OnInit {
 
   ngOnInit() {
     let vm = this;
+    vm.logger.info('Setting Post List title!');
+    vm.titleService.setTitle();
     vm.loadPostList();
   }
 

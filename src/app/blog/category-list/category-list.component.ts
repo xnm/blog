@@ -1,10 +1,12 @@
 import {Component, OnInit} from "@angular/core";
 import {PostsService} from "../shared/posts.service";
 import {LogFactory} from "../../shared/log.factory";
+import {BlogTitleService} from "../shared/blog.title.service";
 
 @Component({
   providers: [
-    PostsService
+    PostsService,
+    BlogTitleService
   ],
   selector: 'category-list',
   templateUrl: './category-list.component.html',
@@ -13,7 +15,8 @@ import {LogFactory} from "../../shared/log.factory";
 export class CategoryListComponent implements OnInit {
 
   constructor(private logFactory: LogFactory,
-              private posts: PostsService) {
+              private posts: PostsService,
+              private titleService: BlogTitleService) {
   }
 
 
@@ -25,6 +28,7 @@ export class CategoryListComponent implements OnInit {
   ngOnInit() {
     let vm = this;
     vm.queryPostList();
+    vm.titleService.setTitle('Categories')
   }
 
 
@@ -33,18 +37,18 @@ export class CategoryListComponent implements OnInit {
     vm.posts.getCategoryList()
       .subscribe(function (categoryList) {
         vm.categoryList = categoryList;
-        if(categoryList.length >= 1){
+        if (categoryList.length >= 1) {
           vm.selectCategory(categoryList[0].category);
         }
       });
   }
 
-  selectCategory(categoryName){
+  selectCategory(categoryName) {
     let vm = this;
-    vm.logger.info('Selected Category:',categoryName);
+    vm.logger.info('Selected Category:', categoryName);
     vm.selectedCategory = categoryName;
     vm.posts.queryByCategoryName(categoryName)
-      .subscribe(function(postList){
+      .subscribe(function (postList) {
         vm.selectedPostList = postList;
       });
   }

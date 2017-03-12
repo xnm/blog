@@ -8,10 +8,13 @@ import {Post} from "../shared/post.model";
 import marked from "marked";
 import {environment} from "../../../environments/environment";
 import * as _ from "lodash";
+import {Title} from "@angular/platform-browser";
+import {BlogTitleService} from "../shared/blog.title.service";
 
 @Component({
   providers: [
     PostsService,
+    BlogTitleService,
     Location,
     {
       provide: LocationStrategy,
@@ -32,6 +35,7 @@ export class PostDetailComponent implements OnInit {
   private postLink;
 
   constructor(private logFactory: LogFactory,
+              private titleService:BlogTitleService,
               private posts: PostsService,
               private route: ActivatedRoute,
               private location: Location) {
@@ -59,6 +63,7 @@ export class PostDetailComponent implements OnInit {
     }).subscribe(function (post) {
       vm.post = new Post(post);
       vm.logger.info('Load Post:', vm.post.title);
+      vm.titleService.setTitle(vm.post.title);
       vm.renderPostContent();
       vm.renderDisqusContent();
     });

@@ -2,10 +2,12 @@ import {Component, OnInit} from "@angular/core";
 import {PostsService} from "../shared/posts.service";
 import {ActivatedRoute, Params} from "@angular/router";
 import {LogFactory} from "../../shared/log.factory";
+import {BlogTitleService} from "../shared/blog.title.service";
 
 @Component({
   providers: [
-    PostsService
+    PostsService,
+    BlogTitleService
   ],
   selector: 'category-detail',
   templateUrl: './category-detail.component.html',
@@ -15,6 +17,7 @@ export class CategoryDetailComponent implements OnInit {
 
   constructor(private logFactory: LogFactory,
               private posts: PostsService,
+              private titleService:BlogTitleService,
               private route: ActivatedRoute) {
   }
 
@@ -33,6 +36,7 @@ export class CategoryDetailComponent implements OnInit {
       let categoryName = params['categoryName'];
       vm.logger.info('Load Post by Category:',categoryName);
       vm.categoryName = categoryName;
+      vm.titleService.setTitle('Category:'+categoryName);
       return vm.posts.queryByCategoryName(categoryName);
     }).subscribe(function (postList) {
       vm.postList = postList;
