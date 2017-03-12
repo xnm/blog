@@ -1,6 +1,6 @@
 {
   "project": {
-    "version": "1.0.0-rc.0",
+    "version": "1.0.0-rc.1",
     "name": "blog.aquariuslt.com"
   },
   "apps": [
@@ -9,7 +9,7 @@
       "outDir": "dist",
       "assets": [
         "assets",
-        "avator.png",
+        "app-icon.png",
         "manifest.webapp"
       ],
       "index": "index.html",
