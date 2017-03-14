@@ -26,20 +26,21 @@
           <button md-button flex
                   (click)="toggleLinksOpenStatus(i)"
                   layout-fill layout-wrap>
-          <span layout="row" layout-align="center center">
-            <span class="raised">{{blogLinksCategory.category}}</span>
-            <span flex></span>
-            <button md-icon-button [disabled]="true">
-              <md-icon class="raised">
-                {{subLinksOpenStatus[i]?'keyboard_arrow_up':'keyboard_arrow_down'}}
-              </md-icon>
-            </button>
-          </span>
+            <span layout="row" layout-align="center center">
+              <span class="raised">{{blogLinksCategory.category}}</span>
+              <span flex></span>
+              <button md-icon-button [disabled]="true">
+                <md-icon class="raised" [@subLinkOpenState]="subLinksOpenStates[i]">
+                  keyboard_arrow_down
+                </md-icon>
+              </button>
+            </span>
           </button>
         </md-list-item>
 
-        <div [hidden]="!subLinksOpenStatus[i]">
-          <md-list-item *ngFor="let link of blogLinksCategory.links">
+        <div class="sidenav-child-menu">
+          <md-list-item [@subLinkExpandState]="subLinksOpenStates[i]"
+                        *ngFor="let link of blogLinksCategory.links">
             <button md-button flex mdTooltip="{{link.description}}"
                     [mdTooltipPosition]="'right'"
                     (click)="openExternalLink(link.url)"

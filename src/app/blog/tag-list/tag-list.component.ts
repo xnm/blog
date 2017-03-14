@@ -2,6 +2,7 @@ import {Component, OnInit} from "@angular/core";
 import {PostsService} from "../shared/posts.service";
 import {LogFactory} from "../../shared/log.factory";
 import {BlogTitleService} from "../shared/blog.title.service";
+import {routerTransition} from "../../shared/router.animations";
 
 @Component({
   providers: [

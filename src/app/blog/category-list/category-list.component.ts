@@ -2,6 +2,7 @@ import {Component, OnInit} from "@angular/core";
 import {PostsService} from "../shared/posts.service";
 import {LogFactory} from "../../shared/log.factory";
 import {BlogTitleService} from "../shared/blog.title.service";
+import {routerTransition} from "../../shared/router.animations";
 
 @Component({
   providers: [
@@ -10,7 +11,9 @@ import {BlogTitleService} from "../shared/blog.title.service";
   ],
   selector: 'category-list',
   templateUrl: './category-list.component.html',
-  styleUrls: ['./category-list.component.css']
+  styleUrls: ['./category-list.component.css'],
+  animations:[routerTransition()],
+  host: {'[@routerTransition]': ''}
 })
 export class CategoryListComponent implements OnInit {
 

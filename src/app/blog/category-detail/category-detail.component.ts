@@ -3,6 +3,7 @@ import {PostsService} from "../shared/posts.service";
 import {ActivatedRoute, Params} from "@angular/router";
 import {LogFactory} from "../../shared/log.factory";
 import {BlogTitleService} from "../shared/blog.title.service";
+import {routerTransition} from "../../shared/router.animations";
 
 @Component({
   providers: [
@@ -11,7 +12,9 @@ import {BlogTitleService} from "../shared/blog.title.service";
   ],
   selector: 'category-detail',
   templateUrl: './category-detail.component.html',
-  styleUrls: ['./category-detail.component.css']
+  styleUrls: ['./category-detail.component.css'],
+  animations:[routerTransition()],
+  host: {'[@routerTransition]': ''}
 })
 export class CategoryDetailComponent implements OnInit {
 

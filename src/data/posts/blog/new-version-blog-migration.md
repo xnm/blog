@@ -8,7 +8,6 @@
 ```
 
 
-# Blog Structure Update
 
 ## Background
 

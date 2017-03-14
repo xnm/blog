@@ -8,8 +8,8 @@ import {Post} from "../shared/post.model";
 import marked from "marked";
 import {environment} from "../../../environments/environment";
 import * as _ from "lodash";
-import {Title} from "@angular/platform-browser";
 import {BlogTitleService} from "../shared/blog.title.service";
+import {routerTransition} from "../../shared/router.animations";
 
 @Component({
   providers: [
@@ -23,7 +23,9 @@ import {BlogTitleService} from "../shared/blog.title.service";
   ],
   selector: 'post-detail',
   templateUrl: './post-detail.component.html',
-  styleUrls: ['./post-detail.component.css']
+  styleUrls: ['./post-detail.component.css'],
+  animations:[routerTransition()],
+  host: {'[@routerTransition]': ''}
 })
 export class PostDetailComponent implements OnInit {
 

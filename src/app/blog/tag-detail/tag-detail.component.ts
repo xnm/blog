@@ -3,6 +3,7 @@ import {ActivatedRoute, Params} from "@angular/router";
 import {PostsService} from "../shared/posts.service";
 import {LogFactory} from "../../shared/log.factory";
 import {BlogTitleService} from "../shared/blog.title.service";
+import {routerTransition} from "../../shared/router.animations";
 
 @Component({
   providers: [
@@ -11,7 +12,9 @@ import {BlogTitleService} from "../shared/blog.title.service";
   ],
   selector: 'tag-detail',
   templateUrl: './tag-detail.component.html',
-  styleUrls: ['./tag-detail.component.css']
+  styleUrls: ['./tag-detail.component.css'],
+  animations:[routerTransition()],
+  host: {'[@routerTransition]': ''}
 })
 export class TagDetailComponent implements OnInit {
 

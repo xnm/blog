@@ -1,4 +1,4 @@
-import {Component, style, trigger, transition, animate, OnInit} from "@angular/core";
+import {Component, style, trigger, transition, animate, OnInit, state} from "@angular/core";
 import {LogFactory} from "../../shared/log.factory";
 import {environment} from "../../../environments/environment";
 
@@ -23,6 +23,41 @@ import {environment} from "../../../environments/environment";
         }),
         animate('0.1s 0.2s ease-in')
       ])
+    ]),
+    trigger('subLinkOpenState', [
+      state('opened', style({
+        transform: 'rotate(0deg)'
+      })),
+      state('closed', style({
+        transform: 'rotate(180deg)'
+      })),
+      transition('closed => opened', [
+        animate('1s ease-out')
+      ]),
+      transition('opened => closed', [
+        animate('1s ease-out')
+      ])
+    ]),
+    trigger('subLinkExpandState', [
+      state('opened', style({
+        height: '*'
+      })),
+      state('closed', style({
+        height: 0,
+        opacity: 0,
+      })),
+      transition('closed => opened', [
+        animate('1s ease-out', style({
+          height: '*',
+          opacity: 100
+        }))
+      ]),
+      transition('opened => closed', [
+        animate('1s ease-out', style({
+          height: 0,
+          opacity: 0
+        }))
+      ])
     ])
   ]
 })
@@ -40,6 +75,9 @@ export class NavigationComponent implements OnInit {
   private subLinksOpenStatus = environment.blog.blogLinks.map(() => {
     return false
   });
+  private subLinksOpenStates = environment.blog.blogLinks.map(() => {
+    return 'closed';
+  });
 
   ngOnInit(): void {
   }
@@ -48,13 +86,14 @@ export class NavigationComponent implements OnInit {
     let vm = this;
     vm.hideSideNav = !vm.hideSideNav;
     vm.sideNavState = vm.hideSideNav ? 'hide' : 'show';
-    vm.logger.info('sideNavState:', vm.sideNavState);
+    vm.logger.info('SideNavState:', vm.sideNavState);
   }
 
   toggleLinksOpenStatus(index: number): void {
     let vm = this;
     if (index <= vm.subLinksOpenStatus.length - 1) {
       vm.subLinksOpenStatus [index] = !vm.subLinksOpenStatus[index];
+      vm.subLinksOpenStates [index] = vm.subLinksOpenStatus [index] ? 'opened' : 'closed';
     }
   }
 
