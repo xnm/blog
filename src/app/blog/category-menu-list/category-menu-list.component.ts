@@ -18,10 +18,10 @@ import {PostsService} from "../shared/posts.service";
         transform: 'rotate(180deg)'
       })),
       transition('closed => opened', [
-        animate('1s ease-out')
+        animate('0.5s ease-out')
       ]),
       transition('opened => closed', [
-        animate('1s ease-out')
+        animate('0.5s ease-out')
       ])
     ]),
     trigger('subLinkExpandState', [
@@ -33,13 +33,13 @@ import {PostsService} from "../shared/posts.service";
         opacity: 0,
       })),
       transition('closed => opened', [
-        animate('1s ease-out', style({
+        animate('0.5s ease-out', style({
           height: '*',
           opacity: 100
         }))
       ]),
       transition('opened => closed', [
-        animate('1s ease-out', style({
+        animate('0.5s ease-out', style({
           height: 0,
           opacity: 0
         }))
