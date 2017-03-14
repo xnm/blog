@@ -24,7 +24,7 @@ import {routerTransition} from "../../shared/router.animations";
   selector: 'post-detail',
   templateUrl: './post-detail.component.html',
   styleUrls: ['./post-detail.component.css'],
-  animations:[routerTransition()],
+  animations: [routerTransition()],
   host: {'[@routerTransition]': ''}
 })
 export class PostDetailComponent implements OnInit {
@@ -37,7 +37,7 @@ export class PostDetailComponent implements OnInit {
   private postLink;
 
   constructor(private logFactory: LogFactory,
-              private titleService:BlogTitleService,
+              private titleService: BlogTitleService,
               private posts: PostsService,
               private route: ActivatedRoute,
               private location: Location) {
