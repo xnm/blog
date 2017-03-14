@@ -78,7 +78,9 @@ export const environment = {
     categories: {
       sidenav: true,
       filter: true,
-      hidden: []
+      hidden: [
+        'Else'
+      ]
     },
 
     about: {},
