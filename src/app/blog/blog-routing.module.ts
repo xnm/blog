@@ -8,6 +8,7 @@ import {TagDetailComponent} from "./tag-detail/tag-detail.component";
 import {TagListComponent} from "./tag-list/tag-list.component";
 import {CategoryListComponent} from "./category-list/category-list.component";
 import {CategoryDetailComponent} from "./category-detail/category-detail.component";
+import {AboutComponent} from "./about/about.component";
 
 
 const blogRoutes: Routes = [
@@ -26,22 +27,22 @@ const blogRoutes: Routes = [
   {
     path: 'tag/:tagName',
     component: TagDetailComponent,
-    data:{
+    data: {
       title: 'Tag'
     }
   },
   {
     path: 'tags',
     component: TagListComponent,
-    data:{
+    data: {
       title: 'Tags'
     }
   },
   {
     path: 'category/:categoryName',
     component: CategoryDetailComponent,
-    data:{
-      title:'Category'
+    data: {
+      title: 'Category'
     }
   },
   {
@@ -50,6 +51,10 @@ const blogRoutes: Routes = [
     data: {
       title: 'Categories'
     }
+  },
+  {
+    path: 'about',
+    component: AboutComponent
   },
   {
     path: '**',

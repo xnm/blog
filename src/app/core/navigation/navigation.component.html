@@ -55,6 +55,21 @@
           </md-list-item>
         </div>
       </div>
+      <md-list-item>
+        <button md-button flex
+                [routerLink]="'/about'"
+                layout-fill layout-wrap>
+            <span layout="row" layout-align="center center">
+              <span class="raised">About</span>
+              <span flex></span>
+              <button md-icon-button [disabled]="true">
+                <md-icon class="raised">
+                  keyboard_arrow_right
+                </md-icon>
+              </button>
+            </span>
+        </button>
+      </md-list-item>
     </md-list>
 
 

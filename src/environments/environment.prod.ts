@@ -70,7 +70,9 @@ export const environment = {
       ]
     },
 
-    about: {},
+    about: {
+      enable:true
+    },
 
 
     disqus: {

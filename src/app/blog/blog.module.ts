@@ -14,6 +14,7 @@ import {CategoryListComponent} from "./category-list/category-list.component";
 import {CategoryMenuListComponent} from "./category-menu-list/category-menu-list.component";
 import {CategoryDetailComponent} from "./category-detail/category-detail.component";
 import {TagMenuListComponent} from "./tag-menu-list/tag-menu-list.component";
+import { AboutComponent } from './about/about.component';
 
 @NgModule({
   imports: [
@@ -34,7 +35,8 @@ import {TagMenuListComponent} from "./tag-menu-list/tag-menu-list.component";
     CategoryListComponent,
     CategoryMenuListComponent,
     CategoryDetailComponent,
-    TagMenuListComponent
+    TagMenuListComponent,
+    AboutComponent
   ],
   exports: [
     CategoryMenuListComponent,
