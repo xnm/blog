@@ -1,26 +1,22 @@
 import {Component, OnInit} from "@angular/core";
 import {ActivatedRoute, Params} from "@angular/router";
-import {PostsService} from "../shared/posts.service";
+import {PostService} from "../shared/post.service";
 import {LogFactory} from "../../shared/log.factory";
-import {BlogTitleService} from "../shared/blog.title.service";
-import {routerTransition} from "../../shared/router.animations";
+import {BlogTitleService} from "../shared/blog-title.service";
 
 @Component({
   providers: [
-    PostsService,
-    BlogTitleService
+    PostService
   ],
   selector: 'tag-detail',
   templateUrl: './tag-detail.component.html',
-  styleUrls: ['./tag-detail.component.css'],
-  animations:[routerTransition()],
-  host: {'[@routerTransition]': ''}
+  styleUrls: ['./tag-detail.component.css']
 })
 export class TagDetailComponent implements OnInit {
 
   constructor(private logFactory: LogFactory,
               private titleService: BlogTitleService,
-              private posts: PostsService,
+              private posts: PostService,
               private route: ActivatedRoute) {
   }
 

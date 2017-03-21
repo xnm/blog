@@ -1,23 +1,19 @@
 import {Component, OnInit} from "@angular/core";
-import {PostsService} from "../shared/posts.service";
+import {PostService} from "../shared/post.service";
 import {LogFactory} from "../../shared/log.factory";
-import {BlogTitleService} from "../shared/blog.title.service";
-import {routerTransition} from "../../shared/router.animations";
+import {BlogTitleService} from "../shared/blog-title.service";
 
 @Component({
   providers: [
-    PostsService,
-    BlogTitleService
+    PostService,
   ],
   selector: 'post-list',
   templateUrl: './post-list.component.html',
-  styleUrls: ['./post-list.component.css'],
-  animations:[routerTransition()],
-  host: {'[@routerTransition]': ''}
+  styleUrls: ['./post-list.component.css']
 })
 export class PostListComponent implements OnInit {
 
-  constructor(private posts: PostsService,
+  constructor(private posts: PostService,
               private titleService: BlogTitleService,
               private logFactory: LogFactory) {
   }

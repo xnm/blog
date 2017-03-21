@@ -1,54 +1,40 @@
-/*Common*/
-.raised {
-  color: white;
+/* Header */
+.always-top {
+  position: relative;
 }
 
-.no-decoration {
-  text-decoration: none !important;
-}
-
-/*Header*/
-
-/*SideNav*/
-.avator {
-  width: 100%;
-  height: auto;
-  padding:15px;
-  border-radius: 50%;
-}
-
-.avator-background{
-  background:url("./../../../assets/images/avator-background.png");
-}
-
+/* SideNav */
 .sidenav {
   width: 100%;
+  height: 100%;
   position: absolute;
-  z-index: 1;
 }
 
 .sidenav-content {
   width: 300px;
-  height: 1500px;
-  background: #1990df;
+  background: #008dff;
 }
 
-.sidenav-parent-menu{
-  background-color: #1990df;
-  z-index: 20;
-}
-
-.sidenav-child-menu{
-  background-color: #1990df;
-  z-index: 10;
-}
-
-.sidenav-face {
+.sidenav-mark {
   opacity: 0.4;
   background: grey;
 }
 
-.sub-link{
-  padding-left: 5px;
+.avator {
+  width: 100%;
+  height: auto;
+  padding: 15px;
+  border-radius: 50%;
 }
 
+.avator-background {
+  min-height: 150px;
+}
+
+.author {
+  font-size: 14px;
+}
+
+.author-description {
+  font-size: 14px;
+}

@@ -3,7 +3,7 @@
   "short_name": "Blog",
   "icons": [
     {
-      "src": "assets/images/app-icon.png",
+      "src": "app-icon.png",
       "sizes": "144x144",
       "type": "image/png",
       "density": 0.75

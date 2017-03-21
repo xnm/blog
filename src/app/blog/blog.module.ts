@@ -1,49 +1,68 @@
 import {NgModule} from "@angular/core";
 import {CommonModule} from "@angular/common";
-import {MaterialModule} from "@angular/material";
 import {DisqusModule} from "ng2-awesome-disqus";
-import {PostListComponent} from "./post-list/post-list.component";
-import {PostCardComponent} from "./post-card/post-card.component";
-import {BlogRoutingModule} from "./blog-routing.module";
+import {MaterialModule} from "@angular/material";
 import {CovalentLayoutModule, CovalentCoreModule} from "@covalent/core";
+import {BlogRoutingModule} from "./blog-routing.module";
+import {CategoryService} from "./shared/category.service";
+import {TagService} from "./shared/tag.service";
+import {LogFactory} from "../shared/log.factory";
+import {CoreModule} from "../core/core.module";
+import {BlogConfigService} from "./shared/blog-config.service";
+import {BlogTitleService} from "./shared/blog-title.service";
+import {PostService} from "./shared/post.service";
+import {PostCardComponent} from "./post-card/post-card.component";
 import {PostDetailComponent} from "./post-detail/post-detail.component";
-import {NotFoundComponent} from "./not-found/not-found.component";
+import {PostListComponent} from "./post-list/post-list.component";
 import {TagDetailComponent} from "./tag-detail/tag-detail.component";
 import {TagListComponent} from "./tag-list/tag-list.component";
-import {CategoryListComponent} from "./category-list/category-list.component";
-import {CategoryMenuListComponent} from "./category-menu-list/category-menu-list.component";
 import {CategoryDetailComponent} from "./category-detail/category-detail.component";
-import {TagMenuListComponent} from "./tag-menu-list/tag-menu-list.component";
-import { AboutComponent } from './about/about.component';
+import {CategoryListComponent} from "./category-list/category-list.component";
 
 @NgModule({
   imports: [
     CommonModule,
-    BlogRoutingModule,
     MaterialModule,
     CovalentCoreModule,
     CovalentLayoutModule,
-    DisqusModule
+    DisqusModule,
+
+
+    CoreModule,
+    BlogRoutingModule,
   ],
   declarations: [
-    PostListComponent,
     PostCardComponent,
     PostDetailComponent,
-    NotFoundComponent,
+    PostListComponent,
     TagDetailComponent,
     TagListComponent,
-    CategoryListComponent,
-    CategoryMenuListComponent,
     CategoryDetailComponent,
-    TagMenuListComponent,
-    AboutComponent
+    CategoryListComponent
   ],
-  exports: [
-    CategoryMenuListComponent,
-    TagMenuListComponent
-  ],
-  providers: []
+  providers: [
+    CategoryService,
+    TagService,
+    BlogConfigService,
+    BlogTitleService,
+    PostService
+  ]
 })
 export class BlogModule {
 
+  private logger = this.logFactory.getLog(BlogModule.name);
+
+  constructor(private logFactory: LogFactory,
+              private categoryService: CategoryService,
+              private tagService: TagService,
+              private blogConfigService: BlogConfigService) {
+    let blog = this;
+    blog.logger.info('Blog Module is loaded');
+    blog.categoryService.registerNavigationMenu();
+    blog.tagService.registerNavigationMenu();
+    blog.blogConfigService.registerNavigationMenu();
+
+    blog.blogConfigService.registerApplicationTitle();
+    blog.blogConfigService.registerAuthorInfo();
+  }
 }

@@ -1,96 +1,61 @@
-<!-- SideNav -->
-<section layout="row"
-         class="sidenav">
+<!-- Side Nav -->
+<section class="sidenav"
+         [hidden]="sideNavState =='hide'"
+         [@sideNavState]="sideNavState"
+         layout="row">
   <div class="sidenav-content md-whiteframe-2dp"
        layout-fill
-       [@sideNavState]="sideNavState"
-       [hidden]="hideSideNav">
+       layout="column"
+       [@sideNavContentState]="sideNavState">
     <div class="md-padding avator-background" layout="row">
-      <div flex="30">
-        <img class="avator" [src]="blog.avatorUrl">
+      <div flex="35">
+        <img class="avator" [src]="author.avatorUrl">
       </div>
-      <div class="md-padding" layout="column" layout-align="end end" flex>
-        <h4 class="raised">{{blog.author}}</h4>
-        <span class="raised">{{blog.description}}</span>
+      <div layout="column" class="md-padding" layout-align="end end" flex>
+        <span class="author raised">{{author.author}}</span>
+        <span class="author-description raised">{{author.description}}</span>
       </div>
     </div>
 
 
-    <md-list layout="column">
-      <category-menu-list *ngIf="blog.categories.sidenav">
-      </category-menu-list>
-      <tag-menu-list *ngIf="blog.tags.sidenav">
-      </tag-menu-list>
-      <div *ngFor="let blogLinksCategory of blog.blogLinks;let i = index;">
-        <md-list-item>
-          <button md-button flex
-                  (click)="toggleLinksOpenStatus(i)"
-                  layout-fill layout-wrap>
-            <span layout="row" layout-align="center center">
-              <span class="raised">{{blogLinksCategory.category}}</span>
-              <span flex></span>
-              <button md-icon-button [disabled]="true">
-                <md-icon class="raised" [@subLinkOpenState]="subLinksOpenStates[i]">
-                  keyboard_arrow_down
-                </md-icon>
-              </button>
-            </span>
-          </button>
-        </md-list-item>
-
-        <div class="sidenav-child-menu">
-          <md-list-item [@subLinkExpandState]="subLinksOpenStates[i]"
-                        *ngFor="let link of blogLinksCategory.links">
-            <button md-button flex mdTooltip="{{link.description}}"
-                    [mdTooltipPosition]="'right'"
-                    (click)="openExternalLink(link.url)"
-                    layout-fill layout-wrap>
-              <span layout="row" layout-align="center center">
-                <span class="raised no-decoration sub-link">
-                  {{link.displayName}}
-                </span>
-                <span flex></span>
-              </span>
-            </button>
-          </md-list-item>
+    <div *ngFor="let menu of menus;let i = index" layout="column">
+      <button md-button flex
+              (click)="toggleMenuOpenState(i)">
+        <div flex layout="row">
+          <span class="raised">{{menu.label}}</span>
+          <span flex></span>
+          <div layout="row" layout-align="center center">
+            <md-icon class="raised" [@menuOpenState]="menuOpenStates[i]">
+              keyboard_arrow_down
+            </md-icon>
+          </div>
         </div>
-      </div>
-      <md-list-item>
-        <button md-button flex
-                [routerLink]="'/about'"
-                layout-fill layout-wrap>
-            <span layout="row" layout-align="center center">
-              <span class="raised">About</span>
-              <span flex></span>
-              <button md-icon-button [disabled]="true">
-                <md-icon class="raised">
-                  keyboard_arrow_right
-                </md-icon>
-              </button>
-            </span>
-        </button>
-      </md-list-item>
-    </md-list>
-
-
-  </div>
-
-  <div class="sidenav-face" flex
-       (click)="toggleSideNavShowStatus()"
-       [@sideNavFaceState]="sideNavState"
-       [hidden]="hideSideNav"></div>
-</section>
-
-<!-- Header -->
-<section layout="row">
-  <div flex>
-    <md-toolbar class="mat-primary md-whiteframe-2dp" layout="row">
-      <button md-icon-button (click)="toggleSideNavShowStatus()">
-        <md-icon>menu</md-icon>
       </button>
-      <a [routerLink]="'/'" class="raised">{{blog.siteName}}</a>
-      <div flex></div>
-    </md-toolbar>
+      <button md-button flex *ngFor="let subMenu of menu.links"
+              (click)="openLink(subMenu)"
+              [@subMenuExpandState]="menuOpenStates[i]">
+        <div flex layout="row">
+          <span class="raised">{{subMenu.displayName}}</span>
+          <span flex></span>
+        </div>
+      </button>
+    </div>
+  </div>
+
+  <div class="sidenav-mark" flex
+       [@sideNavMarkState]="sideNavState"
+       [hidden]="sideNavState =='hide'"
+       (click)="toggleSideNavState()">
   </div>
 </section>
+<!-- Header -->
+<section layout="column">
 
+  <md-toolbar [color]="'primary'" class="always-top md-whiteframe-2dp">
+    <button md-icon-button (click)="toggleSideNavState()">
+      <md-icon>menu</md-icon>
+    </button>
+    <a [routerLink]="'/'" class="raised">{{title}}</a>
+    <div flex></div>
+  </md-toolbar>
+</section>

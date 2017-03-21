@@ -1,10 +1,11 @@
 import {NgModule} from "@angular/core";
 import {CommonModule} from "@angular/common";
-import {MaterialModule} from "@angular/material";
-import {CovalentLayoutModule, CovalentCoreModule} from "@covalent/core";
 import {NavigationComponent} from "./navigation/navigation.component";
-import {BlogModule} from "../blog/blog.module";
+import {CovalentLayoutModule, CovalentCoreModule} from "@covalent/core";
+import {MaterialModule} from "@angular/material";
 import {RouterModule} from "@angular/router";
+import {NavigationMenuService} from "./shared/navigation-menu.service";
+
 @NgModule({
   imports: [
     CommonModule,
@@ -12,8 +13,6 @@ import {RouterModule} from "@angular/router";
     MaterialModule,
     CovalentCoreModule,
     CovalentLayoutModule,
-
-    BlogModule
   ],
   declarations: [
     NavigationComponent
@@ -21,7 +20,9 @@ import {RouterModule} from "@angular/router";
   exports: [
     NavigationComponent
   ],
-  providers: []
+  providers: [
+    NavigationMenuService
+  ]
 })
 export class CoreModule {
 }

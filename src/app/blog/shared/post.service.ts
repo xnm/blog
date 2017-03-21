@@ -5,7 +5,7 @@ import {LogFactory} from "../../shared/log.factory";
 import * as _ from "lodash";
 
 @Injectable()
-export class PostsService {
+export class PostService {
 
   constructor(private http: Http,
               private logFactory: LogFactory) {
@@ -13,24 +13,15 @@ export class PostsService {
     svc.preLoadToCache();
   }
 
-  private logger = this.logFactory.getLog(PostsService.name);
+  private logger = this.logFactory.getLog(PostService.name);
   private datasource = environment.datasource;
 
   private preLoadToCache() {
     let svc = this;
     svc.http.get(svc.datasource.posts).share();
-    svc.http.get(svc.datasource.categories).share();
-    svc.http.get(svc.datasource.tags).share();
   }
 
-  public getPostList() {
-    let svc = this;
-    svc.logger.info('Load Posts from:', svc.datasource.posts);
-    return svc.http.get(svc.datasource.posts)
-      .map(function (response) {
-        return response.json();
-      });
-  }
+
 
   public getFilteredPostList() {
     let svc = this;
@@ -43,23 +34,7 @@ export class PostsService {
       });
   }
 
-  public getCategoryList() {
-    let svc = this;
-    svc.logger.info('Load Categories from:', svc.datasource.categories);
-    return svc.http.get(svc.datasource.categories)
-      .map(function (response) {
-        return response.json();
-      });
-  }
 
-  public getTagList() {
-    let svc = this;
-    svc.logger.info('Load Tags from:', svc.datasource.tags);
-    return svc.http.get(svc.datasource.tags)
-      .map(function (response) {
-        return response.json();
-      });
-  }
 
 
   public queryByCategoryName(categoryName: string) {
@@ -111,12 +86,6 @@ export class PostsService {
     let svc = this;
     let filterTags = [];
     let filterCategories = [];
-    if (environment.blog.categories.filter) {
-      filterCategories = environment.blog.categories.hidden;
-    }
-    if (environment.blog.tags.filter) {
-      filterTags = environment.blog.tags.hidden;
-    }
 
 
     let filteredPostList = _.filter(postList, function (post: any) {

@@ -1,6 +1,12 @@
-import {Component, style, trigger, transition, animate, OnInit, state} from "@angular/core";
+///<reference path="../../../../node_modules/@angular/core/src/animation/metadata.d.ts"/>
+import {Component, animate, trigger, transition, style, state, OnInit} from "@angular/core";
 import {LogFactory} from "../../shared/log.factory";
-import {environment} from "../../../environments/environment";
+import {NavigationMenuService} from "../shared/navigation-menu.service";
+import {NavigationMenu} from "../shared/navigation-menu.model";
+import * as _ from "lodash";
+import {Author} from "../shared/author.model";
+import {NavigationLink} from "../shared/navigation-link.model";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'navigation',
@@ -8,6 +14,18 @@ import {environment} from "../../../environments/environment";
   styleUrls: ['./navigation.component.css'],
   animations: [
     trigger('sideNavState', [
+      state('show', style({
+        'z-index': 1
+      })),
+      state('hide', style({
+        'z-index': -1
+      })),
+    ]),
+    trigger('sideNavContentState', [
+      state('show', style({})),
+      state('hide', style({
+        display: 'none'
+      })),
       transition('hide => show', [
         style({
           opacity: 0,
@@ -16,7 +34,7 @@ import {environment} from "../../../environments/environment";
         animate('0.2s ease-in')
       ])
     ]),
-    trigger('sideNavFaceState', [
+    trigger('sideNavMarkState', [
       transition('hide => show', [
         style({
           opacity: 0,
@@ -24,7 +42,7 @@ import {environment} from "../../../environments/environment";
         animate('0.1s 0.2s ease-in')
       ])
     ]),
-    trigger('subLinkOpenState', [
+    trigger('menuOpenState', [
       state('opened', style({
         transform: 'rotate(0deg)'
       })),
@@ -38,7 +56,7 @@ import {environment} from "../../../environments/environment";
         animate('0.5s ease-out')
       ])
     ]),
-    trigger('subLinkExpandState', [
+    trigger('subMenuExpandState', [
       state('opened', style({
         height: '*'
       })),
@@ -63,42 +81,68 @@ import {environment} from "../../../environments/environment";
 })
 export class NavigationComponent implements OnInit {
 
+  private sideNavState = 'hide';
+  private menus: Array<NavigationMenu> = [];
+  private menuOpenStates = [];
 
-  constructor(private logFactory: LogFactory) {
-  }
+  private title: string = '';
+  private author: Author = new Author();
 
   private logger = this.logFactory.getLog(NavigationComponent.name);
 
-  private hideSideNav: boolean = true;
-  private sideNavState: string = 'hide';
-  private blog = environment.blog;
-  private subLinksOpenStatus = environment.blog.blogLinks.map(() => {
-    return false
-  });
-  private subLinksOpenStates = environment.blog.blogLinks.map(() => {
-    return 'closed';
-  });
-
-  ngOnInit(): void {
+  constructor(private logFactory: LogFactory,
+              private router: Router,
+              private navigationMenuService: NavigationMenuService) {
   }
 
-  toggleSideNavShowStatus(): void {
+  ngOnInit() {
     let vm = this;
-    vm.hideSideNav = !vm.hideSideNav;
-    vm.sideNavState = vm.hideSideNav ? 'hide' : 'show';
+    vm.navigationMenuService.getMenus()
+      .subscribe(
+        function next(data) {
+          vm.menus.push(data);
+          vm.menuOpenStates = vm.menus.map(() => {
+            return 'closed';
+          });
+        }
+      );
+    vm.navigationMenuService.getAuthor()
+      .subscribe(
+        function next(data) {
+          vm.author = data;
+        }
+      );
+    vm.navigationMenuService.getTitle()
+      .subscribe(
+        function next(data) {
+          vm.title = data;
+        }
+      )
+  }
+
+
+  toggleSideNavState(): void {
+    let vm = this;
+    vm.sideNavState = vm.sideNavState == 'show' ? 'hide' : 'show';
     vm.logger.info('SideNavState:', vm.sideNavState);
   }
 
-  toggleLinksOpenStatus(index: number): void {
+  toggleMenuOpenState(index: number): void {
     let vm = this;
-    if (index <= vm.subLinksOpenStatus.length - 1) {
-      vm.subLinksOpenStatus [index] = !vm.subLinksOpenStatus[index];
-      vm.subLinksOpenStates [index] = vm.subLinksOpenStatus [index] ? 'opened' : 'closed';
+    if (index <= vm.menuOpenStates.length) {
+      vm.menuOpenStates[index] = _.isEqual(vm.menuOpenStates[index], 'opened') ? 'closed' : 'opened';
+      vm.logger.info('Toggle menu:' + index + ':' + vm.menuOpenStates[index]);
     }
   }
 
-  openExternalLink(url: string): void {
-    window.open(url, '_blank');
+  openLink(menu: NavigationLink): void {
+    let vm = this;
+    if (menu.external) {
+      window.open(menu.url, '_blank');
+    }
+    else {
+      vm.router.navigateByUrl(menu.link);
+    }
   }
 
 }

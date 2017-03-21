@@ -1,9 +1,9 @@
 /* Created by Aquariuslt on 2017-03-12. */
 import {Injectable} from "@angular/core";
 import {Title} from "@angular/platform-browser";
-import {Router, NavigationEnd} from "@angular/router";
+import {Router} from "@angular/router";
 import {LogFactory} from "../../shared/log.factory";
-import {environment} from "../../../environments/environment";
+import {Subject} from "rxjs";
 @Injectable()
 export class BlogTitleService {
 
@@ -11,28 +11,29 @@ export class BlogTitleService {
               private router: Router,
               private logFactory: LogFactory) {
     let svc = this;
-    svc.subscribeNavigationEndEvent();
+    svc.logger.info('Blog Title Service is running');
   }
 
 
   private logger = this.logFactory.getLog(BlogTitleService.name);
 
-  private baseTitle = environment.blog.siteName;
+  private baseTitle: string = '';
+  private baseTitle$ :Subject<string> = new Subject();
 
-  private subscribeNavigationEndEvent() {
+  public loadBaseTitle(baseTitle: string) {
     let svc = this;
-    svc.router.events.subscribe(event => {
-      if (event instanceof NavigationEnd) {
-      }
-    });
+    svc.baseTitle$.next(baseTitle);
+    svc.baseTitle = baseTitle;
+    svc.titleService.setTitle(svc.baseTitle);
   }
+
 
   public setTitle(newTitle?: String) {
     let svc = this;
-    if(!newTitle){
+    if (!newTitle) {
       svc.titleService.setTitle(svc.baseTitle);
     }
-    else{
+    else {
       let combinedTitle = newTitle + ' | ' + svc.baseTitle;
       svc.titleService.setTitle(combinedTitle);
     }
