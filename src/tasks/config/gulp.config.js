@@ -21,14 +21,13 @@ let config = {
   output: {
     posts: 'posts.json',
     categories: 'categories.json',
-    tags: 'tags.json'
+    tags: 'tags.json',
+    application: 'application.json'
   },
 
 
-  cname: 'blog.aquariuslt.com',
   deployOptions: {
     repo: 'https://github.com/Aquariuslt/aquariuslt.github.io.git',
-    // repo: 'https://git.coding.net/Aquariuslt/aquariuslt.coding.me.git',
     remote: 'origin',
     branch: 'master',
     cacheDir: '.cache',

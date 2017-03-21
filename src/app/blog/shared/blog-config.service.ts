@@ -96,5 +96,13 @@ export class BlogConfigService {
       })
   }
 
+  public getConfig(){
+    let svc = this;
+    return svc.http.get(svc.datasource.application)
+      .map(function (response) {
+        return response.json();
+      })
+  }
+
 
 }

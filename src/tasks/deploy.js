@@ -5,6 +5,7 @@ import ghpages  from "gh-pages";
 import logger from "./util/logger";
 import config from "./config/gulp.config";
 import "./clean";
+import * as fs from "fs";
 
 gulp.task('sap', function (next) {
   gulp.src(config.distDir + '/index.html')
@@ -18,7 +19,14 @@ gulp.task('sap', function (next) {
 });
 
 gulp.task('upload', ['clean-cache','sap',], function (next) {
-  let deployOptions = config.deployOptions;
+
+  let applicationPropertiesPath = config.buildDir + '/' + config.output.application;
+  let applicationPropertiesString = fs.readFileSync(applicationPropertiesPath).toString();
+  let applicationProperties = JSON.parse(applicationPropertiesString);
+
+
+
+  let deployOptions = applicationProperties.deploy;
   logger.info('Pushing into:', deployOptions.repo);
 
   ghpages.publish(config.distDir,config.deployOptions,function(err){

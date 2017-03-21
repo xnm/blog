@@ -3,11 +3,13 @@ import {Http} from "@angular/http";
 import {environment} from "../../../environments/environment";
 import {LogFactory} from "../../shared/log.factory";
 import * as _ from "lodash";
+import {BlogConfigService} from "./blog-config.service";
 
 @Injectable()
 export class PostService {
 
   constructor(private http: Http,
+              private blogConfigService:BlogConfigService,
               private logFactory: LogFactory) {
     let svc = this;
     svc.preLoadToCache();
@@ -15,10 +17,21 @@ export class PostService {
 
   private logger = this.logFactory.getLog(PostService.name);
   private datasource = environment.datasource;
+  private filterCategoryList = [];
+  private filterTagList= [];
 
   private preLoadToCache() {
     let svc = this;
     svc.http.get(svc.datasource.posts).share();
+    svc.blogConfigService.getConfig()
+      .subscribe(function(applicationProperties){
+        if(applicationProperties.blog.categories.filter){
+          svc.filterCategoryList = applicationProperties.blog.categories.hidden;
+        }
+        if(applicationProperties.blog.tags.filter){
+          svc.filterTagList = applicationProperties.blog.tags.hidden;
+        }
+      })
   }
 
 
@@ -84,8 +97,8 @@ export class PostService {
 
   private filterPosts(postList) {
     let svc = this;
-    let filterTags = [];
-    let filterCategories = [];
+    let filterTags = svc.filterTagList;
+    let filterCategories = svc.filterCategoryList;
 
 
     let filteredPostList = _.filter(postList, function (post: any) {
