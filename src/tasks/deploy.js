@@ -26,9 +26,12 @@ gulp.task('upload', ['clean-cache', 'sap',], function (next) {
 
 
   let deployOptions = applicationProperties.deploy;
+  deployOptions.logger = function (message) {
+    console.log(message);
+  };
   logger.info('Pushing into:', deployOptions.repo);
 
-  ghpages.publish(config.distDir, config.deployOptions, function (err) {
+  ghpages.publish(config.distDir, deployOptions, function (err) {
     if (err) {
       logger.error('Publish Error:', JSON.stringify(err));
     }
