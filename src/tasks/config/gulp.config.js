@@ -9,10 +9,12 @@
 
 let config = {
 
-  appConfig:'application.yml',
+  appConfig: 'application.yml',
   buildDir: 'build',
   distDir: 'dist',
+  cacheDir: '.cache',
   emptyFile: 'src/tasks/empty.js',
+  manifest: 'src/manifest.webapp',
 
   input: {
     posts: 'src/data/posts/**/*.md'
@@ -23,18 +25,6 @@ let config = {
     categories: 'categories.json',
     tags: 'tags.json',
     application: 'application.json'
-  },
-
-
-  deployOptions: {
-    repo: 'https://github.com/Aquariuslt/aquariuslt.github.io.git',
-    remote: 'origin',
-    branch: 'master',
-    cacheDir: '.cache',
-    clone: '.cache',
-    logger: function (message) {
-      console.log(message);
-    }
   }
 
 

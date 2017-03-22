@@ -18,7 +18,7 @@ export class BlogConfigService {
 
 
   constructor(private http: Http,
-              private blogTitleService:BlogTitleService,
+              private blogTitleService: BlogTitleService,
               private navigationMenuService: NavigationMenuService,
               private logFactory: LogFactory) {
     let svc = this;
@@ -87,7 +87,7 @@ export class BlogConfigService {
       })
   }
 
-  public getDisqusConfig(){
+  public getDisqusConfig() {
     let svc = this;
     return svc.http.get(svc.datasource.application)
       .map(function (response) {
@@ -96,7 +96,7 @@ export class BlogConfigService {
       })
   }
 
-  public getConfig(){
+  public getConfig() {
     let svc = this;
     return svc.http.get(svc.datasource.application)
       .map(function (response) {

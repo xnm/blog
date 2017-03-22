@@ -9,7 +9,7 @@ import {BlogConfigService} from "./blog-config.service";
 export class PostService {
 
   constructor(private http: Http,
-              private blogConfigService:BlogConfigService,
+              private blogConfigService: BlogConfigService,
               private logFactory: LogFactory) {
     let svc = this;
     svc.preLoadToCache();
@@ -18,22 +18,21 @@ export class PostService {
   private logger = this.logFactory.getLog(PostService.name);
   private datasource = environment.datasource;
   private filterCategoryList = [];
-  private filterTagList= [];
+  private filterTagList = [];
 
   private preLoadToCache() {
     let svc = this;
     svc.http.get(svc.datasource.posts).share();
     svc.blogConfigService.getConfig()
-      .subscribe(function(applicationProperties){
-        if(applicationProperties.blog.categories.filter){
+      .subscribe(function (applicationProperties) {
+        if (applicationProperties.blog.categories.filter) {
           svc.filterCategoryList = applicationProperties.blog.categories.hidden;
         }
-        if(applicationProperties.blog.tags.filter){
+        if (applicationProperties.blog.tags.filter) {
           svc.filterTagList = applicationProperties.blog.tags.hidden;
         }
       })
   }
-
 
 
   public getFilteredPostList() {
@@ -46,8 +45,6 @@ export class PostService {
         return svc.filterPosts(allPostData);
       });
   }
-
-
 
 
   public queryByCategoryName(categoryName: string) {

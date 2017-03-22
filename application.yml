@@ -68,10 +68,13 @@ blog:
   # Progressive Web App
   pwa:
     enable: true
-    appName: 'Aquariuslt Blog'
-    appShortName: 'Blog'
+    name: 'Aquariuslt Blog'
+    shortName: 'Blog'
+    description: 'Aquariuslt Blog'
     icon: 'app-icon.png'
-
+    developer:
+      name: 'Aquariuslt'
+      url: 'https://github.com/aquariuslt'
 
 # Blog Deploy Options
 # Domain
