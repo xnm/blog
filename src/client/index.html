@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html ng-app="home">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="https://avatars3.githubusercontent.com/u/6554061?v=3&s=460">
+    <title>Aquariuslt Home</title>
+    <!--styles-->
+  </head>
+  <body>
+    <header ng-include="'home/views/home.header.html'" class="navbar navbar-default navbar-fixed-top navbar-inner"></header>
+    <div class="page-header">
+    </div>
+    <div ui-view></div>
+    <!--scripts-->
+    <footer ng-include="'home/views/home.footer.html'" class="footer"></footer>
+  </body>
+</html>

@@ -1,0 +1,47 @@
+<div class="container">
+  <div class="jumbotron">
+    <div class="main-content center-block bs-header row">
+      <h1>Welcome</h1>
+      <p>This is Aquariuslt's Website</p>
+      <p>
+        For further know about me,
+      </p>
+      <p>
+        Suppose visit
+        <a href="http://blog.aquariuslt.com">My Blog</a>
+      </p>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h6>Website Building Progress</h6>
+    </div>
+    <div class="panel-body">
+      <div class="progress">
+        <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: 45%;">
+          45%
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Recent Activities -->
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h6>Recent Activities</h6>
+    </div>
+    <div class="panel-body" ng-controller="activitiesController">
+      <!-- Published/Updated article(link) at time -->
+      <div ng-repeat="activity in activitiesEntryArray | orderBy:'-published' ">
+        <p>
+          {{activity | activityPublishFilter}}
+          <a href="{{activity.id | activityArrayFilter }}">{{activity.title | activityArrayFilter}}</a>
+          <span class="pull-right">{{activity.published | activityArrayFilter | date:'yyyy-MM-dd' }}</span>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
