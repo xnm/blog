@@ -10,7 +10,7 @@ export class NavigationMenu {
   private DEFAULT_PRIORITY = 0;
 
   constructor(data?) {
-    const self = this;
+    let self = this;
     if (data) {
       self.label = data.label;
       self.links = [];

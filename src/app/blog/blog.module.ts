@@ -56,7 +56,7 @@ export class BlogModule {
               private categoryService: CategoryService,
               private tagService: TagService,
               private blogConfigService: BlogConfigService) {
-    const blog = this;
+    let blog = this;
     blog.logger.info('Blog Module is loaded');
     blog.categoryService.registerNavigationMenu();
     blog.tagService.registerNavigationMenu();

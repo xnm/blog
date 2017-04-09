@@ -17,7 +17,7 @@ export class NavigationLink {
 
 
   constructor(data?) {
-    const self = this;
+    let self = this;
     if (data) {
       self.external = !_.isUndefined(data.url);
 

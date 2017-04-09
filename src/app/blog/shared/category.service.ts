@@ -32,7 +32,7 @@ export class CategoryService {
       })
       .subscribe(function (categories) {
         svc.navigationMenuService.addNavigationMenu(svc.buildCategoryMenus(categories));
-      });
+      })
   }
 
   private buildCategoryMenus(categories) {
