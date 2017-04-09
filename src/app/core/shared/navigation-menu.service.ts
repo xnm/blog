@@ -15,44 +15,44 @@ export class NavigationMenuService {
   private author = new Author();
   private author$: Subject<Author> = new Subject<Author>();
 
-  private title: string = '';
+  private title = '';
   private title$: Subject<string> = new Subject();
 
   constructor(private logFactory: LogFactory) {
-    let svc = this;
+    const svc = this;
     svc.logger.info('Navigation Menu Service is running.');
   }
 
   public getMenus() {
-    let svc = this;
+    const svc = this;
     return svc.menus$;
   }
 
   public getAuthor() {
-    let svc = this;
+    const svc = this;
     return svc.author$;
   }
 
   public getTitle() {
-    let svc = this;
+    const svc = this;
     return svc.title$;
   }
 
   public addNavigationMenu(menu): void {
-    let svc = this;
-    let navigationMenu = new NavigationMenu(menu);
+    const svc = this;
+    const navigationMenu = new NavigationMenu(menu);
     svc.menus.push(navigationMenu);
     svc.menus$.next(navigationMenu);
   }
 
   public applyAuthorInfo(author: Author) {
-    let svc = this;
+    const svc = this;
     svc.author = author;
     svc.author$.next(author);
   }
 
   public applyApplicationTitle(applicationTitle: string) {
-    let svc = this;
+    const svc = this;
     svc.title = applicationTitle;
     svc.title$.next(applicationTitle);
   }

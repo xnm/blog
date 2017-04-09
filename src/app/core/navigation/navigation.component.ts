@@ -1,5 +1,5 @@
 ///<reference path="../../../../node_modules/@angular/core/src/animation/metadata.d.ts"/>
-import {Component, animate, trigger, transition, style, state, OnInit} from "@angular/core";
+import {animate, Component, OnInit, state, style, transition, trigger} from "@angular/core";
 import {LogFactory} from "../../shared/log.factory";
 import {NavigationMenuService} from "../shared/navigation-menu.service";
 import {NavigationMenu} from "../shared/navigation-menu.model";
@@ -85,7 +85,7 @@ export class NavigationComponent implements OnInit {
   private menus: Array<NavigationMenu> = [];
   private menuOpenStates = [];
 
-  private title: string = '';
+  private title = '';
   private author: Author = new Author();
 
   private logger = this.logFactory.getLog(NavigationComponent.name);
@@ -96,11 +96,14 @@ export class NavigationComponent implements OnInit {
   }
 
   ngOnInit() {
-    let vm = this;
+    const vm = this;
     vm.navigationMenuService.getMenus()
       .subscribe(
         function next(data) {
           vm.menus.push(data);
+          vm.menus = vm.menus.sort(function (a: NavigationMenu, b: NavigationMenu) {
+            return a.priority > b.priority ? 1 : -1;
+          });
           vm.menuOpenStates = vm.menus.map(() => {
             return 'closed';
           });
@@ -117,18 +120,18 @@ export class NavigationComponent implements OnInit {
         function next(data) {
           vm.title = data;
         }
-      )
+      );
   }
 
 
   toggleSideNavState(): void {
-    let vm = this;
+    const vm = this;
     vm.sideNavState = vm.sideNavState == 'show' ? 'hide' : 'show';
     vm.logger.info('SideNavState:', vm.sideNavState);
   }
 
   toggleMenuOpenState(index: number): void {
-    let vm = this;
+    const vm = this;
     if (index <= vm.menuOpenStates.length) {
       vm.menuOpenStates[index] = _.isEqual(vm.menuOpenStates[index], 'opened') ? 'closed' : 'opened';
       vm.logger.info('Toggle menu:' + index + ':' + vm.menuOpenStates[index]);
@@ -136,11 +139,10 @@ export class NavigationComponent implements OnInit {
   }
 
   openLink(menu: NavigationLink): void {
-    let vm = this;
+    const vm = this;
     if (menu.external) {
       window.open(menu.url, '_blank');
-    }
-    else {
+    } else {
       vm.router.navigateByUrl(menu.link);
     }
   }

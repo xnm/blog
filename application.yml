@@ -12,6 +12,7 @@ blog:
   externalLinks:
     -
       label: 'Social'
+      prority: 2
       links:
         -
           url: 'https://github.com/aquariuslt'
@@ -28,6 +29,7 @@ blog:
 
     -
       label: 'Friend Links'
+      prority: 1
       links:
         -
           displayName: 'wxsm blog'
