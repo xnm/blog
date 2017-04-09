@@ -8,7 +8,6 @@ import {Post} from "../shared/post.model";
 import marked from "marked";
 import * as _ from "lodash";
 
-import * as hljs from 'highlight.js/lib';
 import {BlogTitleService} from "../shared/blog-title.service";
 import {BlogConfigService} from "../shared/blog-config.service";
 
@@ -84,7 +83,6 @@ export class PostDetailComponent implements OnInit {
     let tokens = vm.post.tokens;
     tokens.links = {};
     vm.postHtmlContent = marked.parser(tokens);
-    hljs.initHighlightingOnLoad();
   }
 
   renderDisqusContent() {
