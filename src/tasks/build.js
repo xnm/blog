@@ -7,10 +7,11 @@ import "./cname";
 import "./clean";
 import "./tags";
 import "./categories";
+import "./sitemap";
 
 gulp.task('build', gulpSequence(['properties'], ['posts'], ['categories'], ['tags'],['pwa']));
 
-gulp.task('build:prod', gulpSequence(['properties'], ['posts'], ['categories'], ['tags'], ['pwa'],['cname'], ['move']));
+gulp.task('build:prod', gulpSequence(['properties'], ['posts'], ['categories'], ['tags'], ['pwa'],['sitemap'], ['cname'], ['move']));
 
 
 gulp.task('move', function () {

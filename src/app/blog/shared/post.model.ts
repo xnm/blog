@@ -38,13 +38,13 @@ export class Post {
   }
 
   private fillSummary(data) {
-    let self = this;
-    let tokens = data.tokens;
+    const self = this;
+    const tokens = data.tokens;
 
     let firstSummaryToken = undefined;
 
-    for (let token of tokens) {
-      if (token.type == 'paragraph') {
+    for (const token of tokens) {
+      if (token.type === 'paragraph') {
         firstSummaryToken = token;
         break;
       }

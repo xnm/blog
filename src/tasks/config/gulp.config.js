@@ -15,6 +15,7 @@ let config = {
   cacheDir: '.cache',
   emptyFile: 'src/tasks/empty.js',
   manifest: 'src/manifest.webapp',
+  sitemap: 'src/tasks/template/sitemap.xml',
 
   input: {
     posts: 'src/data/posts/**/*.md'

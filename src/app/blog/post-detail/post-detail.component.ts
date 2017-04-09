@@ -1,12 +1,14 @@
 import {Component, OnInit} from "@angular/core";
 import {Location, LocationStrategy, PathLocationStrategy} from "@angular/common";
-import {Params, ActivatedRoute} from "@angular/router";
+import {ActivatedRoute, Params} from "@angular/router";
 import {LogFactory} from "../../shared/log.factory";
 import {PostService} from "../shared/post.service";
 import "rxjs/add/operator/switchMap";
 import {Post} from "../shared/post.model";
 import marked from "marked";
 import * as _ from "lodash";
+
+import * as hljs from 'highlight.js/lib';
 import {BlogTitleService} from "../shared/blog-title.service";
 import {BlogConfigService} from "../shared/blog-config.service";
 
@@ -39,7 +41,7 @@ export class PostDetailComponent implements OnInit {
               private posts: PostService,
               private route: ActivatedRoute,
               private location: Location) {
-    let vm = this;
+
   }
 
 
@@ -82,6 +84,7 @@ export class PostDetailComponent implements OnInit {
     let tokens = vm.post.tokens;
     tokens.links = {};
     vm.postHtmlContent = marked.parser(tokens);
+    hljs.initHighlightingOnLoad();
   }
 
   renderDisqusContent() {

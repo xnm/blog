@@ -7,3 +7,4 @@ import "./src/tasks/tags";
 import "./src/tasks/build";
 import "./src/tasks/deploy";
 import "./src/tasks/pwa";
+import "./src/tasks/sitemap";
