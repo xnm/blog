@@ -1,3 +1,6 @@
 /* Global Style CSS file */
 @import "~normalize.css/normalize.css";
 @import "fonts.css";
+
+@import "~vue-material/dist/vue-material.css";
+
