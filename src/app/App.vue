@@ -1,12 +1,17 @@
 <template>
   <section>
-
+    <navbar></navbar>
+    <router-view></router-view>
   </section>
 </template>
 
 
 <script>
-  export default {};
+  import Navbar from './core/components/Navbar';
+  export default {
+    components: {Navbar},
+    name: 'app'
+  };
 </script>
 
 
