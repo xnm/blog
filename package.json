@@ -12,10 +12,12 @@
     "test": "gulp test"
   },
   "dependencies": {
+    "axios": "^0.16.1",
     "gsap": "^1.19.1",
     "vue": "^2.2.6",
     "vue-material": "^0.7.1",
-    "vue-router": "^2.4.0"
+    "vue-router": "^2.4.0",
+    "vuex": "^2.3.1"
   },
   "devDependencies": {
     "@types/gsap": "^1.19.1",

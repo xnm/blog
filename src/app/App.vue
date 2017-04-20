@@ -1,21 +1,15 @@
 <template>
-  <div>
+  <section>
 
-  </div>
+  </section>
 </template>
 
 
 <script>
-
-  export default {
-    methods: {
-
-    }
-  };
-
-
+  export default {};
 </script>
 
-<style lang="scss">
+
+<style>
 
 </style>
