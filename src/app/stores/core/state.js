@@ -1,6 +1,6 @@
 /* Created by Aquariuslt on 22/04/2017.*/
 
 export default {
-  appName: 'Aquariuslt Blog',
+  applicationProperties: {},
   navMenus: []
 };

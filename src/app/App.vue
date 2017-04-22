@@ -18,6 +18,7 @@
       Navigation
     },
     mounted: function () {
+      initAppProperties(this.$store);
       initNavMenus(this.$store, routes);
     }
   };
@@ -30,6 +31,11 @@
       }
     });
   }
+
+  function initAppProperties(store) {
+    store.dispatch(types.LOAD_APPLICATION_PROPERTIES);
+  }
+
 </script>
 
 

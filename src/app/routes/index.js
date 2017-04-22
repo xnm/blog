@@ -7,7 +7,9 @@ import coreRoutes from './core/core.routes';
 Vue.use(VueRouter);
 
 
-let router = new VueRouter({});
+let router = new VueRouter({
+  mode: 'history'
+});
 
 router.addRoutes(blogRoutes);
 router.addRoutes(coreRoutes);

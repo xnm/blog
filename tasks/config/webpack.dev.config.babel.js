@@ -61,7 +61,17 @@ let webpackDevConfig = merge(webpackBaseConfig, {
       chunks: true,
       chunkModules: false
     },
-    publicPath: devConfig.output.publicPath
+    publicPath: devConfig.output.publicPath,
+    proxy: {
+      '/api': {
+        target: devConfig.output.publicPath + '/' + devConfig.build,
+        pathRewrite: {'^/api': ''}
+      },
+      '/assets/imgs': {
+        target: devConfig.output.publicPath + '/' + devConfig.src + '/assets/imgs',
+        pathRewrite: {'^/assets/imgs': ''}
+      }
+    }
   }
 });
 

@@ -3,5 +3,8 @@ import * as types from './mutation-types';
 export default {
   [types.REGISTER_NAV_MENUS](state, navMenu) {
     state.navMenus.push(navMenu);
+  },
+  [types.LOAD_APPLICATION_PROPERTIES](state, applicationProperties){
+    state.applicationProperties = applicationProperties;
   }
 };
