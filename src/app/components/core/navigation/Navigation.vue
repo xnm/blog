@@ -12,7 +12,7 @@
 
     <md-sidenav class="md-left" ref="leftSidenav">
       <md-toolbar class="md-large">
-        <md-layout md-flex="40">
+        <md-layout md-column md-flex="30">
           <md-avatar class="md-avatar-icon md-large">
             <img :src="avator" alt="Avatar">
           </md-avatar>
