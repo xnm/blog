@@ -2,9 +2,6 @@
 import winston from 'winston';
 import moment from 'moment';
 
-/**
- * Use logger log format like gulp format
- * */
 let logger = new (winston.Logger)({
   level: 'debug',
   transports: [

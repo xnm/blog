@@ -1,15 +1,18 @@
-/* Created by Aquariuslt on 4/11/17.*/
+/* Created by Aquariuslt on 2017-03-04.*/
+import path from 'path';
 
-import * as path from 'path';
 import _ from 'lodash';
 import glob from 'glob';
 
 const _root = path.resolve(__dirname, '../..');
 
+
+
 function root(args) {
   args = Array.prototype.slice.call(arguments, 0);
   return path.join(...[_root].concat(args));
 }
+
 
 /**
  * To scan the path array regex patterns
@@ -48,7 +51,6 @@ function getGlobalPaths(globPatterns, excludes) {
       output = _.union(output, files);
     }
   }
-
   return output;
 }
 
@@ -65,9 +67,8 @@ function getFilePrefix(filePath) {
   return fileName.split('.')[0];
 }
 
-
-export {
-  root,
+export default {
   getGlobalPaths,
-  getFilePrefix
-};
+  getFilePrefix,
+  root
+}

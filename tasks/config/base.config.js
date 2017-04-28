@@ -1,26 +1,28 @@
 /* Created by Aquariuslt on 14/04/2017.*/
 let baseConfig = {
-  src: 'src',
-  build: 'build',
-  dist: 'dist',
-  cache: '.cache',
-  assets: [
-    {
-      from: 'src/assets',
-      to: 'assets'
-    }
-  ],
   favicon: 'favicon.png',
-
-  // Application Level Data
-  emptyFile: 'tasks/empty.js',
-  properties: 'application.yml',
+  dir: {
+    src: 'src',
+    build: 'build',
+    dist: 'dist',
+    cache: '.cache',
+    assets: [
+      {
+        from: 'src/assets',
+        to: 'assets'
+      }
+    ]
+  },
   input: {
-    posts: 'src/data/posts/**/*.md'
+    posts: 'src/data/posts/**/*.md',
+    empty: 'tasks/template/empty',
+    properties: 'application.yml',
   },
   output: {
     indexes: 'indexes.json',
+    post: 'api/post',
     posts: 'posts.json',
+    sitemap: 'sitemap.xml',
     application: 'application.json'
   }
 };

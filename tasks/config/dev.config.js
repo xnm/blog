@@ -2,7 +2,7 @@
 
 import merge from 'webpack-merge';
 import baseConfig from './base.config';
-import * as pathUtil from '../util/path-util';
+import pathUtil from '../util/path-util';
 
 
 /**

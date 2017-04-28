@@ -4,11 +4,11 @@ import gutil from 'gulp-util';
 import sequence from 'gulp-sequence';
 
 import webpack from 'webpack';
+
 import webpackProdConfig from './config/webpack.prod.config.babel';
-
-import './clean';
-
 import logger from './util/logger';
+
+gulp.task('build:prod', sequence(['clean'], ['build']));
 
 gulp.task('build', function (done) {
   logger.info('Webpack building.');
@@ -23,6 +23,6 @@ gulp.task('build', function (done) {
 });
 
 
-gulp.task('build:prod', sequence(['clean'], ['build']));
+
 
 

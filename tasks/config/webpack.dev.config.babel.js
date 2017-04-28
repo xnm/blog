@@ -7,7 +7,7 @@ import ExtractTextPlugin from 'extract-text-webpack-plugin';
 import FriendlyErrorsPlugin from 'friendly-errors-webpack-plugin';
 
 import devConfig from './dev.config';
-import * as vueLoaderUtil from '../util/vue-loader-util';
+import vueLoaderUtil from '../util/vue-loader-util';
 
 let webpackDevConfig = merge(webpackBaseConfig, {
   devtool: 'source-map',
@@ -64,11 +64,11 @@ let webpackDevConfig = merge(webpackBaseConfig, {
     publicPath: devConfig.output.publicPath,
     proxy: {
       '/api': {
-        target: devConfig.output.publicPath + '/' + devConfig.build,
+        target: devConfig.output.publicPath + '/' + devConfig.dir.build,
         pathRewrite: {'^/api': ''}
       },
       '/assets/imgs': {
-        target: devConfig.output.publicPath + '/' + devConfig.src + '/assets/imgs',
+        target: devConfig.output.publicPath + '/' + devConfig.dir.src + '/assets/imgs',
         pathRewrite: {'^/assets/imgs': ''}
       }
     }

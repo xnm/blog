@@ -9,7 +9,7 @@ import CopyWebpackPlugin from 'copy-webpack-plugin';
 
 import webpackBaseConfig from './webpack.base.config.babel';
 import prodConfig from './prod.config';
-import * as vueLoaderUtil from '../util/vue-loader-util';
+import vueLoaderUtil from '../util/vue-loader-util';
 
 let webpackProdConfig = merge(webpackBaseConfig, {
   devtool: 'source-map',
@@ -69,7 +69,7 @@ let webpackProdConfig = merge(webpackBaseConfig, {
       },
       chunksSortMode: 'dependency'
     }),
-    new CopyWebpackPlugin(prodConfig.assets)
+    new CopyWebpackPlugin(prodConfig.dir.assets)
   ],
   stats: {
     colors: true,
