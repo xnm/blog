@@ -77,7 +77,7 @@
 │   │   ├── default.js
 │   │   ├── fonts.js
 │   │   ├── images.js
-│   │   ├── index.js
+│   │   ├── core.store.js
 │   │   ├── minify.js
 │   │   ├── serve.js
 │   │   ├── styles.js
@@ -87,9 +87,9 @@
 │   │   ├── webpack-watch.js
 │   │   └── webpack.js
 │   ├── config.js
-│   ├── index.js
+│   ├── core.store.js
 │   └── server
-│       ├── index.js
+│       ├── core.store.js
 │       └── server.js
 ├── gulpfile.js
 ├── node_modules
@@ -107,7 +107,7 @@
 │   │   │   ├── filters
 │   │   │   │   ├── activity.array.filter.js
 │   │   │   │   └── activity.publish.filter.js
-│   │   │   ├── index.js
+│   │   │   ├── core.store.js
 │   │   │   ├── routes
 │   │   │   │   └── home.routes.js
 │   │   │   ├── styles
@@ -123,7 +123,7 @@
 │   │   │       ├── home.header.html
 │   │   │       └── home.index.html
 │   │   ├── index.html
-│   │   └── index.js
+│   │   └── core.store.js
 │   └── server
 │       └── home
 │           ├── config

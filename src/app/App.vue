@@ -9,32 +9,15 @@
 <script>
   import _ from 'lodash';
 
-  import {Navigation} from './components/core';
-  import {routes} from './routes';
-  import * as types from './stores/core/mutation-types';
+  import Navigation from './core/components/navigation/Navigation.vue';
+  import * as types from './core/stores/mutation-types';
 
   export default {
     components: {
       Navigation
-    },
-    mounted: function () {
-      initAppProperties(this.$store);
-      initNavMenus(this.$store, routes);
     }
   };
 
-
-  function initNavMenus(store, routes) {
-    _.each(routes, function (route) {
-      if (!_.isUndefined(route.meta) && _.isEqual(route.meta.showInNavMenu, true)) {
-        store.commit(types.REGISTER_NAV_MENUS, route);
-      }
-    });
-  }
-
-  function initAppProperties(store) {
-    store.dispatch(types.LOAD_APPLICATION_PROPERTIES);
-  }
 
 </script>
 

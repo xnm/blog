@@ -1,6 +1,6 @@
 /* Created by Aquariuslt on 22/04/2017.*/
 
-import Home from '../../views/blog/Home.vue';
+import Home from '../views/Home.vue';
 
 
 let blogRoutes = [
