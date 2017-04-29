@@ -2,6 +2,7 @@
 import gulp from 'gulp';
 import gutil from 'gulp-util';
 import sequence from 'gulp-sequence';
+import rename from 'gulp-rename';
 
 import webpack from 'webpack';
 
@@ -9,7 +10,7 @@ import config from './config/base.config';
 import webpackProdConfig from './config/webpack.prod.config.babel';
 import logger from './util/logger';
 
-gulp.task('build:prod', sequence(['clean'], ['build'], ['webpack'], ['sitemap'], ['pwa'], ['cname'], ['move']));
+gulp.task('build:prod', sequence(['clean'], ['build'], ['webpack'], ['sitemap'], ['pwa'], ['spa', 'cname'], ['move']));
 
 gulp.task('build', sequence(['properties'], ['posts']));
 
@@ -32,7 +33,16 @@ gulp.task('move', function () {
   logger.info('Move done');
 });
 
-
+gulp.task('spa', function (next) {
+  gulp.src(config.dir.dist + '/index.html')
+    .pipe(rename('404.html'))
+    .pipe(gulp.dest(config.dir.dist))
+    .on('end', function () {
+      if (next) {
+        next();
+      }
+    });
+});
 
 
 
