@@ -8,12 +8,26 @@ export default {
     }
     return DEFAULT_TITLE;
   },
+  author: (state) => {
+    const DEFAULT_AUTHOR = '';
+    if (!_.isEmpty(state.applicationProperties)) {
+      return state.applicationProperties.blog.author;
+    }
+    return DEFAULT_AUTHOR;
+  },
   avator: (state) => {
     const DEFAULT_AVATOR = '';
-    if(!_.isEmpty(state.applicationProperties)) {
+    if (!_.isEmpty(state.applicationProperties)) {
       return state.applicationProperties.blog.avator;
     }
     return DEFAULT_AVATOR;
+  },
+  description: (state) => {
+    const DEFAULT_DESCRIPTION = '';
+    if (!_.isEmpty(state.applicationProperties)) {
+      return state.applicationProperties.blog.description;
+    }
+    return DEFAULT_DESCRIPTION;
   },
   externalLinks: (state) => {
     const DEFAULT_EXT_LINKS = [];

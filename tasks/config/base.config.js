@@ -19,11 +19,11 @@ let baseConfig = {
     properties: 'application.yml',
   },
   output: {
-    indexes: 'indexes.json',
+    indexes: 'api/indexes.json',
     post: 'api/post',
     posts: 'posts.json',
     sitemap: 'sitemap.xml',
-    application: 'application.json'
+    application: 'api/application.json'
   }
 };
 

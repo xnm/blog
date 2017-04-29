@@ -43,6 +43,8 @@ gulp.task('tokens', function () {
     postDataList.push(postData);
   });
 
+  metadataList = _.reverse(_.sortBy(metadataList, 'created'));
+
 
   gulp.src(config.input.empty)
     .pipe(inject.append(JSON.stringify(metadataList)))

@@ -13,7 +13,7 @@ const META_TOKENS = {
   lang: 'metadata'
 };
 const LINK_DATE_FORMAT = 'YYYY/MM/DD';
-const POSTS_PREFIX = '/posts';
+const POSTS_PREFIX = '/post';
 
 function fileToString(sourcePath) {
   return fs.readFileSync(sourcePath).toString();

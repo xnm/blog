@@ -6,7 +6,7 @@
 blog:
   name: 'Aquariuslt Blog'
   # Avator Relative URL, example: assets/images/avator.png
-  avator: 'assets/imgs/avator.png'
+  avator: '/assets/imgs/avator.png'
   author: 'Aquariuslt'
   description: 'Coder,WoWer'
   externalLinks:

@@ -6,17 +6,26 @@
         <md-icon>menu</md-icon>
       </md-button>
       <h2 class="md-title">
-        <router-link class="title" to="/home">{{title}}</router-link>
+        <router-link class="title" to="/">{{title}}</router-link>
       </h2>
     </md-toolbar>
 
     <md-sidenav class="md-left" ref="leftSidenav">
       <md-toolbar class="md-large">
-        <md-layout md-column md-flex="30">
+        <md-layout md-flex="30" md-align="center">
           <md-avatar class="md-avatar-icon md-large">
             <img :src="avator" alt="Avatar">
           </md-avatar>
         </md-layout>
+        <md-layout>
+          <md-layout md-align="end">
+            <span class="md-title">{{author}}</span>
+          </md-layout>
+          <md-layout md-align="end">
+            <span class="md-subhead">{{description}}</span>
+          </md-layout>
+        </md-layout>
+        <md-layout md-flex="10"></md-layout>
       </md-toolbar>
       <md-list>
         <md-list-item v-for="navMenu in navMenus" v-bind:key="navMenu">
@@ -61,6 +70,12 @@
       },
       avator: function (){
         return this.$store.getters.avator;
+      },
+      author: function (){
+        return this.$store.getters.author;
+      },
+      description: function (){
+        return this.$store.getters.description;
       },
       navMenus: function () {
         return this.$store.state.core.navMenus;

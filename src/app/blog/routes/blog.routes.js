@@ -1,16 +1,11 @@
 /* Created by Aquariuslt on 22/04/2017.*/
 
 import Home from '../views/Home.vue';
-
+import PostDetail from '../views/PostDetail.vue'
 
 let blogRoutes = [
   {
     path: '/',
-    name: 'Default',
-    component: Home
-  },
-  {
-    path: '/home',
     name: 'Home',
     component: Home,
     meta: {
@@ -26,6 +21,11 @@ let blogRoutes = [
       showInNavMenu: true,
       icon: 'home'
     }
+  },
+  {
+    path: '/post/:year/:month/:date/:filename',
+    name: 'Post Detail',
+    component: PostDetail
   }
 ];
 
