@@ -21,7 +21,7 @@ gulp.task('posts', sequence(['tokens']));
 
 
 gulp.task('tokens', function () {
-  logger.info('Generate Posts');
+  logger.info('Generate Posts and Indexes');
   let postDataPathList = pathUtil.getGlobalPaths(config.input.posts);
   let metadataList = [];
   let postDataList = [];

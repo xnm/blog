@@ -4,3 +4,6 @@ import './tasks/test';
 import './tasks/serve';
 import './tasks/properties';
 import './tasks/posts';
+import './tasks/cname';
+import './tasks/sitemap';
+import './tasks/pwa';

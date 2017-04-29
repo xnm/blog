@@ -16,12 +16,13 @@ let baseConfig = {
   input: {
     posts: 'src/data/posts/**/*.md',
     empty: 'tasks/template/empty',
+    sitemap: 'tasks/template/sitemap.xml',
+    manifest:'tasks/template/manifest.webapp',
     properties: 'application.yml',
   },
   output: {
     indexes: 'api/indexes.json',
     post: 'api/post',
-    posts: 'posts.json',
     sitemap: 'sitemap.xml',
     application: 'api/application.json'
   }
