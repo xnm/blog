@@ -18,7 +18,6 @@
         <post-tags :tags="post.metadata.tags"></post-tags>
       </md-card-actions>
     </md-card>
-    <md-progress v-else md-indeterminate></md-progress>
   </section>
 </template>
 
@@ -39,9 +38,4 @@
 </script>
 
 <style lang="scss" scoped>
-  $tag-chip-padding: 5px;
-
-  .post-tags {
-    padding: $tag-chip-padding;
-  }
 </style>

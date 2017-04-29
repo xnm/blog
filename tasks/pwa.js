@@ -2,12 +2,16 @@
 import gulp from 'gulp';
 import rename from 'gulp-rename';
 import inject from 'gulp-inject-string';
+import sequence from 'gulp-sequence';
 import config from './config/base.config';
 import fs from 'fs';
+import swPrecache from 'sw-precache';
 
 const MANIFEST_WEBAPP = 'manifest.webapp';
 
-gulp.task('pwa', function () {
+gulp.task('pwa', sequence(['generate-404', 'service-worker']));
+
+gulp.task('generate-404', function () {
   let applicationPropertiesPath = config.dir.build + '/' + config.output.application;
   let applicationPropertiesString = fs.readFileSync(applicationPropertiesPath).toString();
   let applicationProperties = JSON.parse(applicationPropertiesString);
@@ -30,5 +34,13 @@ gulp.task('pwa', function () {
       .pipe(rename(MANIFEST_WEBAPP))
       .pipe(gulp.dest(config.dir.build));
   }
+
+});
+
+gulp.task('service-worker', function () {
+  swPrecache.write(config.dir.dist + '/' + config.output.serviceWorker, {
+    staticFileGlobs: [config.dir.dist + '/**/*.{js,html,css,png,jpg,gif,svg,eot,ttf,woff}'],
+    stripPrefix: config.dir.dist
+  });
 
 });

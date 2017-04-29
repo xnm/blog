@@ -12,6 +12,9 @@ import prodConfig from './prod.config';
 import vueLoaderUtil from '../util/vue-loader-util';
 
 let webpackProdConfig = merge(webpackBaseConfig, {
+  entry:{
+    'sw-register':'./tasks/template/service-worker-registration.js'
+  },
   devtool: 'source-map',
   output: {
     path: prodConfig.output.path,
