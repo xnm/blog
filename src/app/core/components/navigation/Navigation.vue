@@ -41,7 +41,7 @@
           <md-list-expand>
             <md-list>
               <md-list-item v-for="item in subNavMenu.items" :key="item">
-                <router-link :to="subNavMenu.prefix + '/' + item">
+                <router-link :to="'/'+ subNavMenu.prefix + '/' + item">
                   {{item}}
                 </router-link>
               </md-list-item>
