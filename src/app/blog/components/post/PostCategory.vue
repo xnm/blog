@@ -28,6 +28,7 @@
     font-size: 13px;
     line-height: 16px;
     padding: 8px 12px;
+    padding-left: 0;
   }
 
   .post-category {

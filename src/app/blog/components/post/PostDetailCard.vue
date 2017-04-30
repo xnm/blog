@@ -7,6 +7,11 @@
         <div class="md-subhead">{{post.metadata.created}}</div>
       </md-card-header>
 
+      <md-card-content class="markdown-body">
+        <post-catalogue :catalogue="post.catalogue">
+        </post-catalogue>
+      </md-card-content>
+
       <md-card-content class="markdown-body" v-html="post.html">
       </md-card-content>
 
@@ -33,11 +38,13 @@
   import PostCategory from './PostCategory';
   import PostTags from './PostTagList';
   import PostComment from './PostComment';
+  import PostCatalogue from './PostCatalogue';
   export default {
     components: {
       PostComment,
       PostTags,
-      PostCategory
+      PostCategory,
+      PostCatalogue
     },
     name: 'PostDetailCard',
     props: [

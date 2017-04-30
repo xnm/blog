@@ -14,15 +14,6 @@ let blogRoutes = [
     }
   },
   {
-    path: '/post-list',
-    name: 'Post List',
-    component: Home,
-    meta: {
-      showInNavMenu: true,
-      icon: 'home'
-    }
-  },
-  {
     path: '/post/:year/:month/:date/:filename',
     name: 'Post Detail',
     component: PostDetail

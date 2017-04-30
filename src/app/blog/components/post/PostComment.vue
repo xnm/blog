@@ -27,12 +27,7 @@
         return this.$route.path.replace(/\//g, '-');
       }
     },
-    name: 'PostComment',
-    mounted: function () {
-      console.log(this.url);
-      console.log(this.disqusId);
-      console.log(this.disqus.shortName)
-    }
+    name: 'PostComment'
   };
 </script>
 
