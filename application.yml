@@ -73,7 +73,7 @@ blog:
     name: 'Aquariuslt Blog'
     shortName: 'Blog'
     description: 'Aquariuslt Blog'
-    icon: 'app-icon.png'
+    icon: 'favicon.png'
     developer:
       name: 'Aquariuslt'
       url: 'https://github.com/aquariuslt'

@@ -1,15 +1,11 @@
 <!--suppress ALL -->
 <template>
-  <md-layout class="post-tags">
+  <md-layout class="post-tags" md-align="start">
+    <span class="tag-desc">Tags:</span>
     <md-layout>
-      <md-layout md-column md-tag="span" md-align="center">
-        Tags:
-      </md-layout>
-      <md-layout md-flex="80">
-        <md-chip v-for="(tag, rowIndex) in tags" :key="rowIndex">
-          {{tag}}
-        </md-chip>
-      </md-layout>
+      <md-chip v-for="(tag, rowIndex) in tags" :key="rowIndex">
+        {{tag}}
+      </md-chip>
     </md-layout>
   </md-layout>
 </template>
@@ -24,6 +20,13 @@
 </script>
 
 <style scoped lang="scss">
+  .tag-desc {
+    font-size: 13px;
+    line-height: 16px;
+    padding: 8px 12px;
+  }
+
+  ,
   .post-tags {
     padding: 5px;
   }

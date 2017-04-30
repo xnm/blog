@@ -17,21 +17,20 @@
       </md-layout>
 
       <md-card-actions>
-        <md-layout md-align="start" md-gutter class="post-tags">
-          <md-chip v-for="(tag, rowIndex) in data.tags" :key="rowIndex">
-            {{tag}}
-          </md-chip>
-        </md-layout>
-      </md-card-actions>
-      <md-card-actions>
-        <md-button>More</md-button>
+        <post-tags :tags="data.tags"></post-tags>
+        <md-button>
+          <router-link :to="data.link" tag="span">More</router-link>
+        </md-button>
       </md-card-actions>
     </md-card>
   </section>
 </template>
 
 <script>
+  import PostTags from './PostTagList';
   export default {
+
+    components: {PostTags},
     name: 'PostSummaryCard',
     props: [
       'data'

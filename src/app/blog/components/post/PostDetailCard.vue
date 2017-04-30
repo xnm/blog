@@ -17,6 +17,13 @@
       <md-card-actions>
         <post-tags :tags="post.metadata.tags"></post-tags>
       </md-card-actions>
+
+      <md-card-content>
+        <post-comment
+          v-if="disqus"
+          :disqus="disqus">
+        </post-comment>
+      </md-card-content>
     </md-card>
   </section>
 </template>
@@ -25,15 +32,22 @@
 <script>
   import PostCategory from './PostCategory';
   import PostTags from './PostTagList';
+  import PostComment from './PostComment';
   export default {
     components: {
+      PostComment,
       PostTags,
       PostCategory
     },
     name: 'PostDetailCard',
     props: [
       'post'
-    ]
+    ],
+    computed: {
+      disqus: function () {
+        return this.$store.getters.disqus;
+      }
+    }
   }
 </script>
 

@@ -9,7 +9,7 @@ import swPrecache from 'sw-precache';
 
 const MANIFEST_WEBAPP = 'manifest.webapp';
 
-gulp.task('pwa', sequence(['generate-404', 'service-worker']));
+gulp.task('pwa', sequence(['generate-404', 'service-worker', 'spa']));
 
 gulp.task('generate-404', function () {
   let applicationPropertiesPath = config.dir.build + '/' + config.output.application;
@@ -43,4 +43,15 @@ gulp.task('service-worker', function () {
     stripPrefix: config.dir.dist
   });
 
+});
+
+gulp.task('spa', function (next) {
+  gulp.src(config.dir.dist + '/index.html')
+    .pipe(rename('404.html'))
+    .pipe(gulp.dest(config.dir.dist))
+    .on('end', function () {
+      if (next) {
+        next();
+      }
+    });
 });

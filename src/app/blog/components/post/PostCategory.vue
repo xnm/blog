@@ -2,10 +2,10 @@
 <template>
   <md-layout class="post-category">
     <md-layout>
-      <md-layout md-column md-tag="span" md-align="center">
+      <span class="category-desc">
         Category:
-      </md-layout>
-      <md-layout md-flex="80">
+      </span>
+      <md-layout>
         <md-chip>
           {{category}}
         </md-chip>
@@ -24,6 +24,12 @@
 </script>
 
 <style scoped lang="scss">
+  .category-desc {
+    font-size: 13px;
+    line-height: 16px;
+    padding: 8px 12px;
+  }
+
   .post-category {
     padding: 5px;
   }

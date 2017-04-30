@@ -35,5 +35,14 @@ export default {
       return state.applicationProperties.blog.externalLinks;
     }
     return DEFAULT_EXT_LINKS;
+  },
+  disqus: (state) => {
+    const DEFAULT_DISQUS_ENABLE = false;
+    if (!_.isEmpty(state.applicationProperties)
+      && _.isEqual(state.applicationProperties.blog.disqus.enable, true)
+    ) {
+      return state.applicationProperties.blog.disqus
+    }
+    return DEFAULT_DISQUS_ENABLE;
   }
 };
