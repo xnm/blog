@@ -4,7 +4,9 @@
     <span class="tag-desc">Tags:</span>
     <md-layout>
       <md-chip v-for="(tag, rowIndex) in tags" :key="rowIndex">
-        {{tag}}
+        <router-link :to="'/tag/'+tag" tag="span">
+          {{tag}}
+        </router-link>
       </md-chip>
     </md-layout>
   </md-layout>
@@ -30,5 +32,9 @@
   ,
   .post-tags {
     padding: 5px;
+  }
+
+  .chip-link:hover {
+    cursor: pointer;
   }
 </style>

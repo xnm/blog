@@ -35,6 +35,20 @@
           </router-link>
         </md-list-item>
 
+        <md-list-item v-for="subNavMenu in subNavMenus" :key="subNavMenu.label">
+          <md-icon>{{subNavMenu.icon}}</md-icon>
+          <span>{{subNavMenu.label}}</span>
+          <md-list-expand>
+            <md-list>
+              <md-list-item v-for="item in subNavMenu.items" :key="item">
+                <router-link :to="subNavMenu.prefix + '/' + item">
+                  {{item}}
+                </router-link>
+              </md-list-item>
+            </md-list>
+          </md-list-expand>
+        </md-list-item>
+
         <md-list-item v-for="externalLinkCategory in externalLinks" v-bind:key="externalLinkCategory">
           <md-icon>links</md-icon>
           <span>{{externalLinkCategory.label}}</span>
@@ -68,17 +82,20 @@
       title: function () {
         return this.$store.getters.title;
       },
-      avator: function (){
+      avator: function () {
         return this.$store.getters.avator;
       },
-      author: function (){
+      author: function () {
         return this.$store.getters.author;
       },
-      description: function (){
+      description: function () {
         return this.$store.getters.description;
       },
       navMenus: function () {
         return this.$store.state.core.navMenus;
+      },
+      subNavMenus: function () {
+        return this.$store.state.core.subNavMenus;
       },
       externalLinks: function () {
         return this.$store.getters.externalLinks;

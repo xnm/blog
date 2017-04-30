@@ -17,5 +17,11 @@ export default {
         commit(types.REGISTER_NAV_MENUS, route);
       }
     });
+  },
+  [types.REGISTER_SUB_NAV_MENUS]({commit, state}, subNavMenus){
+    if (_.isUndefined(_.find(state.subNavMenus, {label: subNavMenus.label}))) {
+      commit(types.REGISTER_SUB_NAV_MENUS, subNavMenus);
+    }
   }
+
 };

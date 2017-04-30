@@ -1,10 +1,12 @@
 /* Created by Aquariuslt on 4/28/17.*/
+import _ from 'lodash';
 
 import router from '../../router';
 import blogRoutes from './routes/blog.routes';
 
 import store from '../../store';
 import blogStore from './stores/blog.store';
+import blogApi from './api/blog.api';
 
 import * as types from '../core/stores/mutation-types';
 
@@ -13,3 +15,38 @@ router.addRoutes(blogRoutes);
 
 
 store.dispatch(types.REGISTER_NAV_MENUS, blogRoutes);
+blogApi.getIndexes()
+  .then((res) => {
+    const CATEGORY = 'Category';
+    const TAG = 'Tag';
+
+    let indexes = res.data;
+
+
+    let categoryList = _.union(_.map(indexes, (index) => {
+      return index.category;
+    }));
+
+    let categoryNavMenus = {
+      label: CATEGORY,
+      icon: 'category',
+      prefix: _.lowerCase('/' + CATEGORY),
+      items: categoryList
+    };
+    store.dispatch(types.REGISTER_SUB_NAV_MENUS, categoryNavMenus);
+
+
+    let tagList = _.union(_.reduce(indexes, (dupTagList, index) => {
+      return dupTagList.concat(index.tags);
+    }, []));
+
+    let tagNavMenus = {
+      label: TAG,
+      icon: 'turned_in',
+      prefix: _.lowerCase('/' + TAG),
+      items: tagList
+    };
+    store.dispatch(types.REGISTER_SUB_NAV_MENUS, tagNavMenus);
+  });
+
+

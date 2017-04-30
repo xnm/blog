@@ -7,7 +7,9 @@
       </span>
       <md-layout>
         <md-chip>
-          {{category}}
+          <router-link tag="span" :to="'/category/'+category" class="chip-link">
+            {{category}}
+          </router-link>
         </md-chip>
       </md-layout>
     </md-layout>
@@ -33,5 +35,9 @@
 
   .post-category {
     padding: 5px;
+  }
+
+  .chip-link:hover {
+    cursor: pointer;
   }
 </style>

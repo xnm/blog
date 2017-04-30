@@ -1,7 +1,8 @@
 /* Created by Aquariuslt on 22/04/2017.*/
 
 import Home from '../views/Home.vue';
-import PostDetail from '../views/PostDetail.vue'
+import PostDetail from '../views/PostDetail.vue';
+import Posts from '../views/Posts.vue';
 
 let blogRoutes = [
   {
@@ -17,6 +18,16 @@ let blogRoutes = [
     path: '/post/:year/:month/:date/:filename',
     name: 'Post Detail',
     component: PostDetail
+  },
+  {
+    path: '/category/:filterValue',
+    name: 'By CategoryName',
+    component: Posts
+  },
+  {
+    path: '/tag/:filterValue',
+    name: 'By TagName',
+    component: Posts
   }
 ];
 

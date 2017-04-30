@@ -3,7 +3,7 @@
   <div>
     <h2>Table of Contents</h2>
     <div>
-      <div v-for="item in catalogue" :key="item.id">
+      <div v-for="item in catalogue" :key="item">
         <span v-for="dep in (item.depth-1)">
           &nbsp;
         </span>

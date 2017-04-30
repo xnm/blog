@@ -10,5 +10,6 @@ export default {
       externalLinks: []
     }
   },
-  navMenus: []
+  navMenus: [],
+  subNavMenus: []
 };
