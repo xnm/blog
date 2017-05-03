@@ -7,7 +7,7 @@ import VueRouter from 'vue-router';
 Vue.use(VueRouter);
 
 let router = new VueRouter({
-  mode: 'hash'
+  mode: 'history'
 });
 
 

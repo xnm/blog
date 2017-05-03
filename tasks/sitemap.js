@@ -31,7 +31,7 @@ gulp.task('sitemap', function () {
   let urlSet = [];
   _.each(indexes, function (index) {
     let metadata = _.clone(index);
-    let loc = postUrlPrefix + '/#' + metadata.link;
+    let loc = postUrlPrefix + metadata.link;
     let lastMod = metadata.created;
 
     let newUrl = createUrlInformation(loc, lastMod);
