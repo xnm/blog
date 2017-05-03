@@ -3,7 +3,12 @@ import gulp from 'gulp';
 import gutil from 'gulp-util';
 import sequence from 'gulp-sequence';
 
+import _ from 'lodash';
+import fs from 'fs';
+
 import webpack from 'webpack';
+import webpackMerge from 'webpack-merge';
+import PrerenderSpaPlugin from 'prerender-spa-plugin';
 
 import config from './config/base.config';
 import webpackProdConfig from './config/webpack.prod.config.babel';
@@ -11,11 +16,35 @@ import logger from './util/logger';
 
 gulp.task('build:prod', sequence(['clean'], ['build'], ['webpack'], ['sitemap'], ['pwa'], ['cname'], ['move']));
 
-gulp.task('build', sequence(['properties'], ['posts']));
+gulp.task('build', sequence(['properties'], ['posts'], ['move']));
+
 
 gulp.task('webpack', function (done) {
   logger.info('Webpack building.');
-  webpack(webpackProdConfig, function (error, stats) {
+  let indexesDataPath = config.dir.build + '/' + config.output.indexes;
+  let indexesString = fs.readFileSync(indexesDataPath).toString();
+  let indexes = _.map(JSON.parse(indexesString), function (index) {
+    return index.link;
+  });
+
+
+  let prerenderConfig = {
+    plugins: [
+      new PrerenderSpaPlugin(
+        webpackProdConfig.output.path,
+        ['/'].concat(indexes),
+        {
+          captureAfterElementExists: '#post-content',
+          navigationLocked: true,
+          postProcessHtml: function (context) {
+            return context.html
+          }
+        }
+      )
+    ]
+  };
+
+  webpack(webpackMerge(webpackProdConfig, prerenderConfig), function (error, stats) {
     if (error) {
       throw new gutil.PluginError('webpack', error);
     }

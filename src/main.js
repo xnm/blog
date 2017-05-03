@@ -1,4 +1,5 @@
 /* Created by Aquariuslt on 4/11/17.*/
+import 'es6-promise/auto';
 import Vue from 'vue';
 import VueMaterial from 'vue-material';
 

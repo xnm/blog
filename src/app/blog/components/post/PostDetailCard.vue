@@ -12,7 +12,7 @@
         </post-catalogue>
       </md-card-content>
 
-      <md-card-content class="markdown-body" v-html="post.html">
+      <md-card-content id="post-content" class="markdown-body" v-html="post.html">
       </md-card-content>
 
       <md-card-actions>
