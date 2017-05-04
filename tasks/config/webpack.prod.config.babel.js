@@ -77,20 +77,20 @@ let webpackProdConfig = merge(webpackBaseConfig, {
     })
 
   ],
-  // stats: {
-  //   colors: true,
-  //   hash: true,
-  //   timings: true,
-  //   chunks: true,
-  //   chunkModules: false,
-  //   chunksSort: 'name',
-  //   children: false,
-  //   modules: false,
-  //   reasons: false,
-  //   warnings: true,
-  //   assets: false,
-  //   version: false
-  // }
+  stats: {
+    colors: true,
+    hash: true,
+    timings: true,
+    chunks: true,
+    chunkModules: false,
+    chunksSort: 'name',
+    children: false,
+    modules: false,
+    reasons: false,
+    warnings: true,
+    assets: false,
+    version: false
+  }
 });
 
 export default webpackProdConfig;

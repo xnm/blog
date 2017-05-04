@@ -6,10 +6,11 @@ node_js:
 script:
   - npm run build
 deploy:
-  - provider: pages
-    skip_cleanup: true
-    github_token: $GITHUB_TOKEN
-    local_dir: dist
-    target_branch: master
-    on:
-      branch: src
+  provider: pages
+  skip_cleanup: true
+  github_token: $GITHUB_TOKEN # Set in travis-ci.org dashboard
+  local_dir: dist
+  repo: Aquariuslt/aquariuslt.github.io
+  target_branch: master
+  on:
+    branch: VUE

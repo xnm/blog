@@ -61,13 +61,7 @@ gulp.task('webpack', function (done) {
       logger.error('Webpack build error:', error);
       throw new gutil.PluginError('webpack', error);
     }
-    process.stdout.write(stats.toString({
-        colors: true,
-        modules: false,
-        children: false,
-        chunks: false,
-        chunkModules: false
-      }) + '\n');
+    gutil.log(stats.toString(mergedProdConfig.stats));
     done();
   });
 });
