@@ -47,9 +47,11 @@ let webpackProdConfig = merge(webpackBaseConfig, {
       },
       sourceMap: true
     }),
+    new webpack.optimize.OccurrenceOrderPlugin(),
     new webpack.LoaderOptionsPlugin({
       minimize: true
     }),
+    new CopyWebpackPlugin(prodConfig.dir.assets),
     new OptimizeCssAssetsPlugin({
       cssProcessorOptions: {
         safe: true,
@@ -72,8 +74,8 @@ let webpackProdConfig = merge(webpackBaseConfig, {
         removeAttributeQuotes: false
       },
       chunksSortMode: 'dependency'
-    }),
-    new CopyWebpackPlugin(prodConfig.dir.assets)
+    })
+
   ],
   stats: {
     colors: true,
