@@ -3,6 +3,7 @@ node_js:
   - "6"
 
 cache:
+  yarn: false
   directories:
     - node_modules
 
