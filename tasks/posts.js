@@ -49,7 +49,7 @@ gulp.task('post', function () {
   fs.mkdirSync(pathUtil.root(config.dir.build) + '/' + config.output.post);
   _.each(postDataList, (postData) => {
     logger.info('Generating Post:', postData.metadata.filename);
-    fs.writeFileSync(pathUtil.root(config.dir.build) + '/' + config.output.post + '/' + postData.metadata.filename + '.json', postData);
+    fs.writeFileSync(pathUtil.root(config.dir.build) + '/' + config.output.post + '/' + postData.metadata.filename + '.json', JSON.stringify(postData));
   });
   logger.info('Generate Posts Done.');
 });
