@@ -27,17 +27,20 @@ gulp.task('webpack', function (done) {
     return index.link;
   });
 
+  _.each(indexes, (link) => {
+    logger.info('Pre render link:', link);
+  });
 
   let prerenderConfig = {
     plugins: [
       new PrerenderSpaPlugin(
         webpackProdConfig.output.path,
-        ['/'].concat(indexes),
+        indexes,
         {
           captureAfterElementExists: '#post-content',
-          navigationLocked: true,
-          postProcessHtml: function (context) {
-            return context.html
+          // navigationLocked: true,
+          phantomPageSettings: {
+            loadImages: false
           }
         }
       )
@@ -46,6 +49,7 @@ gulp.task('webpack', function (done) {
 
   webpack(webpackMerge(webpackProdConfig, prerenderConfig), function (error, stats) {
     if (error) {
+      logger.error('Webpack build error:', error);
       throw new gutil.PluginError('webpack', error);
     }
     gutil.log(stats.toString(webpackProdConfig.stats));
