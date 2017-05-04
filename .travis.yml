@@ -1,30 +1,16 @@
 language: node_js
+cache:
+  directories:
+  - node_modules
 node_js:
   - "6"
-
-cache:
-  yarn: false
-  directories:
-    - node_modules
-
-# Download the right version of phantomjs 2.0.0, and place it before everything else in our $PATH
-#before_install:
-#  - mkdir travis-phantomjs
-#  - wget https://bitbucket.org/ariya/phantomjs/downloads/phantomjs-2.1.1-linux-x86_64.tar.bz2 -O $PWD/travis-phantomjs/phantomjs-2.1.1-linux-x86_64.tar.bz2
-#  - tar -xvf $PWD/travis-phantomjs/phantomjs-2.1.1-linux-x86_64.tar.bz2 -C $PWD/travis-phantomjs
-#  - export PATH=$PWD/travis-phantomjs:$PATH
-#  - echo $PATH
-
-script: npm run build
-
-
-
+script:
+  - npm run build
 deploy:
-  provider: pages
-  skip_cleanup: true
-  github_token: $GITHUB_TOKEN # Set in travis-ci.org dashboard
-  local_dir: dist
-  repo: Aquariuslt/aquariuslt.github.io
-  target_branch: master
-  on:
-    branch: VUE
+  - provider: pages
+    skip_cleanup: true
+    github_token: $GITHUB_TOKEN
+    local_dir: dist
+    target_branch: master
+    on:
+      branch: src
