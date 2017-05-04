@@ -41,9 +41,13 @@ gulp.task('webpack', function (done) {
         indexes,
         {
           captureAfterElementExists: '#post-content',
-          // navigationLocked: true,
           phantomPageSettings: {
             loadImages: false
+          },
+          navigationLocked: true,
+          postProcessHtml: function (context) {
+            logger.info(`${context.route}`);
+            return context.html
           }
         }
       )
