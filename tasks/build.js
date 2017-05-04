@@ -9,6 +9,7 @@ import fs from 'fs';
 import webpack from 'webpack';
 import webpackMerge from 'webpack-merge';
 import PrerenderSpaPlugin from 'prerender-spa-plugin';
+import phantomjs from 'phantomjs-prebuilt';
 
 import config from './config/base.config';
 import webpackProdConfig from './config/webpack.prod.config.babel';
@@ -21,6 +22,7 @@ gulp.task('build', sequence(['properties'], ['posts'], ['move']));
 
 gulp.task('webpack', function (done) {
   logger.info('Webpack building.');
+  logger.info('PhantomJS version:', phantomjs.version);
   let indexesDataPath = config.dir.build + '/' + config.output.indexes;
   let indexesString = fs.readFileSync(indexesDataPath).toString();
   let indexes = _.map(JSON.parse(indexesString), function (index) {
