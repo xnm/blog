@@ -5,6 +5,7 @@ import sequence from 'gulp-sequence';
 
 import _ from 'lodash';
 import fs from 'fs';
+import ora from 'ora';
 
 import webpack from 'webpack';
 import webpackMerge from 'webpack-merge';
@@ -50,15 +51,23 @@ gulp.task('webpack', function (done) {
   };
 
   let mergedProdConfig = webpackMerge(webpackProdConfig, prerenderConfig);
-  console.log(mergedProdConfig);
 
+  let spinner = ora('Webpack building ...');
+  spinner.start();
   webpack(mergedProdConfig, function (error, stats) {
+    logger.info('Webpack build done');
+    spinner.stop();
     if (error) {
       logger.error('Webpack build error:', error);
       throw new gutil.PluginError('webpack', error);
     }
-    gutil.log(stats.toString(webpackProdConfig.stats));
-    logger.info('Webpack build done');
+    process.stdout.write(stats.toString({
+        colors: true,
+        modules: false,
+        children: false,
+        chunks: false,
+        chunkModules: false
+      }) + '\n');
     done();
   });
 });

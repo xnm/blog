@@ -1,5 +1,6 @@
 /* Created by Aquariuslt on 4/27/17.*/
 import _ from 'lodash';
+import fs from 'fs';
 import gulp from 'gulp';
 import sequence from 'gulp-sequence';
 import inject from 'gulp-inject-string';
@@ -20,7 +21,7 @@ const RENDER_TOKENS_OPTIONS = {
 gulp.task('posts', sequence(['post'], ['indexes']));
 
 
-gulp.task('post', function (next) {
+gulp.task('post', function () {
   logger.info('Generate Posts and Indexes');
   let postDataPathList = pathUtil.getGlobalPaths(config.input.posts);
   let metadataList = [];
@@ -45,18 +46,12 @@ gulp.task('post', function (next) {
 
   metadataList = _.reverse(_.sortBy(metadataList, 'created'));
 
+  fs.mkdirSync(pathUtil.root(config.dir.build) + '/' + config.output.post);
   _.each(postDataList, (postData) => {
-    gulp.src(config.input.empty)
-      .pipe(inject.append(JSON.stringify(postData)))
-      .pipe(rename(config.output.post + '/' + postData.metadata.filename + '.json'))
-      .pipe(gulp.dest(config.dir.build))
+    logger.info('Generating Post:', postData.metadata.filename);
+    fs.writeFileSync(pathUtil.root(config.dir.build) + '/' + config.output.post + '/' + postData.metadata.filename + '.json', postData);
   });
   logger.info('Generate Posts Done.');
-
-  // TODO: danger, fix here.
-  setTimeout(() => {
-    next();
-  }, 5000);
 });
 
 gulp.task('indexes', function (next) {
