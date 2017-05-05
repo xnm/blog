@@ -28,8 +28,10 @@ gulp.task('serve', function () {
 gulp.task('spa-server', function () {
   let server = serverFactory.create({
     path: pathUtil.root(baseConfig.dir.dist),
-    port: 8080,
-    fallback: '/index.html'
+    port: 80,
+    fallback: {
+      'text/html': '/index.html'
+    }
   });
   server.start();
 });
