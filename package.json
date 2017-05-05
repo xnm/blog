@@ -9,7 +9,7 @@
     "dev": "gulp serve",
     "build": "gulp build:prod",
     "test": "gulp test",
-    "start": "lite-server --baseDir=dist"
+    "start": "gulp build:prod && gulp spa-server"
   },
   "dependencies": {
     "axios": "^0.16.1",
@@ -75,6 +75,7 @@
     "rimraf": "^2.6.0",
     "sass-loader": "^6.0.3",
     "smooth-scroll": "cferdinandi/smooth-scroll",
+    "spa-server": "^1.0.0",
     "style-loader": "^0.16.1",
     "sw-precache": "^5.1.0",
     "url-loader": "^0.5.8",

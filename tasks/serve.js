@@ -2,12 +2,16 @@
 import gulp from 'gulp';
 import gutil from 'gulp-util';
 
+
 import webpack from 'webpack';
 import WebpackDevServer from 'webpack-dev-server';
 import addDevServerEntrypoints from 'webpack-dev-server/lib/util/addDevServerEntrypoints';
 
 import webpackDevConfig from './config/webpack.dev.config.babel';
 import logger from './util/logger';
+import baseConfig from './config/base.config';
+import pathUtil from './util/path-util';
+import serverFactory from 'spa-server';
 
 gulp.task('serve', function () {
   logger.info('Webpack building.');
@@ -19,4 +23,13 @@ gulp.task('serve', function () {
         throw new gutil.PluginError('webpack', error);
       }
     });
+});
+
+gulp.task('spa-server', function () {
+  let server = serverFactory.create({
+    path: pathUtil.root(baseConfig.dir.dist),
+    port: 8080,
+    fallback: '/index.html'
+  });
+  server.start();
 });
