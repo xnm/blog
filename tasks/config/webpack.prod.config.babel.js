@@ -21,7 +21,7 @@ let webpackProdConfig = merge(webpackBaseConfig, {
     path: prodConfig.output.path,
     filename: '[name].[chunkhash].js',
     chunkFilename: '[id].[chunkhash].js',
-    publicPath: '/'
+    publicPath: './'
   },
   module: {
     rules: [
