@@ -9,7 +9,7 @@
     "dev": "gulp serve",
     "build": "gulp build:prod",
     "test": "gulp test",
-    "start": ""
+    "start": "lite-server --baseDir=dist"
   },
   "dependencies": {
     "axios": "^0.16.1",
@@ -63,6 +63,7 @@
     "http-proxy-middleware": "^0.17.3",
     "less": "^2.7.2",
     "less-loader": "^4.0.3",
+    "lite-server": "^2.3.0",
     "lodash": "^4.17.4",
     "moment": "^2.18.1",
     "node-sass": "^4.5.2",

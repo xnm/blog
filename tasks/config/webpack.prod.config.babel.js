@@ -20,7 +20,8 @@ let webpackProdConfig = merge(webpackBaseConfig, {
   output: {
     path: prodConfig.output.path,
     filename: '[name].[chunkhash].js',
-    chunkFilename: '[id].[chunkhash].js'
+    chunkFilename: '[id].[chunkhash].js',
+    publicPath: '/'
   },
   module: {
     rules: [
@@ -47,10 +48,7 @@ let webpackProdConfig = merge(webpackBaseConfig, {
       },
       sourceMap: true
     }),
-    new webpack.optimize.OccurrenceOrderPlugin(),
-    new webpack.LoaderOptionsPlugin({
-      minimize: true
-    }),
+    new webpack.optimize.OccurrenceOrderPlugin(true),
     new CopyWebpackPlugin(prodConfig.dir.assets),
     new OptimizeCssAssetsPlugin({
       cssProcessorOptions: {
