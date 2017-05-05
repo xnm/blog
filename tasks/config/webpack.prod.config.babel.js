@@ -63,8 +63,8 @@ let webpackProdConfig = merge(webpackBaseConfig, {
       filename: '[name].[chunkhash].css'
     }),
     new HtmlWebpackPlugin({
-      template: './src/index.html',
-      favicon: './src/' + prodConfig.favicon,
+      template: `./${prodConfig.dir.src}/index.html`,
+      favicon: `./${prodConfig.dir.src}/${prodConfig.file.favicon}`,
       inject: true,
       minify: {
         removeComments: true,

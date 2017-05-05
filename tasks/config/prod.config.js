@@ -6,7 +6,7 @@ import pathUtil from '../util/path-util';
 
 let prodConfig = merge(baseConfig, {
   output: {
-    path: pathUtil.root('dist')
+    path: pathUtil.root(baseConfig.dir.dist)
   }
 });
 

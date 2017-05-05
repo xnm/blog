@@ -16,7 +16,7 @@ const PORT = 5000;
 
 let devConfig = merge(baseConfig, {
   output: {
-    path: pathUtil.root('build'),
+    path: pathUtil.root(baseConfig.dir.build),
     publicPath: PROTOCOL + HOST + ':' + PORT
   },
   devServer: {

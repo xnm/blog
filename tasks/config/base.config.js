@@ -1,6 +1,5 @@
 /* Created by Aquariuslt on 14/04/2017.*/
 let baseConfig = {
-  favicon: 'favicon.png',
   dir: {
     src: 'src',
     build: 'build',
@@ -13,12 +12,15 @@ let baseConfig = {
       }
     ]
   },
+  file: {
+    favicon: 'favicon.png'
+  },
   input: {
     posts: 'src/data/posts/**/*.md',
     empty: 'tasks/template/empty',
     sitemap: 'tasks/template/sitemap.xml',
     manifest: 'tasks/template/manifest.webapp',
-    serviceWorkerRegistration:'tasks/template/service-worker-registration.js',
+    serviceWorkerRegistration: 'tasks/template/service-worker-registration.js',
     properties: 'application.yml',
   },
   output: {

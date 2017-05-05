@@ -1,6 +1,6 @@
 <!--suppress ALL -->
 <template>
-  <section>
+  <div>
     <md-toolbar>
       <md-button class="md-icon-button" @click.native="toggleLeftSideNav">
         <md-icon>menu</md-icon>
@@ -67,7 +67,7 @@
         </md-list-item>
       </md-list>
     </md-sidenav>
-  </section>
+  </div>
 </template>
 
 <script>
@@ -100,11 +100,14 @@
       externalLinks: function () {
         return this.$store.getters.externalLinks;
       }
+    },
+    mounted: function() {
+      document.dispatchEvent(new Event('navigation-bar-rendered'));
     }
   }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
   .title {
     text-decoration: none !important;
     color: #FFFFFF !important;

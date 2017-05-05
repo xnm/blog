@@ -73,8 +73,8 @@ let webpackBaseConfig = {
       }
     }),
     new HtmlWebpackPlugin({
-      template: './src/index.html',
-      favicon: './src/' + baseConfig.favicon
+      template: `./${baseConfig.dir.src}/index.html`,
+      favicon: `./${baseConfig.dir.src}/${baseConfig.file.favicon}`
     })
   ]
 };
