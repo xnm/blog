@@ -39,6 +39,7 @@ export default {
   disqus: (state) => {
     const DEFAULT_DISQUS_ENABLE = false;
     if (!_.isEmpty(state.applicationProperties)
+      && !_.isUndefined(state.applicationProperties.blog)
       && _.isEqual(state.applicationProperties.blog.disqus.enable, true)
     ) {
       return state.applicationProperties.blog.disqus
