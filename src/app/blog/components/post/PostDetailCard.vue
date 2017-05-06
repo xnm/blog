@@ -25,7 +25,7 @@
 
       <md-card-content>
         <post-comment
-          v-if="disqus"
+          v-if="disqus.enable"
           :disqus="disqus">
         </post-comment>
       </md-card-content>

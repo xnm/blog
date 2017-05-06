@@ -10,6 +10,6 @@ export default {
   },
   [types.UPDATE_CURRENT_POST](state, filename){
     state.currentPost = _.find(state.postList, {filename: filename});
-    document.title = state.currentPost.metadata.title + '|' + document.title;
+    document.title = state.currentPost.metadata.title + ' | ' + document.title;
   }
 };
