@@ -82,10 +82,3 @@ blog:
 # Domain
 cname: 'blog.aquariuslt.com'
 
-# Deploy
-deploy:
-  repo: 'https://github.com/Aquariuslt/aquariuslt.github.io.git'
-  remote: 'origin'
-  branch: 'master'
-  cacheDir: '.cache'
-  clone: '.cache'
