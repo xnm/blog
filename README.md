@@ -9,11 +9,12 @@ See:[Blog](https://blog.aquariuslt.com)
 
 ### Features
 - Single Page Application
-- Progress Web Application
+- Progressive Web Application
 - Markdown Writing
 - Support Code Highlight
 - Disqus
 - Configurable
+- Sitemap auto generating
 
 ### Dependencies
 - Vue
