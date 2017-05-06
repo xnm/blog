@@ -24,7 +24,7 @@ export default {
         });
     }
     else {
-      commit(types.UPDATE_CURRENT_POST, filename)
+      commit(types.UPDATE_CURRENT_POST, filename);
     }
   }
 };

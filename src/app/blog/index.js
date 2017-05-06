@@ -14,6 +14,28 @@ store.registerModule('blog', blogStore);
 router.addRoutes(blogRoutes);
 
 
+router.afterEach((to) => {
+  let appTitle = store.getters.title;
+  if (_.isEmpty(appTitle) || _.isUndefined(appTitle)) {
+    appTitle = document.title;
+  }
+
+
+  if (to.meta && !_.isUndefined(to.meta.title)) {
+    let titleExpression = to.meta.title;
+    _.each(_.keys(to.params), (paramName) => {
+      if (_.includes(titleExpression, paramName)) {
+        titleExpression = titleExpression.replace(paramName, to.params[paramName]);
+      }
+    });
+
+    document.title = titleExpression + ' | ' + appTitle;
+  }
+  else {
+    document.title = appTitle;
+  }
+});
+
 store.dispatch(types.REGISTER_NAV_MENUS, blogRoutes);
 blogApi.getIndexes()
   .then((res) => {

@@ -22,13 +22,20 @@ let blogRoutes = [
   {
     path: '/category/:filterValue',
     name: 'By CategoryName',
-    component: Posts
+    component: Posts,
+    meta: {
+      title: 'Category:filterValue'
+    }
   },
   {
     path: '/tag/:filterValue',
     name: 'By TagName',
-    component: Posts
+    component: Posts,
+    meta: {
+      title: 'Tag:filterValue'
+    }
   }
 ];
+
 
 export default blogRoutes;
