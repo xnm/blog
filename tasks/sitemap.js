@@ -57,7 +57,7 @@ gulp.task('sitemap', function () {
 
 
 function createUrlInformation(loc, lastmod) {
-  const defaultChangeFreq = 'monthly';
+  const defaultChangeFreq = 'weekly';
   const defaultPriority = 1.0;
   return {
     url: [
