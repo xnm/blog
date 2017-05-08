@@ -1,5 +1,9 @@
 <template>
   <section>
+    <md-progress
+      v-if="indexes.length == 0 "
+      md-indeterminate>
+    </md-progress>
     <md-layout>
       <md-layout
         class="card-element"
@@ -44,7 +48,7 @@
 </script>
 
 <style scoped>
-  .card-element{
-    padding:5px;
+  .card-element {
+    padding: 5px;
   }
 </style>

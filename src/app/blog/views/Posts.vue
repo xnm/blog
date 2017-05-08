@@ -1,5 +1,9 @@
 <template>
   <section>
+    <md-progress
+      v-if="indexes.length == 0 "
+      md-indeterminate>
+    </md-progress>
     <md-layout>
       <md-layout
         class="card-element"
