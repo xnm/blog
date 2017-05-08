@@ -6,7 +6,7 @@
   "license": "MIT",
   "scripts": {
     "clean": "gulp clean",
-    "dev": "gulp serve",
+    "dev": "gulp build && gulp serve",
     "build": "gulp build:prod",
     "test": "gulp test",
     "start": "gulp build:prod && gulp spa-server"
