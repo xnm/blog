@@ -41,7 +41,7 @@ npm install
 
 #### Try Run 
 ```bash
-npm start
+npm run dev
 ```
 
 Then see your web app in 
@@ -178,4 +178,10 @@ cname: 'blog.aquariuslt.com'
 ```
 
 
+#### Release and Deploy
+Run command:
+```bash
+npm run build
+```
 
+Then deploy your dist foler in github pages repository.
