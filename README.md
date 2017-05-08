@@ -41,7 +41,6 @@ npm install
 
 #### Try Run 
 ```bash
-npm run
 npm run dev
 ```
 
