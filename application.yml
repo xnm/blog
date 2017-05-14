@@ -80,5 +80,5 @@ blog:
 
 # Blog Deploy Options
 # Domain
-cname: 'code.aquariuslt.com'
+cname: 'blog.aquariuslt.com'
 
