@@ -10,7 +10,7 @@ import config from './config/base.config';
 import webpackProdConfig from './config/webpack.prod.config.babel';
 import logger from './util/logger';
 
-gulp.task('build:prod', sequence(['clean'], ['build'], ['webpack'], ['sitemap'], ['pwa'], ['cname'], ['move']));
+gulp.task('build:prod', sequence(['clean'], ['build'], ['webpack'], ['sitemap'], ['pwa'], ['move']));
 
 gulp.task('build', sequence(['properties'], ['posts'], ['move']));
 
