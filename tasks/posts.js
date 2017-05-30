@@ -1,6 +1,7 @@
 /* Created by Aquariuslt on 4/27/17.*/
 import _ from 'lodash';
 import fs from 'fs';
+import mkdirp from 'mkdirp';
 import gulp from 'gulp';
 import sequence from 'gulp-sequence';
 import inject from 'gulp-inject-string';
@@ -18,11 +19,11 @@ const RENDER_TOKENS_OPTIONS = {
 };
 
 
-gulp.task('posts', sequence(['post'], ['indexes']));
+gulp.task('posts', sequence(['posts-content'], ['posts-indexes']));
 
 
-gulp.task('post', function () {
-  logger.info('Generate Posts and Indexes');
+gulp.task('posts-content', function () {
+  logger.info('Generate Posts');
   let postDataPathList = pathUtil.getGlobalPaths(config.input.posts);
   let metadataList = [];
   let postDataList = [];
@@ -46,7 +47,8 @@ gulp.task('post', function () {
 
   metadataList = _.reverse(_.sortBy(metadataList, 'created'));
 
-  fs.mkdirSync(pathUtil.root(config.dir.build) + '/' + config.output.post);
+
+  mkdirp.sync(pathUtil.root(config.dir.build) + '/' + config.output.post);
   _.each(postDataList, (postData) => {
     logger.info('Generating Post:', postData.metadata.filename);
     fs.writeFileSync(pathUtil.root(config.dir.build) + '/' + config.output.post + '/' + postData.metadata.filename + '.json', JSON.stringify(postData));
@@ -54,8 +56,8 @@ gulp.task('post', function () {
   logger.info('Generate Posts Done.');
 });
 
-gulp.task('indexes', function (next) {
-  logger.info('Generate Posts and Indexes');
+gulp.task('posts-indexes', function (next) {
+  logger.info('Generate Indexes');
   let postDataPathList = pathUtil.getGlobalPaths(config.input.posts);
   let metadataList = [];
   let postDataList = [];
