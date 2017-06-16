@@ -17,13 +17,13 @@
     components: {PostDetailCard},
     name: 'PostDetail',
     mounted: function () {
-      loadPostDetail(this.$store, this.$route)
+      loadPostDetail(this.$store, this.$route);
     },
     computed: {
       post: function () {
         return this.$store.getters.currentPost;
       }
-    }
+
   };
 
   function loadPostDetail(store, route) {
