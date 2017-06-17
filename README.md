@@ -1,7 +1,7 @@
 # blog.aquariuslt.com
 @(Coding)
 
-[![Build Status](https://api.travis-ci.org/Aquariuslt/Blog.svg?branch=VUE)](https://github.com/Aquariuslt/Blog)
+[![Build Status](https://api.travis-ci.org/Aquariuslt/blog.svg?branch=VUE)](https://github.com/Aquariuslt/Blog)
 
 Blog Application using Vue Version.
 See:[Blog](https://blog.aquariuslt.com)
