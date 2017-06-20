@@ -23,7 +23,7 @@
       post: function () {
         return this.$store.getters.currentPost;
       }
-
+    }
   };
 
   function loadPostDetail(store, route) {

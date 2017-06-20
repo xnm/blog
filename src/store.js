@@ -7,9 +7,7 @@ Vue.use(Vuex);
 
 let store = new Vuex.Store({
   modules: {},
-  plugins: [
-    createLogger()
-  ]
+  plugins: process.env.NODE_ENV === 'development' ? [createLogger()] : []
 });
 
 
