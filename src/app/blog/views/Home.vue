@@ -13,7 +13,7 @@
         md-flex-large="25"
         md-flex="20"
         v-for="summary in indexes"
-        v-bind:key="summary">
+        v-bind:key="summary.filename">
         <md-layout md-gutter>
           <post-summary-card :data="summary">
           </post-summary-card>

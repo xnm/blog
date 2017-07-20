@@ -28,7 +28,7 @@
         <md-layout md-flex="10"></md-layout>
       </md-toolbar>
       <md-list>
-        <md-list-item v-for="navMenu in navMenus" v-bind:key="navMenu">
+        <md-list-item v-for="navMenu in navMenus" v-bind:key="navMenu.name">
           <router-link :to="navMenu.path">
             <md-icon>{{navMenu.meta.icon}}</md-icon>
             <span>{{navMenu.name}}</span>
@@ -50,13 +50,13 @@
           </md-list-expand>
         </md-list-item>
 
-        <md-list-item v-for="externalLinkCategory in externalLinks" v-bind:key="externalLinkCategory">
+        <md-list-item v-for="externalLinkCategory in externalLinks" v-bind:key="externalLinkCategory.label">
           <md-icon>links</md-icon>
           <span>{{externalLinkCategory.label}}</span>
           <md-list-expand>
             <md-list>
               <md-list-item v-for="externalLink in externalLinkCategory.links"
-                            v-bind:key="externalLink"
+                            v-bind:key="externalLink.url"
                             class="md-inset">
                 <a :href="externalLink.url" class="external-link" target="_blank">
                   {{externalLink.displayName}}
