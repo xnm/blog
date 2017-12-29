@@ -1,25 +1,16 @@
 {
   "presets": [
-    [
-      "env",
-      {
-        "modules": false
-      }
-    ],
-    "stage-2",
-    "es2015",
-    "babel-polyfill"
+    "env",
+    "stage-0"
   ],
   "plugins": [
     "transform-runtime"
   ],
-  "comments": false,
   "env": {
     "test": {
       "presets": [
         "env",
-        "stage-2",
-        "es2015"
+        "stage-0"
       ],
       "plugins": [
         "istanbul"

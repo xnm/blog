@@ -1,44 +1,31 @@
-/* Created by Aquariuslt on 15/04/2017.*/
 import gulp from 'gulp';
-import gutil from 'gulp-util';
+import log from 'fancy-log';
 import sequence from 'gulp-sequence';
 import ora from 'ora';
 
 import webpack from 'webpack';
 
-import config from './config/base.config';
-import webpackProdConfig from './config/webpack.prod.config.babel';
-import logger from './util/logger';
+import baseConfig from './config/base.config';
+import webpackProdConfig from './config/webpack.prod.babel';
 
-gulp.task('build:prod', sequence(['clean'], ['build'], ['webpack'], ['sitemap'], ['pwa'], ['move']));
-
-gulp.task('build', sequence(['properties'], ['posts'], ['move']));
-
-
-gulp.task('webpack', function (done) {
-  logger.info('Webpack building.');
-
+gulp.task('webpack', function(done) {
   let spinner = ora('Webpack building ...');
   spinner.start();
-  webpack(webpackProdConfig, function (error, stats) {
-    logger.info('Webpack build done');
+  webpack(webpackProdConfig, function(error, stats) {
+    log.info('Webpack build done');
     spinner.stop();
-    if (error) {
-      logger.error('Webpack build error:', error);
-      throw new gutil.PluginError('webpack', error);
+    if (error || stats.hasErrors()) {
+      log.error('Webpack build error:', error);
     }
-    gutil.log(stats.toString(webpackProdConfig.stats));
+    log.info(stats.toString(webpackProdConfig.stats));
     done();
   });
 });
 
-gulp.task('move', function () {
-  logger.info('Moving build dir files into dist folder');
-  gulp.src(config.dir.build + '/**/*')
-    .pipe(gulp.dest(config.dir.dist));
-  logger.info('Move done');
+gulp.task('move', function() {
+  log.info('Moving build dir files into dist folder');
+  gulp.src(baseConfig.dir.build + '/**/*').pipe(gulp.dest(baseConfig.dir.dist));
+  log.info('Move done');
 });
 
-
-
-
+gulp.task('build', sequence(['clean'], ['api'], ['webpack']));

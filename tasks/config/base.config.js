@@ -1,10 +1,18 @@
-/* Created by Aquariuslt on 14/04/2017.*/
+/**
+ * Spec base folders structure variables here
+ * */
+
 let baseConfig = {
   dir: {
+    cache: '.cache',
     src: 'src',
     build: 'build',
     dist: 'dist',
-    cache: '.cache',
+    test: {
+      unit: 'test/unit',
+      e2e: 'test/e2e'
+    },
+    // assets which need webpack-copy-plugin
     assets: [
       {
         from: 'src/assets',
@@ -12,23 +20,15 @@ let baseConfig = {
       }
     ]
   },
+  // files which need webpack-html-plugin moving during build (or any other)
   file: {
     favicon: 'favicon.png'
   },
-  input: {
-    posts: 'src/data/posts/**/*.md',
-    empty: 'tasks/template/empty',
-    sitemap: 'tasks/template/sitemap.xml',
-    manifest: 'tasks/template/manifest.webapp',
-    serviceWorkerRegistration: 'tasks/template/service-worker-registration.js',
-    properties: 'application.yml',
-  },
-  output: {
-    application: 'api/application.json',
-    indexes: 'api/indexes.json',
-    post: 'api/post',
-    sitemap: 'sitemap.xml',
-    serviceWorker: 'service-worker.js'
+
+  // development-level config
+  dev: {
+    host: '127.0.0.1',
+    port: 5000
   }
 };
 

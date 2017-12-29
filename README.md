@@ -1,7 +1,8 @@
 # blog.aquariuslt.com
-@(Coding)
 
 [![Build Status](https://api.travis-ci.org/Aquariuslt/blog.svg?branch=VUE)](https://github.com/Aquariuslt/Blog)
+[![Coverage Status](https://coveralls.io/repos/github/Aquariuslt/blog/badge.svg?branch=VUE)](https://coveralls.io/github/Aquariuslt/blog?branch=VUE)
+
 
 Blog Application using Vue Version.
 See:[Blog](https://blog.aquariuslt.com)
@@ -17,13 +18,13 @@ See:[Blog](https://blog.aquariuslt.com)
 - Sitemap auto generating
 
 ### Dependencies
-- Vue
-- Vuex
-- Vue-Router
-- Vue-Material
-- Axios
-- Marked
-- Hightlight.js
+- vue
+- vuex
+- vue-Router
+- vue-Material
+- axios
+- marked
+- highlight.js
 
 
 ### Usage
@@ -38,10 +39,16 @@ cd blog
 npm install
 ```
 
+> P.S. for China Users, please export chromium download url before install npm dependencies.
+
+> Win: SET PUPPETEER_DOWNLOAD_HOST=https://storage.googleapis.com.cnpmjs.org
+
+> Unix: export PUPPETEER_DOWNLOAD_HOST=https://storage.googleapis.com.cnpmjs.org
+
 
 #### Try Run 
 ```bash
-npm run dev
+npm run serve
 ```
 
 Then see your web app in 
@@ -49,13 +56,13 @@ Then see your web app in
 
 #### Remove un-use files
 I post my posts data in markdown format under folder
-`src/data/posts/`.
+`src/resources/posts/`.
 
 Please delete all from it.
 
 #### Try writing
 ```
-cd src/data/posts
+cd src/resources/posts
 touch my-new-blog-post.md
 ```
 
