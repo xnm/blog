@@ -6,8 +6,7 @@ import baseConfig from './base.config';
 
 let webpackBaseConfig = {
   entry: {
-    main: './src/main.js',
-    styles: './src/styles.css'
+    main: './src/main.js'
   },
   resolve: {
     extensions: [

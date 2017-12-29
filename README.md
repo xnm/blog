@@ -1,6 +1,6 @@
 # blog.aquariuslt.com
 
-[![Build Status](https://api.travis-ci.org/Aquariuslt/blog.svg?branch=VUE)](https://github.com/Aquariuslt/Blog)
+[![Build Status](https://travis-ci.org/Aquariuslt/blog.svg?branch=VUE)](https://travis-ci.org/Aquariuslt/blog)
 [![Coverage Status](https://coveralls.io/repos/github/Aquariuslt/blog/badge.svg?branch=VUE)](https://coveralls.io/github/Aquariuslt/blog?branch=VUE)
 
 

@@ -2,6 +2,7 @@
 
 import webpack from 'webpack';
 import merge from 'webpack-merge';
+
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
 import OptimizeCssAssetsPlugin from 'optimize-css-assets-webpack-plugin';
@@ -47,6 +48,7 @@ let webpackProdConfig = merge(webpackBaseConfig, {
       sourceMap: true
     }),
     new webpack.optimize.OccurrenceOrderPlugin(true),
+    new webpack.HashedModuleIdsPlugin(),
     new CopyWebpackPlugin(baseConfig.dir.assets),
     new OptimizeCssAssetsPlugin({
       cssProcessorOptions: {
@@ -58,7 +60,8 @@ let webpackProdConfig = merge(webpackBaseConfig, {
       canPrint: false
     }),
     new ExtractTextPlugin({
-      filename: '[name].[chunkhash].css'
+      filename: '[name].[chunkhash].css',
+      allChunks: true
     }),
     new HtmlWebpackPlugin({
       template: baseConfig.dir.src + '/index.html',
@@ -70,8 +73,19 @@ let webpackProdConfig = merge(webpackBaseConfig, {
         removeAttributeQuotes: false
       },
       chunksSortMode: 'dependency'
+    }),
+    new webpack.optimize.CommonsChunkPlugin({
+      name: 'vendor',
+      minChunks(module) {
+        return (
+          module.resource &&
+          /\.js$/.test(module.resource) &&
+          module.resource.indexOf(
+            pathUtil.resolve('node_modules')
+          ) === 0
+        );
+      }
     })
-
   ],
   stats: {
     colors: true,
