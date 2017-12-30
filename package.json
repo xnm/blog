@@ -109,7 +109,6 @@
     "webpack-dev-server": "^2.9.7",
     "webpack-hot-middleware": "^2.21.0",
     "webpack-merge": "^4.1.1",
-    "webpack-pwa-manifest": "^3.4.1",
-    "yml-loader": "^2.1.0"
+    "webpack-pwa-manifest": "^3.4.1"
   }
 }

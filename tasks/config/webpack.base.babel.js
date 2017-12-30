@@ -6,7 +6,7 @@ import baseConfig from './base.config';
 
 let webpackBaseConfig = {
   entry: {
-    main: './src/main.js'
+    main: pathUtil.resolve('src') + '/main.js'
   },
   resolve: {
     extensions: [
@@ -55,10 +55,6 @@ let webpackBaseConfig = {
           publicPath: './',
           name: '[name].[ext]'
         }
-      },
-      {
-        test: /\.ya?ml$/,
-        loader: 'yml-loader'
       }
     ]
   }
