@@ -4,6 +4,8 @@ import webpack from 'webpack';
 import merge from 'webpack-merge';
 
 import webpackBaseConfig from './webpack.base.babel';
+
+import pathUtil from '../utils/path-util';
 import vueLoaderUtil from '../utils/vue-loader-util';
 
 let webpackTestConfig = merge(webpackBaseConfig, {
@@ -18,6 +20,17 @@ let webpackTestConfig = merge(webpackBaseConfig, {
           extract: false,
           minimize: false
         })
+      },
+      {
+        enforce: 'post',
+        test: /\.js$/,
+        include: [
+          pathUtil.resolve('src')
+        ],
+        exclude: [
+          /node_modules/
+        ],
+        loader: 'istanbul-instrumenter-loader'
       }
     ]
   },

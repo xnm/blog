@@ -6,6 +6,7 @@ import HtmlWebpackPlugin from 'html-webpack-plugin';
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
 import FriendlyErrorsPlugin from 'friendly-errors-webpack-plugin';
 
+import appConfig from './app.config';
 import baseConfig from './base.config';
 
 import pathUtil from '../utils/path-util';
@@ -45,6 +46,7 @@ let webpackDevConfig = merge(webpackBaseConfig, {
       filename: '[name].bundle.css'
     }),
     new HtmlWebpackPlugin({
+      title: appConfig['blog']['name'],
       template: baseConfig.dir.src + '/index.html',
       favicon: baseConfig.dir.src + '/' + baseConfig.file.favicon
     }),

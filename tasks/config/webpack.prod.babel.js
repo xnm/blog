@@ -68,6 +68,7 @@ let webpackProdConfig = merge(webpackBaseConfig, {
       allChunks: true
     }),
     new HtmlWebpackPlugin({
+      title: appConfig['blog']['name'],
       template: baseConfig.dir.src + '/index.html',
       favicon: baseConfig.dir.src + '/' + baseConfig.file.favicon,
       inject: true,
