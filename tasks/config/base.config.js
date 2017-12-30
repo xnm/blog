@@ -18,7 +18,9 @@ let baseConfig = {
         from: 'src/assets',
         to: 'assets'
       }
-    ]
+    ],
+    posts: 'posts',
+    post: 'post'
   },
   // files which need webpack-html-plugin moving during build (or any other)
   file: {

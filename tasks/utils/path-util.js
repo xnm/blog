@@ -7,4 +7,3 @@ function resolve(dir) {
 export default {
   resolve
 };
-;
