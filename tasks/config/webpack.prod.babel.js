@@ -7,7 +7,11 @@ import HtmlWebpackPlugin from 'html-webpack-plugin';
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
 import OptimizeCssAssetsPlugin from 'optimize-css-assets-webpack-plugin';
 import CopyWebpackPlugin from 'copy-webpack-plugin';
+import WebpackPwaManifest from 'webpack-pwa-manifest';
+import SWPrecacheWebpackPlugin from 'sw-precache-webpack-plugin';
 
+import pkg from '../../package.json';
+import appConfig from './app.config';
 import baseConfig from './base.config';
 import webpackBaseConfig from './webpack.base.babel';
 
@@ -85,6 +89,30 @@ let webpackProdConfig = merge(webpackBaseConfig, {
           ) === 0
         );
       }
+    }),
+    new WebpackPwaManifest({
+      name: appConfig['blog']['name'],
+      short_name: appConfig['blog']['name'],
+      description: appConfig['blog']['description'],
+      background_color: appConfig['blog']['theme'],
+      start_url: 'index.html',
+      icons: [
+        {
+          src: pathUtil.resolve(baseConfig.dir.src + '/' + baseConfig.file.favicon),
+          sizes: [96, 128, 192, 256, 384, 512],
+          type: 'image/png',
+          density: 0.75
+        }
+      ]
+    }),
+    new SWPrecacheWebpackPlugin({
+      cacheId: pkg.name,
+      filename: 'service-worker.js',
+      staticFileGlobsIgnorePatterns: [
+        /\.map$/,
+        /\.json$/
+      ],
+      minify: true
     })
   ],
   stats: {

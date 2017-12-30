@@ -9,6 +9,7 @@ blog:
   avator: '/assets/imgs/avator.png'
   author: 'Aquariuslt'
   description: 'Coder,WoWer'
+  theme: '#1976d2'
   externalLinks:
     -
       label: 'Social'

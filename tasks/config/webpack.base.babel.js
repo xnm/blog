@@ -55,6 +55,10 @@ let webpackBaseConfig = {
           publicPath: './',
           name: '[name].[ext]'
         }
+      },
+      {
+        test: /\.ya?ml$/,
+        loader: 'yml-loader'
       }
     ]
   }
