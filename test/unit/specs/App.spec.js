@@ -3,7 +3,7 @@ import Vue from '../shared/mocks/vue';
 import {shallow} from 'vue-test-utils';
 
 /* import components import */
-import App from '@/app/App';
+import App from '@/App';
 
 /* import other utils */
 
