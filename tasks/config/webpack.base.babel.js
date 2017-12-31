@@ -30,7 +30,10 @@ let webpackBaseConfig = {
       },
       {
         test: /\.css$/,
-        include: pathUtil.resolve(baseConfig.dir.src),
+        include: [
+          pathUtil.resolve(baseConfig.dir.src),
+          pathUtil.resolve(baseConfig.dir.test.unit)
+        ],
         loader: ExtractTextPlugin.extract({
           use: ['css-loader'],
           fallback: ['style-loader']

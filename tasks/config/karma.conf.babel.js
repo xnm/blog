@@ -14,8 +14,15 @@ let karmaConfig = function(config) {
     browsers: [
       'ChromiumHeadless'
     ],
-    frameworks: ['mocha', 'sinon', 'chai'],
-    reporters: ['spec', 'coverage'],
+    frameworks: [
+      'mocha',
+      'sinon',
+      'chai'
+    ],
+    reporters: [
+      'spec',
+      'coverage-istanbul'
+    ],
     files: [
       pathUtil.resolve(baseConfig.dir.test.unit) + '/specs/**/*.spec.js'
     ],
@@ -26,12 +33,23 @@ let karmaConfig = function(config) {
     webpackMiddleware: {
       noInfo: true
     },
-    coverageReporter: {
+    client: {
+      captureConsole: false
+    },
+    coverageIstanbulReporter: {
       dir: pathUtil.resolve('test/unit') + '/coverage',
-      reporters: [
-        {type: 'lcovonly', subdir: '.'},
-        {type: 'text-summary'}
-      ]
+      reports: ['html', 'lcovonly', 'text-summary'],
+      fixWebpackSourcePaths: true,
+      skipFilesWithNoCoverage: true,
+      thresholds: {
+        emitWarning: false,
+        global: {
+          statements: 1,
+          lines: 1,
+          branches: 1,
+          functions: 1
+        }
+      }
     }
   });
 };

@@ -1,11 +1,17 @@
-import Vue from 'vue';
+/* import mocked vue, vue-test-utils methods */
+import Vue from '../shared/mocks/vue';
+import {shallow} from 'vue-test-utils';
+
+/* import components import */
 import App from '@/app/App';
+
+/* import other utils */
 
 describe('App.vue', function() {
 
   it('# should mount App.vue correctly', function() {
-    const Constructor = Vue.extend(App);
-    const vm = new Constructor().$mount();
-
+    shallow(App, {
+      Vue
+    });
   });
 });
