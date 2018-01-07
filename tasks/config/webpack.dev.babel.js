@@ -46,7 +46,7 @@ let webpackDevConfig = merge(webpackBaseConfig, {
       filename: '[name].bundle.css'
     }),
     new HtmlWebpackPlugin({
-      title: appConfig['blog']['name'],
+      title: appConfig['title'],
       template: baseConfig.dir.src + '/index.html',
       favicon: baseConfig.dir.src + '/' + baseConfig.file.favicon
     }),

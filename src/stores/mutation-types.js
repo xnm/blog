@@ -1,0 +1,1 @@
+export const LOAD_APP_CONFIG = 'LOAD_APP_CONFIG';

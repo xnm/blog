@@ -68,7 +68,7 @@ let webpackProdConfig = merge(webpackBaseConfig, {
       allChunks: true
     }),
     new HtmlWebpackPlugin({
-      title: appConfig['blog']['name'],
+      title: appConfig['title'],
       template: baseConfig.dir.src + '/index.html',
       favicon: baseConfig.dir.src + '/' + baseConfig.file.favicon,
       inject: true,
@@ -92,10 +92,10 @@ let webpackProdConfig = merge(webpackBaseConfig, {
       }
     }),
     new WebpackPwaManifest({
-      name: appConfig['blog']['name'],
-      short_name: appConfig['blog']['name'],
-      description: appConfig['blog']['description'],
-      background_color: appConfig['blog']['theme'],
+      name: appConfig['features']['manifest']['name'],
+      short_name: appConfig['features']['manifest']['short_name'],
+      description: appConfig['features']['manifest']['description'],
+      background_color: appConfig['theme'],
       start_url: 'index.html',
       icons: [
         {

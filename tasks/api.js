@@ -20,14 +20,14 @@ import marki from '../lib/md';
 const APPLICATION_YML = 'application.yml';
 const APPLICATION_JSON = 'application.json';
 
-gulp.task('application.properties', function(done) {
+gulp.task('api:application', function(done) {
   log.info('Building application.properties');
   gulp.src(APPLICATION_YML).pipe(yaml({
     space: 2
-  })).pipe(rename(APPLICATION_JSON)).pipe(gulp.dest(baseConfig.dir.build)).on('end', done);
+  })).pipe(rename(APPLICATION_JSON)).pipe(gulp.dest(baseConfig.dir.build + '/api')).on('end', done);
 });
 
-gulp.task('posts', function(done) {
+gulp.task('api:posts', function(done) {
   log.info('Analysing posts sources');
   const postsLocationPattern = pathUtil.resolve(baseConfig.dir.posts) + '/**/*.md';
   let markiMultiContext = marki.analyseMulti(postsLocationPattern);
@@ -48,6 +48,6 @@ gulp.task('posts', function(done) {
 });
 
 gulp.task('api', sequence(
-  ['application.properties'],
-  ['posts']
+  ['api:application'],
+  ['api:posts']
 ));

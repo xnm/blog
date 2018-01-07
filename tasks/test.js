@@ -16,4 +16,8 @@ gulp.task('test:e2e', function() {
 
 });
 
-gulp.task('test', sequence(['test:unit'], ['test:e2e']));
+gulp.task('test:api', function() {
+
+});
+
+gulp.task('test', sequence(['test:unit'], ['test:e2e'], ['test:api']));

@@ -57,13 +57,13 @@ Then see your web app in
 
 #### Remove un-use files
 I post my posts data in markdown format under folder
-`src/resources/posts/`.
+`posts/`.
 
 Please delete all from it.
 
 #### Try writing
 ```
-cd src/resources/posts
+cd posts
 touch my-new-blog-post.md
 ```
 

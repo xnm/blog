@@ -6,7 +6,7 @@
           <md-button class="md-icon-button" @click="menuVisible = !menuVisible">
             <md-icon>menu</md-icon>
           </md-button>
-          <span class="md-title">Aquariuslt Blog</span>
+          <span class="md-title"></span>
         </div>
       </md-app-toolbar>
 
@@ -28,7 +28,3 @@
     })
   };
 </script>
-
-<style scoped>
-
-</style>
