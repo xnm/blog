@@ -7,7 +7,7 @@
 </template>
 
 <script>
-  import Navigation from '@/components/nav/Navigation';
+  import Navigation from '@/core/components/nav/Navigation';
 
   export default {
     components: {Navigation},

@@ -3,7 +3,7 @@ import Vue from '../../shared/mocks/vue';
 import {shallow} from 'vue-test-utils';
 
 /* import components import */
-import Navigation from '@/components/nav/Navigation';
+import Navigation from '@/core/components/nav/Navigation';
 
 describe('Navigation.vue', function() {
 

@@ -6,6 +6,8 @@ import VueMaterial from 'vue-material';
 import router from './router';
 import store from './store';
 
+import './core';
+
 import App from './App.vue';
 
 Vue.config.productionTip = false;
@@ -18,3 +20,4 @@ new Vue({
   template: '<app/>',
   components: {App}
 });
+

@@ -23,6 +23,9 @@
 <script>
   export default {
     name: 'navigation',
+    props: [
+      'config'
+    ],
     data: () => ({
       menuVisible: false
     })
