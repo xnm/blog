@@ -6,7 +6,7 @@
           <md-button class="md-icon-button" @click="menuVisible = !menuVisible">
             <md-icon>menu</md-icon>
           </md-button>
-          <span class="md-title"></span>
+          <span class="md-title">{{title}}</span>
         </div>
       </md-app-toolbar>
 
@@ -23,9 +23,12 @@
 <script>
   export default {
     name: 'navigation',
-    props: [
-      'config'
-    ],
+    props: {
+      title: String,
+      description: String,
+      author: String,
+      avator: String
+    },
     data: () => ({
       menuVisible: false
     })

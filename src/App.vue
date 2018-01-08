@@ -1,6 +1,10 @@
 <template>
   <div>
-    <navigation>
+    <navigation
+      :title="title"
+      :description="description"
+      :author="author"
+      :avator="avator">
       <router-view></router-view>
     </navigation>
   </div>
@@ -9,8 +13,16 @@
 <script>
   import Navigation from '@/core/components/nav/Navigation';
 
+  import {mapGetters} from 'vuex';
+
   export default {
     components: {Navigation},
-    name: 'app'
+    name: 'app',
+    computed: mapGetters([
+      'title',
+      'description',
+      'author',
+      'avator'
+    ])
   };
 </script>
