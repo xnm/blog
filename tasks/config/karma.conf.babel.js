@@ -37,7 +37,7 @@ let karmaConfig = function(config) {
       captureConsole: false
     },
     coverageReporter: {
-      dir: pathUtil.resolve('test/unit') + '/coverage',
+      dir: pathUtil.resolve(baseConfig.dir.test.unit) + '/coverage',
       reporters: [
         {type: 'html', subdir: 'report-html'},
         {type: 'lcovonly', subdir: '.'},

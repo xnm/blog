@@ -4,6 +4,7 @@ import Vuex from 'vuex';
 import {shallow} from 'vue-test-utils';
 /* import components import */
 import App from '@/App';
+/* import other utils*/
 
 describe('App.vue', function() {
 
