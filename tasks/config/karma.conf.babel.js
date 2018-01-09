@@ -11,8 +11,14 @@ process.env.CHROMIUM_BIN = revisionInfo.executablePath;
 
 let karmaConfig = function(config) {
   config.set({
+    customLaunchers: {
+      ChromiumHeadlessNoSandbox: {
+        base: 'ChromiumHeadless',
+        flags: ['--no-sandbox']
+      }
+    },
     browsers: [
-      'ChromiumHeadless'
+      'ChromiumHeadlessNoSandbox'
     ],
     frameworks: [
       'mocha',
