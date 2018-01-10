@@ -15,7 +15,9 @@
         :avator="avator"
         :description="description">
       </profile>
-      <md-list></md-list>
+      <nav-menu>
+
+      </nav-menu>
     </md-app-drawer>
 
     <md-app-content>
@@ -26,9 +28,12 @@
 
 <script>
   import Profile from '@/core/components/nav/Profile';
+  import NavMenu from '@/core/components/nav/NavMenu';
 
   export default {
-    components: {Profile},
+    components: {
+      NavMenu,
+      Profile},
     name: 'navigation',
     props: {
       title: String,
