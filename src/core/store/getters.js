@@ -10,5 +10,8 @@ export default {
   },
   avator: (state) => {
     return state.config.avator;
+  },
+  links: (state)=>{
+    return state.config.links;
   }
 };

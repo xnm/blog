@@ -14,7 +14,8 @@ const config = {
     about: {
       enable: true
     }
-  }
+  },
+  links: {}
 };
 
 export default {

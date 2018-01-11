@@ -4,7 +4,8 @@
       :title="title"
       :description="description"
       :author="author"
-      :avator="avator">
+      :avator="avator"
+      :links="links">
       <router-view></router-view>
     </navigation>
   </div>
@@ -22,7 +23,8 @@
       'title',
       'description',
       'author',
-      'avator'
+      'avator',
+      'links'
     ])
   };
 </script>

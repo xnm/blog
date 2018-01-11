@@ -5,6 +5,7 @@ import VueMaterial from 'vue-material';
 
 import router from './router';
 import store from './store';
+import i18n from './locale';
 
 import './core';
 
@@ -17,6 +18,7 @@ new Vue({
   el: '#app',
   router,
   store,
+  i18n,
   template: '<app/>',
   components: {App}
 });

@@ -5,14 +5,17 @@ author: 'Aquariuslt'
 avator: 'http://img.aquariuslt.com/social/avator.png'
 theme: '#1976d2'
 
-## Nav Menus
+## Nav Menus Configuration
 nav:
   categories:
     enable: true
+    prefix: '/category/:value'
   tags:
     enable: true
+    prefix: '/tags'
   about:
     enable: true
+    prefix: '/about'
 
 ## Friend Links
 links:

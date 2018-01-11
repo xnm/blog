@@ -15,9 +15,9 @@
         :avator="avator"
         :description="description">
       </profile>
-      <nav-menu>
-
-      </nav-menu>
+      <friend-links
+        :links="links">
+      </friend-links>
     </md-app-drawer>
 
     <md-app-content>
@@ -28,18 +28,20 @@
 
 <script>
   import Profile from '@/core/components/nav/Profile';
-  import NavMenu from '@/core/components/nav/NavMenu';
+  import FriendLinks from '@/core/components/nav/FriendLinks';
 
   export default {
     components: {
-      NavMenu,
-      Profile},
+      FriendLinks,
+      Profile
+    },
     name: 'navigation',
     props: {
       title: String,
       description: String,
       author: String,
-      avator: String
+      avator: String,
+      links: Object
     },
     data: () => ({
       menuVisible: false

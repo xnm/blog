@@ -9,12 +9,13 @@ import {createLocalVue} from 'vue-test-utils';
 import VueMaterial from 'vue-material';
 import VueRouter from 'vue-router';
 import Vuex from 'vuex';
+import VueI18n from 'vue-i18n';
 
 const localVue = createLocalVue();
 
 localVue.use(VueMaterial);
 localVue.use(VueRouter);
 localVue.use(Vuex);
-
+localVue.use(VueI18n);
 
 export default localVue;
