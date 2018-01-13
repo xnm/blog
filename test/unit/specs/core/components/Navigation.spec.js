@@ -1,5 +1,5 @@
 /* import mocked vue, vue-test-utils methods */
-import Vue from '../../../shared/mocks/vue';
+import localVue from '../../../shared/mocks/vue';
 import {shallow} from 'vue-test-utils';
 
 /* import components import */
@@ -8,7 +8,7 @@ import Navigation from '@/core/components/nav/Navigation';
 describe('Navigation.vue', function() {
 
   it('# should mount Navigation.vue correctly', function() {
-    shallow(Navigation, {Vue});
+    shallow(Navigation, {localVue});
   });
 
   describe('Navigation.vue: sidenav', function() {
@@ -18,7 +18,7 @@ describe('Navigation.vue', function() {
     const author = 'Author';
 
     before('mounted component', function() {
-      $this.wrapper = shallow(Navigation, {Vue});
+      $this.wrapper = shallow(Navigation, {localVue});
     });
 
     it('# should render ui from props', function() {

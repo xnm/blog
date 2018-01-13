@@ -1,6 +1,6 @@
 <template>
   <div>
-    <md-list class="md-dense md-list-compact" v-if="menu.expandable">
+    <md-list class="md-dense md-list-compact" v-if="menu && menu.expandable">
       <md-list-item md-expand>
         <md-icon>{{menu.icon}}</md-icon>
         <span class="md-list-item-text">{{menu.name}}</span>
@@ -24,7 +24,7 @@
         </md-list>
       </md-list-item>
     </md-list>
-    <md-list class="md-dense md-list-compact" v-if="!menu.expandable">
+    <md-list class="md-dense md-list-compact" v-if="menu && !menu.expandable">
       <md-list-item
         class="md-list-item-compact"
         v-if="isInternalLink(menu.link)" :to="menu.link">

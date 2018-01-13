@@ -8,4 +8,5 @@ describe('Profile.vue', function() {
   it('# should mount Profile.vue correctly', function() {
     shallow(Profile, {Vue});
   });
+
 });
