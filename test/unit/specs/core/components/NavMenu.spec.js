@@ -1,0 +1,3 @@
+describe('NavMenu.vue', function() {
+
+});

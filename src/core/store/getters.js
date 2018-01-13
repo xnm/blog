@@ -11,7 +11,7 @@ export default {
   avator: (state) => {
     return state.config.avator;
   },
-  links: (state)=>{
-    return state.config.links;
+  menus: (state) => {
+    return state.menus;
   }
 };

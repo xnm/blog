@@ -1,1 +1,3 @@
 export const LOAD_APP_CONFIG = 'LOAD_APP_CONFIG';
+
+export const REGISTER_NAV_MENUS = 'REGISTER_NAV_MENUS';

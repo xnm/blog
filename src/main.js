@@ -8,6 +8,7 @@ import store from './store';
 import i18n from './locale';
 
 import './core';
+import './post';
 
 import App from './App.vue';
 

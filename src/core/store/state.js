@@ -18,6 +18,9 @@ const config = {
   links: {}
 };
 
+const menus = [];
+
 export default {
-  config
+  config,
+  menus
 };

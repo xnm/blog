@@ -4,5 +4,12 @@
     "nav": {
       "links": "Friend Links"
     }
+  },
+  "post": {
+    "nav": {
+      "categories": "Categories",
+      "tags": "Tags",
+      "about": "About"
+    }
   }
 }
