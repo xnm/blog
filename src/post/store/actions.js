@@ -25,10 +25,10 @@ export default {
         desc: category
       };
     });
-    store.commit(coreTypes.REGISTER_NAV_MENUS, menuUtil.convertExpandableMenu(locale.t('post.nav.categories'), categoryMap, {icon:'format_list_numbered',priority:1}));
+    store.commit(coreTypes.REGISTER_NAV_MENUS, menuUtil.convertExpandableMenu(locale.t('post.nav.categories'), categoryMap, {icon: 'format_list_numbered', priority: 1}));
   },
   [types.REGISTER_TAGS_MENU]({}) {
     let tagsLink = '/tags';
-    store.commit(coreTypes.REGISTER_NAV_MENUS, menuUtil.convertDirectMenu(locale.t('post.nav.tags'), tagsLink, {icon:'style',priority:2}));
+    store.commit(coreTypes.REGISTER_NAV_MENUS, menuUtil.convertDirectMenu(locale.t('post.nav.tags'), tagsLink, {icon: 'style', priority: 2}));
   }
 };
