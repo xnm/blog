@@ -15,7 +15,8 @@ describe('App.vue', function() {
       title: () => 'Blog Title',
       description: () => 'Blog Description',
       author: () => 'Author',
-      avator: () => 'https://img.aquariuslt.com/social/avator.png'
+      avator: () => 'https://img.aquariuslt.com/social/avator.png',
+      menus: () => []
     };
 
     $this.store = new Vuex.Store({
