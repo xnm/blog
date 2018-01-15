@@ -2,12 +2,9 @@ import baseConfig from './base.config';
 import webpackTestConfig from './webpack.test.babel';
 import pathUtil from '../utils/path-util';
 
-import puppeteerPkg from 'puppeteer/package.json';
-import Downloader from 'puppeteer/utils/ChromiumDownloader';
+import puppeteer from 'puppeteer';
 
-const ChromiumRevision = puppeteerPkg['puppeteer']['chromium_revision'];
-const revisionInfo = Downloader.revisionInfo(Downloader.currentPlatform(), ChromiumRevision);
-process.env.CHROMIUM_BIN = revisionInfo.executablePath;
+process.env.CHROMIUM_BIN = puppeteer.executablePath();
 
 let karmaConfig = function(config) {
   config.set({
