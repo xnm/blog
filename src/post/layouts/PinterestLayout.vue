@@ -1,13 +1,22 @@
 <template>
-
+  <div class="md-alignment-center-center">
+    <post-preview-card
+      v-for="index in indexes"
+      :key="index.filename"
+      :index="index">
+    </post-preview-card>
+  </div>
 </template>
 
 <script>
+  import PostPreviewCard from '@/post/components/PostPreviewCard';
+  import {mapGetters} from 'vuex';
+
   export default {
-    name: 'pinterest-layout'
+    components: {PostPreviewCard},
+    name: 'pinterest-layout',
+    computed: mapGetters([
+      'indexes'
+    ])
   };
 </script>
-
-<style scoped>
-
-</style>
