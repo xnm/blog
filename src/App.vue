@@ -6,7 +6,9 @@
       :author="author"
       :avator="avator"
       :menus="menus">
-      <router-view></router-view>
+      <transition name="slide">
+        <router-view></router-view>
+      </transition>
     </navigation>
   </div>
 </template>
