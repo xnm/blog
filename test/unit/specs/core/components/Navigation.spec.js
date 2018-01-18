@@ -1,6 +1,6 @@
-/* import mocked vue, vue-test-utils methods */
+/* import mocked vue, @vue/test-utils methods */
 import localVue from '../../../shared/mocks/vue';
-import {shallow} from 'vue-test-utils';
+import {shallow} from '@vue/test-utils';
 
 /* import components import */
 import Navigation from '@/core/components/nav/Navigation';

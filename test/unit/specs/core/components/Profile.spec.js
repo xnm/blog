@@ -1,5 +1,5 @@
 import Vue from '../../../shared/mocks/vue';
-import {shallow} from 'vue-test-utils';
+import {shallow} from '@vue/test-utils';
 
 import Profile from '@/core/components/nav/Profile';
 

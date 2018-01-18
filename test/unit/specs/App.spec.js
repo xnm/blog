@@ -1,7 +1,7 @@
-/* import mocked vue, vue-test-utils methods */
+/* import mocked vue, @vue/test-utils methods */
 import localVue from '../shared/mocks/vue';
 import Vuex from 'vuex';
-import {shallow} from 'vue-test-utils';
+import {shallow} from '@vue/test-utils';
 /* import components import */
 import App from '@/App';
 /* import other utils*/
