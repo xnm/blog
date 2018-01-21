@@ -1,7 +1,8 @@
-const indexes = [
+const indexes = [];
 
-];
+let filter = {};
 
 export default {
-  indexes
+  indexes,
+  filter
 };

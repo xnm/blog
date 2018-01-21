@@ -1,30 +1,34 @@
-import PinterestLayout from '../layouts/PinterestLayout';
+import PostListLayout from '../layouts/PostListLayout';
 
 let postRoutes = [
   {
     path: '/',
     name: 'AllPostList',
-    component: PinterestLayout
+    component: PostListLayout
   },
   {
     path: '/tags',
     name: 'TagList',
-    component: PinterestLayout
+    component: PostListLayout
   },
   {
     path: '/category/:category',
     name: 'FilterByCategoryPostList',
-    component: PinterestLayout,
+    component: PostListLayout,
     meta: {
-      filter: ':category'
+      filter: {
+        type: 'category'
+      }
     }
   },
   {
     path: '/tag/:tag',
     name: 'FilterByTagPostList',
-    component: PinterestLayout,
+    component: PostListLayout,
     meta: {
-      filter: ':tag'
+      filter: {
+        type: 'tag'
+      }
     }
   }
 ];
