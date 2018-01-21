@@ -1,4 +1,5 @@
 import PostListLayout from '../layouts/PostListLayout';
+import PostLayout from '../layouts/PostLayout';
 
 let postRoutes = [
   {
@@ -30,6 +31,11 @@ let postRoutes = [
         type: 'tag'
       }
     }
+  },
+  {
+    path: '/post/:year/:month/:date/:filename',
+    name: 'PostDetail',
+    component: PostLayout
   }
 ];
 

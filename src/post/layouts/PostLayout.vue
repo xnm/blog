@@ -1,10 +1,39 @@
 <template>
+  <div>
+    <post-card :post="post">
 
+    </post-card>
+  </div>
 </template>
 
 <script>
+  import postApi from '../api/post.api';
+  import PostCard from '@/post/components/PostCard';
+
   export default {
-    name: 'post-layout'
+    components: {PostCard},
+    name: 'post-layout',
+    data() {
+      return {
+        post: null
+      };
+    },
+    created: function() {
+      let $this = this;
+      $this.loadPost();
+    },
+    watch: {
+      '$route': 'loadPost'
+    },
+    methods: {
+      loadPost: function() {
+        let $this = this;
+        let filename = $this.$route.params['filename'];
+        postApi.getPost(filename).then((res) => {
+          $this.post = res.data;
+        });
+      }
+    }
   };
 </script>
 

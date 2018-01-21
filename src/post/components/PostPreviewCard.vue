@@ -3,7 +3,12 @@
     <md-card md-with-hover>
       <md-ripple>
         <md-card-header>
-          <div class="md-title">{{index.title}}</div>
+          <router-link
+            :to="index.link"
+            tag="div"
+            class="md-title">
+            {{index.title}}
+          </router-link>
           <div class="md-subhead">{{$t('post.content.category')}}:{{index.category}}</div>
         </md-card-header>
 
@@ -15,7 +20,7 @@
           <md-button>
             <span class="md-subhead">{{index.created}}</span>
           </md-button>
-          <md-button>{{$t('post.preview.more')}}</md-button>
+          <router-link tag="md-button" :to="index.link">{{$t('post.preview.more')}}</router-link>
         </md-card-actions>
       </md-ripple>
     </md-card>
