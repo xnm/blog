@@ -72,7 +72,7 @@
 
 ## Usage & Document
 
-参见: [https://github.com/Aquariuslt/Blog/tree/VUE#usage](https://github.com/Aquariuslt/Blog/tree/VUE#usage)
+参见: [Blog App Usage](https://github.com/Aquariuslt/Blog/tree/VUE#usage)
 
 
 

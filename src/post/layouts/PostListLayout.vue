@@ -13,11 +13,19 @@
   import _ from 'lodash';
 
   function filterIndexes(indexes, route) {
+    let filterKey = _.get(route, 'meta.filter.key');
     let filterType = _.get(route, 'meta.filter.type');
-    if (!_.isEmpty(filterType)) {
-      let filterValue = route.params[filterType];
+    if (!_.isUndefined(filterKey) && !_.isUndefined(filterType)) {
+      let filterValue = route.params[filterKey];
       return _.filter(indexes, function(index) {
-        return _.isEqual(_.lowerCase(index[filterType]), _.lowerCase(filterValue));
+        if (_.isArray(index[filterType])) {
+          return _.some(index[filterType], function(value) {
+            return _.isEqual(_.lowerCase(value), _.lowerCase(filterValue));
+          });
+        }
+        else {
+          return _.isEqual(_.lowerCase(index[filterType]), _.lowerCase(filterValue));
+        }
       });
     }
     return indexes;

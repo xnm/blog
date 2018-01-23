@@ -13,5 +13,8 @@ export default {
   },
   menus: (state) => {
     return state.menus;
+  },
+  config: (state) => {
+    return state.config;
   }
 };

@@ -5,7 +5,7 @@
         <md-card-header>
           <router-link
             :to="index.link"
-            tag="div"
+            tag="span"
             class="md-title">
             {{index.title}}
           </router-link>
@@ -20,7 +20,9 @@
           <md-button>
             <span class="md-subhead">{{index.created}}</span>
           </md-button>
-          <router-link tag="md-button" :to="index.link">{{$t('post.preview.more')}}</router-link>
+          <md-button>
+            <router-link tag="span" :to="index.link">{{$t('post.preview.more')}}</router-link>
+          </md-button>
         </md-card-actions>
       </md-ripple>
     </md-card>

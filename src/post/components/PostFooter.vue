@@ -1,10 +1,30 @@
 <template>
-
+  <div>
+    <post-category :category="metadata.category"></post-category>
+    <post-tag-list :tags="metadata.tags"></post-tag-list>
+    <post-comment></post-comment>
+  </div>
 </template>
 
 <script>
+  import {mapGetters} from 'vuex';
+  import PostCategory from '@/post/components/PostCategory';
+  import PostTagList from '@/post/components/PostTagList';
+  import PostComment from '@/post/components/PostComment';
+
   export default {
-    name: 'post-footer'
+    components: {
+      PostComment,
+      PostTagList,
+      PostCategory
+    },
+    name: 'post-footer',
+    props: {
+      metadata: Object
+    },
+    computed: mapGetters([
+      'config'
+    ])
   };
 </script>
 

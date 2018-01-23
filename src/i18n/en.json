@@ -16,7 +16,8 @@
       "more": "More"
     },
     "content": {
-      "category": "Category"
+      "category": "Category",
+      "tags": "Tags"
     }
   }
 }

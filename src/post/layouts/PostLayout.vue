@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="md-layout md-gutter md-alignment-top-center">
     <post-card :post="post">
 
     </post-card>
@@ -7,11 +7,13 @@
 </template>
 
 <script>
-  import postApi from '../api/post.api';
+  import postApi from '@/post/api/post.api';
   import PostCard from '@/post/components/PostCard';
 
   export default {
-    components: {PostCard},
+    components: {
+      PostCard
+    },
     name: 'post-layout',
     data() {
       return {
