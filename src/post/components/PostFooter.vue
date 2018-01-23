@@ -2,7 +2,11 @@
   <div>
     <post-category :category="metadata.category"></post-category>
     <post-tag-list :tags="metadata.tags"></post-tag-list>
-    <post-comment></post-comment>
+    <post-comment
+      v-if="config.features.disqus.enable"
+      :shortname="config.features.disqus.short_name">
+
+    </post-comment>
   </div>
 </template>
 

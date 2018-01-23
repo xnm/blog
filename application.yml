@@ -52,7 +52,7 @@ links:
 features:
   disqus:
     enable: true
-    short_name:
+    short_name: aquariuslt
   manifest:
     enable: true
     name: 'Aquariuslt Blog'

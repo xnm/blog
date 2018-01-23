@@ -2,7 +2,7 @@
   <md-card-content>
     <span class="md-subhead">{{$t('post.content.tags')}}</span>
     <span>:</span>
-    <md-chip v-for="(tag, rowIndex) in tags" :key="rowIndex">
+    <md-chip v-for="(tag, rowIndex) in tags" :key="rowIndex" md-clickable>
       <router-link :to="tagLink(tag)" tag="span">
         {{tag}}
       </router-link>
