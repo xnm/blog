@@ -6,6 +6,7 @@ import sequence from 'gulp-sequence';
 import _ from 'lodash';
 import fs from 'fs';
 import log from 'fancy-log';
+import mkdirp from 'mkdirp';
 
 import pathUtil from './utils/path-util';
 
@@ -14,6 +15,7 @@ import appConfig from './config/app.config';
 
 const CNAME_FILENAME = 'CNAME';
 const FALLBACK_FILENAME = '404.html';
+const NOJEKYLL_FILENAME = '.nojekyll';
 
 gulp.task('cname', function(done) {
   log.info('Generate CNAME');
@@ -30,4 +32,19 @@ gulp.task('fallback', function(done) {
   });
 });
 
-gulp.task('pages', sequence(['cname', 'fallback']));
+gulp.task('spa', function(done) {
+  let indexesDataPath = baseConfig.dir.build + '/api/' + 'indexes.json';
+  let indexesString = fs.readFileSync(indexesDataPath).toString();
+  let indexes = JSON.parse(indexesString);
+
+  fs.writeFileSync(pathUtil.resolve(baseConfig.dir.dist) + '/' + NOJEKYLL_FILENAME, '');
+
+  _.each(indexes, function(index) {
+    mkdirp.sync(pathUtil.resolve(baseConfig.dir.dist) + index.link);
+    fs.writeFileSync(pathUtil.resolve(baseConfig.dir.dist) + index.link + '/' + 'index.html', '/index.html');
+  });
+
+  done();
+});
+
+gulp.task('pages', sequence(['cname', 'fallback', 'spa']));
