@@ -28,4 +28,4 @@ gulp.task('move', function() {
   log.info('Move done');
 });
 
-gulp.task('build', sequence(['clean'], ['api'], ['webpack'], ['move'], ['cname', 'sitemap']));
+gulp.task('build', sequence(['clean'], ['api'], ['webpack'], ['move'], ['pages', 'sitemap']));
