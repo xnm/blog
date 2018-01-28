@@ -97,7 +97,8 @@ let webpackProdConfig = merge(webpackBaseConfig, {
       short_name: appConfig['features']['manifest']['short_name'],
       description: appConfig['features']['manifest']['description'],
       background_color: appConfig['theme'],
-      start_url: 'index.html',
+      start_url: '.',
+      theme_color:appConfig['features']['manifest']['theme_color'],
       icons: [
         {
           src: pathUtil.resolve(baseConfig.dir.src + '/' + baseConfig.file.favicon),

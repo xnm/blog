@@ -58,6 +58,7 @@ features:
     name: 'Aquariuslt Blog'
     short_name: 'Blog'
     description: 'Aquariuslt Blog'
+    theme_color: '#448aff'
     developer:
       name: 'Aquariuslt'
       url: 'https://github.com/aquariuslt'
