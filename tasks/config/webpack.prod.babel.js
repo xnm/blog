@@ -8,7 +8,7 @@ import ExtractTextPlugin from 'extract-text-webpack-plugin';
 import OptimizeCssAssetsPlugin from 'optimize-css-assets-webpack-plugin';
 import CopyWebpackPlugin from 'copy-webpack-plugin';
 import WebpackPwaManifest from 'webpack-pwa-manifest';
-import SWPrecacheWebpackPlugin from 'sw-precache-webpack-plugin';
+import OfflinePlugin from 'offline-plugin';
 
 import pkg from '../../package.json';
 import appConfig from './app.config';
@@ -17,6 +17,7 @@ import webpackBaseConfig from './webpack.base.babel';
 
 import pathUtil from '../utils/path-util';
 import vueLoaderUtil from '../utils/vue-loader-util';
+
 
 let webpackProdConfig = merge(webpackBaseConfig, {
   devtool: 'source-map',
@@ -106,15 +107,7 @@ let webpackProdConfig = merge(webpackBaseConfig, {
         }
       ]
     }),
-    new SWPrecacheWebpackPlugin({
-      cacheId: pkg.name,
-      filename: 'service-worker.js',
-      staticFileGlobsIgnorePatterns: [
-        /\.map$/,
-        /\.json$/
-      ],
-      minify: true
-    })
+    new OfflinePlugin()
   ],
   stats: {
     colors: true,
