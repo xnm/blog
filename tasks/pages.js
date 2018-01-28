@@ -36,12 +36,13 @@ gulp.task('spa', function(done) {
   let indexesDataPath = baseConfig.dir.build + '/api/' + 'indexes.json';
   let indexesString = fs.readFileSync(indexesDataPath).toString();
   let indexes = JSON.parse(indexesString);
+  let indexHtmlString = fs.readFileSync(pathUtil.resolve(baseConfig.dir.dist) + '/' + 'index.html');
 
   fs.writeFileSync(pathUtil.resolve(baseConfig.dir.dist) + '/' + NOJEKYLL_FILENAME, '');
 
   _.each(indexes, function(index) {
     mkdirp.sync(pathUtil.resolve(baseConfig.dir.dist) + index.link);
-    fs.writeFileSync(pathUtil.resolve(baseConfig.dir.dist) + index.link + '/' + 'index.html', '/index.html');
+    fs.writeFileSync(pathUtil.resolve(baseConfig.dir.dist) + index.link + '/' + 'index.html', indexHtmlString);
   });
 
   done();
