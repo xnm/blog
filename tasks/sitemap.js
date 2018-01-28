@@ -9,6 +9,9 @@ import pathUtil from './utils/path-util';
 import baseConfig from './config/base.config';
 import appConfig from './config/app.config';
 
+const XMLNS = 'http://www.sitemaps.org/schemas/sitemap/0.9';
+const SITEMAP_FILENAME = 'sitemap.xml';
+
 gulp.task('sitemap', function(done) {
   log.info('Generating Sitemap:');
 
@@ -16,8 +19,6 @@ gulp.task('sitemap', function(done) {
   let indexesString = fs.readFileSync(indexesDataPath).toString();
   let indexes = JSON.parse(indexesString);
 
-  const XMLNS = 'http://www.sitemaps.org/schemas/sitemap/0.9';
-  const SITEMAP_FILENAME = 'sitemap.xml';
   let siteName = appConfig.cname;
   let postUrlPrefix = 'https://' + siteName;
   let urlSet = [];

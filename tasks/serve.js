@@ -19,4 +19,4 @@ gulp.task('webpack-dev-server', function() {
   });
 });
 
-gulp.task('serve', sequence(['clean'], ['api'], ['webpack-dev-server']));
+gulp.task('serve', sequence(['clean:build'], ['api'], ['webpack-dev-server']));
