@@ -18,7 +18,6 @@ import webpackBaseConfig from './webpack.base.babel';
 import pathUtil from '../utils/path-util';
 import vueLoaderUtil from '../utils/vue-loader-util';
 
-
 let webpackProdConfig = merge(webpackBaseConfig, {
   devtool: 'source-map',
   output: {
@@ -98,7 +97,7 @@ let webpackProdConfig = merge(webpackBaseConfig, {
       description: appConfig['features']['manifest']['description'],
       background_color: appConfig['theme'],
       start_url: '.',
-      theme_color:appConfig['features']['manifest']['theme_color'],
+      theme_color: appConfig['theme'],
       icons: [
         {
           src: pathUtil.resolve(baseConfig.dir.src + '/' + baseConfig.file.favicon),

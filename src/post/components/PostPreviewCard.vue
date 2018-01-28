@@ -1,14 +1,11 @@
 <template>
-  <section class="post-preview-card">
+  <router-link :to="index.link" tag="section" class="post-preview-card">
     <md-card md-with-hover>
       <md-ripple>
         <md-card-header>
-          <router-link
-            :to="index.link"
-            tag="span"
-            class="md-title">
+          <span class="md-title">
             {{index.title}}
-          </router-link>
+          </span>
           <div class="md-subhead">{{$t('post.content.category')}}:{{index.category}}</div>
         </md-card-header>
 
@@ -26,7 +23,7 @@
         </md-card-actions>
       </md-ripple>
     </md-card>
-  </section>
+  </router-link>
 </template>
 
 <script>

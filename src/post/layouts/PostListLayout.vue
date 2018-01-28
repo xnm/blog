@@ -1,10 +1,13 @@
 <template>
-  <div class="md-layout md-alignment-center-center">
-    <post-preview-card
-      v-for="index in indexes"
-      :key="index.filename"
-      :index="index">
-    </post-preview-card>
+  <div>
+    <md-progress-bar md-mode="indeterminate" v-if="indexes.length === 0"></md-progress-bar>
+    <div class="md-layout md-alignment-center-center">
+      <post-preview-card
+        v-for="index in indexes"
+        :key="index.filename"
+        :index="index">
+      </post-preview-card>
+    </div>
   </div>
 </template>
 

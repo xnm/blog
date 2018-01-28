@@ -59,4 +59,8 @@
   .md-app {
     min-height: 100vh;
   }
+
+  .md-app-content {
+    padding: 2px;
+  }
 </style>
