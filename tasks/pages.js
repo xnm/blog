@@ -33,6 +33,12 @@ gulp.task('fallback', function(done) {
 });
 
 gulp.task('spa', function(done) {
+  function replaceTitleInHtmlString(htmlString, injectedTitle) {
+    let originalTitle = '<title>' + appConfig['title'] + '</title>';
+    let newTitle = '<title>' + injectedTitle + ' | ' + appConfig['title'] + '</title>';
+    return _.replace(htmlString, originalTitle, newTitle);
+  }
+
   let indexesDataPath = baseConfig.dir.build + '/api/' + 'indexes.json';
   let indexesString = fs.readFileSync(indexesDataPath).toString();
   let indexes = JSON.parse(indexesString);
@@ -42,7 +48,7 @@ gulp.task('spa', function(done) {
 
   _.each(indexes, function(index) {
     mkdirp.sync(pathUtil.resolve(baseConfig.dir.dist) + index.link);
-    fs.writeFileSync(pathUtil.resolve(baseConfig.dir.dist) + index.link + '/' + 'index.html', indexHtmlString);
+    fs.writeFileSync(pathUtil.resolve(baseConfig.dir.dist) + index.link + '/' + 'index.html', replaceTitleInHtmlString(indexHtmlString, index.title));
   });
 
   done();
