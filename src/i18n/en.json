@@ -1,5 +1,7 @@
 {
-  "app": {},
+  "app": {
+    "name": "Aquariuslt Blog"
+  },
   "core": {
     "nav": {
       "home": "Home",

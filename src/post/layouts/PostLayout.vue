@@ -33,6 +33,7 @@
         let filename = $this.$route.params['filename'];
         postApi.getPost(filename).then((res) => {
           $this.post = res.data;
+          document.title = $this.post.metadata.title + ' | ' + document.title;
         });
       }
     }
