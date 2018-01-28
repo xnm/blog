@@ -7,6 +7,8 @@ import router from './router';
 import store from './store';
 import i18n from './locale';
 
+import './offline';
+
 import './core';
 import './post';
 
