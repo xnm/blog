@@ -39,4 +39,34 @@ describe('core:getters', function() {
     const resultMenus = getters.menus(state);
     expect(resultMenus).to.eq(state.menus);
   });
+
+  it('# should return menus from state.config', function() {
+    const config = {
+      title: '',
+      description: '',
+      author: '',
+      avator: '',
+      theme: '',
+      nav: {
+        categories: {
+          enable: true
+        },
+        tags: {
+          enable: true
+        },
+        about: {
+          enable: true
+        }
+      },
+      links: {}
+    };
+
+    const state = {
+      config: config
+    };
+
+    const resultConfig = getters.config(state);
+    expect(resultConfig).to.eq(config);
+  });
+
 });
