@@ -47,6 +47,10 @@ links:
     name: 'Frank Zhu'
     url: 'http://frankxfz.me'
     desc: 'NLP guy'
+  arhi:
+    name: 'Ahri'
+    url: 'http://xuyuanxin.win'
+    desc: '先有桃子后有天, 阿狸出门跑飞天'
 
 ## Advance Features
 features:
