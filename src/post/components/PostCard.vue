@@ -3,6 +3,9 @@
     <post-header
       :metadata="post.metadata">
     </post-header>
+    <post-catalogue
+      :catalogue="post.metadata.catalogue">
+    </post-catalogue>
     <post-content
       :content="post.html">
     </post-content>
@@ -16,9 +19,11 @@
   import PostHeader from '@/post/components/PostHeader';
   import PostContent from '@/post/components/PostContent';
   import PostFooter from '@/post/components/PostFooter';
+  import PostCatalogue from '@/post/components/PostCatalogue';
 
   export default {
     components: {
+      PostCatalogue,
       PostFooter,
       PostContent,
       PostHeader
