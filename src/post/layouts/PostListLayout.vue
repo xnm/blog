@@ -1,6 +1,5 @@
 <template>
   <div>
-    <md-progress-bar md-mode="indeterminate" v-if="indexes.length === 0"></md-progress-bar>
     <div class="md-layout md-alignment-center-center">
       <post-preview-card
         v-for="index in indexes"
