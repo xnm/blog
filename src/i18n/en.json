@@ -1,6 +1,10 @@
 {
   "app": {
-    "name": "Aquariuslt Blog"
+    "name": "Aquariuslt Blog",
+    "language": {
+      "label": "Language",
+      "value": "English"
+    }
   },
   "core": {
     "nav": {
@@ -12,7 +16,8 @@
     "nav": {
       "categories": "Categories",
       "tags": "Tags",
-      "about": "About"
+      "about": "About",
+      "catalogue": "Table Of Content"
     },
     "preview": {
       "more": "More"

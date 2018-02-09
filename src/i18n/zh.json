@@ -1,1 +1,30 @@
-{}
+{
+  "app": {
+    "name": "Aquariuslt Blog",
+    "language": {
+      "label": "语言",
+      "value": "中文"
+    }
+  },
+  "core": {
+    "nav": {
+      "home": "主页",
+      "links": "友链"
+    }
+  },
+  "post": {
+    "nav": {
+      "categories": "类别",
+      "tags": "标签",
+      "about": "关于",
+      "catalogue":"目录"
+    },
+    "preview": {
+      "more": "阅读全文"
+    },
+    "content": {
+      "category": "类别",
+      "tags": "标签"
+    }
+  }
+}
