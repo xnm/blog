@@ -14,7 +14,9 @@
   },
   "post": {
     "nav": {
+      "category": "Category",
       "categories": "Categories",
+      "tag": "Tag",
       "tags": "Tags",
       "about": "About",
       "catalogue": "Table Of Content"

@@ -33,6 +33,20 @@
     return indexes;
   }
 
+  function getMetaByRoute(route) {
+    let filterKey = _.get(route, 'meta.filter.key');
+    let filterType = _.get(route, 'meta.filter.type');
+    if (!_.isUndefined(filterKey) && !_.isUndefined(filterType)) {
+      let filterValue = route.params[filterKey];
+      return {
+        type: filterType,
+        key: filterKey,
+        value: filterValue
+      };
+    }
+    return undefined;
+  }
+
   export default {
     components: {
       PostPreviewCard
@@ -45,6 +59,24 @@
         let route = $this.$route;
         return filterIndexes(originalIndexes, route);
       }
+    },
+    beforeRouteEnter(toRoute, fromRoute, next) {
+      next(function(vm) {
+        let meta = getMetaByRoute(vm.$route);
+        if (!_.isUndefined(meta)) {
+          let metaTitle = vm.$t('post.nav.' + meta.key);
+          document.title = metaTitle + ' : ' + meta.value + ' | ' + document.title;
+        }
+      });
+    },
+    beforeRouteUpdate(toRoute, fromRoute, next) {
+      let vm = this;
+      let meta = getMetaByRoute(toRoute);
+      if (!_.isUndefined(meta)) {
+        let metaTitle = vm.$t('post.nav.' + meta.key);
+        document.title = metaTitle + ' : ' + meta.value + ' | ' + document.title;
+      }
+      next();
     }
   };
 </script>

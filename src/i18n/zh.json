@@ -14,7 +14,9 @@
   },
   "post": {
     "nav": {
+      "category": "类别",
       "categories": "类别",
+      "tag": "标签",
       "tags": "标签",
       "about": "关于",
       "catalogue":"目录"
