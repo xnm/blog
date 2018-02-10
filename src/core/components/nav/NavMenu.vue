@@ -15,7 +15,7 @@
           <md-list-item
             class="md-inset md-list-item-compact"
             v-for="link in menu.links"
-            :key="link.name" v-if="!isInternalLink(link.url)" :href="link.url" target="_blank">
+            :key="link.name" v-if="!isInternalLink(link.url)" :href="link.url" target="_blank" rel="noopener">
           <span>
             <md-tooltip>{{link.desc}}</md-tooltip>
             {{link.name}}
