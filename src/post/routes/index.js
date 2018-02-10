@@ -1,5 +1,6 @@
 import PostListLayout from '../layouts/PostListLayout';
 import PostLayout from '../layouts/PostLayout';
+import PostTagsLayout from '../layouts/PostTagsLayout';
 
 let postRoutes = [
   {
@@ -15,7 +16,7 @@ let postRoutes = [
   {
     path: '/tags',
     name: 'TagList',
-    component: PostListLayout
+    component: PostTagsLayout
   },
   {
     path: '/category/:category',

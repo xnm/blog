@@ -34,7 +34,9 @@
   }
 
   export default {
-    components: {PostPreviewCard},
+    components: {
+      PostPreviewCard
+    },
     name: 'post-list-layout',
     computed: {
       indexes: function() {

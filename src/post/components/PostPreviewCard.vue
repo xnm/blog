@@ -6,7 +6,7 @@
           <span class="md-title">
             {{index.title}}
           </span>
-          <div class="md-subhead">{{$t('post.content.category')}}:{{index.category}}</div>
+          <div class="md-subhead">{{index.created}}</div>
         </md-card-header>
 
         <md-card-content>
@@ -15,7 +15,7 @@
 
         <md-card-actions>
           <md-button>
-            <span class="md-subhead">{{index.created}}</span>
+            <span class="md-subhead">{{index.category}}</span>
           </md-button>
           <md-button>
             <router-link tag="span" :to="index.link">{{$t('post.preview.more')}}</router-link>
