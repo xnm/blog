@@ -6265,9 +6265,19 @@ miller-rabin@^4.0.0:
   version "1.32.0"
   resolved "http://r.cnpmjs.org/mime-db/download/mime-db-1.32.0.tgz#485b3848b01a3cda5f968b4882c0771e58e09414"
 
+mime-db@~1.25.0:
+  version "1.25.0"
+  resolved "http://r.cnpmjs.org/mime-db/download/mime-db-1.25.0.tgz#c18dbd7c73a5dbf6f44a024dc0d165a1e7b1c392"
+
 mime-db@~1.30.0:
   version "1.30.0"
   resolved "http://r.cnpmjs.org/mime-db/download/mime-db-1.30.0.tgz#74c643da2dd9d6a45399963465b26d5ca7d71f01"
+
+mime-types@2.1.13:
+  version "2.1.13"
+  resolved "http://r.cnpmjs.org/mime-types/download/mime-types-2.1.13.tgz#e07aaa9c6c6b9a7ca3012c69003ad25a39e92a88"
+  dependencies:
+    mime-db "~1.25.0"
 
 mime-types@^2.1.11, mime-types@^2.1.12, mime-types@~2.1.11, mime-types@~2.1.15, mime-types@~2.1.16, mime-types@~2.1.17, mime-types@~2.1.7:
   version "2.1.17"
@@ -8340,6 +8350,13 @@ ripemd160@^2.0.0, ripemd160@^2.0.1:
     hash-base "^2.0.0"
     inherits "^2.0.1"
 
+rss@^1.2.2:
+  version "1.2.2"
+  resolved "http://r.cnpmjs.org/rss/download/rss-1.2.2.tgz#50a1698876138133a74f9a05d2bdc8db8d27a921"
+  dependencies:
+    mime-types "2.1.13"
+    xml "1.0.1"
+
 run-async@^2.2.0:
   version "2.3.0"
   resolved "http://r.cnpmjs.org/run-async/download/run-async-2.3.0.tgz#0371ab4ae0bdd720d4166d7dfda64ff7a445a6c0"
@@ -10175,7 +10192,7 @@ xml2js@^0.4.5:
     sax ">=0.6.0"
     xmlbuilder "~9.0.1"
 
-xml@^1.0.1:
+xml@1.0.1, xml@^1.0.1:
   version "1.0.1"
   resolved "http://r.cnpmjs.org/xml/download/xml-1.0.1.tgz#78ba72020029c5bc87b8a81a3cfcd74b4a2fc1e5"
 
