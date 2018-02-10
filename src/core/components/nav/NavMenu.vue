@@ -16,10 +16,10 @@
             class="md-inset md-list-item-compact"
             v-for="link in menu.links"
             :key="link.name" v-if="!isInternalLink(link.url)" :href="link.url" target="_blank" rel="noopener">
-          <span>
-            <md-tooltip>{{link.desc}}</md-tooltip>
-            {{link.name}}
-          </span>
+            <span>
+              <md-tooltip>{{link.desc}}</md-tooltip>
+              {{link.name}}
+            </span>
           </md-list-item>
         </md-list>
       </md-list-item>
