@@ -21,7 +21,7 @@ export default {
     _.each(categories, (category) => {
       categoryMap[_.lowerCase(category)] = {
         name: category,
-        url: '/category/' + _.lowerCase(category),
+        url: '/category/' + category,
         desc: category
       };
     });

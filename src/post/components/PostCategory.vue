@@ -7,7 +7,6 @@
 </template>
 
 <script>
-  import _ from 'lodash';
 
   export default {
     name: 'post-category',
@@ -17,7 +16,7 @@
     computed: {
       categoryLink: function() {
         let $this = this;
-        return '/category/' + _.lowerCase($this.category);
+        return '/category/' + $this.category;
       }
     }
   };

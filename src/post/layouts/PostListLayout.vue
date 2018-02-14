@@ -22,11 +22,11 @@
       return _.filter(indexes, function(index) {
         if (_.isArray(index[filterType])) {
           return _.some(index[filterType], function(value) {
-            return _.isEqual(_.lowerCase(value), _.lowerCase(filterValue));
+            return _.isEqual(value, filterValue);
           });
         }
         else {
-          return _.isEqual(_.lowerCase(index[filterType]), _.lowerCase(filterValue));
+          return _.isEqual(index[filterType], filterValue);
         }
       });
     }

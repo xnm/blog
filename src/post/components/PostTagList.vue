@@ -11,7 +11,6 @@
 </template>
 
 <script>
-  import _ from 'lodash';
   export default {
     name: 'post-tag-list',
     props: {
@@ -19,7 +18,7 @@
     },
     methods:{
       tagLink:function(tag){
-        return '/tag/'+_.lowerCase(tag);
+        return '/tag/'+tag;
       }
     }
   };
