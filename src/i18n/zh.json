@@ -19,7 +19,9 @@
       "tag": "标签",
       "tags": "标签",
       "about": "关于",
-      "catalogue":"目录"
+      "catalogue":"目录",
+      "date": "日期",
+      "title": "标题"
     },
     "preview": {
       "more": "阅读全文"

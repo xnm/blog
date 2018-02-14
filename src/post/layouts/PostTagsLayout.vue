@@ -28,11 +28,16 @@
         let $this = this;
         let indexes = $this.$store.getters.indexes;
         let tags = [];
-        _.each(indexes,function(index) {
+        _.each(indexes, function(index) {
           tags = tags.concat(index.tags);
         });
         return _.union(tags);
       }
+    },
+    beforeRouteEnter: function(toRoute, fromRoute, next) {
+      next(vm => {
+        document.title = vm.$t('post.nav.tags') + ' | ' + document.title;
+      });
     }
   };
 </script>

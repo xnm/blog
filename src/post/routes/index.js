@@ -1,4 +1,5 @@
 import PostListLayout from '../layouts/PostListLayout';
+import PostListTableLayout from '../layouts/PostListTableLayout';
 import PostLayout from '../layouts/PostLayout';
 import PostTagsLayout from '../layouts/PostTagsLayout';
 
@@ -21,7 +22,7 @@ let postRoutes = [
   {
     path: '/category/:category',
     name: 'FilterByCategoryPostList',
-    component: PostListLayout,
+    component: PostListTableLayout,
     meta: {
       filter: {
         key: 'category',
@@ -32,7 +33,7 @@ let postRoutes = [
   {
     path: '/tag/:tag',
     name: 'FilterByTagPostList',
-    component: PostListLayout,
+    component: PostListTableLayout,
     meta: {
       filter: {
         key: 'tag',
