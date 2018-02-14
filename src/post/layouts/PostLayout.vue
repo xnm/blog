@@ -9,6 +9,7 @@
 <script>
   import postApi from '@/post/api/post.api';
   import PostCard from '@/post/components/PostCard';
+  import titleUtil from '@/post/utils/title-util';
 
   export default {
     components: {
@@ -33,7 +34,7 @@
         let filename = $this.$route.params['filename'];
         postApi.getPost(filename).then((res) => {
           $this.post = res.data;
-          document.title = $this.post.metadata.title + ' | ' + document.title;
+          titleUtil.setPostTitle($this.post);
         });
       }
     }

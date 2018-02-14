@@ -20,6 +20,7 @@
 
 <script>
   import _ from 'lodash';
+  import titleUtil from '@/post/utils/title-util';
 
   function filterIndexes(indexes, route) {
     let filterKey = _.get(route, 'meta.filter.key');
@@ -82,7 +83,7 @@
         let meta = getMetaByRoute(vm.$route);
         if (!_.isUndefined(meta)) {
           let metaTitle = vm.$t('post.nav.' + meta.key);
-          document.title = metaTitle + ' : ' + meta.value + ' | ' + document.title;
+          titleUtil.setFilteredTitle(metaTitle, meta.value);
         }
       });
     },
@@ -91,7 +92,7 @@
       let meta = getMetaByRoute(toRoute);
       if (!_.isUndefined(meta)) {
         let metaTitle = vm.$t('post.nav.' + meta.key);
-        document.title = metaTitle + ' : ' + meta.value + ' | ' + document.title;
+        titleUtil.setFilteredTitle(metaTitle, meta.value);
       }
       next();
     }

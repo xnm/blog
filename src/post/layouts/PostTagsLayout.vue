@@ -18,6 +18,7 @@
 
 <script>
   import PostTagList from '@/post/components/PostTagList';
+  import titleUtil from '@/post/utils/title-util';
   import _ from 'lodash';
 
   export default {
@@ -36,7 +37,7 @@
     },
     beforeRouteEnter: function(toRoute, fromRoute, next) {
       next(vm => {
-        document.title = vm.$t('post.nav.tags') + ' | ' + document.title;
+        titleUtil.setTitle(vm.$t('post.nav.tags'));
       });
     }
   };
