@@ -10,7 +10,6 @@ import CopyWebpackPlugin from 'copy-webpack-plugin';
 import WebpackPwaManifest from 'webpack-pwa-manifest';
 import OfflinePlugin from 'offline-plugin';
 
-import pkg from '../../package.json';
 import appConfig from './app.config';
 import baseConfig from './base.config';
 import webpackBaseConfig from './webpack.base.babel';

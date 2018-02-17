@@ -1,5 +1,5 @@
 /* import mocked vue, @vue/test-utils methods */
-import localVue from '../shared/mocks/vue';
+import localVue from '../shared/mocks/localVue';
 import Vuex from 'vuex';
 import {shallow} from '@vue/test-utils';
 /* import components import */

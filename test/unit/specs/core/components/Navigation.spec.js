@@ -1,5 +1,5 @@
 /* import mocked vue, @vue/test-utils methods */
-import localVue from '../../../shared/mocks/vue';
+import localVue from '../../../shared/mocks/localVue';
 import {shallow} from '@vue/test-utils';
 
 /* import components import */
@@ -22,7 +22,6 @@ describe('Navigation.vue', function() {
     });
 
     it('# should render ui from props', function() {
-
       $this.wrapper.setProps({
         title: title,
         description: description,
