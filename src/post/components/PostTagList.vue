@@ -18,7 +18,7 @@
     },
     methods:{
       tagLink:function(tag){
-        return '/tag/'+tag;
+        return '/tags/'+tag;
       }
     }
   };

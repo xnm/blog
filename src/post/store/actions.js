@@ -15,13 +15,13 @@ export default {
       dispatch(types.REGISTER_TAGS_MENU);
     });
   },
-  [types.REGISTER_CATEGORIES_MENU]({}, indexes) {
+  [types.REGISTER_CATEGORIES_MENU]({commit}, indexes) {
     let categories = _.union(_.map(indexes, (index) => index.category));
     let categoryMap = {};
     _.each(categories, (category) => {
       categoryMap[_.lowerCase(category)] = {
         name: category,
-        url: '/category/' + category,
+        url: '/categories/' + category,
         desc: category
       };
     });

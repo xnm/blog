@@ -16,7 +16,7 @@
     computed: {
       categoryLink: function() {
         let $this = this;
-        return '/category/' + $this.category;
+        return '/categories/' + $this.category;
       }
     }
   };

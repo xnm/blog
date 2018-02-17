@@ -10,7 +10,7 @@ let postRoutes = [
     component: PostListLayout
   },
   {
-    path: '/post/:year/:month/:date/:filename',
+    path: '/posts/:year/:month/:date/:filename',
     name: 'PostDetail',
     component: PostLayout
   },
@@ -20,7 +20,7 @@ let postRoutes = [
     component: PostTagsLayout
   },
   {
-    path: '/category/:category',
+    path: '/categories/:category',
     name: 'FilterByCategoryPostList',
     component: PostListTableLayout,
     meta: {
@@ -31,7 +31,7 @@ let postRoutes = [
     }
   },
   {
-    path: '/tag/:tag',
+    path: '/tags/:tag',
     name: 'FilterByTagPostList',
     component: PostListTableLayout,
     meta: {
