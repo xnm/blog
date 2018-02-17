@@ -1,17 +1,6 @@
 <template>
   <div class="tags-rounded">
-    <div class="md-layout md-alignment-center-center">
-      <md-empty-state
-
-        md-rounded
-        md-icon="style"
-        :md-label="$t('post.nav.tags')"
-        md-description="">
-      </md-empty-state>
-    </div>
-    <div class="md-layout mg-alignment-center-center">
-      <post-tag-list :tags="tags"></post-tag-list>
-    </div>
+    <post-tags-state :tags="tags"></post-tags-state>
   </div>
 
 </template>
@@ -20,9 +9,13 @@
   import PostTagList from '@/post/components/PostTagList';
   import titleUtil from '@/post/utils/title-util';
   import _ from 'lodash';
+  import PostTagsState from '@/post/components/PostTagsState';
 
   export default {
-    components: {PostTagList},
+    components: {
+      PostTagsState,
+      PostTagList
+    },
     name: 'post-tags-layout',
     computed: {
       tags: function() {

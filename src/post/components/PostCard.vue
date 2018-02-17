@@ -38,7 +38,7 @@
 <style scoped>
   .post-card {
     width: 100%;
-    max-width: 800px;
+    max-width: 1084px;
     margin-left: 10px;
     margin-right: 10px;
   }

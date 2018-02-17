@@ -1,26 +1,18 @@
 <template>
   <div>
-    <md-table v-model="indexes" md-sort="created" md-sort-order="asc" md-card>
-      <md-table-toolbar>
-        <h1 class="md-title">{{$t('post.nav.'+ meta.key)}} : {{ meta.value}}</h1>
-      </md-table-toolbar>
-
-      <md-table-row
-        slot="md-table-row"
-        slot-scope="{item}"
-        class="post-list-table-item"
-        @click.native="toPostDetail(item)"
-      >
-        <md-table-cell :md-label="$t('post.nav.date')">{{ item.created }}</md-table-cell>
-        <md-table-cell :md-label="$t('post.nav.title')">{{ item.title }}</md-table-cell>
-      </md-table-row>
-    </md-table>
+    <div class="md-layout md-alignment-center-center">
+      <post-list-table
+        :indexes="indexes"
+        :meta="meta">
+      </post-list-table>
+    </div>
   </div>
 </template>
 
 <script>
   import _ from 'lodash';
   import titleUtil from '@/post/utils/title-util';
+  import PostListTable from '@/post/components/PostListTable';
 
   function filterIndexes(indexes, route) {
     let filterKey = _.get(route, 'meta.filter.key');
@@ -56,6 +48,7 @@
   }
 
   export default {
+    components: {PostListTable},
     name: 'post-list-table-layout',
     computed: {
       indexes: function() {
@@ -67,15 +60,6 @@
       meta: function() {
         let $this = this;
         return getMetaByRoute($this.$route);
-      }
-    },
-    methods: {
-      toPostDetail: function(index) {
-        let $this = this;
-        let link = index.link;
-        $this.$router.push({
-          path: link
-        });
       }
     },
     beforeRouteEnter(toRoute, fromRoute, next) {
