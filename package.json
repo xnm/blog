@@ -1,8 +1,8 @@
 {
   "name": "blog.aquariuslt.com",
-  "version": "4.0.0-beta",
+  "version": "4.0.0-stable",
   "description": "Blog using Vue.",
-  "repository": "https://github.com/Aquariuslt/blog",
+  "repository": "https://github.com/aquariuslt/blog",
   "author": "Aquariuslt<superaquariuslt@gmail.com>",
   "license": "MIT",
   "keywords": [

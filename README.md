@@ -1,6 +1,6 @@
 # blog.aquariuslt.com
 
-[![Build Status](https://travis-ci.org/Aquariuslt/blog.svg?branch=VUE)](https://travis-ci.org/Aquariuslt/blog)
+[![Build Status](https://travis-ci.org/aquariuslt/blog.svg?branch=VUE)](https://travis-ci.org/Aquariuslt/blog)
 [![Circle CI Status](https://circleci.com/gh/Aquariuslt/blog.svg?branch=VUE&style=shield)](https://github.com/Aquariuslt/blog)
 [![Coverage Status](https://coveralls.io/repos/github/Aquariuslt/blog/badge.svg?branch=VUE)](https://coveralls.io/github/Aquariuslt/blog?branch=VUE)
 
@@ -177,4 +177,4 @@ Run command:
 npm run build
 ```
 
-Then deploy your dist foler in github pages repository.
+Then deploy your dist folder in github pages repository.
