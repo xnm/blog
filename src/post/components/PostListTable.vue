@@ -41,5 +41,7 @@
 <style scoped>
   .post-list-table {
     max-width: 1084px;
+    margin-left: 0;
+    margin-right: 0;
   }
 </style>
