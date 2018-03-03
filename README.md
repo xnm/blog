@@ -1,8 +1,8 @@
 # blog.aquariuslt.com
 
-[![Build Status](https://travis-ci.org/aquariuslt/blog.svg?branch=VUE)](https://travis-ci.org/Aquariuslt/blog)
-[![Circle CI Status](https://circleci.com/gh/Aquariuslt/blog.svg?branch=VUE&style=shield)](https://github.com/Aquariuslt/blog)
-[![Coverage Status](https://coveralls.io/repos/github/Aquariuslt/blog/badge.svg?branch=VUE)](https://coveralls.io/github/Aquariuslt/blog?branch=VUE)
+[![Build Status](https://travis-ci.org/aquariuslt/blog.svg?branch=VUE)](https://travis-ci.org/aquariuslt/blog)
+[![Circle CI Status](https://circleci.com/gh/aquariuslt/blog.svg?branch=VUE&style=shield)](https://github.com/aquariuslt/blog)
+[![Coverage Status](https://coveralls.io/repos/github/quariuslt/blog/badge.svg?branch=VUE)](https://coveralls.io/github/Aquariuslt/blog?branch=VUE)
 
 
 Blog Application using Vue Version.
