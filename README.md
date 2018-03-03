@@ -2,7 +2,7 @@
 
 [![Build Status](https://travis-ci.org/aquariuslt/blog.svg?branch=VUE)](https://travis-ci.org/aquariuslt/blog)
 [![Circle CI Status](https://circleci.com/gh/aquariuslt/blog.svg?branch=VUE&style=shield)](https://github.com/aquariuslt/blog)
-[![Coverage Status](https://coveralls.io/repos/github/quariuslt/blog/badge.svg?branch=VUE)](https://coveralls.io/github/Aquariuslt/blog?branch=VUE)
+[![Coverage Status](https://coveralls.io/repos/github/aquariuslt/blog/badge.svg?branch=VUE)](https://coveralls.io/github/aquariuslt/blog?branch=VUE)
 
 
 Blog Application using Vue Version.
