@@ -10,6 +10,7 @@ See:[Blog](https://blog.aquariuslt.com)
 
 
 ### Features
+- Static Blog (Github Pages/Deploy on your own VPS)
 - Single Page Application
 - Progressive Web Application
 - Markdown Writing
