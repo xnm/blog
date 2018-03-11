@@ -15,7 +15,6 @@ deploy:
     branch: v1.8.47
   provider: pages
   github-token: $GITHUB_TOKEN # Set in travis-ci.org dashboard
-  keep-history: true
   local-dir: dist
   on:
     branch: VUE
