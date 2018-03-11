@@ -11,6 +11,7 @@ after_script:
 # Travis CI github pages issue since 2018-03-08
 
 deploy:
+  edge: true
   provider: pages
   skip_cleanup: false
   github-token: $GITHUB_TOKEN # Set in travis-ci.org dashboard
