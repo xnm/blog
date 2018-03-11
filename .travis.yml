@@ -12,7 +12,7 @@ after_script:
 
 deploy:
   provider: pages
-  skip_cleanup: true
+  skip_cleanup: false
   github-token: $GITHUB_TOKEN # Set in travis-ci.org dashboard
   keep-history: true
   local-dir: dist
