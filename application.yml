@@ -52,6 +52,10 @@ links:
     name: 'Ahri'
     url: 'http://xuyuanxin.win'
     desc: '先有桃子后有天, 阿狸出门跑飞天'
+  yulai:
+    name: 'YuLai'
+    url: 'https://yulaiz.com/'
+    desc: '深圳地王 关内几套关外几栋'
 
 ## Advance Features
 features:
