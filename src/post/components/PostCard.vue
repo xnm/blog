@@ -1,5 +1,5 @@
 <template>
-  <md-card v-if="post" class="post-card">
+  <md-card v-if="post" class="post-card" id="content">
     <post-header
       :metadata="post.metadata">
     </post-header>
