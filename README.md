@@ -18,6 +18,7 @@ See:[Blog](https://blog.aquariuslt.com)
 - Disqus
 - Configurable
 - Sitemap auto generating
+- Support RSS
 
 ### Dependencies
 - vue
