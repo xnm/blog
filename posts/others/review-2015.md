@@ -2,7 +2,7 @@
 {
   "title": "Year in Review 2015",
   "created": "2016-01-01",
-  "category":"Else",
+  "category":"Others",
   "tags": ["Diary"]
 }
 ```
