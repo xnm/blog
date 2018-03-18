@@ -8,6 +8,8 @@
 ```
 
 
+TL;DR
+
 ## Background
 之前在为公司一个稍微有些年头的核心系统的代码寻找一个合理的单元测试方案，在摆弄了一段时间后，目前奠定了一个基于Karma的前端单元测试方案。
 
@@ -315,8 +317,127 @@ describe('ext', function() {
 这里选用的是`spec` + `coverage-istanbul`插件
 他们将会根据`webpack.test.config`里面配置的post-loader `istanbul-instrumenter-loader`反向与源代码联系在一起，在执行单元测试的过程中，记录各种方法，变量的调用情况，最后根据`coverageIstanbulReporter`中定义的`reports`类型，生成html 报告，通用的`lcov.info`覆盖率描述文件，和一个终端输出的报告。
 
+7. 那么那个`karma-jawr`起到的是什么作用呢，这是一个为了根据前后端技术选型 解耦的 自己开发的一个karma插件，在下面这个 **Decoupled Solution** 一章会讲这里的设计
+
+### Decoupled Solution
+我们先来看看在本地开发环境下~~即根据环境分离的相关配置都设置成env=development,debug=on 之类的参数)~~
+
+假设在样例项目中，我们在浏览器里面访问某个url `xxxx/home`，在经过SpringMVC的viewResolver，mapping到一个`home.xhtml` 。
+此时xhtml的内容里面，有一些jawr相关的facelets tags，譬如
+
+```
+<jawr:style src="/cssBundles/ext.css"/>
+<jawr:script src="/jsBundles/extJs.js"/>
+<jawr:script src="/jsBundles/home.js"/>
+```
+
+这表示他们会根据根据jawr的配置文件`jawr.properties` 
+```
+jawr.js.bundle.names=i18n, extJs, home, login
+jawr.css.bundle.names=extCss
+# JAWR Bundle Definitions
+jawr.js.bundle.extJs.id=/jsBundles/extJs.js
+jawr.js.bundle.extJs.composite=true
+jawr.js.bundle.extJs.child.names=\
+  extDebug,\
+  extProd
+## ExtJS Debug Source
+jawr.js.bundle.extDebug.debugonly=true
+jawr.js.bundle.extDebug.mappings=/js/vendor/ext/ext-base-debug.js, /js/vendor/ext/ext-all-debug-w-comments.js
+## ExtJS Prod Source
+jawr.js.bundle.extProd.debugnever=true
+jawr.js.bundle.extProd.mappings=/js/vendor/ext/ext-base.js, /js/vendor/ext/ext-all.js
+## ExtJS CSS Source
+jawr.css.bundle.extCss.id=/cssBundles/ext.css
+jawr.css.bundle.extCss.mappings=/css/vendor/ext/ext-all.css
+## Home Page Application JS Bundles
+jawr.js.bundle.home.id=/jsBundles/home.js
+jawr.js.bundle.home.composite=true
+jawr.js.bundle.home.child.names=homeStore, homeUi, homeImpl
+### Home Store
+jawr.js.bundle.homeStore.mappings=/js/home/datastore/**
+### Home Ui
+jawr.js.bundle.homeUi.mappings=/js/home/ui/**
+jawr.js.bundle.homeUi.dependencies=homeStore
+### Home Impl
+jawr.js.bundle.homeImpl.mappings=/js/home/impl/**
+jawr.js.bundle.homeImpl.dependencies=homeUi
+
+### Mappings include jawr bundle example
+jawr.js.bundle.login.id=/jsBundles/login.js
+jawr.js.bundle.login.mappings=homeUi
+```
+
+查找并释放转换为对应的mapping的若干个`<script src=${source-path} type=${source-type}/>`标签。
+
+如果启用了jawr的i18n message generator功能，即添加了下面相关配置
+```
+# JAWR i18n Resolver with Spring MVC
+jawr.locale.resolver=net.jawr.web.resource.bundle.locale.SpringLocaleResolver
+jawr.js.bundle.i18n.id=/jsBundles/i18n.js
+jawr.js.bundle.i18n.global=true
+jawr.js.bundle.i18n.order=1
+jawr.js.bundle.i18n.mappings=messages:i18n.i18n(locale)
+```
+那么还会多出系列message generator的全局函数。
+
+实际渲染出的html页面为
+```
+<script type="text/javascript">/* Finished adding global members. */</script>
+<script type="text/javascript">/* Start adding members resolved by '/cssBundles/ext.css'. Bundle id is: '/cssBundles/ext.css' */</script>
+<link rel="stylesheet" type="text/css" media="screen" href="/css/vendor/ext/ext-all.css?d=354974446" />
+<script type="text/javascript">/* Finished adding members resolved by /cssBundles/ext.css */</script>
+<script type="text/javascript">/* Start adding global members. */</script>
+<script type="text/javascript" src="/jawr_generator.js?d=1002165950&generationConfigParam=messages%3Ai18n.i18n%28locale%29" ></script>
+<script type="text/javascript">/* Finished adding global members. */</script>
+<script type="text/javascript">/* Start adding members resolved by '/jsBundles/extJs.js'. Bundle id is: '/jsBundles/extJs.js' */</script>
+<script type="text/javascript" src="/js/vendor/ext/ext-base-debug.js?d=905484299" ></script>
+<script type="text/javascript" src="/js/vendor/ext/ext-all-debug-w-comments.js?d=1203100109" ></script>
+<script type="text/javascript">/* Finished adding members resolved by /jsBundles/extJs.js */</script>
+<script type="text/javascript">/* Start adding members resolved by '/jsBundles/home.js'. Bundle id is: '/jsBundles/home.js' */</script>
+<script type="text/javascript" src="/js/home/datastore/home.base.datastore.js?d=394071763" ></script>
+<script type="text/javascript" src="/js/home/ui/home.ui.js?d=1374816983" ></script>
+<script type="text/javascript" src="/js/home/impl/home.impl.js?d=1755247404" ></script>
+<script type="text/javascript">/* Finished adding members resolved by /jsBundles/home.js */</script>
+```
+
+
+大致的可以用一个流程来解释一下这里的情况，与后面解耦部分密切相关的几点：
+- 我们需要知道一个页面所加载的前端资源，具体的模块配置入口是位于jawr配置文件的哪一个bundle
+- 这些页面加载的前端资源，在开发环境模式下，如何逐条转换成对应的script，css标签
+- 如果开启了jawr对应的国际化功能，我们应该如何在测试中生成这些全局的国际化函数
+
+
+
+为了解耦呢，这个`karma-jawr`的中间件提供了这样一个功能
+
+根据`jawr.properties`的位置，参考jawr Java的路径解释部分实现，生成了一个中间文件夹
+![generated-indexes folder](https://img.aquariuslt.com/posts/karma-jawr-generated-index.jpg)
+配合webpack的`alias`功能，我们只要在单元测试代码里面使用类似这样的语法
+```javascript
+require('@/jsBundles/extJs.js');
+```
+便能够按需加载页面的资源文件执行，原本在jsf facelet view里面使用什么tag 就知道在单元测试文件加载什么依赖。
+为了解决中间生成的国际化相关的全局函数，也是参考了jawr Java端读取i18n相关properties的实现，撸了一个输出结果一样的i18n的自动添加到每个index.js相关的文件列表的最前面，确保他们优先生效，不影响后面webpack的解析工作。
+
+
+具体的实现思路，也可以单独作一篇文章，讲解karma-framework和karma-preprocessor等相关的机制和其作者的一些依赖注入在node.js 方面的实现。
+
 
 ### Benefits
+主要是从开发体验上面来讲，好处是如下
+- 一旦了解karma的基本工作机制，便可以自由搭配各种可搭配的测试框架。(比如`mocha`换`jasmine`,`chai`换`expect.js`,`sinon`..额 sinon目前还没见到可被替换的有效方案)
+- 根据项目浏览器的兼容性，可以修改成各种浏览器及其相关启动flag
+- 基于webpack的各种loader特性，可以很方便的通过require 语法引入各种测试家具: (json格式不必额外的loader, css则是基于style-loader，和css-loader的各种配合使用, 纯文本形式可以搭配 file-loader)。不必自己再写各种工具类轮子来实现持久化模拟数据读取的恶心轮子。
+
+
+
+
+一些额外的提升开发体验的糖果
+1. 首先如果大家的IDE支持 webpack的alias快速跳转(比如IDEAU 2017.2 之后的版本)
+根据引用部分
+2. 配合IDEA的karma插件，在编写单元测试的时候，可以动态给karma.Server 注入不同的参数，配合本身`karma-webpack`内置的webpack-dev-server 可以做到刷新立刻动态构建单元测试，提升单元测试开发效率。
+
 
 
 
@@ -388,4 +509,5 @@ Lines        : 100% ( 11/11 )
 
 串联起来比较考验综合能力，在落地宣讲的时候，为了寻求背书支撑也做了很多资料搜集的功夫。
 
-综合起来就是 考验了小部分项目结构分析能力，前端框架和构建工具选型水平，持续集成选型，和在必要的时候造个中间件的轮子的能力。感觉当时要是哪个方面少了哪一点 可能最后都不能得出一个较为可行的方案。。
+综合起来就是 考验了小部分项目结构分析能力，前端框架和构建工具选型水平，持续集成选型，和在必要的时候造个中间件的轮子的能力。感觉当时要是哪个方面少了哪一点 可能最后都不能得出一个较为可行的方案。
+算是一个多面打杂之后的综合输出考验吧。
