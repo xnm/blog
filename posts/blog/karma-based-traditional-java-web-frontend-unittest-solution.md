@@ -382,7 +382,7 @@ jawr.js.bundle.i18n.mappings=messages:i18n.i18n(locale)
 那么还会多出系列message generator的全局函数。
 
 实际渲染出的html页面为
-```
+```htmlbars
 <script type="text/javascript">/* Finished adding global members. */</script>
 <script type="text/javascript">/* Start adding members resolved by '/cssBundles/ext.css'. Bundle id is: '/cssBundles/ext.css' */</script>
 <link rel="stylesheet" type="text/css" media="screen" href="/css/vendor/ext/ext-all.css?d=354974446" />
