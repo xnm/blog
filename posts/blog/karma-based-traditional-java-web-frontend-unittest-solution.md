@@ -325,7 +325,7 @@ describe('ext', function() {
 假设在样例项目中，我们在浏览器里面访问某个url `xxxx/home`，在经过SpringMVC的viewResolver，mapping到一个`home.xhtml` 。
 此时xhtml的内容里面，有一些jawr相关的facelets tags，譬如
 
-```
+```htmlbars
 <jawr:style src="/cssBundles/ext.css"/>
 <jawr:script src="/jsBundles/extJs.js"/>
 <jawr:script src="/jsBundles/home.js"/>
