@@ -315,19 +315,19 @@ if (process.env.NODE_ENV=='release') {
 #### index
 `index`这个task,主要功能是读取构建的一个配置文件`config.js`获取`index.html`的路径.
 紧接着比较傻逼的将html中的
-```
+```htmlbars
 <!--styles-->
 ```
 替换成
-```
+```htmlbars
 <link href="bundle.min.css" rel="stylesheet">
 ```
 将
-```
+```htmlbars
 <!--scripts-->
 ```
 替换成
-```
+```htmlbars
 <script src="bundle.min.js"></script>
 ```
 虽然css,js还没有经过打包.但是先替换,存放在dist文件夹下.
