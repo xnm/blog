@@ -70,7 +70,7 @@ let webpackProdConfig = merge(webpackBaseConfig, {
       short_name: appConfig['features']['manifest']['short_name'],
       description: appConfig['features']['manifest']['description'],
       background_color: appConfig['theme'],
-      start_url: '.',
+      start_url: '/',
       theme_color: appConfig['theme'],
       icons: [
         {
