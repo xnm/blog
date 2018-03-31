@@ -24,7 +24,7 @@ gulp.task('webpack', function(done) {
 
 gulp.task('move', function() {
   log.info('Moving build dir files into dist folder');
-  gulp.src(baseConfig.dir.build + '/**/*').pipe(gulp.dest(baseConfig.dir.dist));
+  gulp.src(baseConfig.dir.build + '/**/*').pipe(gulp.dest(baseConfig.dir.dist.root));
   log.info('Move done');
 });
 

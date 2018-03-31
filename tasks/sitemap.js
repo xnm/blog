@@ -43,7 +43,7 @@ gulp.task('sitemap', function(done) {
     indent: '  '
   });
 
-  fs.writeFileSync(pathUtil.resolve(baseConfig.dir.dist) + '/' + SITEMAP_FILENAME, siteMapXmlString);
+  fs.writeFileSync(pathUtil.resolve(baseConfig.dir.dist.root) + '/' + SITEMAP_FILENAME, siteMapXmlString);
   done();
 });
 

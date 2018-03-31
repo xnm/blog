@@ -7,6 +7,7 @@ import webpackBaseConfig from './webpack.base.babel';
 import vueLoaderUtil from '../utils/vue-loader-util';
 
 let webpackTestConfig = merge(webpackBaseConfig, {
+  mode: 'development',
   devtool: 'eval-source-map',
   module: {
     rules: [

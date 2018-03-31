@@ -17,7 +17,7 @@ gulp.task('clean:build', function() {
 
 gulp.task('clean:dist', function() {
   log.info('Deleting dist folder');
-  return gulp.src(baseConfig.dir.dist).pipe(rimraf());
+  return gulp.src(baseConfig.dir.dist.root).pipe(rimraf());
 });
 
 gulp.task('clean', sequence(['clean:cache', 'clean:build', 'clean:dist']));

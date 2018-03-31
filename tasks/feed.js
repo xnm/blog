@@ -56,7 +56,7 @@ gulp.task('feed', function(done) {
     feed.item(getFeedItem(index));
   });
 
-  fs.writeFileSync(pathUtil.resolve(baseConfig.dir.dist) + '/' + FEED_FILENAME, feed.xml({indent: true}));
+  fs.writeFileSync(pathUtil.resolve(baseConfig.dir.dist.root) + '/' + FEED_FILENAME, feed.xml({indent: true}));
 
   done();
 });

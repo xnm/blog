@@ -7,7 +7,13 @@ let baseConfig = {
     cache: '.cache',
     src: 'src',
     build: 'build',
-    dist: 'dist',
+    dist: {
+      root: 'dist',
+      js: 'static/js',
+      css: 'static/css',
+      img: 'static/img',
+      manifest: 'static/manifest'
+    },
     test: {
       unit: 'test/unit',
       e2e: 'test/e2e'

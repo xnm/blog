@@ -1,12 +1,10 @@
 /* Created by Aquariuslt on 14/04/2017.*/
 
-import webpack from 'webpack';
 import merge from 'webpack-merge';
 
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
 import OptimizeCssAssetsPlugin from 'optimize-css-assets-webpack-plugin';
-import CopyWebpackPlugin from 'copy-webpack-plugin';
 import WebpackPwaManifest from 'webpack-pwa-manifest';
 import OfflinePlugin from 'offline-plugin';
 
@@ -18,11 +16,12 @@ import pathUtil from '../utils/path-util';
 import vueLoaderUtil from '../utils/vue-loader-util';
 
 let webpackProdConfig = merge(webpackBaseConfig, {
+  mode: 'production',
   devtool: 'source-map',
   output: {
-    path: pathUtil.resolve(baseConfig.dir.dist),
-    filename: '[name].[chunkhash].js',
-    chunkFilename: '[id].[chunkhash].js',
+    path: pathUtil.resolve(baseConfig.dir.dist.root),
+    filename: baseConfig.dir.dist.js + '/' + '[name].[chunkhash].js',
+    chunkFilename: baseConfig.dir.dist.js + '/' + '[id].[chunkhash].js',
     publicPath: './'
   },
   module: {
@@ -39,20 +38,6 @@ let webpackProdConfig = merge(webpackBaseConfig, {
     ]
   },
   plugins: [
-    new webpack.DefinePlugin({
-      'process.env': {
-        NODE_ENV: '"production"'
-      }
-    }),
-    new webpack.optimize.UglifyJsPlugin({
-      compress: {
-        warnings: false
-      },
-      sourceMap: true
-    }),
-    new webpack.optimize.OccurrenceOrderPlugin(true),
-    new webpack.HashedModuleIdsPlugin(),
-    new CopyWebpackPlugin(baseConfig.dir.assets),
     new OptimizeCssAssetsPlugin({
       cssProcessorOptions: {
         safe: true,
@@ -63,7 +48,7 @@ let webpackProdConfig = merge(webpackBaseConfig, {
       canPrint: false
     }),
     new ExtractTextPlugin({
-      filename: '[name].[chunkhash].css',
+      filename: baseConfig.dir.dist.css + '/' + '[name].[chunkhash].css',
       allChunks: true
     }),
     new HtmlWebpackPlugin({
@@ -79,19 +64,9 @@ let webpackProdConfig = merge(webpackBaseConfig, {
       },
       chunksSortMode: 'dependency'
     }),
-    new webpack.optimize.CommonsChunkPlugin({
-      name: 'vendor',
-      minChunks(module) {
-        return (
-          module.resource &&
-          /\.js$/.test(module.resource) &&
-          module.resource.indexOf(
-            pathUtil.resolve('node_modules')
-          ) === 0
-        );
-      }
-    }),
     new WebpackPwaManifest({
+      filename: baseConfig.dir.dist.manifest + '/' + 'manifest.json',
+      publicPath: './' + baseConfig.dir.dist.manifest,
       name: appConfig['features']['manifest']['name'],
       short_name: appConfig['features']['manifest']['short_name'],
       description: appConfig['features']['manifest']['description'],
@@ -102,13 +77,31 @@ let webpackProdConfig = merge(webpackBaseConfig, {
         {
           src: pathUtil.resolve(baseConfig.dir.src + '/' + baseConfig.file.favicon),
           sizes: [96, 128, 192, 256, 384, 512],
+          destination: baseConfig.dir.dist.img,
           type: 'image/png',
           density: 0.75
         }
       ]
     }),
-    new OfflinePlugin()
+    new OfflinePlugin({
+      ServiceWorker: {
+        minify: false
+      }
+    })
   ],
+  optimization: {
+    splitChunks: {
+      chunks: 'all',
+      cacheGroups: {
+        vendors: {
+          test: /[\\/]node_modules[\\/]/,
+          name: 'vendors',
+          filename: baseConfig.dir.dist.js + '/' + 'vendor.[chunkhash].js',
+          chunks: 'all'
+        }
+      }
+    }
+  },
   stats: {
     colors: true,
     hash: true,

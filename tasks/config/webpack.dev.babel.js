@@ -15,6 +15,7 @@ import vueLoaderUtil from '../utils/vue-loader-util';
 const PROTOCOL = 'http://';
 
 let webpackDevConfig = merge(webpackBaseConfig, {
+  mode: 'development',
   devtool: 'eval-source-map',
   output: {
     path: pathUtil.resolve(baseConfig.dir.build),
@@ -37,11 +38,6 @@ let webpackDevConfig = merge(webpackBaseConfig, {
     ]
   },
   plugins: [
-    new webpack.DefinePlugin({
-      'process.env': {
-        NODE_ENV: '"development"'
-      }
-    }),
     new ExtractTextPlugin({
       filename: '[name].bundle.css'
     }),
@@ -51,7 +47,6 @@ let webpackDevConfig = merge(webpackBaseConfig, {
       favicon: baseConfig.dir.src + '/' + baseConfig.file.favicon
     }),
     new webpack.HotModuleReplacementPlugin(),
-    new webpack.NoEmitOnErrorsPlugin(),
     new FriendlyErrorsPlugin()
   ],
   devServer: {
