@@ -66,7 +66,6 @@ let webpackProdConfig = merge(webpackBaseConfig, {
     }),
     new WebpackPwaManifest({
       filename: baseConfig.dir.dist.manifest + '/' + 'manifest.json',
-      publicPath: './' + baseConfig.dir.dist.manifest,
       name: appConfig['features']['manifest']['name'],
       short_name: appConfig['features']['manifest']['short_name'],
       description: appConfig['features']['manifest']['description'],
