@@ -11,9 +11,7 @@
 
 
 
-
 ## Background
-
 ### Why
 上一篇文章[基于Karma的非分离式前端单元测试基础方案](https://blog.aquariuslt.com/posts/2018/03/04/karma-based-traditional-java-web-frontend-unittest-solution)  描述了在拆分基于JAWR的，前后端的方案的时候，无可避免的为中间编写一个插件的背景故事。
 
@@ -53,6 +51,7 @@ angular.js v1的依赖注入机制及其实现呢，其实就是来自于`node-d
 #### Launchers
 - karma-chrome-launcher
 - karma-firefox-launcher
+
 > karma launcher 的功能就是提供给你启动所有位于系统中的浏览器的链接功能。比如出场率相当高的kamra-chrome-launcher就实现了各个系统的 **Chrome**，**Chromium**，**Chrome Dev**，**Headless Chrome(puppeteer)** 的链接启动功能，通过默认的参数/或者自己穿进去的环境变量 等形式 可以唤起对应版本的浏览器实例来运行脚本。
 
 #### Preprocessors
@@ -206,11 +205,80 @@ module.exports = function(config){
 
 
 ### Development Roadmap
-#### Prepare Based Project
 
 #### Local Testing
+如果没有了解npm加载模块机制和karma所使用的di约定的时候，可能本地测试必须依赖已经发布的npm package.
+
+正确的做法应该是:
+
+在**karma.conf.js**
+的plugins显式声明一个本地的引用
+该引用等同`package.json`里面`main`的指向
+```
+plugins: [
+      'karma-chrome-launcher',
+      'karma-chai',
+      'karma-mocha',
+      'karma-spec-reporter',
+      'karma-coverage',
+      'karma-coverage-istanbul-reporter',
+      'karma-sourcemap-loader',
+      'karma-sinon',
+      'karma-webpack',
+      localJawrFramework //  ==> var localJawrFramework = require('../../lib');
+    ],
+```
+
+**package.json**
+```json
+{
+	"name":"karma-jawr",
+	 "main": "lib/index.js"
+}
+```
+
+**lib/index.js**
+
+```javascript
+
+var frameworkLogger = require('./logger');
+
+var jawrHandler = require('./jawr.handler');
+
+
+/**
+ * @param {Array} files: file pattern
+ * @param {JawrOptions} jawrOptions: jawrOptions
+ * @param {Object} logger: karma logger
+ * */
+var framework = function(files, jawrOptions, logger) {
+  frameworkLogger.initLogger(logger);
+  jawrHandler.handle(jawrOptions);
+};
+
+framework.$inject = ['config.files', 'config.jawr', 'logger'];
+module.exports = {'framework:jawr': ['factory', framework]};
+
+```
+
+
 #### Integrate with CI
+目前只有测试部分与`travis-ci`和`circleci`集成了。
+
+[circleci](https://circleci.com/gh/aquariuslt/karma-jawr)
+[travis-ci](https://travis-ci.org/aquariuslt/karma-jawr)
+
+
 #### Pre-Release and Testing
+为了解决其他在实际应用中遇到的问题，包括但不限于各种
+- jawr配置的胡乱使用
+- node.js的properties 解释实现并没有覆盖properties事实标准的所有情况
+
+等...我是自己维护了issue列表并且把每次修改的测试用例都加到本身的单元测试流程中
+
+目前详见[issues](https://github.com/aquariuslt/karma-jawr/issues)
+
+~~有一个目前因为技术原因暂时被我 标记了wont fix~~
 
 ## Summary
 
@@ -221,3 +289,4 @@ module.exports = function(config){
 [Karma作者的设计论文](https://github.com/karma-runner/karma/raw/master/thesis.pdf) 
 
 [Karma测试框架的前世今生 - 淘宝TED | Karma作者论文译文](http://taobaofed.org/blog/2016/01/08/karma-origin/)
+
