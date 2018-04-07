@@ -280,7 +280,6 @@ module.exports = {'framework:jawr': ['factory', framework]};
 
 ~~有一个目前因为技术原因暂时被我 标记了wont fix~~
 
-## Summary
 
 
 ## References
@@ -289,4 +288,3 @@ module.exports = {'framework:jawr': ['factory', framework]};
 [Karma作者的设计论文](https://github.com/karma-runner/karma/raw/master/thesis.pdf) 
 
 [Karma测试框架的前世今生 - 淘宝TED | Karma作者论文译文](http://taobaofed.org/blog/2016/01/08/karma-origin/)
-
