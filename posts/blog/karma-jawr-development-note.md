@@ -9,11 +9,9 @@
 }
 ```
 
-
-
 ## Background
 ### Why
-上一篇文章[基于Karma的非分离式前端单元测试基础方案](https://blog.aquariuslt.com/posts/2018/03/04/karma-based-traditional-java-web-frontend-unittest-solution)  描述了在拆分基于JAWR的，前后端的方案的时候，无可避免的为中间编写一个插件的背景故事。
+上一篇文章**基于Karma的非分离式前端单元测试基础方案**描述了在拆分基于JAWR的，前后端的方案的时候，无可避免的为中间编写一个插件的背景故事。
 
 ## Knowledge Base
 在总结开发这个karma插件的笔记的时候，最终目的并不是希望读这篇文章的童鞋了解`jawr`这个插件所解决的核心问题，更多的是介绍karma和karma插件的设计理念，稍微对karma这个test-runner有一个更好的印象；亦或是在前端单元测试框架选型/亦或是根据实际项目需要，为了使得项目可被测试，无可避免的做出比较多的修改的时候，能够遵循这种插件开发的约定，使得项目测试方面更好的走向工程化。
@@ -288,3 +286,4 @@ module.exports = {'framework:jawr': ['factory', framework]};
 [Karma作者的设计论文](https://github.com/karma-runner/karma/raw/master/thesis.pdf) 
 
 [Karma测试框架的前世今生 - 淘宝TED | Karma作者论文译文](http://taobaofed.org/blog/2016/01/08/karma-origin/)
+
