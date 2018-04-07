@@ -56,6 +56,10 @@ links:
     name: 'YuLai'
     url: 'https://yulaiz.com/'
     desc: '深圳地王 关内几套关外几栋'
+  lz5z:
+    name: 'Leo Blog'
+    url: 'https://lz5z.com/'
+    desc: 'KingSoft worker'
 
 ## Advance Features
 features:
