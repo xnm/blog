@@ -84,7 +84,7 @@ let webpackProdConfig = merge(webpackBaseConfig, {
     }),
     new OfflinePlugin({
       ServiceWorker: {
-        minify: false
+        minify: true
       }
     })
   ],
