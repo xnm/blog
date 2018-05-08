@@ -190,14 +190,14 @@
 }
 
 .markdown-body code {
-  font-family: Monaco, "Liberation Mono", Menlo, Courier, monospace;
+  font-family: "Courier New", "Liberation Mono", Menlo, Courier, monospace;
   font-size: 12px;
 }
 
 .markdown-body pre {
   margin-top: 0;
   margin-bottom: 0;
-  font: 12px Monaco, "Liberation Mono", Menlo, Courier, monospace;
+  font: 12px "Courier New", "Liberation Mono", Menlo, Courier, monospace;
 }
 
 .markdown-body .select::-ms-expand {
