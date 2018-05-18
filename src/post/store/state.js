@@ -1,6 +1,4 @@
-const indexes = [
-
-];
+const indexes = [];
 
 export default {
   indexes

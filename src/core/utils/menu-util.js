@@ -5,8 +5,9 @@ const DEFAULT_ICON = 'link';
  * @param {String} name
  * @param {Map|Array} links
  * @param {Object} [options]
+ * @return {Object}
  **/
-function convertExpandableMenu(name, links, {icon, priority}={}) {
+function convertExpandableMenu(name, links, {icon, priority} = {}) {
   return {
     expandable: true,
     name: name,
@@ -20,8 +21,9 @@ function convertExpandableMenu(name, links, {icon, priority}={}) {
  * @param {String} name
  * @param {String} link
  * @param {Object} [options]
+ * @return {Object}
  **/
-function convertDirectMenu(name, link, {icon, priority}={}) {
+function convertDirectMenu(name, link, {icon, priority} = {}) {
   return {
     expandable: false,
     name: name,
