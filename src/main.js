@@ -1,28 +1,22 @@
 import './styles.css';
 
-import Vue from 'vue';
-import VueMaterial from 'vue-material';
+import React from 'react';
+import ReactDOM from 'react-dom';
+import {Provider} from 'react-redux';
+import {ConnectedRouter} from 'react-router-redux';
+import createHistory from 'history/createBrowserHistory';
+import configureStore from './configureStore';
 
-import router from './router';
-import store from './store';
-import i18n from './locale';
+import App from '@/App';
 
-import './offline';
+const history = createHistory();
+const store = configureStore({}, history);
 
-import './core';
-import './post';
-
-import App from './App.vue';
-
-Vue.config.productionTip = false;
-Vue.use(VueMaterial);
-
-new Vue({
-  el: '#app',
-  router,
-  store,
-  i18n,
-  template: '<app/>',
-  components: {App}
-});
-
+ReactDOM.render(
+  <Provider store={store}>
+    <ConnectedRouter history={history}>
+      <App/>
+    </ConnectedRouter>
+  </Provider>,
+  document.getElementById('app')
+);

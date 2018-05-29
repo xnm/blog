@@ -1,5 +1,4 @@
 @import '~normalize.css/normalize.css';
-@import '~vue-material/dist/vue-material.css';
-@import '~vue-material/dist/theme/default.css';
+@import '~antd/dist/antd.css';
 @import './assets/css/fonts.css';
 @import './assets/css/markdown.css';

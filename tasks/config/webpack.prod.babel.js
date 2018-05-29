@@ -13,7 +13,6 @@ import baseConfig from './base.config';
 import webpackBaseConfig from './webpack.base.babel';
 
 import pathUtil from '../utils/path-util';
-import vueLoaderUtil from '../utils/vue-loader-util';
 
 let webpackProdConfig = merge(webpackBaseConfig, {
   mode: 'production',
@@ -23,19 +22,6 @@ let webpackProdConfig = merge(webpackBaseConfig, {
     filename: baseConfig.dir.dist.js + '/' + '[name].[chunkhash].js',
     chunkFilename: baseConfig.dir.dist.js + '/' + '[id].[chunkhash].js',
     publicPath: './'
-  },
-  module: {
-    rules: [
-      {
-        test: /\.vue$/,
-        loader: 'vue-loader',
-        options: vueLoaderUtil.buildVueStylesLoader({
-          sourceMap: true,
-          extract: true,
-          minimize: true
-        })
-      }
-    ]
   },
   plugins: [
     new OptimizeCssAssetsPlugin({

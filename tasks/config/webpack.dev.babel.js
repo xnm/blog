@@ -10,7 +10,6 @@ import appConfig from './app.config';
 import baseConfig from './base.config';
 
 import pathUtil from '../utils/path-util';
-import vueLoaderUtil from '../utils/vue-loader-util';
 
 const PROTOCOL = 'http://';
 
@@ -23,19 +22,6 @@ let webpackDevConfig = merge(webpackBaseConfig, {
     filename: '[name].bundle.js',
     sourceMapFilename: '[name].bundle.js.map',
     chunkFilename: '[id].chunk.js'
-  },
-  module: {
-    rules: [
-      {
-        test: /\.vue$/,
-        loader: 'vue-loader',
-        options: vueLoaderUtil.buildVueStylesLoader({
-          sourceMap: true,
-          extract: false,
-          minimize: false
-        })
-      }
-    ]
   },
   plugins: [
     new ExtractTextPlugin({

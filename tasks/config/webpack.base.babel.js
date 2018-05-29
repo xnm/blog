@@ -11,10 +11,10 @@ let webpackBaseConfig = {
   resolve: {
     extensions: [
       '.js',
-      '.vue'
+      '.jsx',
+      '.json'
     ],
     alias: {
-      'vue$': 'vue/dist/vue.esm.js',
       '@': pathUtil.resolve(baseConfig.dir.src)
     }
   },
@@ -36,6 +36,14 @@ let webpackBaseConfig = {
         ],
         loader: ExtractTextPlugin.extract({
           use: ['css-loader'],
+          fallback: ['style-loader']
+        })
+      },
+      {
+        test: /\.less$/,
+        include: pathUtil.resolve('src'),
+        loader: ExtractTextPlugin.extract({
+          use: ['css-loader', 'less-loader'],
           fallback: ['style-loader']
         })
       },

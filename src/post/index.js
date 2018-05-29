@@ -1,12 +1,22 @@
-import store from '@/store';
-import postStore from './store';
-import * as types from './store/mutation-types';
+import './style.css';
 
-import router from '@/router';
-import postRoutes from './routes';
+import React from 'react';
+import ReactDOM from 'react-dom';
+import {Provider} from 'react-redux';
+import {ConnectedRouter} from 'react-router-redux';
+import createHistory from 'history/createBrowserHistory';
+import configureStore from './store';
 
-store.registerModule('post', postStore);
-router.addRoutes(postRoutes);
+import App from '@/App';
 
-store.dispatch(types.LOAD_POSTS_INDEXES);
+const history = createHistory();
+const store = configureStore({}, history);
 
+ReactDOM.render(
+<Provider store={store}>
+  <ConnectedRouter history={history}>
+  <App/>
+  </ConnectedRouter>
+  </Provider>,
+document.getElementById('app')
+);
