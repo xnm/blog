@@ -4,8 +4,8 @@ node_js:
 
 script: npm run test && npm run build
 
-after_script:
-  - cat ./test/unit/coverage/lcov.info | ./node_modules/.bin/coveralls
+#after_script:
+#  - cat ./test/unit/coverage/lcov.info | ./node_modules/.bin/coveralls
 
 # https://docs.travis-ci.com/user/deployment/pages/
 # Travis CI github pages issue since 2018-03-08
