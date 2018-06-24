@@ -1,6 +1,7 @@
 import moxios from 'moxios';
 import Vue from 'vue';
 import Vuex from 'vuex';
+import sinon from 'sinon';
 import * as types from '@/core/store/mutation-types';
 import store from '@/core/store';
 import sinon from 'sinon';

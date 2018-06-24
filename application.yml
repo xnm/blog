@@ -60,6 +60,10 @@ links:
     name: 'Leo Blog'
     url: 'https://lz5z.com/'
     desc: 'KingSoft worker'
+  songyuqiang:
+    name: '西二旗'
+    url: 'http://www.songyuqiang.com/'
+    desc: '强神'
 
 ## Advance Features
 features:
