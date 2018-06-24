@@ -149,8 +149,8 @@
       "!**/lib/**",
       "!src/*.js",
       "!**/*.{api.js}",
-      "!src/core/index.js",
-      "!src/post/index.js"
+      "!**/core/index.js",
+      "!**/post/index.js"
     ]
   }
 }

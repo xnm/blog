@@ -2,11 +2,12 @@ import gulp from 'gulp';
 import sequence from 'gulp-sequence';
 import jest from 'jest';
 
-import jestConfig from './config/jest.config';
-
 gulp.task('test:unit', function(done) {
   process.env.BABEL_ENV = 'test';
-  jest.runCLI(jestConfig, ['.']).then(async () => {
+  const jestCliConfig = {
+    coverage: true
+  };
+  jest.runCLI(jestCliConfig, ['.']).then(async () => {
     done();
   });
 });
