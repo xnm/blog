@@ -147,7 +147,10 @@
       "!**/config/**",
       "!**/tasks/**",
       "!**/lib/**",
-      "!src/*.js"
+      "!src/*.js",
+      "!**/*.{api.js}",
+      "!src/core/index.js",
+      "!src/post/index.js"
     ]
   }
 }

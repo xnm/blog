@@ -8,5 +8,5 @@ import postRoutes from './routes';
 store.registerModule('post', postStore);
 router.addRoutes(postRoutes);
 
-store.dispatch(types.LOAD_POSTS_INDEXES);
+store.dispatch(types.LOAD_POSTS_INDEXES).then();
 
