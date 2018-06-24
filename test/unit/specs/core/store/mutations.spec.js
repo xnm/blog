@@ -13,7 +13,7 @@ describe('core:mutations', function() {
     let emptyConfig = {};
     mutations[types.LOAD_APP_CONFIG](state, emptyConfig);
 
-    expect(state.config).to.eq(emptyConfig);
+    expect(state.config).toEqual(emptyConfig);
   });
 
   it('# should register nav menus by size', function() {
@@ -26,7 +26,7 @@ describe('core:mutations', function() {
       links: {}
     };
     mutations[types.REGISTER_NAV_MENUS](state, needRegisterMenus);
-    expect(state.menus.length).to.eq(1);
+    expect(state.menus.length).toEqual(1);
   });
 
   it('# should sort by priority after register menu', function() {
@@ -38,20 +38,20 @@ describe('core:mutations', function() {
       expandable: true,
       icon: 'menu',
       links: {},
-      priority:2
+      priority: 2
     };
 
     let needRegisterMenusB = {
       expandable: true,
       icon: 'menu',
       links: {},
-      priority:1
+      priority: 1
     };
 
     mutations[types.REGISTER_NAV_MENUS](state, needRegisterMenusA);
     mutations[types.REGISTER_NAV_MENUS](state, needRegisterMenusB);
 
-    expect(state.menus.length).to.eq(2);
-    expect(state.menus[0].priority).to.be.below(state.menus[1].priority);
+    expect(state.menus.length).toEqual(2);
+    expect(state.menus[0].priority).toBeLessThan(state.menus[1].priority);
   });
 });

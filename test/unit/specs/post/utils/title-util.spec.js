@@ -3,7 +3,7 @@ import titleUtil from '@/post/utils/title-util';
 describe('title-util', function() {
   const DEFAULT_TITLE = 'Someone Blog';
 
-  beforeEach('reset title name', function() {
+  beforeEach(function() {
     document.title = DEFAULT_TITLE;
   });
 
@@ -11,7 +11,7 @@ describe('title-util', function() {
     const SOME_TITLE = 'Some Title';
     titleUtil.setTitle(SOME_TITLE);
 
-    expect(document.title).to.eq(SOME_TITLE + ' | ' + DEFAULT_TITLE);
+    expect(document.title).toEqual(SOME_TITLE + ' | ' + DEFAULT_TITLE);
   });
 
   it('# should be set post title with default app name', function() {
@@ -23,7 +23,7 @@ describe('title-util', function() {
     };
     titleUtil.setPostTitle(post);
 
-    expect(document.title).to.eq(SOME_ARTICLE_TITLE + ' | ' + DEFAULT_TITLE);
+    expect(document.title).toEqual(SOME_ARTICLE_TITLE + ' | ' + DEFAULT_TITLE);
   });
 
   it('# should be set filter type and filter value as title with default app name', function() {
@@ -31,6 +31,6 @@ describe('title-util', function() {
     const FILTER_VALUE = 'Blog';
     titleUtil.setFilteredTitle(FILTER_TYPE, FILTER_VALUE);
 
-    expect(document.title).to.eq(FILTER_TYPE + ' : ' + FILTER_VALUE + ' | ' + DEFAULT_TITLE);
+    expect(document.title).toEqual(FILTER_TYPE + ' : ' + FILTER_VALUE + ' | ' + DEFAULT_TITLE);
   });
 });

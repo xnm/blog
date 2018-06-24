@@ -1,9 +1,10 @@
 /* import mocked vue, @vue/test-utils methods */
 import localVue from '../../../shared/mocks/localVue';
 import {shallow} from '@vue/test-utils';
+import _ from 'lodash';
 
 /* import components import */
-import Navigation from '@/core/components/nav/Navigation';
+import Navigation from '@/core/components/nav/Navigation.vue';
 
 describe('Navigation.vue', function() {
 
@@ -17,7 +18,7 @@ describe('Navigation.vue', function() {
     const description = 'Sub Title';
     const author = 'Author';
 
-    before('mounted component', function() {
+    beforeAll(function() {
       $this.wrapper = shallow(Navigation, {localVue});
     });
 
@@ -27,21 +28,21 @@ describe('Navigation.vue', function() {
         description: description,
         author: author
       });
-      expect($this.wrapper.text()).to.include(title);
+      expect(_.includes($this.wrapper.text(), title)).toBeTruthy();
     });
 
     it('# should not show sidenav when menuVisible is false', function() {
       $this.wrapper.setData({
         menuVisible: false
       });
-      expect($this.wrapper.text()).to.include(title);
+      expect(_.includes($this.wrapper.text(), title)).toBeTruthy();
     });
 
     it('# should show sidenav when menuVisible is true', function() {
       $this.wrapper.setData({
         menuVisible: true
       });
-      expect($this.wrapper.text()).to.include(title);
+      expect(_.includes($this.wrapper.text(), title)).toBeTruthy();
     });
   });
 });

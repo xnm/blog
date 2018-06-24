@@ -10,7 +10,7 @@ describe('App.vue', function() {
 
   let $this = this;
 
-  beforeEach('# mock app config getters', function() {
+  beforeEach(function() {
     let getters = {
       title: () => 'Blog Title',
       description: () => 'Blog Description',
@@ -45,6 +45,6 @@ describe('App.vue', function() {
       ]
     });
 
-    expect(wrapper.contains('div')).to.be.true;
+    expect(wrapper.contains('div')).toBeTruthy();
   });
 });

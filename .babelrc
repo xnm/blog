@@ -23,7 +23,7 @@
         ]
       ],
       "plugins": [
-        "istanbul"
+        "@babel/plugin-transform-runtime"
       ]
     }
   }

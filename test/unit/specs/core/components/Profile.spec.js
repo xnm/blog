@@ -1,7 +1,7 @@
 import localVue from '../../../shared/mocks/localVue';
 import {shallow} from '@vue/test-utils';
 
-import Profile from '@/core/components/nav/Profile';
+import Profile from '@/core/components/nav/Profile.vue';
 
 describe('Profile.vue', function() {
 

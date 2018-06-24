@@ -3,6 +3,7 @@ import Vue from 'vue';
 import Vuex from 'vuex';
 import * as types from '@/core/store/mutation-types';
 import store from '@/core/store';
+import sinon from 'sinon';
 
 import mockedApplicationConfigResponse from '../../../shared/fixtures/core/application.json';
 
@@ -42,8 +43,8 @@ describe('core:actions', function() {
         status: 200,
         response: mockedApplicationConfigResponse
       }).then(function() {
-        expect(mockMutations[types.LOAD_APP_CONFIG].called).to.be.true;
-        expect(mockMutations[types.REGISTER_NAV_MENUS].called).to.be.true;
+        expect(mockMutations[types.LOAD_APP_CONFIG].called).toBeTruthy();
+        expect(mockMutations[types.REGISTER_NAV_MENUS].called).toBeTruthy();
         done();
       });
     });

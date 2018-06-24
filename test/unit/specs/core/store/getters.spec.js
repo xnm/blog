@@ -16,10 +16,10 @@ describe('core:getters', function() {
     const resultDescription = getters.description(state);
     const resultAuthor = getters.author(state);
     const resultAvator = getters.avator(state);
-    expect(resultTitle).to.eq('Inner Title');
-    expect(resultDescription).to.eq('Aquariuslt Blog');
-    expect(resultAuthor).to.eq('Aquariuslt');
-    expect(resultAvator).to.eq('http://imgur.com/test.png');
+    expect(resultTitle).toEqual('Inner Title');
+    expect(resultDescription).toEqual('Aquariuslt Blog');
+    expect(resultAuthor).toEqual('Aquariuslt');
+    expect(resultAvator).toEqual('http://imgur.com/test.png');
   });
 
   it('# should return menus from state.menus', function() {
@@ -37,7 +37,7 @@ describe('core:getters', function() {
     };
 
     const resultMenus = getters.menus(state);
-    expect(resultMenus).to.eq(state.menus);
+    expect(resultMenus).toEqual(state.menus);
   });
 
   it('# should return menus from state.config', function() {
@@ -66,7 +66,7 @@ describe('core:getters', function() {
     };
 
     const resultConfig = getters.config(state);
-    expect(resultConfig).to.eq(config);
+    expect(resultConfig).toEqual(config);
   });
 
 });
