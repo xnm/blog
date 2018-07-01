@@ -1,15 +1,15 @@
 import gulp from 'gulp';
 import sequence from 'gulp-sequence';
-import {Server} from 'karma';
-
-import pathUtil from './utils/path-util';
+import jest from 'jest';
 
 gulp.task('test:unit', function(done) {
   process.env.BABEL_ENV = 'test';
-  new Server({
-    configFile: pathUtil.resolve('tasks/config') + '/karma.conf.babel.js',
-    singleRun: true
-  }, done).start();
+  const jestCliConfig = {
+    coverage: true
+  };
+  jest.runCLI(jestCliConfig, ['.']).then(async () => {
+    done();
+  });
 });
 
 gulp.task('test:e2e', function() {
