@@ -6,7 +6,7 @@ import {Provider} from 'react-redux';
 import {createBrowserHistory} from 'history';
 import {applyMiddleware, createStore} from 'redux';
 import {ConnectedRouter, connectRouter, routerMiddleware} from 'connected-react-router';
-import {composeWithDevTools} from 'redux-devtools-extension';
+import {composeWithDevTools} from 'redux-devtools-extension/developmentOnly';
 import rootReducer from './reducers';
 
 import App from '@/App';
