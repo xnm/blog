@@ -4,7 +4,6 @@ import HomePage from '@/core/containers/HomePage';
 import NotFound from '@/core/containers/NotFound';
 
 class Routes extends React.Component {
-
   render() {
     return (
       <Switch>
