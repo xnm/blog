@@ -1,15 +1,17 @@
 {
   "root": true,
-  "extends": "google",
+  "extends": [
+    "google",
+    "plugin:react/recommended"
+  ],
   "parser": "babel-eslint",
-  "parserOptions": {
-    "sourceType": "module"
-  },
   "env": {
     "browser": true
   },
   "plugins": [
-    "html"
+    "html",
+    "babel",
+    "react"
   ],
   "rules": {
     "semi": [
@@ -29,6 +31,7 @@
     "max-len": "off",
     "linebreak-style": "off",
     "no-unused-vars": "off",
-    "eol-last": "off"
+    "eol-last": "off",
+    "no-invalid-this": "off"
   }
 }

@@ -7,7 +7,6 @@ import MenuItem from 'antd/es/menu/MenuItem';
 import Icon from 'antd/es/icon/index';
 
 class AppSider extends React.Component {
-
   static defaultProps = {
     menus: [
       {
@@ -85,7 +84,6 @@ class AppSider extends React.Component {
       </Sider>
     );
   }
-
 }
 
 export default withRouter(AppSider);

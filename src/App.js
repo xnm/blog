@@ -8,7 +8,6 @@ import AppSider from '@/core/components/AppSider';
 const {Header, Footer, Content} = Layout;
 
 class App extends React.Component {
-
   render() {
     return (
       <Layout className="app-layout">
