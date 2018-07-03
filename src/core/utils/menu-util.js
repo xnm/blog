@@ -3,7 +3,7 @@ const DEFAULT_ICON = 'link';
 
 /**
  * @param {String} name
- * @param {Map|Array} links
+ * @param {Object|Array} links
  * @param {Object} [options]
  * @return {Object}
  **/
