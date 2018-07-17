@@ -6,7 +6,6 @@ import HtmlWebpackPlugin from 'html-webpack-plugin';
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
 import OptimizeCssAssetsPlugin from 'optimize-css-assets-webpack-plugin';
 import WebpackPwaManifest from 'webpack-pwa-manifest';
-import LodashModuleReplacementPlugin from 'lodash-webpack-plugin';
 import OfflinePlugin from 'offline-plugin';
 
 import appConfig from './app.config';
@@ -39,7 +38,6 @@ let webpackProdConfig = merge(webpackBaseConfig, {
     ]
   },
   plugins: [
-    new LodashModuleReplacementPlugin(),
     new OptimizeCssAssetsPlugin({
       cssProcessorOptions: {
         safe: true,

@@ -1,4 +1,5 @@
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
+import LodashModuleReplacementPlugin from 'lodash-webpack-plugin';
 
 import pathUtil from '../utils/path-util';
 
@@ -26,23 +27,7 @@ let webpackBaseConfig = {
           pathUtil.resolve(baseConfig.dir.src),
           pathUtil.resolve(baseConfig.dir.test.unit)
         ],
-        loader: 'babel-loader',
-        query: {
-          presets: [
-            '@babel/preset-env',
-            [
-              '@babel/preset-stage-0',
-              {
-                'decoratorsLegacy': true
-              }
-            ]
-          ],
-          plugins: [
-            '@babel/plugin-transform-runtime',
-            '@babel/plugin-proposal-class-properties',
-            'lodash'
-          ]
-        }
+        loader: 'babel-loader'
       },
       {
         test: /\.css$/,
@@ -76,7 +61,10 @@ let webpackBaseConfig = {
         }
       }
     ]
-  }
+  },
+  plugins: [
+    new LodashModuleReplacementPlugin()
+  ]
 };
 
 export default webpackBaseConfig;
