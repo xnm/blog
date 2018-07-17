@@ -26,7 +26,23 @@ let webpackBaseConfig = {
           pathUtil.resolve(baseConfig.dir.src),
           pathUtil.resolve(baseConfig.dir.test.unit)
         ],
-        loader: 'babel-loader'
+        loader: 'babel-loader',
+        query: {
+          presets: [
+            '@babel/preset-env',
+            [
+              '@babel/preset-stage-0',
+              {
+                'decoratorsLegacy': true
+              }
+            ]
+          ],
+          plugins: [
+            '@babel/plugin-transform-runtime',
+            '@babel/plugin-proposal-class-properties',
+            'lodash'
+          ]
+        }
       },
       {
         test: /\.css$/,

@@ -24,8 +24,7 @@
           return _.some(index[filterType], function(value) {
             return _.isEqual(value, filterValue);
           });
-        }
-        else {
+        } else {
           return _.isEqual(index[filterType], filterValue);
         }
       });
