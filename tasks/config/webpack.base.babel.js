@@ -63,7 +63,10 @@ let webpackBaseConfig = {
     ]
   },
   plugins: [
-    new LodashModuleReplacementPlugin()
+    new LodashModuleReplacementPlugin({
+      shorthands: true,
+      paths: true
+    })
   ]
 };
 
