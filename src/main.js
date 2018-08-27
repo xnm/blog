@@ -8,6 +8,7 @@ import store from './store';
 import i18n from './locale';
 
 import './offline';
+import './ga';
 
 import './core';
 import './post';

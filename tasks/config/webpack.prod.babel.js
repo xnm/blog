@@ -56,6 +56,7 @@ let webpackProdConfig = merge(webpackBaseConfig, {
       template: baseConfig.dir.src + '/index.html',
       favicon: baseConfig.dir.src + '/' + baseConfig.file.favicon,
       google_site_verification: appConfig['features']['google_site_verification'],
+      google_analytics: appConfig['features']['google_analytics'],
       inject: true,
       minify: {
         removeComments: true,

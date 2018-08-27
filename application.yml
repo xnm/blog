@@ -79,7 +79,10 @@ features:
     developer:
       name: 'Aquariuslt'
       url: 'https://github.com/aquariuslt'
+  ## google analytics
   google_site_verification: s3PYm0fCo0ImPqqXoPLiUb_bFdlYODKw54VGSkcFgyE
+  google_analytics: UA-68904127-1
+
 
 ## Others
 cname: 'blog.aquariuslt.com'
