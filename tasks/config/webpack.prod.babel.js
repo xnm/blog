@@ -40,7 +40,6 @@ let webpackProdConfig = merge(webpackBaseConfig, {
   plugins: [
     new OptimizeCssAssetsPlugin({
       cssProcessorOptions: {
-        safe: true,
         discardComments: {
           removeAll: true
         }
