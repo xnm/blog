@@ -1,6 +1,6 @@
 /* import mocked vue, @vue/test-utils methods */
 import localVue from '../../../shared/mocks/localVue';
-import {shallow} from '@vue/test-utils';
+import {shallowMount} from '@vue/test-utils';
 
 import NavMenu from '@/core/components/nav/NavMenu.vue';
 import _ from 'lodash';
@@ -8,13 +8,13 @@ import _ from 'lodash';
 describe('NavMenu.vue', function() {
 
   it('# should mount NavMenu.vue correctly if not set any props', function() {
-    shallow(NavMenu, {localVue});
+    shallowMount(NavMenu, {localVue});
   });
 
   describe('NavMenu.vue: direct internal link menu', function() {
     let $this = this;
     beforeAll(function() {
-      $this.wrapper = shallow(NavMenu, {localVue});
+      $this.wrapper = shallowMount(NavMenu, {localVue});
     });
 
     it('# should render directly link when menu.expandable is false', function() {
@@ -69,7 +69,7 @@ describe('NavMenu.vue', function() {
   describe('NavMenu.vue: expandable link menu', function() {
     let $this = this;
     beforeEach(function() {
-      $this.wrapper = shallow(NavMenu, {localVue});
+      $this.wrapper = shallowMount(NavMenu, {localVue});
     });
 
     it('# should render expandable sub list when menu.expandable is true', function() {

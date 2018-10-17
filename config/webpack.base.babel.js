@@ -45,7 +45,7 @@ let webpackBaseConfig = {
         test: /\.(woff|woff2|ttf|eot)$/,
         loader: 'file-loader',
         options: {
-          limit: 10000,
+          limit: 1000,
           name: baseConfig.dir.dist.fonts + '/' + '[name].[ext]'
         }
       },

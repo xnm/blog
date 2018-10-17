@@ -12,8 +12,7 @@ let baseConfig = {
       js: 'static/js',
       css: 'static/css',
       img: 'static/img',
-      fonts: 'static/fonts',
-      manifest: 'static/manifest'
+      fonts: 'static/fonts'
     },
     test: {
       unit: 'test/unit',
