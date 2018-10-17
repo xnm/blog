@@ -40,8 +40,8 @@
       }
     },
     mounted() {
-      if (window.DISQUS) {
-        this.reset(window.DISQUS);
+      if (window['DISQUS']) {
+        this.reset(window['DISQUS']);
         return;
       }
       this.init();
@@ -65,7 +65,7 @@
           let d = document
             , s = d.createElement('script');
           s.setAttribute('id', 'embed-disqus');
-          s.setAttribute('data-timestamp', +new Date());
+          s.setAttribute('data-timestamp', (new Date()).toString());
           s.type = 'text/javascript';
           s.async = true;
           s.src = `//${this.shortname}.disqus.com/embed.js`
