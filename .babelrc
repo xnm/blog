@@ -4,8 +4,7 @@
   ],
   "plugins": [
     "@babel/plugin-transform-runtime",
-    "@babel/plugin-proposal-class-properties",
-    "lodash"
+    "@babel/plugin-proposal-class-properties"
   ],
   "env": {
     "test": {

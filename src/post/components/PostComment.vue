@@ -9,13 +9,8 @@
 </template>
 
 <script>
-  import VueDisqus from 'vue-disqus/VueDisqus.vue';
-
   export default {
     name: 'post-comment',
-    components: {
-      VueDisqus
-    },
     props: {
       shortname: String
     },

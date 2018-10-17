@@ -12,23 +12,22 @@ let baseConfig = {
       js: 'static/js',
       css: 'static/css',
       img: 'static/img',
+      fonts: 'static/fonts',
       manifest: 'static/manifest'
     },
     test: {
       unit: 'test/unit',
       e2e: 'test/e2e'
     },
-    // assets which need webpack-copy-plugin
     assets: [
       {
-        from: 'src/assets',
-        to: 'assets'
+        from: 'src/static',
+        to: 'static'
       }
     ],
     posts: 'posts',
     post: 'post'
   },
-  // files which need webpack-html-plugin moving during build (or any other)
   file: {
     favicon: 'favicon.png'
   },

@@ -5,8 +5,8 @@ import ora from 'ora';
 
 import webpack from 'webpack';
 
-import baseConfig from './config/base.config';
-import webpackProdConfig from './config/webpack.prod.babel';
+import baseConfig from '../config/base.config';
+import webpackProdConfig from '../config/webpack.prod.babel';
 
 gulp.task('webpack', function(done) {
   let spinner = ora('Webpack building ...');

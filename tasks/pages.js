@@ -8,10 +8,10 @@ import fs from 'fs';
 import log from 'fancy-log';
 import mkdirp from 'mkdirp';
 
-import pathUtil from './utils/path-util';
+import pathUtil from '../config/utils/path-util';
 
-import baseConfig from './config/base.config';
-import appConfig from './config/app.config';
+import baseConfig from '../config/base.config';
+import appConfig from '../config/app.config';
 
 const CNAME_FILENAME = 'CNAME';
 const FALLBACK_FILENAME = '404.html';

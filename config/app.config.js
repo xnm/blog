@@ -4,7 +4,7 @@
 import fs from 'fs';
 import yaml from 'js-yaml';
 
-import pathUtil from '../utils/path-util';
+import pathUtil from './utils/path-util';
 
 const APPLICATION_YML = 'application.yml';
 

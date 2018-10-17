@@ -1,4 +1,4 @@
-import './styles.css';
+import './styles.less';
 
 import Vue from 'vue';
 import VueMaterial from 'vue-material';

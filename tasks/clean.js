@@ -3,7 +3,7 @@ import log from 'fancy-log';
 import rimraf from 'gulp-rimraf';
 import sequence from 'gulp-sequence';
 
-import baseConfig from './config/base.config';
+import baseConfig from '../config/base.config';
 
 gulp.task('clean:cache', function() {
   log.info('Deleting cache folder');

@@ -4,10 +4,10 @@ import log from 'fancy-log';
 import _ from 'lodash';
 
 import RSS from 'rss';
-import pathUtil from './utils/path-util';
+import pathUtil from '../config/utils/path-util';
 
-import baseConfig from './config/base.config';
-import appConfig from './config/app.config';
+import baseConfig from '../config/base.config';
+import appConfig from '../config/app.config';
 
 const DEFAULT_SITE_PROTOCOL = 'https://';
 const DEFAULT_TTL = '60';

@@ -7,9 +7,9 @@ import mkdirp from 'mkdirp';
 import fs from 'fs';
 import _ from 'lodash';
 
-import baseConfig from './config/base.config';
+import baseConfig from '../config/base.config';
 
-import pathUtil from './utils/path-util';
+import pathUtil from '../config/utils/path-util';
 
 import marki from '../lib/md';
 

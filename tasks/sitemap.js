@@ -4,10 +4,10 @@ import _ from 'lodash';
 import fs from 'fs';
 import xml from 'xml';
 
-import pathUtil from './utils/path-util';
+import pathUtil from '../config/utils/path-util';
 
-import baseConfig from './config/base.config';
-import appConfig from './config/app.config';
+import baseConfig from '../config/base.config';
+import appConfig from '../config/app.config';
 
 const XMLNS = 'http://www.sitemaps.org/schemas/sitemap/0.9';
 const SITEMAP_FILENAME = 'sitemap.xml';
