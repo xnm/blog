@@ -1,4 +1,3 @@
-
 import pathUtil from './utils/path-util';
 import baseConfig from './base.config';
 
@@ -42,11 +41,13 @@ let webpackBaseConfig = {
         }
       },
       {
-        test: /\.(woff|woff2|ttf|eot)$/,
+        test: /\.(woff|woff2)$/,
         loader: 'file-loader',
         options: {
-          limit: 1000,
-          name: baseConfig.dir.dist.fonts + '/' + '[name].[ext]'
+          name: '[name].[ext]',
+          useRelativePath: true,
+          publicPath: '/' + baseConfig.dir.dist.fonts,
+          limit: 1000
         }
       },
       {
