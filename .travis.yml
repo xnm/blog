@@ -18,6 +18,6 @@ deploy:
   local_dir: dist
   skip_cleanup: true
   on:
-    branch: VUE
+    branch: vue
   repo: aquariuslt/aquariuslt.github.io
   target_branch: master
