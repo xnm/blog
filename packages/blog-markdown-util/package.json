@@ -1,0 +1,9 @@
+{
+  "name": "@blog/markdown-util",
+  "version": "0.0.1",
+  "description": "blog markdown-util",
+  "author": "Aquariuslt<superaquariuslt@gmail.com>",
+  "license": "MIT",
+  "main": "index.js",
+  "private": true
+}

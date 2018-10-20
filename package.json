@@ -1,6 +1,7 @@
 {
   "name": "blog.aquariuslt.com",
-  "version": "5.0.0@beta",
+  "version": "5.0.0-beta.0",
+  "private": true,
   "description": "Blog using Vue Next Version",
   "repository": "https://github.com/aquariuslt/blog",
   "author": "Aquariuslt<superaquariuslt@gmail.com>",
@@ -112,6 +113,9 @@
     "xml": "^1.0.1",
     "yorkie": "^2.0.0"
   },
+  "workspaces": [
+    "packages/blog-markdown-util"
+  ],
   "config": {
     "commitizen": {
       "path": "cz-conventional-changelog"
@@ -121,12 +125,17 @@
     "extends": [
       "plugin:vue/essential",
       "eslint:recommended"
-    ]
+    ],
+    "env": {
+      "browser": true,
+      "node": true
+    }
   },
   "eslintIgnore": [
     "/config/**",
     "/tasks/**",
-    "/coverage/**"
+    "/coverage/**",
+    "/packages/**"
   ],
   "gitHooks": {
     "pre-commit": "lint-staged"
@@ -191,6 +200,7 @@
       "src/**/*.{js,vue}",
       "!**/config/**",
       "!**/tasks/**",
+      "!**/packages/**",
       "!**/node_modules/**"
     ]
   }
