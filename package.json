@@ -116,6 +116,27 @@
     "packages/blog-markdown-util"
   ],
   "config": {
+    "base": {
+      "dir": {
+        "src": "src",
+        "build": "build",
+        "dist": {
+          "root": "dist",
+          "js": "static/js",
+          "css": "static/css",
+          "img": "static/img",
+          "fonts": "static/fonts",
+          "manifest": "static/manifest"
+        },
+        "test": {
+          "unit": "test/unit",
+          "e2e": "test/e2e"
+        }
+      },
+      "dev": {
+        "port": 5000
+      }
+    },
     "commitizen": {
       "path": "cz-conventional-changelog"
     }
