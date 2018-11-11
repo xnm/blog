@@ -1,22 +1,22 @@
-# IDEA
+# idea
 .idea
 *.iml
 
-# VSCode
+# vscode
 .vscode
 
-# Node
+# nodejs
 node_modules
 package-lock.json
 
 
-# Logs
+# logs
 *.log
 
-# Build & Distribution
+# build & distribution
 .cache
 build
 dist
 
-# Test
+# test
 coverage
