@@ -36,7 +36,6 @@
     "@babel/runtime": "7.1.5",
     "@types/extract-text-webpack-plugin": "^3.0.2",
     "@types/jest": "^23.3.9",
-    "@types/mocha": "^5.2.0",
     "@types/moxios": "^0.4.8",
     "@types/sinon": "^5.0.5",
     "@types/webpack": "^4.4.18",
@@ -123,6 +122,7 @@
       "dir": {
         "src": "src",
         "build": "build",
+        "packages": "packages",
         "dist": {
           "root": "dist",
           "js": "static/js",
@@ -137,7 +137,7 @@
         }
       },
       "dev": {
-        "port": 5000
+        "port": 8080
       }
     },
     "commitizen": {
@@ -213,17 +213,16 @@
       "<rootDir>/node_modules/jest-serializer-vue"
     ],
     "testMatch": [
-      "<rootDir>/test/**/*.test.js"
-    ],
-    "setupFiles": [
-      "<rootDir>/test/unit/shared/hooks/setup"
+      "<rootDir>/test/**/*.test.js",
+      "<rootDir>/packages/*/test/**/*.test.js"
     ],
     "coverageDirectory": "<rootDir>/test/unit/coverage",
+    "collectCoverage": true,
     "collectCoverageFrom": [
       "src/**/*.{js,vue}",
+      "packages/**/*.{js}",
       "!**/config/**",
       "!**/tasks/**",
-      "!**/packages/**",
       "!**/node_modules/**"
     ]
   }

@@ -4,12 +4,8 @@ import jest from 'jest';
 
 gulp.task('test:unit', (done) => {
   process.env.BABEL_ENV = 'test';
-  const jestCliConfig = {
-    coverage: true
-  };
-  jest.runCLI(jestCliConfig, ['.']).then(async () => {
-    done();
-  });
+  jest.run();
+  done();
 });
 
 gulp.task('test:e2e', () => {
