@@ -15,7 +15,8 @@
     "clean": "gulp clean",
     "serve": "gulp serve",
     "build": "gulp build",
-    "test": "gulp test",
+    "test:unit": "gulp test:unit",
+    "test:e2e": "cypress run",
     "serve:prod": "gulp serve:prod"
   },
   "dependencies": {
@@ -34,6 +35,7 @@
     "@babel/preset-env": "7.1.5",
     "@babel/register": "7.0.0",
     "@babel/runtime": "7.1.5",
+    "@cypress/webpack-preprocessor": "^4.0.0",
     "@types/extract-text-webpack-plugin": "^3.0.2",
     "@types/jest": "^23.3.9",
     "@types/moxios": "^0.4.8",
@@ -53,6 +55,7 @@
     "babel-plugin-module-resolver": "^3.1.1",
     "connect-history-api-fallback": "^1.5.0",
     "css-loader": "^1.0.1",
+    "cypress": "^3.1.1",
     "eslint": "^5.9.0",
     "eslint-plugin-jest": "^22.0.0",
     "eslint-plugin-vue": "^5.0.0-beta.3",
@@ -151,8 +154,12 @@
     ],
     "env": {
       "browser": true,
-      "node": true
-    }
+      "node": true,
+      "jest/globals": true
+    },
+    "plugins": [
+      "jest"
+    ]
   },
   "eslintIgnore": [
     "/config/**",

@@ -20,3 +20,4 @@ dist
 
 # test
 coverage
+test/e2e/videos
