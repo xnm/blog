@@ -15,7 +15,8 @@
     "clean": "gulp clean",
     "serve": "gulp serve",
     "build": "gulp build",
-    "test": "gulp test"
+    "test": "gulp test",
+    "serve:prod": "gulp serve:prod"
   },
   "dependencies": {
     "axios": "^0.18.0",
@@ -94,6 +95,7 @@
     "postcss-pxtorem": "^4.0.1",
     "properties-json-loader": "^1.0.0",
     "rss": "^1.2.2",
+    "serve-handler": "^5.0.5",
     "sinon": "^7.1.1",
     "style-loader": "^0.23.1",
     "sw-precache": "^5.2.1",
@@ -210,7 +212,7 @@
       "<rootDir>/node_modules/jest-serializer-vue"
     ],
     "testMatch": [
-      "<rootDir>/test/**/*.spec.js"
+      "<rootDir>/test/**/*.test.js"
     ],
     "setupFiles": [
       "<rootDir>/test/unit/shared/hooks/setup"

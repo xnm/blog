@@ -1,1 +1,1 @@
-module.exports = 'blog markdown util v2';
+export default 'hello blog just ok';

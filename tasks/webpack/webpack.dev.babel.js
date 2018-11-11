@@ -1,4 +1,3 @@
-/* Created by Aquariuslt on 14/04/2017.*/
 import webpack from 'webpack';
 import merge from 'webpack-merge';
 import webpackBaseConfig from './webpack.base.babel';
@@ -60,7 +59,8 @@ let webpackDevConfig = merge(webpackBaseConfig, {
     }),
     new webpack.HotModuleReplacementPlugin(),
     new FriendlyErrorsPlugin(),
-    new VueLoaderPlugin()
+    new VueLoaderPlugin(),
+    new webpack.ProgressPlugin()
   ],
   devServer: {
     host: LOCAL_IP,
