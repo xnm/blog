@@ -60,7 +60,6 @@ let webpackDevConfig = merge(webpackBaseConfig, {
     new webpack.HotModuleReplacementPlugin(),
     new FriendlyErrorsPlugin(),
     new VueLoaderPlugin(),
-    new webpack.ProgressPlugin()
   ],
   devServer: {
     host: LOCAL_IP,
