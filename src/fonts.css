@@ -2,14 +2,18 @@
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 400;
-  src: local(Roboto), url(/static/fonts/roboto.woff) format('woff');
+  src: local(Roboto), url(static/fonts/roboto.woff) format('woff');
 }
 
 @font-face {
   font-family: 'Material Icons';
   font-style: normal;
   font-weight: 400;
-  src: local('Material Icons'), url(/static/fonts/material-icons.woff2) format('woff2');
+  src: local('Material Icons'), url(static/fonts/material-icons.woff2) format('woff2');
+}
+
+body * {
+  font-family: 'Roboto', sans-serif;
 }
 
 .material-icons,

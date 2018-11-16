@@ -22,7 +22,7 @@ let webpackProdConfig = merge(webpackBaseConfig, {
     path: pathUtil.resolve(baseConfig.dir.dist.root),
     filename: baseConfig.dir.dist.js + '/' + '[name].[chunkhash].js',
     chunkFilename: baseConfig.dir.dist.js + '/' + '[id].[chunkhash].js',
-    publicPath: './'
+    publicPath: '/'
   },
   module: {
     rules: [
@@ -95,7 +95,7 @@ let webpackProdConfig = merge(webpackBaseConfig, {
             removeAll: true
           }
         },
-        canPrint: false
+        canPrint: true
       })
     ]
   },
