@@ -16,7 +16,7 @@
     "serve": "gulp serve",
     "build": "gulp build",
     "test": "gulp test",
-    "postinstall": "lerna bootstrap",
+    "postinstall": "lerna run build",
     "serve:prod": "gulp serve:prod"
   },
   "dependencies": {
