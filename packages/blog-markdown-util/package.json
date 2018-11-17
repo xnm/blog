@@ -4,6 +4,11 @@
   "description": "blog markdown-util",
   "author": "Aquariuslt<superaquariuslt@gmail.com>",
   "license": "MIT",
-  "main": "src/index.js",
+  "main": "dist/index.js",
+  "esnext": "src/index.js",
+  "scripts": {
+    "postinstall": "npm run build",
+    "build": "babel src/index.js -d dist"
+  },
   "private": true
 }

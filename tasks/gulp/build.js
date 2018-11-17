@@ -1,5 +1,5 @@
 import gulp from 'gulp';
-import log from 'fancy-log';
+import logger from 'fancy-log';
 import sequence from 'gulp-sequence';
 import ora from 'ora';
 
@@ -14,20 +14,20 @@ gulp.task('webpack', (done) => {
   let spinner = ora('Webpack building ...');
   spinner.start();
   webpack(webpackProdConfig, (error, stats) => {
-    log.info('Webpack build done');
+    logger.info('Webpack build done');
     spinner.stop();
     if (error || stats.hasErrors()) {
       log.error('Webpack build error:', error);
     }
-    log.info(stats.toString(webpackProdConfig.stats));
+    logger.info(stats.toString(webpackProdConfig.stats));
     done();
   });
 });
 
 gulp.task('move', () => {
-  log.info('Moving build dir files into dist folder');
+  logger.info('Moving build dir files into dist folder');
   gulp.src(baseConfig.dir.build + '/**/*').pipe(gulp.dest(baseConfig.dir.dist.root));
-  log.info('Move done');
+  logger.info('Move done');
 });
 
 gulp.task('build', sequence(['clean'], ['webpack'], ['move']));

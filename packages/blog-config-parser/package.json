@@ -1,0 +1,9 @@
+{
+  "name": "@blog/config-parser",
+  "version": "0.0.1",
+  "description": "blog settings parser",
+  "author": "Aquariuslt<superaquariuslt@gmail.com>",
+  "license": "MIT",
+  "main": "src/index.js",
+  "private": true
+}
