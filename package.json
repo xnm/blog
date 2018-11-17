@@ -119,8 +119,7 @@
     "yorkie": "^2.0.0"
   },
   "workspaces": [
-    "packages/blog-markdown-util",
-    "packages/blog-config-parser"
+    "packages/@blog/*"
   ],
   "config": {
     "base": {
@@ -227,7 +226,8 @@
     ],
     "testMatch": [
       "<rootDir>/test/**/*.test.js",
-      "<rootDir>/packages/*/lib/**/*.test.js"
+      "<rootDir>/packages/*/test/**/*.test.js",
+      "<rootDir>/packages/@blog/*/test/**/*.test.js"
     ],
     "coverageDirectory": "<rootDir>/test/unit/coverage",
     "collectCoverage": false,

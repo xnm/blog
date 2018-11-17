@@ -1,5 +1,6 @@
 {
   "name": "@blog/markdown-util",
+  "private": true,
   "version": "0.0.1",
   "description": "blog markdown-util",
   "author": "Aquariuslt<superaquariuslt@gmail.com>",
@@ -10,5 +11,9 @@
     "postinstall": "npm run build",
     "build": "babel src/index.js -d dist"
   },
-  "private": true
+  "dependencies": {
+    "markdown-it": "^8.4.2",
+    "markdown-it-chain": "^1.2.1",
+    "markdown-it-table-of-contents": "^0.4.3"
+  }
 }
