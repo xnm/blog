@@ -31,7 +31,6 @@
     "@babel/cli": "^7.1.5",
     "@babel/core": "7.1.6",
     "@babel/plugin-external-helpers": "7.0.0",
-    "@babel/plugin-transform-modules-commonjs": "^7.1.0",
     "@babel/plugin-transform-runtime": "7.1.0",
     "@babel/polyfill": "7.0.0",
     "@babel/preset-env": "7.1.6",
@@ -107,6 +106,7 @@
     "url-loader": "^1.1.2",
     "vue-jest": "^3.0.0",
     "vue-loader": "^15.4.1",
+    "vue-server-renderer": "^2.5.17",
     "vue-style-loader": "^4.1.0",
     "vue-template-compiler": "^2.5.16",
     "webpack": "^4.25.1",
@@ -153,7 +153,6 @@
       "@babel/preset-env"
     ],
     "plugins": [
-      "@babel/plugin-transform-modules-commonjs",
       "@babel/plugin-transform-runtime"
     ],
     "env": {
@@ -219,7 +218,8 @@
       ".*\\.(vue)$": "<rootDir>/node_modules/vue-jest"
     },
     "transformIgnorePatterns": [
-      "<rootDir>/node_modules/"
+      "<rootDir>/node_modules/",
+      "<rootDir>/packages/@blog/*/node_modules/"
     ],
     "snapshotSerializers": [
       "<rootDir>/node_modules/jest-serializer-vue"
@@ -230,12 +230,12 @@
       "<rootDir>/packages/@blog/*/test/**/*.test.js"
     ],
     "coverageDirectory": "<rootDir>/test/unit/coverage",
-    "collectCoverage": false,
+    "collectCoverage": true,
     "collectCoverageFrom": [
       "src/**/*.{js,vue}",
-      "packages/**/*.{js}",
-      "!**/config/**",
+      "packages/@blog/**/src/**/*.js",
       "!**/tasks/**",
+      "!**/test/**",
       "!**/node_modules/**"
     ]
   }
