@@ -226,7 +226,6 @@
     ],
     "testMatch": [
       "<rootDir>/test/**/*.test.js",
-      "<rootDir>/packages/*/test/**/*.test.js",
       "<rootDir>/packages/@blog/*/test/**/*.test.js"
     ],
     "coverageDirectory": "<rootDir>/test/unit/coverage",
