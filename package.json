@@ -31,6 +31,7 @@
     "@babel/cli": "^7.1.5",
     "@babel/core": "7.1.6",
     "@babel/plugin-external-helpers": "7.0.0",
+    "@babel/plugin-transform-modules-commonjs": "^7.1.0",
     "@babel/plugin-transform-runtime": "7.1.0",
     "@babel/polyfill": "7.0.0",
     "@babel/preset-env": "7.1.6",
@@ -153,7 +154,8 @@
       "@babel/preset-env"
     ],
     "plugins": [
-      "@babel/plugin-transform-runtime"
+      "@babel/plugin-transform-runtime",
+      "@babel/plugin-transform-modules-commonjs"
     ],
     "env": {
       "test": {
@@ -161,7 +163,8 @@
           "@babel/preset-env"
         ],
         "plugins": [
-          "@babel/plugin-transform-runtime"
+          "@babel/plugin-transform-runtime",
+          "@babel/plugin-transform-modules-commonjs"
         ]
       }
     }
@@ -202,6 +205,7 @@
   },
   "jest": {
     "verbose": true,
+    "cache": false,
     "moduleFileExtensions": [
       "js",
       "json",
