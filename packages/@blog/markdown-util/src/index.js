@@ -1,16 +1,15 @@
 import Config from 'markdown-it-chain';
+import anchor from 'markdown-it-anchor';
+
+import slugify from './slugify';
 
 function createInstance() {
 
   const config = new Config();
+  config.plugin('slugify').use(anchor, slugify).end()
+  ;
 
-  config.plugin('none').use(function(){}).end();
-
-  const md = config.toMd();
-
-  return md;
+  return config.toMd();
 }
 
-export default {
-  createInstance
-};
+export default createInstance();
