@@ -65,7 +65,7 @@
     "file-loader": "^2.0.0",
     "friendly-errors-webpack-plugin": "^1.7.0",
     "glob": "^7.1.2",
-    "gulp": "^4.0.0",
+    "gulp": "^3.9.1",
     "gulp-inject-string": "^1.1.2",
     "gulp-rename": "^1.2.2",
     "gulp-rimraf": "^0.2.2",
