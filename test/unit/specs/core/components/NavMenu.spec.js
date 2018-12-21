@@ -1,6 +1,6 @@
 /* import mocked vue, @vue/test-utils methods */
 import localVue from '../../../shared/mocks/localVue';
-import {shallowMount} from '@vue/test-utils';
+import { shallowMount } from '@vue/test-utils';
 
 import NavMenu from '@/core/components/nav/NavMenu.vue';
 import _ from 'lodash';
@@ -8,13 +8,13 @@ import _ from 'lodash';
 describe('NavMenu.vue', function() {
 
   it('# should mount NavMenu.vue correctly if not set any props', function() {
-    shallowMount(NavMenu, {localVue});
+    shallowMount(NavMenu, { localVue });
   });
 
   describe('NavMenu.vue: direct internal link menu', function() {
     let $this = this;
-    beforeAll(function() {
-      $this.wrapper = shallowMount(NavMenu, {localVue});
+    beforeEach(function() {
+      $this.wrapper = shallowMount(NavMenu, { localVue });
     });
 
     it('# should render directly link when menu.expandable is false', function() {
@@ -36,11 +36,11 @@ describe('NavMenu.vue', function() {
           name: 'Google'
         }
       });
-      expect(_.includes($this.wrapper.text(), 'Google')).toBeTruthy();
-      expect($this.wrapper.contains('a')).toBeTruthy();
+      expect($this.wrapper.text()).toEqual('Google');
+      expect($this.wrapper.contains('md-list-item-stub')).toBeTruthy();
 
-      const a = $this.wrapper.findAll('a').at(0);
-      expect(a.is('a')).toBeTruthy();
+      const a = $this.wrapper.findAll('md-list-item-stub').at(0);
+      expect(a.is('md-list-item-stub')).toBeTruthy();
       expect(a.attributes().href).toBeDefined();
       expect(a.attributes().href).toEqual('https://www.google.com');
       expect(a.attributes().target).toBeDefined();
@@ -55,11 +55,11 @@ describe('NavMenu.vue', function() {
           name: 'Tags'
         }
       });
-      expect(_.includes($this.wrapper.text(), 'Tags')).toBeTruthy();
+      expect($this.wrapper.text()).toEqual('Tags');
       expect($this.wrapper.contains('a')).toBeFalsy();
 
-      const li = $this.wrapper.findAll('li').at(0);
-      expect(li.is('li')).toBeTruthy();
+      const li = $this.wrapper.findAll('md-list-item-stub').at(0);
+      expect(li.is('md-list-item-stub')).toBeTruthy();
       expect(li.attributes().to).toBeDefined();
       expect(li.attributes().to).toEqual('/tags');
       expect(li.attributes().target).toBeUndefined();
@@ -69,7 +69,7 @@ describe('NavMenu.vue', function() {
   describe('NavMenu.vue: expandable link menu', function() {
     let $this = this;
     beforeEach(function() {
-      $this.wrapper = shallowMount(NavMenu, {localVue});
+      $this.wrapper = shallowMount(NavMenu, { localVue });
     });
 
     it('# should render expandable sub list when menu.expandable is true', function() {
@@ -81,8 +81,8 @@ describe('NavMenu.vue', function() {
         }
       });
       expect(_.includes($this.wrapper.text(), 'Categories')).toBeTruthy();
-      const li = $this.wrapper.findAll('li').at(0);
-      expect(li.is('li')).toBeTruthy();
+      const li = $this.wrapper.findAll('md-list-item-stub').at(0);
+      expect(li.is('md-list-item-stub')).toBeTruthy();
       expect(li.attributes()['md-expand']).toBeDefined();
     });
 
@@ -100,13 +100,13 @@ describe('NavMenu.vue', function() {
         }
       });
       expect(_.includes($this.wrapper.text(), 'Categories')).toBeTruthy();
-      const li = $this.wrapper.findAll('li').at(0);
-      expect(li.is('li')).toBeTruthy();
+      const li = $this.wrapper.findAll('md-list-item-stub').at(0);
+      expect(li.is('md-list-item-stub')).toBeTruthy();
       expect(li.attributes()['md-expand']).toBeDefined();
 
-      expect($this.wrapper.findAll('li').length === 2).toBeTruthy();
-      const internalLink = $this.wrapper.findAll('li').at(1);
-      expect(internalLink.is('li')).toBeTruthy();
+      expect($this.wrapper.findAll('md-list-item-stub').length === 2).toBeTruthy();
+      const internalLink = $this.wrapper.findAll('md-list-item-stub').at(1);
+      expect(internalLink.is('md-list-item-stub')).toBeTruthy();
       expect(internalLink.attributes().to).toBeDefined();
       expect(internalLink.attributes().to).toEqual('/category/debug');
     });
@@ -126,13 +126,13 @@ describe('NavMenu.vue', function() {
       });
       expect(_.includes($this.wrapper.text(), 'Friend Links')).toBeTruthy();
       expect(_.includes($this.wrapper.text(), 'Kary Gor Blog')).toBeTruthy();
-      const li = $this.wrapper.findAll('li').at(0);
-      expect(li.is('li')).toBeTruthy();
+      const li = $this.wrapper.findAll('md-list-item-stub').at(0);
+      expect(li.is('md-list-item-stub')).toBeTruthy();
       expect(li.attributes()['md-expand']).toBeDefined();
 
-      expect($this.wrapper.findAll('li').length === 2).toBeTruthy();
-      const internalLink = $this.wrapper.findAll('li').at(1);
-      expect(internalLink.is('li')).toBeTruthy();
+      expect($this.wrapper.findAll('md-list-item-stub').length === 2).toBeTruthy();
+      const internalLink = $this.wrapper.findAll('md-list-item-stub').at(1);
+      expect(internalLink.is('md-list-item-stub')).toBeTruthy();
       expect(internalLink.attributes().to).toBeUndefined();
       expect(internalLink.attributes().href).toBeDefined();
       expect(internalLink.attributes().href).toEqual('https://wxsm.space');
