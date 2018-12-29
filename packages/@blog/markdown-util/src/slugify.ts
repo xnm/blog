@@ -1,4 +1,4 @@
-import diacritics from 'diacritics';
+import * as diacritics from 'diacritics';
 
 const remove = diacritics.remove;
 

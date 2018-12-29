@@ -15,10 +15,10 @@ import App from './App.vue';
 Vue.config.productionTip = false;
 Vue.use(VueMaterial);
 
-new Vue({
+const app = new Vue({
   el: '#app',
   store,
   router,
   template: '<app/>',
-  components: { App }
+  components: {App}
 });

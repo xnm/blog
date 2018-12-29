@@ -1,4 +1,4 @@
-import anchor from 'markdown-it-anchor';
+import * as anchor from 'markdown-it-anchor';
 import slugify from '../src/slugify';
 
 

@@ -1,16 +1,18 @@
 import pathUtil from '../utils/path-util';
-import packageJson from '../../package.json';
+import * as packageJson from '../../package.json';
 
 const baseConfig = packageJson.config.base;
 
-let webpackBaseConfig = {
+const webpackBaseConfig = {
   entry: {
-    main: pathUtil.resolve(baseConfig.dir.src) + '/' + 'main.js'
+    main: pathUtil.resolve(baseConfig.dir.src) + '/' + 'main.ts'
   },
   resolve: {
     extensions: [
+      '.ts',
       '.js',
-      '.vue'
+      '.vue',
+      '.json'
     ],
     alias: {
       '@': pathUtil.resolve(baseConfig.dir.src),
@@ -24,13 +26,15 @@ let webpackBaseConfig = {
         loader: 'vue-loader'
       },
       {
-        test: /\.js$/,
+        test: /\.(ts|tsx)$/,
         include: [
           pathUtil.resolve(baseConfig.dir.src),
           pathUtil.resolve(baseConfig.dir.test.unit),
           pathUtil.resolve(baseConfig.dir.test.e2e)
         ],
-        loader: 'babel-loader'
+        exclude: /node_modules/,
+        loader: 'ts-loader',
+        options: {}
       },
       {
         test: /\.(png|jpe?g|gif|svg|ico)$/,
@@ -59,4 +63,6 @@ let webpackBaseConfig = {
   }
 };
 
-export default webpackBaseConfig;
+export {
+  webpackBaseConfig
+};

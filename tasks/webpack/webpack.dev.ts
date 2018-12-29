@@ -1,22 +1,24 @@
-import webpack from 'webpack';
-import merge from 'webpack-merge';
-import webpackBaseConfig from './webpack.base.babel';
+import * as webpack from 'webpack';
+import * as merge from 'webpack-merge';
 
-import HtmlWebpackPlugin from 'html-webpack-plugin';
-import ExtractTextPlugin from 'extract-text-webpack-plugin';
-import FriendlyErrorsPlugin from 'friendly-errors-webpack-plugin';
-import VueLoaderPlugin from 'vue-loader/lib/plugin';
+import * as HtmlWebpackPlugin from 'html-webpack-plugin';
+import * as ExtractTextPlugin from 'extract-text-webpack-plugin';
+import * as FriendlyErrorsPlugin from 'friendly-errors-webpack-plugin';
+import * as OfflinePlugin from 'offline-plugin';
+import * as VueLoaderPlugin from 'vue-loader/lib/plugin';
 
 import pathUtil from '../utils/path-util';
 
-import packageJson from '../../package.json';
+import * as packageJson from '../../package.json';
+
+import {webpackBaseConfig} from './webpack.base';
 
 const baseConfig = packageJson.config.base;
 
 const PROTOCOL = 'http://';
 const LOCAL_IP = '127.0.0.1';
 
-let webpackDevConfig = merge(webpackBaseConfig, {
+const webpackDevConfig = merge(webpackBaseConfig, {
   mode: 'development',
   devtool: 'eval-source-map',
   output: {
@@ -60,6 +62,7 @@ let webpackDevConfig = merge(webpackBaseConfig, {
     new webpack.HotModuleReplacementPlugin(),
     new FriendlyErrorsPlugin(),
     new VueLoaderPlugin(),
+    new OfflinePlugin()
   ],
   devServer: {
     host: LOCAL_IP,
@@ -83,4 +86,4 @@ let webpackDevConfig = merge(webpackBaseConfig, {
   }
 });
 
-export default webpackDevConfig;
+export {webpackDevConfig};

@@ -1,15 +1,15 @@
-import logger from 'fancy-log';
-import gulp from 'gulp';
-import opn from 'opn';
-import webpack from 'webpack';
-import http from 'http';
-import handler from 'serve-handler';
+import * as logger from 'fancy-log';
+import * as gulp from 'gulp';
+import * as opn from 'opn';
+import * as webpack from 'webpack';
+import * as http from 'http';
+import * as handler from 'serve-handler';
+import * as addEntries from 'webpack-dev-server/lib/utils/addEntries';
 
-import WebpackDevServer from 'webpack-dev-server';
-import addEntries from 'webpack-dev-server/lib/utils/addEntries';
+import * as WebpackDevServer from 'webpack-dev-server';
 
-import webpackDevConfig from '../webpack/webpack.dev.babel';
-import packageJson from '../../package.json';
+import {webpackDevConfig} from '../webpack/webpack.dev';
+import * as packageJson from '../../package.json';
 
 import ipUtil from '../utils/ip-util';
 
@@ -21,8 +21,8 @@ const LAN_IP = ipUtil.getLanIp();
 gulp.task('serve', () => {
   logger.info('Webpack building.');
   addEntries(webpackDevConfig, webpackDevConfig.devServer);
-  let compilerConfig = webpack(webpackDevConfig);
-  new WebpackDevServer(compilerConfig, webpackDevConfig.devServer).listen(webpackDevConfig.devServer.port, webpackDevConfig.devServer.host, function(error) {
+  const compilerConfig = webpack(webpackDevConfig);
+  new WebpackDevServer(compilerConfig, webpackDevConfig.devServer).listen(webpackDevConfig.devServer.port, webpackDevConfig.devServer.host, (error) => {
     if (error) {
       logger.error('Webpack build error:', error);
     }

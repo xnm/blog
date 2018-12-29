@@ -1,6 +1,6 @@
-import path from 'path';
+import * as path from 'path';
 
-function resolve(dir) {
+function resolve(dir: string) {
   return path.join(__dirname, '../..', dir);
 }
 

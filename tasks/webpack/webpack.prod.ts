@@ -1,21 +1,21 @@
-import merge from 'webpack-merge';
+import * as merge from 'webpack-merge';
 
-import HtmlWebpackPlugin from 'html-webpack-plugin';
-import OptimizeCssAssetsPlugin from 'optimize-css-assets-webpack-plugin';
-import MiniCssExtractPlugin from 'mini-css-extract-plugin';
-import UglifyJsPlugin from 'uglifyjs-webpack-plugin';
-import OfflinePlugin from 'offline-plugin';
-import VueLoaderPlugin from 'vue-loader/lib/plugin';
+import * as HtmlWebpackPlugin from 'html-webpack-plugin';
+import * as OptimizeCssAssetsPlugin from 'optimize-css-assets-webpack-plugin';
+import * as MiniCssExtractPlugin from 'mini-css-extract-plugin';
+import * as UglifyJsPlugin from 'uglifyjs-webpack-plugin';
+import * as OfflinePlugin from 'offline-plugin';
+import * as VueLoaderPlugin from 'vue-loader/lib/plugin';
 
-import webpackBaseConfig from './webpack.base.babel';
+import {webpackBaseConfig} from './webpack.base';
 
 import pathUtil from '../utils/path-util';
 
-import packageJson from '../../package.json';
+import * as packageJson from '../../package.json';
 
 const baseConfig = packageJson.config.base;
 
-let webpackProdConfig = merge(webpackBaseConfig, {
+const webpackProdConfig = merge(webpackBaseConfig, {
   mode: 'production',
   devtool: 'source-map',
   output: {
@@ -117,4 +117,4 @@ let webpackProdConfig = merge(webpackBaseConfig, {
   }
 });
 
-export default webpackProdConfig;
+export {webpackProdConfig};
