@@ -8,6 +8,7 @@ import store from './store';
 
 import './core';
 import './offline';
+import './locale';
 
 import App from './App.vue';
 
