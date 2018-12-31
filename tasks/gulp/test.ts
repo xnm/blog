@@ -1,16 +1,17 @@
 import * as gulp from 'gulp';
-
+import * as jest from 'jest-cli';
 
 gulp.task('test:unit', (done) => {
+  jest.run();
   done();
 });
 
-gulp.task('test:e2e', () => {
-
+gulp.task('test:e2e', (done) => {
+  done();
 });
 
-gulp.task('test:api', () => {
-
+gulp.task('test:api', (done) => {
+  done();
 });
 
 gulp.task('test', gulp.series(

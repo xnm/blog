@@ -1,0 +1,13 @@
+{
+  "name": "@blog/article-processor",
+  "version": "0.0.1",
+  "description": "blog article processor",
+  "main": "src/index.ts",
+  "author": "Aquariuslt<superaquariuslt@gmail.com>",
+  "license": "MIT",
+  "private": true,
+  "devDependencies": {
+    "@types/jest": "^23.3.10",
+    "jest-cli": "^23.6.0"
+  }
+}
