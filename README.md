@@ -8,6 +8,9 @@
 Blog Application using Vue Version.
 See:[Blog](https://blog.aquariuslt.com)
 
+Next Generation Blog Application branch:
+See Branch [vue@ts](https://github.com/aquariuslt/blog/tree/vue%40ts)
+
 
 ### Features
 - Static Blog (Github Pages/Deploy on your own VPS)
