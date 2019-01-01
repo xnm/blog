@@ -1,16 +1,14 @@
-version: 2
+version: 2.1
 jobs:
   build:
     docker:
       - image: circleci/node:10.14.2
-      - image: circleci/python:3.6.1
+    orbs:
+      codecov: codecov/codecov@1.0.1
     working_directory: ~/blog
     steps:
       - checkout:
           name: SCM
-      - run:
-          name: Pre Dependencies
-          command: sudo pip install codecov
       - run:
           name: Install Dependencies
           command: yarn install
@@ -20,6 +18,5 @@ jobs:
       - run:
           name: Build
           command: yarn build
-      - run:
-          name: Code Coverage
-          command: sudo codecov
+      - codecov/upload:
+          file: ~/blog/test/unit/coverage/lcov.info
