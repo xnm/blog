@@ -2,12 +2,15 @@ version: 2
 jobs:
   build:
     docker:
-      -
-        image: circleci/node:10.14.2
+      - image: circleci/node:10.14.2
+      - image: circleci/python:3.7.2
     working_directory: ~/blog
     steps:
       - checkout:
           name: SCM
+      - run:
+          name: Pre Dependencies
+          command: pip install --user codecov
       - run:
           name: Install Dependencies
           command: yarn install
@@ -19,4 +22,4 @@ jobs:
           command: yarn build
       - run:
           name: Code Coverage
-          command: yarn global add codecov && codecov
+          command: sudo codecov
