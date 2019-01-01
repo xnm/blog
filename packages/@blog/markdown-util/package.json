@@ -5,6 +5,7 @@
   "description": "blog markdown-util",
   "author": "Aquariuslt<superaquariuslt@gmail.com>",
   "license": "MIT",
+
   "main": "src/index.ts",
   "esnext": "src/index.ts",
   "dependencies": {
