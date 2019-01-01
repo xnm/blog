@@ -3,21 +3,20 @@ jobs:
   build:
     docker:
       -
-        image: circleci/node:10.13.0
+        image: circleci/node:10.14.2
     working_directory: ~/blog
     steps:
-      -
-        checkout:
+      - checkout:
           name: SCM
-      -
-        run:
+      - run:
           name: Install Dependencies
           command: yarn install
-      -
-        run:
+      - run:
           name: Unit Test
           command: yarn test
       - run:
           name: Build
           command: yarn build
-
+      - run:
+          name: Code Coverage
+          command: yarn global add codecov && codecov
