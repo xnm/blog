@@ -1,8 +1,9 @@
 # blog.aquariuslt.com
 
 [![CircleCI](https://circleci.com/gh/aquariuslt/blog/tree/vue%40ts.svg?style=svg)](https://circleci.com/gh/aquariuslt/blog/tree/vue%40ts)
-[![codecov](https://codecov.io/gh/aquariuslt/blog/branch/vue%40ts/graph/badge.svg)](https://codecov.io/gh/aquariuslt/blog)
-
+[![Codecov](https://codecov.io/gh/aquariuslt/blog/branch/vue%40ts/graph/badge.svg)](https://codecov.io/gh/aquariuslt/blog)
+[![GitHub License](https://img.shields.io/github/license/aquariuslt/blog.svg)](https://github.com/aquariuslt/blog/blob/vue%40ts/LICENSE)
+[![Dependencies Status](https://david-dm.org/aquariuslt/blog/status.svg)](https://david-dm.org/aquariuslt/blog)
 
 
 Next Generation Blog Application
