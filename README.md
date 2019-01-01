@@ -1,6 +1,7 @@
 # blog.aquariuslt.com
 
 [![CircleCI](https://circleci.com/gh/aquariuslt/blog/tree/vue%40ts.svg?style=svg)](https://circleci.com/gh/aquariuslt/blog/tree/vue%40ts)
+[![codecov](https://codecov.io/gh/aquariuslt/blog/branch/vue%40ts/graph/badge.svg)](https://codecov.io/gh/aquariuslt/blog)
 
 
 

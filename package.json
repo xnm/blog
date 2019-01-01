@@ -17,7 +17,7 @@
     "clean": "gulp clean",
     "serve": "gulp serve",
     "build": "gulp build",
-    "test": "jest"
+    "test": "gulp test"
   },
   "dependencies": {
     "axios": "^0.18.0",
