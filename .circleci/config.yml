@@ -10,7 +10,7 @@ jobs:
           name: SCM
       - run:
           name: Pre Dependencies
-          command: pip install --user codecov
+          command: sudo pip install codecov
       - run:
           name: Install Dependencies
           command: yarn install
