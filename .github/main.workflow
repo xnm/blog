@@ -4,11 +4,11 @@ workflow "Build and test on push" {
 }
 
 action "Install Dependencies" {
-  uses = "aquariuslt/github-actions-yarn@master"
+  uses = "aquariuslt/yarn@master"
 }
 
 action "Unit Test" {
-  uses = "aquariuslt/github-actions-yarn@master"
+  uses = "aquariuslt/yarn@master"
   needs = ["Install Dependencies"]
   args = "test"
 }
