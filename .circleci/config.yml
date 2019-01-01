@@ -1,8 +1,5 @@
 version: 2.1
 
-orbs:
-  codecov: codecov/codecov@1.0.1
-
 jobs:
   build:
     docker:
@@ -20,6 +17,6 @@ jobs:
       - run:
           name: Build
           command: yarn build
-      - codecov/upload:
+      - run:
           name: Coverage Report
-          file: ~/blog/test/unit/coverage/lcov.info
+          command: "bash <(curl -s https://codecov.com/bash) -t $CODECOV_TOKEN"
