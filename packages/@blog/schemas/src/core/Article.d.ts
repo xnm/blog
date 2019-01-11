@@ -1,11 +1,10 @@
 /**
  * @link https://developers.google.com/search/docs/data-types/article#amp
  */
-import URL from './URL';
 import ImageObject from './ImageObject';
-import DateTime from './DateTime';
 import Person from './Person';
 import Organization from './Organization';
+import {DateTime, URL} from './types';
 
 
 export default interface Article {
