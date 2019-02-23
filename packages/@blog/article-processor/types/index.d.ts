@@ -1,7 +1,7 @@
 import Article from '@blog/schemas/src/core/Article';
 
 declare namespace ArticleProcessor {
-  export interface ProcessOptinos {
+  export interface ProcessOptions {
     toc?: boolean;
 
   }

@@ -3,3 +3,8 @@ declare module '*.vue' {
   export default Vue;
 }
 
+
+declare module '*.md' {
+  const value: string;
+  export = value;
+}
