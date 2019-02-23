@@ -1,7 +1,5 @@
 import processor from '../src/index';
 
-import * as normal from './fixtures/input/normal.md';
-
 import * as uslug from 'uslug';
 import * as MarkdownIt from 'markdown-it';
 import * as anchor from 'markdown-it-anchor';
