@@ -12,6 +12,9 @@ describe('markdown-it-context:initialize', () => {
     expect(tokensWithContext.context).toEqual({});
     expect(html).toEqual('<h1>title</h1>' + '\n');
 
-  })
+  });
+
+
+
 });
 

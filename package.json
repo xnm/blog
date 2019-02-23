@@ -55,8 +55,8 @@
     "gulp-yaml": "^2.0.3",
     "html-webpack-plugin": "^3.2.0",
     "http-proxy-middleware": "^0.19.1",
-    "jest": "^24.1.0",
-    "jest-cli": "^24.1.0",
+    "jest": "^23.6.0",
+    "jest-cli": "^23.6.0",
     "jest-raw-loader": "^1.0.1",
     "jest-serializer-vue": "^2.0.2",
     "js-yaml": "^3.12.1",
@@ -110,7 +110,8 @@
     "yorkie": "^2.0.0"
   },
   "workspaces": [
-    "packages/@blog/*"
+    "packages/@blog/*",
+    "packages/@utils/*"
   ],
   "types": "types/index.d.ts",
   "config": {
@@ -177,10 +178,6 @@
       ".*\\.(vue)$": "<rootDir>/node_modules/vue-jest",
       ".*\\.md$": "<rootDir>/node_modules/jest-raw-loader"
     },
-    "transformIgnorePatterns": [
-      "<rootDir>/node_modules/",
-      "<rootDir>/packages/@blog/*/node_modules/"
-    ],
     "snapshotSerializers": [
       "<rootDir>/node_modules/jest-serializer-vue"
     ],
