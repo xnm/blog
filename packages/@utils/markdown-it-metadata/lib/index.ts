@@ -24,9 +24,11 @@ function detectMetadata(md) {
       }
 
       state.src = state.src.replace(METADATA_RE, '');
-      const matchContent = matches[1];
-      state.tokens.context.metadata = parse(matchContent);
 
+      if (state.env) {
+        const matchContent = matches[1];
+        state.env.metadata = parse(matchContent);
+      }
 
       return true;
     }
