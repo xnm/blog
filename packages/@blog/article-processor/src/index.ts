@@ -4,41 +4,36 @@ import * as _ from 'lodash';
 import * as uslug from 'uslug';
 import * as MarkdownIt from 'markdown-it';
 import * as anchor from 'markdown-it-anchor';
-
-import toc from './plugins/toc';
+import ContextPlugin from 'markdown-it-context';
+import MetadataPlugin from 'markdown-it-metadata';
 
 const uslugify = (input) => {
   uslug(input)
 };
 
 let DEFAULT_OPTIONS = {
-  toc: false
+  toc: true
 };
 
 
-function createInstance(context: ArticleProcessor.ProcessContext, options: ArticleProcessor.ProcessOptions) {
-  let markdownIt = MarkdownIt()
+function createInstance() {
+  return MarkdownIt()
+    .use(ContextPlugin)
+    .use(MetadataPlugin)
     .use(anchor, {
       slugify: uslugify
-    })
-  ;
-
-  if (options.toc) {
-    markdownIt.use(toc, {context})
-  }
-
-  return markdownIt;
+    });
 }
 
 
 function process(md: string, options?: ArticleProcessor.ProcessOptions): ArticleProcessor.ProcessContext {
-  let context: ArticleProcessor.ProcessContext = {};
   let mergedOptions = _.merge(DEFAULT_OPTIONS, options);
 
+  let markdownIt = createInstance();
 
-  let markdownIt = createInstance(context, mergedOptions);
-
-  let html = markdownIt.render(md);
+  let tokens = markdownIt.parse(md);
+  let context = tokens.context;
+  let html = markdownIt.renderer.render(md);
 
   context.md = md;
   context.html = html;

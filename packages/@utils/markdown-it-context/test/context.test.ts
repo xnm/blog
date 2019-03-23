@@ -1,13 +1,13 @@
 import * as yaml from 'js-yaml';
 
 import * as MarkdownIt from 'markdown-it';
-import ContextPlugin from '../src/index';
+import ContextPlugin from '../lib';
 
 
 import * as sampleMd from './fixtures/sample.md';
 
 
-describe('markdown-it-context:initialize', () => {
+describe('@utils/markdown-it-context:initialize', () => {
   it('# create context and get in tokens', () => {
     let md = MarkdownIt().use(ContextPlugin);
 
@@ -37,8 +37,6 @@ describe('markdown-it-context:initialize', () => {
           let maxPos = state.eMarks[endLine];
           const block = state.src.slice(startPos, maxPos);
 
-
-          // check if match
 
           const matches = METADATA_RE.exec(block);
 
