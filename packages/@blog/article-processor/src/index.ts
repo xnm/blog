@@ -15,7 +15,6 @@ let DEFAULT_OPTIONS = {
   toc: true
 };
 
-
 function createInstance() {
   return MarkdownIt()
     .use(ContextPlugin)
@@ -26,6 +25,7 @@ function createInstance() {
 }
 
 
+
 function process(md: string, options?: ArticleProcessor.ProcessOptions): ArticleProcessor.ProcessContext {
   let mergedOptions = _.merge(DEFAULT_OPTIONS, options);
 
@@ -33,7 +33,7 @@ function process(md: string, options?: ArticleProcessor.ProcessOptions): Article
 
   let tokens = markdownIt.parse(md);
   let context = tokens.context;
-  let html = markdownIt.renderer.render(md);
+  let html = markdownIt.renderer.render(tokens,{});
 
   context.md = md;
   context.html = html;
