@@ -1,5 +1,5 @@
 {
-  "name": "markdown-it-table",
+  "name": "@utils/markdown-it-toc",
   "version": "1.0.0",
   "main": "lib/index.ts",
   "license": "MIT",

@@ -23,6 +23,7 @@ function generateTOC(md) {
     let shadowTokens = shadowState.tokens;
 
     let headingItems: Array<any> = [];
+    let headingPosition = 0;
     shadowTokens.map((token, index) => {
       if (token.type === 'heading_close') {
         let headingContent = shadowTokens[index - 1].content;
@@ -31,11 +32,11 @@ function generateTOC(md) {
 
         headingItems.push({
           level: headingLevel,
-          id: headingId
+          id: headingId,
+          position: headingPosition++
         });
       }
     });
-
 
     if (state.env) {
       state.env.toc = headingItems;

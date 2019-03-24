@@ -1,5 +1,5 @@
 {
-  "name": "markdown-it-metadata",
+  "name": "@utils/markdown-it-metadata",
   "version": "1.0.0",
   "main": "lib/index.ts",
   "license": "MIT",

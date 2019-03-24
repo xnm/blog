@@ -4,7 +4,8 @@ import * as _ from 'lodash';
 import * as uslug from 'uslug';
 import * as MarkdownIt from 'markdown-it';
 import * as AnchorPlugin from 'markdown-it-anchor';
-import MetadataPlugin from 'markdown-it-metadata';
+import MetadataPlugin from '@utils/markdown-it-metadata';
+import TOCPlugin from '@utils/markdown-it-toc';
 
 const uslugify = (input) => {
   uslug(input)
@@ -17,6 +18,7 @@ let DEFAULT_OPTIONS = {
 function createInstance() {
   return MarkdownIt()
     .use(MetadataPlugin)
+    .use(TOCPlugin)
     .use(AnchorPlugin, {
       slugify: uslugify
     });
@@ -30,7 +32,7 @@ function process(md: string, options?: ArticleProcessor.ProcessOptions): Article
 
   let context = {};
   let tokens = markdownIt.parse(md, context);
-  let html = markdownIt.renderer.render(tokens, {});
+  let html = markdownIt.renderer.render(tokens, context);
 
   context['md'] = md;
   context['html'] = html;
