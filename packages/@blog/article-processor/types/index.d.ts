@@ -23,7 +23,7 @@ type TableOfContent = Array<ContentItem>;
 
 interface ContentItem {
   level: number;
-  position: number;
+  position?: number;
   id: string;
   children?: Array<ContentItem>;
 }

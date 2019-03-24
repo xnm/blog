@@ -1,0 +1,8 @@
+{
+  "name": "markdown-it-table",
+  "version": "1.0.0",
+  "main": "lib/index.ts",
+  "license": "MIT",
+  "author": "Aquariuslt<superaquariuslt@gmail.com>",
+  "private": true
+}

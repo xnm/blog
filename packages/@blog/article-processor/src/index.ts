@@ -3,7 +3,7 @@ import {ArticleProcessor} from '@blog/article-processor/types';
 import * as _ from 'lodash';
 import * as uslug from 'uslug';
 import * as MarkdownIt from 'markdown-it';
-import * as anchor from 'markdown-it-anchor';
+import * as AnchorPlugin from 'markdown-it-anchor';
 import MetadataPlugin from 'markdown-it-metadata';
 
 const uslugify = (input) => {
@@ -17,7 +17,7 @@ let DEFAULT_OPTIONS = {
 function createInstance() {
   return MarkdownIt()
     .use(MetadataPlugin)
-    .use(anchor, {
+    .use(AnchorPlugin, {
       slugify: uslugify
     });
 }
