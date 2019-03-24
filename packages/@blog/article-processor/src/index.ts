@@ -1,19 +1,14 @@
 import {ArticleProcessor} from '@blog/article-processor/types';
 
-import * as _ from 'lodash';
 import * as uslug from 'uslug';
 import * as MarkdownIt from 'markdown-it';
 import * as AnchorPlugin from 'markdown-it-anchor';
-import MetadataPlugin from '@utils/markdown-it-metadata';
-import TOCPlugin from '@utils/markdown-it-toc';
+import {MetadataPlugin, TOCPlugin} from '@utils/markdown-it-plugins/lib';
 
 const uslugify = (input) => {
   uslug(input)
 };
 
-let DEFAULT_OPTIONS = {
-  toc: true
-};
 
 function createInstance() {
   return MarkdownIt()
@@ -26,7 +21,6 @@ function createInstance() {
 
 
 function process(md: string, options?: ArticleProcessor.ProcessOptions): ArticleProcessor.ProcessContext {
-  let mergedOptions = _.merge(DEFAULT_OPTIONS, options);
 
   let markdownIt = createInstance();
 

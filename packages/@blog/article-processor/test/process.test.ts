@@ -12,5 +12,6 @@ describe('@blog/article-processor', () => {
     expect(articleContext).toHaveProperty('metadata');
     expect(articleContext).toHaveProperty('md');
     expect(articleContext).toHaveProperty('html');
+    expect(articleContext).toHaveProperty('toc')
   });
 });

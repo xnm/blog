@@ -1,7 +1,7 @@
 import * as MarkdownIt from 'markdown-it';
-import TOCPlugin from '../lib';
+import TOCPlugin from '../lib/toc';
 
-import * as sampleMd from './fixtures/sample.md';
+import * as sample from './fixtures/sample-toc.md';
 
 describe('@utils/markdown-it-toc', () => {
   it('# should got toc data at env', () => {
@@ -10,7 +10,7 @@ describe('@utils/markdown-it-toc', () => {
 
     let context = {};
 
-    md.parse(sampleMd, context);
+    md.parse(sample, context);
     expect(context).toHaveProperty('toc');
 
 

@@ -1,7 +1,7 @@
 import * as MarkdownIt from 'markdown-it';
-import MetadataPlugin from '../lib';
+import MetadataPlugin from '../lib/metadata';
 
-import * as sampleMd from './fixtures/sample.md';
+import * as sample from './fixtures/sample-metadata.md';
 
 describe('@utils/markdown-it-metadata', () => {
 
@@ -10,7 +10,7 @@ describe('@utils/markdown-it-metadata', () => {
     let md = MarkdownIt().use(MetadataPlugin);
 
     let context = {};
-    md.parse(sampleMd, context);
+    md.parse(sample, context);
 
     expect(context).toHaveProperty('metadata');
     expect(context['metadata']).toHaveProperty('title');
@@ -23,7 +23,7 @@ describe('@utils/markdown-it-metadata', () => {
     let md = MarkdownIt().use(MetadataPlugin);
 
     let context = {};
-    let html = md.render(sampleMd, context);
+    let html = md.render(sample, context);
 
     expect(html).not.toContain('created');
     expect(html).not.toContain('updated');

@@ -180,12 +180,12 @@
       "<rootDir>/packages/@blog/**/*.test.ts",
       "<rootDir>/packages/@utils/**/*.test.ts"
     ],
-    "collectCoverage": false,
+    "collectCoverage": true,
     "coverageDirectory": "<rootDir>/test/unit/coverage",
     "collectCoverageFrom": [
       "src/**/*.{ts,tsx,vue}",
-      "packages/@blog/**/src/**/*.ts",
-      "packages/@utils/**/src/**/*.ts",
+      "packages/@blog/**/lib/**/*.ts",
+      "packages/@utils/**/lib/**/*.ts",
       "!**/tasks/**",
       "!**/test/**",
       "!**/node_modules/**"
