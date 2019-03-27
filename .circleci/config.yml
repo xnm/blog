@@ -12,11 +12,8 @@ jobs:
           name: Install Dependencies
           command: yarn install
       - run:
-          name: Unit Test
-          command: yarn test
-      - run:
-          name: Build
-          command: yarn build
+          name: Unit Test & Build
+          command: yarn ci
       - run:
           name: Coverage Report
           command: "bash <(curl -s https://codecov.io/bash) -t $CODECOV_TOKEN"

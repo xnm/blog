@@ -12,6 +12,6 @@ action "installdependencies" {
 action "unittest" {
   uses = "docker://node:10"
   needs = ["Install Dependencies"]
-  args = "test"
+  args = "ci"
   runs = "yarn"
 }
