@@ -2,7 +2,7 @@
   "name": "@blog/api-generator",
   "version": "0.0.1",
   "description": "blog article processor",
-  "main": "lib/index.ts",
+  "main": "lib/v1/index.ts",
   "author": "Aquariuslt<superaquariuslt@gmail.com>",
   "license": "MIT",
   "private": true
