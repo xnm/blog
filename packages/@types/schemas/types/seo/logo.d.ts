@@ -1,4 +1,4 @@
-import {URL} from '@blog/schemas/src/core/types';
+import {URL} from './other-types';
 
 export default interface Logo {
   logo: URL;

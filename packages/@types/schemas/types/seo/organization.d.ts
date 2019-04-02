@@ -1,4 +1,4 @@
-import Image from '@blog/schemas/src/core/Image';
+import Image from './image';
 
 export default interface Organization {
   name: string;

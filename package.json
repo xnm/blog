@@ -115,7 +115,8 @@
   },
   "workspaces": [
     "packages/@blog/*",
-    "packages/@utils/*"
+    "packages/@utils/*",
+    "packages/@types/*"
   ],
   "types": "types/index.d.ts",
   "config": {

@@ -3,13 +3,13 @@ workflow "Build and test on push" {
   resolves = ["Unit Test"]
 }
 
-action "installdependencies" {
+action "Install Dependencies" {
   uses = "docker://node:10"
   runs = "yarn"
   args = "install"
 }
 
-action "unittest" {
+action "Unit Test" {
   uses = "docker://node:10"
   needs = ["Install Dependencies"]
   args = "ci"
