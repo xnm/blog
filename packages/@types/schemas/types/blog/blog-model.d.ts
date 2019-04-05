@@ -1,6 +1,6 @@
 /**
  * definition of origin data types from markdown-it & markdown-it plugins
- * */
+ */
 declare namespace BlogModel {
   export interface PostFile {
     filename: string;
@@ -11,6 +11,7 @@ declare namespace BlogModel {
     filename: string;
     md: string;
     html: string;
+    permalink?: string;
     metadata: Metadata;
     toc?: ContentItem[];
     images?: string[];

@@ -30,7 +30,7 @@ function collapseHeading(headingItems: ContentItem[]): ContentItem[] {
       }
     } else if (index !== 0 && headingItem.level > headingItems[index - 1].level) {
       headingItem.pid = headingItems[index - 1].position;
-    } else if (index !== 0 && headingItem.level === headingItem[index - 1].level) {
+    } else if (index !== 0 && headingItem.level === headingItems[index - 1].level) {
       headingItem.pid = headingItems[index - 1].pid;
     }
   });
