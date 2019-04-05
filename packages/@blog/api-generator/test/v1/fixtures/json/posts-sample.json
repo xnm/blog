@@ -32,12 +32,37 @@
     ],
     "metadata": {
       "title": "another title",
-      "created": "2019-03-01",
-      "updated": "2019-03-01",
+      "created": "2019-04-01",
+      "updated": "2019-04-01",
       "category": "study",
       "tags": [
         "javascript",
         "graphql"
+      ],
+      "cover": "https://pic-mysite.io/otherpic.png"
+    },
+    "images": [
+      "https://img.pic.com/pic-in-post1.png",
+      "https://img.pic.com/pic-in-post2.png",
+      "https://img.pic.com/pic-in-post3.png",
+      "https://img.pic.com/pic-in-post4.png"
+    ],
+    "summary": "some description for seo..."
+  },
+  {
+    "filename": "then-another-article-title",
+    "md": "...another md source",
+    "html": "...another html code",
+    "toc": [
+    ],
+    "metadata": {
+      "title": "another title",
+      "created": "2019-03-04",
+      "updated": "2019-03-05",
+      "category": "work",
+      "tags": [
+        "java",
+        "android"
       ],
       "cover": "https://pic-mysite.io/otherpic.png"
     },

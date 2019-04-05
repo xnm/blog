@@ -30,6 +30,11 @@ function init(files: string[]): BlogModel.PostFile[] {
   return posts;
 }
 
+/**
+ * @return permalink
+ * @example
+ * - /api/v1/posts/2018/12/30/some-article
+ */
 const getPermalink = (post: BlogModel.Post): string => API_PREFIX + POSTS_API_PREFIX + postUtil.getTimePrefix(post) + postUtil.getPostTitleLink(post);
 
 const fillPermalink = (data: BlogModel.Post[]) => {
@@ -38,12 +43,29 @@ const fillPermalink = (data: BlogModel.Post[]) => {
   });
 };
 
+const sortByCreated = (data: BlogModel.Post[]) => {
+  data.sort((a, b) => {
+    return (a.metadata.created < b.metadata.created) ? 1 : -1;
+  });
+};
+
+/**
+ * @desc to reduce query response size, set `md` and `html` to empty string
+ */
+const reduceSizes = (data: BlogModel.Post[]) => {
+  _.each(data, (post) => {
+    post.md = '';
+    post.html = '';
+  });
+};
+
 const getCategoriesQueryLink = (category): string => API_PREFIX + CATEGORIES_API_PREFIX + '/' + category;
 const getTagsQueryLink = (tag): string => API_PREFIX + TAGS_API_PREFIX + '/' + tag;
 
 
-function generatePostsApi(data: BlogModel.Post[]): BlogApiModel.PostsPermalinkQuery {
+function generatePostsQuery(data: BlogModel.Post[]): BlogApiModel.PostsPermalinkQuery {
   fillPermalink(data);
+
 
   const postApiMap = {};
   _.each(data, (post) => {
@@ -56,9 +78,19 @@ function generatePostsApi(data: BlogModel.Post[]): BlogApiModel.PostsPermalinkQu
   return postApiMap;
 }
 
+function generatePostsOverview(data: BlogModel.Post[]): BlogApiModel.PostsOverview {
+  fillPermalink(data);
+  reduceSizes(data);
+  sortByCreated(data);
+
+  return data;
+}
+
 
 function generateCategoriesQuery(data: BlogModel.Post[]): BlogApiModel.CategoriesQuery {
   fillPermalink(data);
+  reduceSizes(data);
+  sortByCreated(data);
 
   return _.groupBy(data, (post) => {
     return getCategoriesQueryLink(post.metadata.category);
@@ -85,6 +117,9 @@ function generateCategoriesOverview(data: BlogModel.Post[]): BlogApiModel.Catego
 
 function generateTagsQuery(data: BlogModel.Post[]): BlogApiModel.TagsQuery {
   fillPermalink(data);
+  reduceSizes(data);
+  sortByCreated(data);
+
   const tagsQuery = {};
 
   _.each(data, (post) => {
@@ -125,7 +160,8 @@ function generateTagsOverview(data: BlogModel.Post[]): BlogApiModel.TagsOverview
 
 export default {
   init,
-  generatePostsApi,
+  generatePostsQuery,
+  generatePostsOverview,
   generateCategoriesOverview,
   generateCategoriesQuery,
   generateTagsOverview,
