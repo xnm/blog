@@ -21,9 +21,10 @@ declare namespace BlogModel {
   }
 
   export interface ContentItem {
-    level: number;
-    position?: number;
     id: string;
+    position?: number;
+    level: number;
+    pid?: number;
     children?: Array<ContentItem>;
   }
 

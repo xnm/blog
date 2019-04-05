@@ -1,6 +1,5 @@
 import * as uslug from 'uslug';
 
-
 /**
  * @desc get level info from html tag <h1><h2><h3>
  * @return {Number} level of toc
@@ -9,6 +8,47 @@ function measureLevel(tag: String) {
   return parseInt(tag.slice(1));
 }
 
+
+/**
+ * @desc set pid for headingItems
+ * @param headingItems: origin heading data
+ * */
+function collapseHeading(headingItems: Array<any>): Array<any> {
+  const ROOT_PID = -1;
+
+  // 1. fill pid
+  headingItems.map((headingItem, index) => {
+    if (headingItem.level == 1) {
+      headingItem.pid = ROOT_PID;
+    } else if (index != 0 && headingItem.level < headingItems[index - 1].level) {
+      for (let i = index - 1; i > 0; i--) {
+        if (headingItem.level === headingItems[i].level) {
+          headingItem.pid = headingItems[i].pid;
+          break;
+        }
+      }
+    } else if (index != 0 && headingItem.level > headingItems[index - 1].level) {
+      headingItem.pid = headingItems[index - 1].position;
+    } else if (index != 0 && headingItem.level === headingItem[index - 1].level) {
+      headingItem.pid = headingItems[index - 1].pid;
+    }
+  });
+
+  // 2. fill children
+  let newHeadingItems: Array<any> = [];
+  headingItems.map((headingItem) => {
+    if (headingItem.pid === ROOT_PID) {
+      newHeadingItems.push(headingItem);
+    } else {
+      if (!headingItems[headingItem.pid].children) {
+        headingItems[headingItem.pid].children = [];
+      }
+      headingItems[headingItem.pid].children.push(headingItem);
+    }
+  });
+
+  return newHeadingItems;
+}
 
 function generateTOC(md) {
 
@@ -30,6 +70,7 @@ function generateTOC(md) {
         let headingLevel = measureLevel(token.tag);
         let headingId = uslug(headingContent);
 
+
         headingItems.push({
           level: headingLevel,
           id: headingId,
@@ -37,6 +78,9 @@ function generateTOC(md) {
         });
       }
     });
+
+    headingItems = collapseHeading(headingItems);
+
 
     if (state.env) {
       state.env.toc = headingItems;
