@@ -143,11 +143,7 @@
     "pre-commit": "lint-staged"
   },
   "lint-staged": {
-    "src/**/*.ts": [
-      "tslint --fix",
-      "git add"
-    ],
-    "packages/**/*.ts": [
+    ".ts": [
       "tslint --fix",
       "git add"
     ]
