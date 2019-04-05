@@ -1,13 +1,14 @@
 [
   {
+    "filename": "some-article-title",
     "md": "...some md source",
     "html": "...some html code",
     "toc": [
     ],
     "metadata": {
       "title": "some title",
-      "created": "20190301",
-      "update": "20190301",
+      "created": "2019-03-01",
+      "updated": "2019-03-01",
       "category": "life",
       "tags": [
         "traveling",
@@ -21,17 +22,18 @@
       "https://img.pic.com/pic-in-post3.png",
       "https://img.pic.com/pic-in-post4.png"
     ],
-    "description": "some description for seo..."
+    "summary": "some description for seo..."
   },
   {
+    "filename": "another-article-title",
     "md": "...another md source",
     "html": "...another html code",
     "toc": [
     ],
     "metadata": {
-      "title": "second title",
-      "created": "20190301",
-      "update": "20190301",
+      "title": "another title",
+      "created": "2019-03-01",
+      "updated": "2019-03-01",
       "category": "study",
       "tags": [
         "javascript",
@@ -45,6 +47,6 @@
       "https://img.pic.com/pic-in-post3.png",
       "https://img.pic.com/pic-in-post4.png"
     ],
-    "description": "some description for seo..."
+    "summary": "some description for seo..."
   }
 ]

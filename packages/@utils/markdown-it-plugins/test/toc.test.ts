@@ -6,9 +6,9 @@ import * as sample from './fixtures/sample-toc.md';
 describe('@utils/markdown-it-toc', () => {
   it('# should got toc data at env', () => {
 
-    let md = MarkdownIt().use(TOCPlugin);
+    const md = MarkdownIt().use(TOCPlugin);
 
-    let context = {};
+    const context = {};
 
     md.parse(sample, context);
     expect(context).toHaveProperty('toc');

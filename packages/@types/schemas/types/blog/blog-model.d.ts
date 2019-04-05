@@ -2,22 +2,28 @@
  * definition of origin data types from markdown-it & markdown-it plugins
  * */
 declare namespace BlogModel {
-  export interface Post {
-    md: String;
-    html: String;
+  export interface PostFile {
+    filename: string;
+    md: string;
+  }
+
+  export interface Post extends PostFile {
+    filename: string;
+    md: string;
+    html: string;
     metadata: Metadata;
-    toc?: Array<ContentItem>;
-    images?: Array<String>;
-    description?: String;
+    toc?: ContentItem[];
+    images?: string[];
+    summary?: string;
   }
 
   export interface Metadata {
-    title: String;
-    created: String;
-    updated: String;
-    category: String;
-    tags?: Array<String>;
-    cover?: String;
+    title: string;
+    created: string;
+    updated: string;
+    category: string;
+    tags?: string[];
+    cover?: string;
   }
 
   export interface ContentItem {
@@ -25,7 +31,7 @@ declare namespace BlogModel {
     position?: number;
     level: number;
     pid?: number;
-    children?: Array<ContentItem>;
+    children: ContentItem[];
   }
 
 }

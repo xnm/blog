@@ -8,4 +8,4 @@ export {
   TOCPlugin,
   SummaryPlugin,
   DetectImagesPlugin
-}
+};

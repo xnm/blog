@@ -1,48 +1,46 @@
 import * as uslug from 'uslug';
+import ContentItem = BlogModel.ContentItem;
 
 /**
  * @desc get level info from html tag <h1><h2><h3>
  * @return {Number} level of toc
- * */
-function measureLevel(tag: String) {
-  return parseInt(tag.slice(1));
+ */
+function measureLevel(tag: string) {
+  return Number(tag.slice(1));
 }
 
 
 /**
  * @desc set pid for headingItems
  * @param headingItems: origin heading data
- * */
-function collapseHeading(headingItems: Array<any>): Array<any> {
+ */
+function collapseHeading(headingItems: ContentItem[]): ContentItem[] {
   const ROOT_PID = -1;
 
   // 1. fill pid
   headingItems.map((headingItem, index) => {
-    if (headingItem.level == 1) {
+    if (headingItem.level === 1) {
       headingItem.pid = ROOT_PID;
-    } else if (index != 0 && headingItem.level < headingItems[index - 1].level) {
+    } else if (index !== 0 && headingItem.level < headingItems[index - 1].level) {
       for (let i = index - 1; i > 0; i--) {
         if (headingItem.level === headingItems[i].level) {
           headingItem.pid = headingItems[i].pid;
           break;
         }
       }
-    } else if (index != 0 && headingItem.level > headingItems[index - 1].level) {
+    } else if (index !== 0 && headingItem.level > headingItems[index - 1].level) {
       headingItem.pid = headingItems[index - 1].position;
-    } else if (index != 0 && headingItem.level === headingItem[index - 1].level) {
+    } else if (index !== 0 && headingItem.level === headingItem[index - 1].level) {
       headingItem.pid = headingItems[index - 1].pid;
     }
   });
 
   // 2. fill children
-  let newHeadingItems: Array<any> = [];
+  const newHeadingItems: ContentItem[] = [];
   headingItems.map((headingItem) => {
     if (headingItem.pid === ROOT_PID) {
       newHeadingItems.push(headingItem);
-    } else {
-      if (!headingItems[headingItem.pid].children) {
-        headingItems[headingItem.pid].children = [];
-      }
+    } else if (headingItem.pid) {
       headingItems[headingItem.pid].children.push(headingItem);
     }
   });
@@ -55,26 +53,27 @@ function generateTOC(md) {
   let shadowState;
 
 
-  md.core.ruler.push('shadow_state', function (state) {
+  md.core.ruler.push('shadow_state', (state) => {
     shadowState = state;
   });
 
-  md.core.ruler.after('shadow_state', 'generate_toc', function (state) {
-    let shadowTokens = shadowState.tokens;
+  md.core.ruler.after('shadow_state', 'generate_toc', (state) => {
+    const shadowTokens = shadowState.tokens;
 
-    let headingItems: Array<any> = [];
+    let headingItems: ContentItem[] = [];
     let headingPosition = 0;
     shadowTokens.map((token, index) => {
       if (token.type === 'heading_close') {
-        let headingContent = shadowTokens[index - 1].content;
-        let headingLevel = measureLevel(token.tag);
-        let headingId = uslug(headingContent);
+        const headingContent = shadowTokens[index - 1].content;
+        const headingLevel = measureLevel(token.tag);
+        const headingId = uslug(headingContent);
 
 
         headingItems.push({
           level: headingLevel,
           id: headingId,
-          position: headingPosition++
+          position: headingPosition++,
+          children:[]
         });
       }
     });

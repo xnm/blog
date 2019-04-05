@@ -1,7 +1,7 @@
 const DEFAULT_SUMMARY_LENGTH = 100;
 
 function detectSummary(md, options?) {
-  md.core.ruler.push('detect_summary', function (state) {
+  md.core.ruler.push('detect_summary', (state) => {
     let summary = '';
     let summaryLength = DEFAULT_SUMMARY_LENGTH;
 
@@ -9,7 +9,7 @@ function detectSummary(md, options?) {
       summaryLength = options.len;
     }
 
-    let tokens = state.tokens;
+    const tokens = state.tokens;
 
 
     tokens.forEach((token, index) => {

@@ -3,7 +3,7 @@ import * as yaml from 'js-yaml';
 
 const METADATA_RE = new RegExp('```metadata([\\s\\S]*)```');
 
-function parse(meta: String): String {
+function parse(meta: string): string {
   return yaml.load(meta);
 }
 
@@ -13,8 +13,8 @@ function detectMetadata(md) {
     'fence',
     'metadata',
     (state, startLine, endLine) => {
-      let startPos = state.bMarks[startLine] + state.tShift[startLine];
-      let maxPos = state.eMarks[endLine];
+      const startPos = state.bMarks[startLine] + state.tShift[startLine];
+      const maxPos = state.eMarks[endLine];
       const measureBlock = state.src.slice(startPos, maxPos);
 
       const matches = METADATA_RE.exec(measureBlock);
@@ -32,7 +32,7 @@ function detectMetadata(md) {
 
       return true;
     }
-  )
+  );
 }
 
 

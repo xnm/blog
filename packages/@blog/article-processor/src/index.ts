@@ -4,7 +4,7 @@ import * as AnchorPlugin from 'markdown-it-anchor';
 import {MetadataPlugin, TOCPlugin, SummaryPlugin, DetectImagesPlugin} from '@utils/markdown-it-plugins/lib';
 
 const uslugify = (input) => {
-  uslug(input)
+  uslug(input);
 };
 
 
@@ -22,11 +22,11 @@ function createInstance() {
 
 function process(md: string) {
 
-  let markdownIt = createInstance();
+  const markdownIt = createInstance();
 
-  let context = {};
-  let tokens = markdownIt.parse(md, context);
-  let html = markdownIt.renderer.render(tokens, context);
+  const context = {};
+  const tokens = markdownIt.parse(md, context);
+  const html = markdownIt.renderer.render(tokens, context);
 
   context['md'] = md;
   context['html'] = html;

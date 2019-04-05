@@ -7,9 +7,9 @@ describe('@utils/markdown-it-metadata', () => {
 
   it('# detect metadata and add parsed metadata at tokens', () => {
 
-    let md = MarkdownIt().use(MetadataPlugin);
+    const md = MarkdownIt().use(MetadataPlugin);
 
-    let context = {};
+    const context = {};
     md.parse(sample, context);
 
     expect(context).toHaveProperty('metadata');
@@ -20,10 +20,10 @@ describe('@utils/markdown-it-metadata', () => {
 
 
   it('# detect metadata and will not appear in renderer', () => {
-    let md = MarkdownIt().use(MetadataPlugin);
+    const md = MarkdownIt().use(MetadataPlugin);
 
-    let context = {};
-    let html = md.render(sample, context);
+    const context = {};
+    const html = md.render(sample, context);
 
     expect(html).not.toContain('created');
     expect(html).not.toContain('updated');

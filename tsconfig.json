@@ -9,10 +9,10 @@
     "baseUrl": "./packages",
     "paths": {
       "@blog/*": [
-        "./*/src"
+        "./*/lib"
       ],
       "@utils/*": [
-        "./*/src"
+        "./*/lib"
       ]
     }
   }

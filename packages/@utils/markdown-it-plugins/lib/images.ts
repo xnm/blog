@@ -3,9 +3,9 @@ import * as _ from 'lodash';
 function detectImages(md) {
 
 
-  md.core.ruler.push('detect_images', function (state) {
-    let tokens = state.tokens;
-    let images: Array<String> = [];
+  md.core.ruler.push('detect_images', (state) => {
+    const tokens = state.tokens;
+    const images: string[] = [];
 
 
     tokens.map((token) => {
@@ -18,7 +18,7 @@ function detectImages(md) {
                   const imageUrl = imageAttr[1];
                   images.push(imageUrl);
                 }
-              })
+              });
             }
           });
         }
