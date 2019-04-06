@@ -1,23 +1,10 @@
 import * as _ from 'lodash';
-import * as path from 'path';
-
-import postsScanner from '../..//lib/v1/posts-scanner';
 import postsApi from '../../lib/v1/posts-api';
 
 import * as posts from './fixtures/json/posts-sample.json';
 
 
 describe('@blog/api-generator: posts-api', () => {
-
-  it('# should init posts with scanned file result', () => {
-    const mdFiles = postsScanner.scan(path.resolve(__dirname, './fixtures'));
-    const initedPostFile = postsApi.init(mdFiles);
-
-    expect(initedPostFile.length).toBe(2);
-    expect(_.head(initedPostFile)).toHaveProperty('filename');
-    expect(_.head(initedPostFile)).toHaveProperty('md');
-  });
-
 
   it('# should generate posts query by permalink', () => {
     const postsMap = postsApi.generatePostsQuery(posts);

@@ -1,7 +1,7 @@
 # 第一标题
 
 ```metadata
-title: 测试标题
+title: foo-title
 created: 2019-03-22
 updated: 2019-03-22
 category: test-category

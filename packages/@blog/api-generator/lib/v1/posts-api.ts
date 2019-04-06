@@ -1,45 +1,15 @@
-import postUtil from '../utils/post-util';
+import {format} from 'date-fns';
 import * as _ from 'lodash';
-import * as path from "path";
-import * as fs from 'fs';
-import Overview = BlogApiModel.Overview;
 
 const API_PREFIX = '/api/v1';
 const POSTS_API_PREFIX = '/posts';
 const CATEGORIES_API_PREFIX = '/categories';
 const TAGS_API_PREFIX = '/tags';
 
-/**
- * @desc init posts object
- * @param files: the scanned md file paths
- * @return posts to be handle
- */
-function init(files: string[]): BlogModel.PostFile[] {
-  const posts: BlogModel.PostFile[] = [];
-
-  files.forEach((filepath) => {
-    const filename = path.basename(filepath, '.md');
-    const mdContent = fs.readFileSync(filepath).toString();
-
-    posts.push({
-      filename,
-      md: mdContent
-    });
-  });
-
-  return posts;
-}
-
-/**
- * @return permalink
- * @example
- * - /api/v1/posts/2018/12/30/some-article
- */
-const getPermalink = (post: BlogModel.Post): string => API_PREFIX + POSTS_API_PREFIX + postUtil.getTimePrefix(post) + postUtil.getPostTitleLink(post);
 
 const fillPermalink = (data: BlogModel.Post[]) => {
   _.each(data, (post) => {
-    post.permalink = getPermalink(post);
+    post.permalink = buildPermalink(post.metadata.created, post.filename);
   });
 };
 
@@ -59,8 +29,10 @@ const reduceSizes = (data: BlogModel.Post[]) => {
   });
 };
 
-const getCategoriesQueryLink = (category): string => API_PREFIX + CATEGORIES_API_PREFIX + '/' + category;
-const getTagsQueryLink = (tag): string => API_PREFIX + TAGS_API_PREFIX + '/' + tag;
+
+const buildPermalink = (created: string, filename: string): string => API_PREFIX + POSTS_API_PREFIX + '/' + format((new Date(created)), 'YYYY/MM/DD') + '/' + filename;
+const buildCategoriesQueryLink = (category): string => API_PREFIX + CATEGORIES_API_PREFIX + '/' + category;
+const buildTagsQueryLink = (tag): string => API_PREFIX + TAGS_API_PREFIX + '/' + tag;
 
 
 function generatePostsQuery(data: BlogModel.Post[]): BlogApiModel.PostsPermalinkQuery {
@@ -86,14 +58,13 @@ function generatePostsOverview(data: BlogModel.Post[]): BlogApiModel.PostsOvervi
   return data;
 }
 
-
 function generateCategoriesQuery(data: BlogModel.Post[]): BlogApiModel.CategoriesQuery {
   fillPermalink(data);
   reduceSizes(data);
   sortByCreated(data);
 
   return _.groupBy(data, (post) => {
-    return getCategoriesQueryLink(post.metadata.category);
+    return buildCategoriesQueryLink(post.metadata.category);
   });
 }
 
@@ -102,18 +73,17 @@ function generateCategoriesOverview(data: BlogModel.Post[]): BlogApiModel.Catego
     return post.metadata.category;
   });
 
-  const categoriesOverview: Overview[] = [];
+  const categoriesOverview: BlogApiModel.Overview[] = [];
   _.each(_.keys(categoriesMap), (category) => {
     categoriesOverview.push({
       name: category,
       total: categoriesMap[category].length,
-      link: getCategoriesQueryLink(category)
+      link: buildCategoriesQueryLink(category)
     });
   });
 
   return categoriesOverview;
 }
-
 
 function generateTagsQuery(data: BlogModel.Post[]): BlogApiModel.TagsQuery {
   fillPermalink(data);
@@ -125,7 +95,7 @@ function generateTagsQuery(data: BlogModel.Post[]): BlogApiModel.TagsQuery {
   _.each(data, (post) => {
     if (post.metadata.tags) {
       _.each(post.metadata.tags, (tag) => {
-        const tagApiPrefix = getTagsQueryLink(tag);
+        const tagApiPrefix = buildTagsQueryLink(tag);
         if (!tagsQuery.hasOwnProperty(tagApiPrefix)) {
           tagsQuery[tagApiPrefix] = [];
         }
@@ -146,7 +116,7 @@ function generateTagsOverview(data: BlogModel.Post[]): BlogApiModel.TagsOverview
           tagsMap[tag] = {
             name: tag,
             total: 0,
-            link: getTagsQueryLink(tag)
+            link: buildTagsQueryLink(tag)
           };
         }
         tagsMap[tag].total++;
@@ -159,7 +129,6 @@ function generateTagsOverview(data: BlogModel.Post[]): BlogApiModel.TagsOverview
 
 
 export default {
-  init,
   generatePostsQuery,
   generatePostsOverview,
   generateCategoriesOverview,

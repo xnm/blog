@@ -3,7 +3,7 @@ import * as yaml from 'js-yaml';
 
 const METADATA_RE = new RegExp('```metadata([\\s\\S]*)```');
 
-function parse(meta: string): string {
+function parse(meta: string) {
   return yaml.load(meta);
 }
 
