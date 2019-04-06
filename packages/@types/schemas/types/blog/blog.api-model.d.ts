@@ -13,6 +13,10 @@ declare namespace BlogApiModel {
    */
   export type PostsOverview = BlogModel.Post[];
 
+  export interface PostsOverviewQuery {
+    [path: string]: PostsOverview;
+  }
+
   /**
    * @example
    * - /api/v1/posts/:year
@@ -45,6 +49,10 @@ declare namespace BlogApiModel {
    */
   export type CategoriesOverview = BlogApiModel.Overview[];
 
+  export interface CategoriesOverviewQuery {
+    [path: string]: CategoriesOverview;
+  }
+
   /**
    * @example
    * - /api/v1/categories/:category
@@ -60,6 +68,9 @@ declare namespace BlogApiModel {
    */
   export type TagsOverview = BlogApiModel.Overview[];
 
+  export interface TagsOverviewQuery {
+    [path: string]: TagsOverview;
+  }
 
   /**
    * @example

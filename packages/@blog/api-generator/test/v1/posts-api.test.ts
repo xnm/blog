@@ -14,7 +14,8 @@ describe('@blog/api-generator: posts-api', () => {
   });
 
   it('# should generate posts overview', () => {
-    const postsOverview = postsApi.generatePostsOverview(posts);
+    const postsOverviewQuery = postsApi.generatePostsOverview(posts);
+    const postsOverview = postsOverviewQuery[_.keys(postsOverviewQuery)[0]];
     expect(postsOverview.length).toEqual(posts.length);
     expect(postsOverview[0].md).toEqual('');
     expect(postsOverview[0].html).toEqual('');
@@ -22,7 +23,9 @@ describe('@blog/api-generator: posts-api', () => {
 
 
   it('# should generate categories overview', () => {
-    const categoriesOverview = postsApi.generateCategoriesOverview(posts);
+    const categoriesOverviewQuery = postsApi.generateCategoriesOverview(posts);
+
+    const categoriesOverview = categoriesOverviewQuery[_.keys(categoriesOverviewQuery)[0]];
 
     expect(_.isArray(categoriesOverview)).toBeTruthy();
     expect(categoriesOverview.length).toEqual(3);
@@ -46,7 +49,8 @@ describe('@blog/api-generator: posts-api', () => {
   });
 
   it('# should generate tags overview', () => {
-    const tagsOverview = postsApi.generateTagsOverview(posts);
+    const tagsOverviewQuery = postsApi.generateTagsOverview(posts);
+    const tagsOverview = tagsOverviewQuery[_.keys(tagsOverviewQuery)[0]];
 
     expect(_.isArray(tagsOverview)).toBeTruthy();
     expect(tagsOverview.length).toEqual(6);

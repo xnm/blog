@@ -22,11 +22,15 @@ const sortByCreated = (data: BlogModel.Post[]) => {
 /**
  * @desc to reduce query response size, set `md` and `html` to empty string
  */
-const reduceSizes = (data: BlogModel.Post[]) => {
-  _.each(data, (post) => {
+const reduceSizes = (data: BlogModel.Post[]): BlogModel.Post[] => {
+  const mutableCopies = _.cloneDeep(data);
+
+  _.each(mutableCopies, (post) => {
     post.md = '';
     post.html = '';
   });
+
+  return mutableCopies;
 };
 
 
@@ -37,7 +41,6 @@ const buildTagsQueryLink = (tag): string => API_PREFIX + TAGS_API_PREFIX + '/' +
 
 function generatePostsQuery(data: BlogModel.Post[]): BlogApiModel.PostsPermalinkQuery {
   fillPermalink(data);
-
 
   const postApiMap = {};
   _.each(data, (post) => {
@@ -50,25 +53,25 @@ function generatePostsQuery(data: BlogModel.Post[]): BlogApiModel.PostsPermalink
   return postApiMap;
 }
 
-function generatePostsOverview(data: BlogModel.Post[]): BlogApiModel.PostsOverview {
+function generatePostsOverview(data: BlogModel.Post[]): BlogApiModel.PostsOverviewQuery {
   fillPermalink(data);
-  reduceSizes(data);
   sortByCreated(data);
 
-  return data;
+  return {
+    [API_PREFIX + POSTS_API_PREFIX]: reduceSizes(data)
+  };
 }
 
 function generateCategoriesQuery(data: BlogModel.Post[]): BlogApiModel.CategoriesQuery {
   fillPermalink(data);
-  reduceSizes(data);
   sortByCreated(data);
 
-  return _.groupBy(data, (post) => {
+  return _.groupBy(reduceSizes(data), (post) => {
     return buildCategoriesQueryLink(post.metadata.category);
   });
 }
 
-function generateCategoriesOverview(data: BlogModel.Post[]): BlogApiModel.CategoriesOverview {
+function generateCategoriesOverview(data: BlogModel.Post[]): BlogApiModel.CategoriesOverviewQuery {
   const categoriesMap = _.groupBy(data, (post) => {
     return post.metadata.category;
   });
@@ -82,17 +85,18 @@ function generateCategoriesOverview(data: BlogModel.Post[]): BlogApiModel.Catego
     });
   });
 
-  return categoriesOverview;
+  return {
+    [API_PREFIX + CATEGORIES_API_PREFIX]: categoriesOverview
+  };
 }
 
 function generateTagsQuery(data: BlogModel.Post[]): BlogApiModel.TagsQuery {
   fillPermalink(data);
-  reduceSizes(data);
   sortByCreated(data);
 
   const tagsQuery = {};
 
-  _.each(data, (post) => {
+  _.each(reduceSizes(data), (post) => {
     if (post.metadata.tags) {
       _.each(post.metadata.tags, (tag) => {
         const tagApiPrefix = buildTagsQueryLink(tag);
@@ -107,7 +111,7 @@ function generateTagsQuery(data: BlogModel.Post[]): BlogApiModel.TagsQuery {
   return tagsQuery;
 }
 
-function generateTagsOverview(data: BlogModel.Post[]): BlogApiModel.TagsOverview {
+function generateTagsOverview(data: BlogModel.Post[]): BlogApiModel.TagsOverviewQuery {
   const tagsMap = {};
   _.each(data, (post) => {
     if (post.metadata.tags) {
@@ -124,7 +128,9 @@ function generateTagsOverview(data: BlogModel.Post[]): BlogApiModel.TagsOverview
     }
   });
 
-  return _.values(tagsMap);
+  return {
+    [API_PREFIX + TAGS_API_PREFIX]: _.values(tagsMap)
+  };
 }
 
 
