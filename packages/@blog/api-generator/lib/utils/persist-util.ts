@@ -15,10 +15,9 @@ function persist(folder: string, data: object, extension = '.json') {
   _.each(_.keys(data), (suffix: string) => {
     const targetFile = folder + suffix + extension;
     mkdirp.sync(path.dirname(targetFile));
-    fs.writeFileSync(folder + suffix + extension, JSON.stringify(data[suffix]));
+    fs.writeFileSync(folder + suffix + extension, extension === '.json' ? JSON.stringify(data[suffix]) : data[suffix]);
   });
 }
-
 
 
 export default {

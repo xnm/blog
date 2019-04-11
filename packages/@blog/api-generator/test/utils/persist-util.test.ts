@@ -2,8 +2,10 @@ import * as path from 'path';
 
 import persistUtil from '../../lib/utils/persist-util';
 import postsApi from '../../lib/v1/posts-api';
+import seoApi from '../../lib/v1/seo-api';
 
 import * as posts from '../v1/fixtures/json/posts-sample.json';
+import * as config from '../v1/fixtures/json/config-sample.json';
 
 describe('@blog/api-generator: persist-util', () => {
 
@@ -37,4 +39,13 @@ describe('@blog/api-generator: persist-util', () => {
     persistUtil.persist(path.join(__dirname, '/dist/'), tagsMap);
   });
 
+  it('# should persist sitemap xml correctly', () => {
+    const sitemapApi = seoApi.generateSiteMapApi(config, posts);
+    persistUtil.persist(path.join(__dirname, '/dist/'), sitemapApi, '.xml');
+  });
+
+  it('# should persist feeds xml correctly', () => {
+    const feedsApi = seoApi.generateFeedsApi(config, posts);
+    persistUtil.persist(path.join(__dirname, '/dist/'), feedsApi, '');
+  });
 });
