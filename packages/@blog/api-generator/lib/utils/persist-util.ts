@@ -4,6 +4,8 @@ import * as path from 'path';
 import * as mkdirp from 'mkdirp';
 
 
+const DEFAULT_EXTENSIONS = '.json';
+
 /**
  * @desc should persist data as type with compression
  * @param folder: the folder to build data, usually ${PROJECT_DIR}/dist
@@ -11,11 +13,11 @@ import * as mkdirp from 'mkdirp';
  * @param extension: file extension, default is `.json`,
  *        considering `.xml`(sitemap.xml, feeds.xml),`.txt`(robots.txt)
  */
-function persist(folder: string, data: object, extension = '.json') {
+function persist(folder: string, data: object, extension = DEFAULT_EXTENSIONS) {
   _.each(_.keys(data), (suffix: string) => {
     const targetFile = folder + suffix + extension;
     mkdirp.sync(path.dirname(targetFile));
-    fs.writeFileSync(folder + suffix + extension, extension === '.json' ? JSON.stringify(data[suffix]) : data[suffix]);
+    fs.writeFileSync(folder + suffix + extension, extension === DEFAULT_EXTENSIONS ? JSON.stringify(data[suffix]) : data[suffix]);
   });
 }
 

@@ -65,7 +65,7 @@ function generateSiteMapApi(config: Config.App, data: BlogModel.Post[]) {
   });
 
   return {
-    [SITEMAP_URL]: sitemap
+    [SITEMAP_URL]: sitemap.toString()
   };
 }
 
