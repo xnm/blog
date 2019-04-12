@@ -1,15 +1,17 @@
 import * as sm from 'sitemap';
+import robotstxt from 'generate-robotstxt';
 import {Feed} from 'feed';
 import {format} from "date-fns";
-
 
 const POSTS_URL_PREFIX = '/posts';
 
 const SITEMAP_URL = '/sitemap';
 
-const FEEDS_RSS2_URL = 'feed/rss';
-const FEEDS_ATOM_URL = 'feed/atom';
-const FEEDS_JSON_URL = 'feed/json';
+const FEEDS_RSS2_URL = '/feed/rss';
+const FEEDS_ATOM_URL = '/feed/atom';
+const FEEDS_JSON_URL = '/feed/json';
+
+const ROBOTS_TEXT_URL = '/robots.txt';
 
 const buildPostPermalink = (created: string, filename: string): string => POSTS_URL_PREFIX + '/' + format((new Date(created)), 'YYYY/MM/DD') + '/' + filename;
 
@@ -70,7 +72,18 @@ function generateSiteMapApi(config: Config.App, data: BlogModel.Post[]) {
 }
 
 
+async function generateRobotsTxt(config: Config.App, data: BlogModel.Post[]) {
+  const robotsTxtContent = await robotstxt({
+    sitemap: config.host + SITEMAP_URL,
+    host: config.host
+  });
+  return {
+    [ROBOTS_TEXT_URL]: robotsTxtContent
+  };
+}
+
 export default {
   generateFeedsApi,
-  generateSiteMapApi
+  generateSiteMapApi,
+  generateRobotsTxt
 };

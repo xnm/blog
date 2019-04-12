@@ -48,4 +48,9 @@ describe('@blog/api-generator: persist-util', () => {
     const feedsApi = seoApi.generateFeedsApi(config, posts);
     persistUtil.persist(path.join(__dirname, '/dist/'), feedsApi, '');
   });
+
+  it('# should persist robots.txt correctly', async () => {
+    const robotsApi = await seoApi.generateRobotsTxt(config, posts);
+    persistUtil.persist(path.join(__dirname, '/dist/'), robotsApi, '');
+  });
 });

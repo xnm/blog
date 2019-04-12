@@ -15,8 +15,14 @@ describe('@blog/api-generator: seo-api', () => {
 
   it('# should generate atom/rss correctly', () => {
     const feedsApi = seoApi.generateFeedsApi(config, posts);
-    expect(feedsApi).toHaveProperty('feed/atom');
-    expect(feedsApi).toHaveProperty('feed/json');
-    expect(feedsApi).toHaveProperty('feed/rss');
+    expect(feedsApi).toHaveProperty('/feed/atom');
+    expect(feedsApi).toHaveProperty('/feed/json');
+    expect(feedsApi).toHaveProperty('/feed/rss');
+  });
+
+  it('# should generate robots.txt correctly', async () => {
+    const robotsTxtApi = await seoApi.generateRobotsTxt(config, posts);
+    expect(_.head(_.keys(robotsTxtApi))).toEqual('/robots.txt');
+    expect(_.keys(robotsTxtApi).length).toEqual(1);
   });
 });
