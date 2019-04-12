@@ -15,8 +15,8 @@ describe('@blog/api-generator: seo-api', () => {
 
   it('# should generate atom/rss correctly', () => {
     const feedsApi = seoApi.generateFeedsApi(config, posts);
-    expect(feedsApi).toHaveProperty('/atom');
-    expect(feedsApi).toHaveProperty('/json');
-    expect(feedsApi).toHaveProperty('/rss');
+    expect(feedsApi).toHaveProperty('feed/atom');
+    expect(feedsApi).toHaveProperty('feed/json');
+    expect(feedsApi).toHaveProperty('feed/rss');
   });
 });
