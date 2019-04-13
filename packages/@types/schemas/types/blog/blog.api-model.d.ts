@@ -1,4 +1,9 @@
 declare namespace BlogApiModel {
+
+  interface ApiQuery {
+    [path: string]: string | object | object[];
+  }
+
   interface Overview {
     name: string;
     total: number;
@@ -8,34 +13,20 @@ declare namespace BlogApiModel {
   /**
    * @example
    * - /api/v1/posts
+   * - /api/v1/posts/:year
+   * - /api/v1/posts/:year/:month
    */
   export type PostsOverview = BlogModel.Post[];
 
-  export interface PostsOverviewQuery {
+  export interface PostsOverviewQuery extends ApiQuery {
     [path: string]: PostsOverview;
-  }
-
-  /**
-   * @example
-   * - /api/v1/posts/:year
-   */
-  export interface ByYearPostsQuery {
-    [path: string]: BlogModel.Post[]
-  }
-
-  /**
-   * @example
-   * - /api/v1/posts/:year/:month
-   */
-  export interface ByMonthPostsQuery {
-    [path: string]: BlogModel.Post[]
   }
 
   /**
    * @example
    * - /api/v1/posts/:year/month/:date/:filename
    */
-  export interface PostsPermalinkQuery {
+  export interface PostsPermalinkQuery extends ApiQuery {
     [path: string]: BlogModel.Post;
   }
 
@@ -45,7 +36,7 @@ declare namespace BlogApiModel {
    */
   export type CategoriesOverview = BlogApiModel.Overview[];
 
-  export interface CategoriesOverviewQuery {
+  export interface CategoriesOverviewQuery extends ApiQuery {
     [path: string]: CategoriesOverview;
   }
 
@@ -53,7 +44,7 @@ declare namespace BlogApiModel {
    * @example
    * - /api/v1/categories/:category
    */
-  export interface CategoriesQuery {
+  export interface CategoriesQuery extends ApiQuery {
     [path: string]: BlogModel.Post[];
   }
 
@@ -63,7 +54,7 @@ declare namespace BlogApiModel {
    */
   export type TagsOverview = BlogApiModel.Overview[];
 
-  export interface TagsOverviewQuery {
+  export interface TagsOverviewQuery extends ApiQuery {
     [path: string]: TagsOverview;
   }
 
@@ -71,7 +62,7 @@ declare namespace BlogApiModel {
    * @example
    * - /api/v1/tags/:tag
    */
-  export interface TagsQuery {
+  export interface TagsQuery extends ApiQuery {
     [path: string]: BlogModel.Post[];
   }
 }

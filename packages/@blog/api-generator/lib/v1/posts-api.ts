@@ -10,6 +10,9 @@ const buildPermalink = (created: string, filename: string): string =>
   API_PREFIX + POSTS_API_PREFIX + '/' + format(new Date(created), 'YYYY/MM/DD') + '/' + filename;
 const buildCategoriesQueryLink = (category): string => API_PREFIX + CATEGORIES_API_PREFIX + '/' + category;
 const buildTagsQueryLink = (tag): string => API_PREFIX + TAGS_API_PREFIX + '/' + tag;
+const buildByYearLink = (created: string): string => API_PREFIX + POSTS_API_PREFIX + '/' + format(new Date(_.clone(created)), 'YYYY');
+const buildByMonthLink = (created: string): string => API_PREFIX + POSTS_API_PREFIX + '/' + format(new Date(_.clone(created)), 'YYYY/MM');
+
 
 const fillPermalink = (data: BlogModel.Post[]): void => {
   _.each(data, (post): void => {
@@ -42,7 +45,7 @@ function generatePostsQuery(data: BlogModel.Post[]): BlogApiModel.PostsPermalink
   fillPermalink(data);
 
   const postApiMap = {};
-  _.each(data, (post):void => {
+  _.each(data, (post): void => {
     const permalink = post.permalink;
     if (permalink) {
       postApiMap[permalink] = post;
@@ -56,10 +59,15 @@ function generatePostsOverview(data: BlogModel.Post[]): BlogApiModel.PostsOvervi
   fillPermalink(data);
   sortByCreated(data);
 
-  return {
-    [API_PREFIX + POSTS_API_PREFIX]: reduceSizes(data)
-  };
+  const allPosts = reduceSizes(data);
+  const byYearPostMap = _.groupBy(allPosts, (post): string => buildByYearLink(post.metadata.created));
+  const byMonthPostMap = _.groupBy(allPosts, (post): string => buildByMonthLink(post.metadata.created));
+  return _.merge({},
+    { [API_PREFIX + POSTS_API_PREFIX]: allPosts },
+    byYearPostMap,
+    byMonthPostMap);
 }
+
 
 function generateCategoriesQuery(data: BlogModel.Post[]): BlogApiModel.CategoriesQuery {
   fillPermalink(data);
@@ -98,9 +106,9 @@ function generateTagsQuery(data: BlogModel.Post[]): BlogApiModel.TagsQuery {
 
   const tagsQuery = {};
 
-  _.each(reduceSizes(data), (post):void => {
+  _.each(reduceSizes(data), (post): void => {
     if (post.metadata.tags) {
-      _.each(post.metadata.tags, (tag):void => {
+      _.each(post.metadata.tags, (tag): void => {
         const tagApiPrefix = buildTagsQueryLink(tag);
         if (!tagsQuery.hasOwnProperty(tagApiPrefix)) {
           tagsQuery[tagApiPrefix] = [];
@@ -117,7 +125,7 @@ function generateTagsOverview(data: BlogModel.Post[]): BlogApiModel.TagsOverview
   const tagsMap = {};
   _.each(data, (post): void => {
     if (post.metadata.tags) {
-      _.each(post.metadata.tags, (tag):void => {
+      _.each(post.metadata.tags, (tag): void => {
         if (!tagsMap.hasOwnProperty(tag)) {
           tagsMap[tag] = {
             name: tag,

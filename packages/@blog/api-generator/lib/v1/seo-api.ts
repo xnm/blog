@@ -5,7 +5,7 @@ import { format } from 'date-fns';
 
 const POSTS_URL_PREFIX = '/posts';
 
-const SITEMAP_URL = '/sitemap';
+const SITEMAP_URL = '/sitemap.xml';
 
 const FEEDS_RSS2_URL = '/feed/rss';
 const FEEDS_ATOM_URL = '/feed/atom';
@@ -16,7 +16,7 @@ const ROBOTS_TEXT_URL = '/robots.txt';
 const buildPostPermalink = (created: string, filename: string): string =>
   POSTS_URL_PREFIX + '/' + format(new Date(created), 'YYYY/MM/DD') + '/' + filename;
 
-function generateFeedsApi(config: Config.App, data: BlogModel.Post[]): object {
+function generateFeedsApi(config: Config.App, data: BlogModel.Post[]): BlogApiModel.ApiQuery {
   const toPostFeedItem = (post: BlogModel.Post): Item => ({
     title: post.metadata.title,
     id: config.host + buildPostPermalink(post.metadata.created, post.filename),
@@ -53,7 +53,7 @@ function generateFeedsApi(config: Config.App, data: BlogModel.Post[]): object {
   };
 }
 
-function generateSiteMapApi(config: Config.App, data: BlogModel.Post[]): object {
+function generateSiteMapApi(config: Config.App, data: BlogModel.Post[]): BlogApiModel.ApiQuery {
   const toSitemapUrl = (post: BlogModel.Post): object => ({
     url: buildPostPermalink(post.metadata.created, post.filename)
   });
