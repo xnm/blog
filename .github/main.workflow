@@ -1,6 +1,6 @@
 workflow "workflow/build-test" {
   on = "push"
-  resolves = ["Unit Test"]
+  resolves = ["workflow/ci"]
 }
 
 action "workflow/install" {
@@ -11,7 +11,7 @@ action "workflow/install" {
 
 action "workflow/ci" {
   uses = "docker://node:10"
-  needs = ["Install Dependencies"]
+  needs = ["workflow/install"]
   args = "ci"
   runs = "yarn"
 }
