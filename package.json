@@ -180,12 +180,14 @@
     "printWidth": 80
   },
   "lint-staged": {
-    "**/*.{ts|tsx}": [
-      "eslint --fix",
-      "git add"
-    ],
+    "linters": {
+      "{src,test,packages}/**/*.{ts|tsx}": [
+        "eslint --fix",
+        "git add"
+      ]
+    },
     "ignore": [
-      "node_modules"
+      "./node_modules"
     ]
   },
   "postcss": {
