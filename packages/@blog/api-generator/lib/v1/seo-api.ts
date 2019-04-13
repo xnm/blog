@@ -16,7 +16,7 @@ const ROBOTS_TEXT_URL = '/robots.txt';
 const buildPostPermalink = (created: string, filename: string): string =>
   POSTS_URL_PREFIX + '/' + format(new Date(created), 'YYYY/MM/DD') + '/' + filename;
 
-function generateFeedsApi(config: Config.App, data: BlogModel.Post[]): BlogApiModel.ApiQuery {
+function generateFeedsApi(config: Config.Site, data: BlogModel.Post[]): BlogApiModel.ApiQuery {
   const toPostFeedItem = (post: BlogModel.Post): Item => ({
     title: post.metadata.title,
     id: config.host + buildPostPermalink(post.metadata.created, post.filename),
@@ -53,7 +53,7 @@ function generateFeedsApi(config: Config.App, data: BlogModel.Post[]): BlogApiMo
   };
 }
 
-function generateSiteMapApi(config: Config.App, data: BlogModel.Post[]): BlogApiModel.ApiQuery {
+function generateSiteMapApi(config: Config.Site, data: BlogModel.Post[]): BlogApiModel.ApiQuery {
   const toSitemapUrl = (post: BlogModel.Post): object => ({
     url: buildPostPermalink(post.metadata.created, post.filename)
   });
@@ -70,7 +70,7 @@ function generateSiteMapApi(config: Config.App, data: BlogModel.Post[]): BlogApi
   };
 }
 
-async function generateRobotsTxt(config: Config.App, data: BlogModel.Post[]): Promise<object> {
+async function generateRobotsTxt(config: Config.Site, data: BlogModel.Post[]): Promise<object> {
   const robotsTxtContent = await robotstxt({
     sitemap: config.host + SITEMAP_URL,
     host: config.host

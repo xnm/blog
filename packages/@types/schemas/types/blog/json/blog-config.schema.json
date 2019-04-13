@@ -1,0 +1,91 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "$id": "http://github.com/aquariuslt/blog/config.schema.json",
+  "description": "blog config file yml specification",
+  "type": "object",
+  "properties": {
+    "version": {
+      "type": "string",
+      "default": "1.0.0"
+    },
+    "site": {
+      "$ref": "#/definitions/site"
+    },
+    "build": {
+      "$ref": "#/definitions/build"
+    }
+  },
+  "required": [
+    "version",
+    "site",
+    "build"
+  ],
+  "definitions": {
+    "site": {
+      "type": "object",
+      "properties": {
+        "host": {
+          "type": "string",
+          "format": "url"
+        },
+        "title": {
+          "type": "string"
+        },
+        "subtitle": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "language": {
+          "type": "string",
+          "enum": [
+            "zh",
+            "en"
+          ],
+          "default": "zh"
+        },
+        "copyright": {
+          "type": "string",
+          "default": "copyright 2019 aquariuslt blog"
+        }
+      },
+      "required": [
+        "host",
+        "title",
+        "subtitle",
+        "description"
+      ]
+    },
+    "build": {
+      "type": "object",
+      "properties": {
+        "directory": {
+          "type": "object",
+          "properties": {
+            "posts": {
+              "type": "string",
+              "description": "markdown posts file base directory, relative to project root path",
+              "default": "posts"
+            },
+            "public": {
+              "type": "string",
+              "description": "build location path",
+              "default": "dist"
+            }
+          },
+          "required": []
+        },
+        "favicon": {
+          "type": "string",
+          "default": "favicon.ico"
+        },
+        "theme": {
+          "type": "string",
+          "default": "vue"
+        }
+      },
+      "required": []
+    }
+  }
+}

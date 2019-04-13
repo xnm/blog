@@ -1,4 +1,4 @@
-# @blog/article
+# @blog/article-processor
 
 Article Processor
 

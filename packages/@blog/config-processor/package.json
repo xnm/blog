@@ -1,0 +1,9 @@
+{
+  "name": "@blog/config-processor",
+  "version": "0.0.1",
+  "description": "blog config processor",
+  "main": "lib/index.ts",
+  "author": "Aquariuslt<superaquariuslt@gmail.com>",
+  "license": "MIT",
+  "private": true
+}

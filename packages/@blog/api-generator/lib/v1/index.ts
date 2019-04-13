@@ -17,7 +17,7 @@ import articleScanner from '@blog/article-processor/lib/scanner';
  * @param dataPath: the base folder to scan posts
  * @param outputPath: the base folder to generate all offline apis
  */
-async function generate(config: Config.App, dataPath: string, outputPath: string): Promise<void> {
+async function generate(config: Config.Site, dataPath: string, outputPath: string): Promise<void> {
   const mdFiles: string[] = articleScanner.scan(dataPath);
   const posts: BlogModel.Post[] = mdFiles.map((postFile): BlogModel.Post => {
     const filename = path.basename(postFile, '.md');

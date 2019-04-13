@@ -1,18 +1,28 @@
 declare namespace Config {
-  export interface App {
+  export interface Site {
     host: string;
-
     title: string;
-    id: string;
+    subtitle?: string;
     description?: string;
-    link?: string;
     language?: string | 'en' | 'zh';
-    image?: string;
-    favicon?: string;
     copyright: string;
   }
 
-  export interface Build {
-    features?: string[];
+  export interface Build extends Site {
+    directory: {
+      posts: string;
+      public: string;
+    };
+
+    favicon?: string;
+    theme: string;
   }
+
+  export interface Bundle {
+    site: Config.Site,
+    build: Config.Build
+  }
+
+
 }
+
