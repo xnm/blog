@@ -1,15 +1,15 @@
-workflow "Build and test on push" {
+workflow "workflow/build-test" {
   on = "push"
   resolves = ["Unit Test"]
 }
 
-action "Install Dependencies" {
+action "workflow/install" {
   uses = "docker://node:10"
   runs = "yarn"
   args = "install"
 }
 
-action "Unit Test" {
+action "workflow/ci" {
   uses = "docker://node:10"
   needs = ["Install Dependencies"]
   args = "ci"
