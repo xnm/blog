@@ -10,10 +10,9 @@ declare namespace Config {
     image?: string;
     favicon?: string;
     copyright: string;
-
   }
 
   export interface Build {
-
+    features?: string[];
   }
 }

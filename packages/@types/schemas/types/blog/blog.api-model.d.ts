@@ -1,11 +1,9 @@
 declare namespace BlogApiModel {
-
   interface Overview {
     name: string;
     total: number;
     link: string;
   }
-
 
   /**
    * @example
@@ -22,7 +20,7 @@ declare namespace BlogApiModel {
    * - /api/v1/posts/:year
    */
   export interface ByYearPostsQuery {
-
+    [path: string]: BlogModel.Post[]
   }
 
   /**
@@ -30,9 +28,8 @@ declare namespace BlogApiModel {
    * - /api/v1/posts/:year/:month
    */
   export interface ByMonthPostsQuery {
-
+    [path: string]: BlogModel.Post[]
   }
-
 
   /**
    * @example
@@ -41,7 +38,6 @@ declare namespace BlogApiModel {
   export interface PostsPermalinkQuery {
     [path: string]: BlogModel.Post;
   }
-
 
   /**
    * @example
@@ -60,7 +56,6 @@ declare namespace BlogApiModel {
   export interface CategoriesQuery {
     [path: string]: BlogModel.Post[];
   }
-
 
   /**
    * @example

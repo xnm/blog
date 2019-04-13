@@ -33,6 +33,8 @@
     "@types/moxios": "^0.4.8",
     "@types/sinon": "^7.0.10",
     "@types/webpack": "^4.4.26",
+    "@typescript-eslint/eslint-plugin": "^1.6.0",
+    "@typescript-eslint/parser": "^1.6.0",
     "address": "^1.0.3",
     "ajv": "^6.10.0",
     "autoprefixer": "^9.5.0",
@@ -40,6 +42,9 @@
     "connect-history-api-fallback": "^1.6.0",
     "css-loader": "^2.1.1",
     "date-fns": "^1.30.1",
+    "eslint": "^5.16.0",
+    "eslint-config-prettier": "^4.1.0",
+    "eslint-plugin-prettier": "^3.0.1",
     "extract-text-webpack-plugin": "^4.0.0-beta.0",
     "fancy-log": "^1.3.3",
     "feed": "^2.0.4",
@@ -82,6 +87,7 @@
     "postcss-load-config": "^2.0.0",
     "postcss-loader": "^3.0.0",
     "postcss-pxtorem": "^4.0.1",
+    "prettier": "^1.17.0",
     "properties-json-loader": "^1.0.0",
     "rss": "^1.2.2",
     "serve-handler": "^6.0.0",
@@ -146,11 +152,40 @@
   "gitHooks": {
     "pre-commit": "lint-staged"
   },
+  "eslintConfig": {
+    "parser": "@typescript-eslint/parser",
+    "extends": [
+      "plugin:@typescript-eslint/recommended",
+      "prettier/@typescript-eslint"
+    ],
+    "parserOptions": {
+      "ecmaVersion": 2018,
+      "sourceType": "module"
+    },
+    "rules": {
+      "function-paren-newline": [
+        "error",
+        "never"
+      ]
+    }
+  },
+  "prettier": {
+    "semi": true,
+    "arrowParens": "always",
+    "proseWrap": "never",
+    "singleQuote": true,
+    "printWidth": 120
+  },
   "lint-staged": {
-    "**/*.ts": [
-      "tslint --fix",
-      "git add"
-    ]
+    "linters": {
+      "**/*.{ts|tsx}": [
+        "eslint --fix",
+        "git add"
+      ],
+      "ignore": [
+        "node_modules"
+      ]
+    }
   },
   "postcss": {
     "plugins": {

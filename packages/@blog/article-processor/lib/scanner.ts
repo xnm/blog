@@ -6,10 +6,9 @@ import * as glob from 'glob';
  * @return posts markdown file absolute path list
  */
 function scan(folder: string): string[] {
-  const MD_RULES = "/**/*.md";
+  const MD_RULES = '/**/*.md';
   return glob.sync(folder + MD_RULES);
 }
-
 
 export default {
   scan

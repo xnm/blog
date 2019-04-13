@@ -5,10 +5,9 @@ import ContentItem = BlogModel.ContentItem;
  * @desc get level info from html tag <h1><h2><h3>
  * @return {Number} level of toc
  */
-function measureLevel(tag: string) {
+function measureLevel(tag: string): number {
   return Number(tag.slice(1));
 }
-
 
 /**
  * @desc set pid for headingItems
@@ -18,7 +17,7 @@ function collapseHeading(headingItems: ContentItem[]): ContentItem[] {
   const ROOT_PID = -1;
 
   // 1. fill pid
-  headingItems.map((headingItem, index) => {
+  headingItems.map((headingItem, index): void => {
     if (headingItem.level === 1) {
       headingItem.pid = ROOT_PID;
     } else if (index !== 0 && headingItem.level < headingItems[index - 1].level) {
@@ -37,7 +36,7 @@ function collapseHeading(headingItems: ContentItem[]): ContentItem[] {
 
   // 2. fill children
   const newHeadingItems: ContentItem[] = [];
-  headingItems.map((headingItem) => {
+  headingItems.map((headingItem): void => {
     if (headingItem.pid === ROOT_PID) {
       newHeadingItems.push(headingItem);
     } else if (headingItem.pid) {
@@ -48,43 +47,38 @@ function collapseHeading(headingItems: ContentItem[]): ContentItem[] {
   return newHeadingItems;
 }
 
-function generateTOC(md) {
-
+function generateTOC(md): void {
   let shadowState;
 
-
-  md.core.ruler.push('shadow_state', (state) => {
+  md.core.ruler.push('shadow_state', (state): void => {
     shadowState = state;
   });
 
-  md.core.ruler.after('shadow_state', 'generate_toc', (state) => {
+  md.core.ruler.after('shadow_state', 'generate_toc', (state): void => {
     const shadowTokens = shadowState.tokens;
 
     let headingItems: ContentItem[] = [];
     let headingPosition = 0;
-    shadowTokens.map((token, index) => {
+    shadowTokens.map((token, index): void => {
       if (token.type === 'heading_close') {
         const headingContent = shadowTokens[index - 1].content;
         const headingLevel = measureLevel(token.tag);
         const headingId = uslug(headingContent);
 
-
         headingItems.push({
           level: headingLevel,
           id: headingId,
           position: headingPosition++,
-          children:[]
+          children: []
         });
       }
     });
 
     headingItems = collapseHeading(headingItems);
 
-
     if (state.env) {
       state.env.toc = headingItems;
     }
-
   });
 }
 

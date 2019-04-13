@@ -3,10 +3,8 @@ import DetectImagesPlugin from '../lib/images';
 
 import * as sample from './fixtures/sample-images.md';
 
-
-describe('@utils/markdown-it-images', () => {
-  it('# should detect images at env', () => {
-
+describe('@utils/markdown-it-images', ():void => {
+  it('# should detect images at env', ():void => {
     const md = MarkdownIt().use(DetectImagesPlugin);
 
     const context = {};
@@ -15,6 +13,5 @@ describe('@utils/markdown-it-images', () => {
 
     expect(context).toHaveProperty('images');
     expect(context['images'].length).toBe(2);
-
   });
 });

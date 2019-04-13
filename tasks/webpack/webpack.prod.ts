@@ -7,7 +7,7 @@ import * as UglifyJsPlugin from 'uglifyjs-webpack-plugin';
 import * as OfflinePlugin from 'offline-plugin';
 import * as VueLoaderPlugin from 'vue-loader/lib/plugin';
 
-import {webpackBaseConfig} from './webpack.base';
+import { webpackBaseConfig } from './webpack.base';
 
 import pathUtil from '../utils/path-util';
 
@@ -29,21 +29,12 @@ const webpackProdConfig = merge(webpackBaseConfig, {
       {
         test: /\.less$/,
         include: pathUtil.resolve(baseConfig.dir.src),
-        use: [
-          MiniCssExtractPlugin.loader,
-          'css-loader',
-          'postcss-loader',
-          'less-loader'
-        ]
+        use: [MiniCssExtractPlugin.loader, 'css-loader', 'postcss-loader', 'less-loader']
       },
       {
         test: /\.css$/,
         include: pathUtil.resolve(baseConfig.dir.src),
-        use: [
-          MiniCssExtractPlugin.loader,
-          'css-loader',
-          'postcss-loader'
-        ]
+        use: [MiniCssExtractPlugin.loader, 'css-loader', 'postcss-loader']
       }
     ]
   },
@@ -117,4 +108,4 @@ const webpackProdConfig = merge(webpackBaseConfig, {
   }
 });
 
-export {webpackProdConfig};
+export { webpackProdConfig };

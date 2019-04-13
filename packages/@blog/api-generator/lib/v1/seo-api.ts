@@ -1,7 +1,7 @@
 import * as sm from 'sitemap';
 import robotstxt from 'generate-robotstxt';
-import {Feed} from 'feed';
-import {format} from "date-fns";
+import { Feed } from 'feed';
+import { format } from 'date-fns';
 
 const POSTS_URL_PREFIX = '/posts';
 
@@ -13,13 +13,13 @@ const FEEDS_JSON_URL = '/feed/json';
 
 const ROBOTS_TEXT_URL = '/robots.txt';
 
-const buildPostPermalink = (created: string, filename: string): string => POSTS_URL_PREFIX + '/' + format((new Date(created)), 'YYYY/MM/DD') + '/' + filename;
+const buildPostPermalink = (created: string, filename: string): string =>
+  POSTS_URL_PREFIX + '/' + format(new Date(created), 'YYYY/MM/DD') + '/' + filename;
 
-function generateFeedsApi(config: Config.App, data: BlogModel.Post[]) {
-  const toPostFeedItem = (post: BlogModel.Post) => ({
+function generateFeedsApi(config: Config.App, data: BlogModel.Post[]): object {
+  const toPostFeedItem = (post: BlogModel.Post): Item => ({
     title: post.metadata.title,
     id: config.host + buildPostPermalink(post.metadata.created, post.filename),
-    url: config.host + buildPostPermalink(post.metadata.created, post.filename),
     link: config.host + buildPostPermalink(post.metadata.created, post.filename),
     description: post.summary,
     content: post.html,
@@ -27,7 +27,7 @@ function generateFeedsApi(config: Config.App, data: BlogModel.Post[]) {
     image: post.metadata.cover
   });
 
-  const toCategoryName = (post: BlogModel.Post) => (post.metadata.category);
+  const toCategoryName = (post: BlogModel.Post): string => post.metadata.category;
 
   const feed = new Feed({
     title: config.title,
@@ -43,8 +43,8 @@ function generateFeedsApi(config: Config.App, data: BlogModel.Post[]) {
     }
   });
 
-  data.map((post) => feed.addItem(toPostFeedItem(post)));
-  data.map((post) => feed.addCategory(toCategoryName(post)));
+  data.map((post): number => feed.addItem(toPostFeedItem(post)));
+  data.map((post): number => feed.addCategory(toCategoryName(post)));
 
   return {
     [FEEDS_RSS2_URL]: feed.rss2(),
@@ -53,13 +53,12 @@ function generateFeedsApi(config: Config.App, data: BlogModel.Post[]) {
   };
 }
 
-function generateSiteMapApi(config: Config.App, data: BlogModel.Post[]) {
-  const toSitemapUrl = (post: BlogModel.Post) => ({
+function generateSiteMapApi(config: Config.App, data: BlogModel.Post[]): object {
+  const toSitemapUrl = (post: BlogModel.Post): object => ({
     url: buildPostPermalink(post.metadata.created, post.filename)
   });
 
   const hostname = config.host;
-
 
   const sitemap = sm.createSitemap({
     hostname,
@@ -71,8 +70,7 @@ function generateSiteMapApi(config: Config.App, data: BlogModel.Post[]) {
   };
 }
 
-
-async function generateRobotsTxt(config: Config.App, data: BlogModel.Post[]) {
+async function generateRobotsTxt(config: Config.App, data: BlogModel.Post[]): Promise<object> {
   const robotsTxtContent = await robotstxt({
     sitemap: config.host + SITEMAP_URL,
     host: config.host

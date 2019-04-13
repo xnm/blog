@@ -1,19 +1,16 @@
 import * as _ from 'lodash';
 
-function detectImages(md) {
-
-
-  md.core.ruler.push('detect_images', (state) => {
+function detectImages(md): void {
+  md.core.ruler.push('detect_images', (state): void => {
     const tokens = state.tokens;
     const images: string[] = [];
 
-
-    tokens.map((token) => {
+    tokens.map((token): void => {
       if (token.type === 'inline') {
         if (token.children && _.isArray(token.children)) {
-          token.children.map((childToken) => {
+          token.children.map((childToken): void => {
             if (childToken.type === 'image') {
-              childToken.attrs.map((imageAttr) => {
+              childToken.attrs.map((imageAttr): void => {
                 if (_.isArray(imageAttr) && imageAttr.length > 1 && imageAttr[0] === 'src') {
                   const imageUrl = imageAttr[1];
                   images.push(imageUrl);
@@ -29,8 +26,6 @@ function detectImages(md) {
       state.env.images = images;
     }
   });
-
 }
-
 
 export default detectImages;

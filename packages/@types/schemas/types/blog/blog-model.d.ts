@@ -34,5 +34,4 @@ declare namespace BlogModel {
     pid?: number;
     children: ContentItem[];
   }
-
 }

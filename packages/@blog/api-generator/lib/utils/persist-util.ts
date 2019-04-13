@@ -3,7 +3,6 @@ import * as fs from 'fs';
 import * as path from 'path';
 import * as mkdirp from 'mkdirp';
 
-
 const DEFAULT_EXTENSIONS = '.json';
 
 /**
@@ -13,14 +12,14 @@ const DEFAULT_EXTENSIONS = '.json';
  * @param extension: file extension, default is `.json`,
  *        considering `.xml`(sitemap.xml, feeds.xml),`.txt`(robots.txt)
  */
-function persist(folder: string, data: object, extension = DEFAULT_EXTENSIONS) {
-  _.each(_.keys(data), (suffix: string) => {
+function persist(folder: string, data: object, extension = DEFAULT_EXTENSIONS): void {
+  _.each(_.keys(data), (suffix: string): void => {
     const targetFile = folder + suffix + extension;
     mkdirp.sync(path.dirname(targetFile));
-    fs.writeFileSync(folder + suffix + extension, extension === DEFAULT_EXTENSIONS ? JSON.stringify(data[suffix]) : data[suffix]);
+    fs.writeFileSync(folder + suffix + extension,
+      extension === DEFAULT_EXTENSIONS ? JSON.stringify(data[suffix]) : data[suffix]);
   });
 }
-
 
 export default {
   persist

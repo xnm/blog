@@ -3,17 +3,15 @@ import postsApi from '../../lib/v1/posts-api';
 
 import * as posts from './fixtures/json/posts-sample.json';
 
-
-describe('@blog/api-generator: posts-api', () => {
-
-  it('# should generate posts query by permalink', () => {
+describe('@blog/api-generator: posts-api', (): void => {
+  it('# should generate posts query by permalink', (): void => {
     const postsMap = postsApi.generatePostsQuery(posts);
     expect(_.keys(postsMap).length).toEqual(posts.length);
-    const firstPostApiPath = (_.keys(postsMap))[0];
-    expect((postsMap[firstPostApiPath]).md).not.toEqual('');
+    const firstPostApiPath = _.keys(postsMap)[0];
+    expect(postsMap[firstPostApiPath].md).not.toEqual('');
   });
 
-  it('# should generate posts overview', () => {
+  it('# should generate posts overview', (): void => {
     const postsOverviewQuery = postsApi.generatePostsOverview(posts);
     const postsOverview = postsOverviewQuery[_.keys(postsOverviewQuery)[0]];
     expect(postsOverview.length).toEqual(posts.length);
@@ -21,8 +19,7 @@ describe('@blog/api-generator: posts-api', () => {
     expect(postsOverview[0].html).toEqual('');
   });
 
-
-  it('# should generate categories overview', () => {
+  it('# should generate categories overview', (): void => {
     const categoriesOverviewQuery = postsApi.generateCategoriesOverview(posts);
 
     const categoriesOverview = categoriesOverviewQuery[_.keys(categoriesOverviewQuery)[0]];
@@ -34,7 +31,7 @@ describe('@blog/api-generator: posts-api', () => {
     expect(_.head(categoriesOverview)).toHaveProperty('link');
   });
 
-  it('# should generate categories query', () => {
+  it('# should generate categories query', (): void => {
     const categoriesMap = postsApi.generateCategoriesQuery(posts);
     expect(_.keys(categoriesMap).length).toEqual(posts.length);
     expect(_.keys(categoriesMap)).toEqual([
@@ -43,12 +40,12 @@ describe('@blog/api-generator: posts-api', () => {
       '/api/v1/categories/life'
     ]);
 
-    const firstCategoryApiPath = (_.keys(categoriesMap))[0];
-    expect((categoriesMap[firstCategoryApiPath])[0].md).toEqual('');
-    expect((categoriesMap[firstCategoryApiPath])[0].html).toEqual('');
+    const firstCategoryApiPath = _.keys(categoriesMap)[0];
+    expect(categoriesMap[firstCategoryApiPath][0].md).toEqual('');
+    expect(categoriesMap[firstCategoryApiPath][0].html).toEqual('');
   });
 
-  it('# should generate tags overview', () => {
+  it('# should generate tags overview', (): void => {
     const tagsOverviewQuery = postsApi.generateTagsOverview(posts);
     const tagsOverview = tagsOverviewQuery[_.keys(tagsOverviewQuery)[0]];
 
@@ -59,7 +56,7 @@ describe('@blog/api-generator: posts-api', () => {
     expect(_.head(tagsOverview)).toHaveProperty('link');
   });
 
-  it('# should generate tags query', () => {
+  it('# should generate tags query', (): void => {
     const tagsMap = postsApi.generateTagsQuery(posts);
 
     expect(_.keys(tagsMap).length).toEqual(6);
@@ -72,10 +69,8 @@ describe('@blog/api-generator: posts-api', () => {
       '/api/v1/tags/memory'
     ]);
 
-    const firstTagApiPath = (_.keys(tagsMap))[0];
-    expect((tagsMap[firstTagApiPath])[0].md).toEqual('');
-    expect((tagsMap[firstTagApiPath])[0].html).toEqual('');
+    const firstTagApiPath = _.keys(tagsMap)[0];
+    expect(tagsMap[firstTagApiPath][0].md).toEqual('');
+    expect(tagsMap[firstTagApiPath][0].html).toEqual('');
   });
-
-
 });

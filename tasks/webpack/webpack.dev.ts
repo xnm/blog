@@ -11,7 +11,7 @@ import pathUtil from '../utils/path-util';
 
 import * as packageJson from '../../package.json';
 
-import {webpackBaseConfig} from './webpack.base';
+import { webpackBaseConfig } from './webpack.base';
 
 const baseConfig = packageJson.config.base;
 
@@ -33,21 +33,12 @@ const webpackDevConfig = merge(webpackBaseConfig, {
       {
         test: /\.less$/,
         include: pathUtil.resolve(baseConfig.dir.src),
-        use: [
-          'vue-style-loader',
-          'css-loader',
-          'postcss-loader',
-          'less-loader'
-        ]
+        use: ['vue-style-loader', 'css-loader', 'postcss-loader', 'less-loader']
       },
       {
         test: /\.css$/,
         include: pathUtil.resolve(baseConfig.dir.src),
-        use: [
-          'vue-style-loader',
-          'css-loader',
-          'postcss-loader'
-        ]
+        use: ['vue-style-loader', 'css-loader', 'postcss-loader']
       }
     ]
   },
@@ -86,4 +77,4 @@ const webpackDevConfig = merge(webpackBaseConfig, {
   }
 });
 
-export {webpackDevConfig};
+export { webpackDevConfig };

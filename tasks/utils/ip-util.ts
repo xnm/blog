@@ -1,6 +1,6 @@
 import * as address from 'address';
 
-function getLanIp() {
+function getLanIp(): string {
   return address.ip();
 }
 
