@@ -2,23 +2,20 @@
   "extends": "./node_modules/gts/tsconfig-google.json",
   "compilerOptions": {
     "rootDir": ".",
-    "outDir": "build",
+    "outDir": "tsc-build",
+    "lib": [
+      "es2018"
+    ],
     "target": "es5",
     "noImplicitAny": false,
     "resolveJsonModule": true,
-    "baseUrl": "./",
+    "baseUrl": "packages",
     "paths": {
-      "./*": [
-        "./src"
-      ],
-      "@schemas/*": [
-        "./*/types"
-      ],
       "@blog/*": [
-        "./*/lib"
+        "./*/src"
       ],
       "@utils/*": [
-        "./*/lib"
+        "./*/src"
       ],
       "@theme/*": [
         "./*/src"

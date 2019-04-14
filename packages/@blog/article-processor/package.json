@@ -2,8 +2,11 @@
   "name": "@blog/article-processor",
   "version": "5.0.0-beta.2",
   "description": "blog article processor",
-  "main": "lib/index.ts",
+  "main": "dist/index.js",
   "author": "Aquariuslt<superaquariuslt@gmail.com>",
   "license": "MIT",
-  "private": true
+  "private": true,
+  "scripts": {
+    "tsc": "tsc"
+  }
 }

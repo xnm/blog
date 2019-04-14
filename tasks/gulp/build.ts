@@ -1,9 +1,13 @@
 import * as gulp from 'gulp';
 import * as logger from 'fancy-log';
-
 import * as webpack from 'webpack';
 
+import pathUtil from '../utils/path-util';
+import apiGenerator from '@blog/api-generator';
+import configProcessor from '@blog/config-processor';
+
 import { webpackProdConfig } from '../webpack/webpack.prod';
+
 
 gulp.task('webpack', (done): void => {
   webpack(webpackProdConfig,
@@ -17,4 +21,18 @@ gulp.task('webpack', (done): void => {
     });
 });
 
-gulp.task('build', gulp.series('clean', 'webpack'));
+
+gulp.task('build:api', (done): void => {
+  const configPath = pathUtil.resolve('') + '/' + 'config.yml';
+  let config = configProcessor.read(configPath);
+
+  const mdFilePath = pathUtil.resolve('') + '/' + config.build.directory.posts;
+  const distPath = pathUtil.resolve('') + '/' + config.build.directory.public;
+
+  apiGenerator.generate(configPath, mdFilePath, distPath).then((): void => {
+    done();
+  });
+});
+
+
+gulp.task('build', gulp.series('clean',  'build:api', 'webpack'));

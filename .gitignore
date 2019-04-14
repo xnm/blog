@@ -15,8 +15,10 @@ package-lock.json
 
 # build & distribution
 .cache
+tsc-build
 build
 dist
+
 
 # test
 coverage

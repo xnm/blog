@@ -1,8 +1,11 @@
 {
   "name": "@utils/markdown-it-plugins",
   "version": "5.0.0-beta.2",
-  "main": "lib/index.ts",
+  "main": "dist/index.js",
   "license": "MIT",
   "author": "Aquariuslt<superaquariuslt@gmail.com>",
-  "private": true
+  "private": true,
+  "scripts": {
+    "tsc": "tsc"
+  }
 }

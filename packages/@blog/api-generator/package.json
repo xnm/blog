@@ -2,8 +2,11 @@
   "name": "@blog/api-generator",
   "version": "5.0.0-beta.2",
   "description": "blog article processor",
-  "main": "lib/v1/index.ts",
+  "main": "dist/v1/index.js",
   "author": "Aquariuslt<superaquariuslt@gmail.com>",
   "license": "MIT",
-  "private": true
+  "private": true,
+  "scripts": {
+    "tsc": "tsc"
+  }
 }

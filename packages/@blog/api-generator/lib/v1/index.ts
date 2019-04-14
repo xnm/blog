@@ -8,9 +8,9 @@ import persistUtil from '../utils/persist-util';
 import postsApi from './posts-api';
 import seoApi from './seo-api';
 
-import articleProcessor from '@blog/article-processor/lib/index';
+import articleProcessor from '@blog/article-processor';
 import articleScanner from '@blog/article-processor/lib/scanner';
-import configParser from '@blog/config-processor/lib/index';
+import configParser from '@blog/config-processor';
 
 /**
  * @param configPath: extra injected config filepath

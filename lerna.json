@@ -3,7 +3,7 @@
   "npmClient": "yarn",
   "useWorkspaces": true,
   "packages": [
-    "packages/@schemas/*",
+    "packages/@types/*",
     "packages/@blog/*",
     "packages/@theme/*",
     "packages/@utils/*"

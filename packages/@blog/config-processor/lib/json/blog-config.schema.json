@@ -104,8 +104,7 @@
       "properties": {
         "ga": {
           "type": "string",
-          "description": "Your Google Analytics tracking id",
-          "default": ""
+          "description": "Your Google Analytics tracking id"
         },
         "disqus": {
           "type": "string",

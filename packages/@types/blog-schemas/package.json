@@ -1,8 +1,9 @@
 {
-  "name": "@schemas/blog-schemas",
+  "name": "@types/blog-schemas",
   "private": true,
   "version": "5.0.0-beta.2",
   "description": "blog markdown-util",
   "author": "Aquariuslt<superaquariuslt@gmail.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "types": "index.d.ts"
 }
