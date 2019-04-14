@@ -8,6 +8,9 @@
     "resolveJsonModule": true,
     "baseUrl": "./packages",
     "paths": {
+      "@schemas/*": [
+        "./*/types"
+      ],
       "@blog/*": [
         "./*/lib"
       ],
