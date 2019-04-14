@@ -6,9 +6,20 @@ declare namespace Config {
     description?: string;
     language?: string | 'en' | 'zh';
     copyright: string;
+
+    author?: string;
+    bio?: string;
   }
 
-  export interface Build extends Site {
+  /**
+   * 3rd party config
+   */
+  export interface Features {
+    ga?: string;
+    disqus?: string;
+  }
+
+  export interface Build {
     directory: {
       posts: string;
       public: string;
@@ -20,7 +31,8 @@ declare namespace Config {
 
   export interface Bundle {
     site: Config.Site,
-    build: Config.Build
+    build: Config.Build,
+    features: Config.Features
   }
 
 

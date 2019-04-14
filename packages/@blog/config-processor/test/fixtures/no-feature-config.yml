@@ -15,7 +15,3 @@ build:
 
   favicon: favicon.ico
 
-
-features:
-  ga: some-ga-tracking-id
-  disqus: some-disqus-shortname

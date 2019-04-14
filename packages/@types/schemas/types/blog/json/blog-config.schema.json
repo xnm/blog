@@ -1,6 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema",
   "$id": "http://github.com/aquariuslt/blog/config.schema.json",
+  "title": "Blog Configuration",
   "description": "blog config file yml specification",
   "type": "object",
   "properties": {
@@ -13,6 +14,9 @@
     },
     "build": {
       "$ref": "#/definitions/build"
+    },
+    "features": {
+      "$ref": "#/definitions/features"
     }
   },
   "required": [
@@ -26,19 +30,24 @@
       "properties": {
         "host": {
           "type": "string",
-          "format": "url"
+          "format": "url",
+          "description": "Your host, e.g. http://your-site.com or https://my-site.com."
         },
         "title": {
-          "type": "string"
+          "type": "string",
+          "description": "Your blog title."
         },
         "subtitle": {
-          "type": "string"
+          "type": "string",
+          "description": "Your blog sub title"
         },
         "description": {
-          "type": "string"
+          "type": "string",
+          "description": "Your blog description, this usually will built in html head meta"
         },
         "language": {
           "type": "string",
+          "description": "Your prefer language",
           "enum": [
             "zh",
             "en"
@@ -47,6 +56,7 @@
         },
         "copyright": {
           "type": "string",
+          "description": "Site copyright, usually appear under your website",
           "default": "copyright 2019 aquariuslt blog"
         }
       },
@@ -78,14 +88,32 @@
         },
         "favicon": {
           "type": "string",
+          "description": "Your favicon file location",
           "default": "favicon.ico"
         },
         "theme": {
           "type": "string",
+          "description": "Your blog theme package name, not implementation now",
           "default": "vue"
         }
       },
       "required": []
+    },
+    "features": {
+      "type": "object",
+      "properties": {
+        "ga": {
+          "type": "string",
+          "description": "Your Google Analytics tracking id",
+          "default": ""
+        },
+        "disqus": {
+          "type": "string",
+          "description": "Your disqus short id"
+        }
+      },
+      "required": [
+      ]
     }
   }
 }

@@ -10,14 +10,15 @@ import seoApi from './seo-api';
 
 import articleProcessor from '@blog/article-processor/lib/index';
 import articleScanner from '@blog/article-processor/lib/scanner';
-
+import configParser from '@blog/config-processor/lib/index';
 
 /**
- * @param config: extra injected config
+ * @param configPath: extra injected config filepath
  * @param dataPath: the base folder to scan posts
  * @param outputPath: the base folder to generate all offline apis
  */
-async function generate(config: Config.Site, dataPath: string, outputPath: string): Promise<void> {
+async function generate(configPath: string, dataPath: string, outputPath: string): Promise<void> {
+  const config = configParser.read(configPath);
   const mdFiles: string[] = articleScanner.scan(dataPath);
   const posts: BlogModel.Post[] = mdFiles.map((postFile): BlogModel.Post => {
     const filename = path.basename(postFile, '.md');
@@ -37,9 +38,9 @@ async function generate(config: Config.Site, dataPath: string, outputPath: strin
   persistUtil.persist(outputPath, postsApiMap);
 
   const seoApiMap = _.merge({},
-    await seoApi.generateRobotsTxt(config, posts),
-    seoApi.generateFeedsApi(config, posts),
-    seoApi.generateSiteMapApi(config, posts));
+    await seoApi.generateRobotsTxt(config.site, posts),
+    seoApi.generateFeedsApi(config.site, posts),
+    seoApi.generateSiteMapApi(config.site, posts));
 
   persistUtil.persist(outputPath, seoApiMap, '');
 }
