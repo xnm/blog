@@ -21,10 +21,10 @@ Next Generation Blog Application
 ## Development Level Features
 
 - [x] TypeScript (application level code only use `*.ts`)
-- MultiPackages Management (with the help of `yarn workspace` and `lerna`)
-- Google Search Structured Data Support 
-- RSS support
-- GraphQL style offline API
+- [x] MultiPackages Management (with the help of `yarn workspace` and `lerna`)
+- [ ] Google Search Structured Data Support 
+- [x] RSS support
+- [ ] GraphQL style offline API
 - [x] Integration with Github Actions
 
 ## Build Flow
