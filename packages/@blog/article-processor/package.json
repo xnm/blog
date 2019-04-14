@@ -1,6 +1,6 @@
 {
   "name": "@blog/article-processor",
-  "version": "0.0.1",
+  "version": "5.0.0-beta.2",
   "description": "blog article processor",
   "main": "lib/index.ts",
   "author": "Aquariuslt<superaquariuslt@gmail.com>",
