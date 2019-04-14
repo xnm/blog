@@ -1,6 +1,6 @@
 # blog.aquariuslt.com
 
-[![CircleCI](https://circleci.com/gh/aquariuslt/blog/tree/universal-ts.svg?style=svg)](https://circleci.com/gh/aquariuslt/blog/tree/vue%40ts)
+[![CircleCI](https://circleci.com/gh/aquariuslt/blog/tree/universal-ts.svg?style=svg)](https://circleci.com/gh/aquariuslt/blog/tree/universal-ts)
 [![Codecov](https://codecov.io/gh/aquariuslt/blog/branch/universal-ts/graph/badge.svg)](https://codecov.io/gh/aquariuslt/blog)
 [![GitHub License](https://img.shields.io/github/license/aquariuslt/blog.svg)](https://github.com/aquariuslt/blog/blob/universal-ts/LICENSE)
 [![Dependencies Status](https://david-dm.org/aquariuslt/blog/status.svg)](https://david-dm.org/aquariuslt/blog)
