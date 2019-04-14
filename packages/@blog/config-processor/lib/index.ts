@@ -2,7 +2,7 @@ import * as fs from 'fs';
 import * as yaml from 'js-yaml';
 import * as Ajv from 'ajv';
 
-import * as schema from '../../../@types/schemas/types/blog/json/blog-config.schema.json';
+import * as schema from '@schemas/blog-schemas/types/blog/json/blog-config.schema.json';
 
 const ajv = new Ajv({
   allErrors: true,
