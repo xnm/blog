@@ -1,7 +1,7 @@
 import * as uslug from 'uslug';
 import * as MarkdownIt from 'markdown-it';
 import * as AnchorPlugin from 'markdown-it-anchor';
-import { DetectImagesPlugin, MetadataPlugin, SummaryPlugin, TOCPlugin } from '@utils/markdown-it-plugins';
+import { DetectImagesPlugin, MetadataPlugin, SummaryPlugin, TOCPlugin } from '@utils/markdown-it-plugins/lib';
 import * as path from 'path';
 import * as fs from 'fs';
 
