@@ -24,6 +24,7 @@ const webpackBaseConfig = {
         test: /\.(ts|tsx)$/,
         include: [
           pathUtil.resolve(baseConfig.dir.src),
+          pathUtil.resolve(baseConfig.dir.packages),
           pathUtil.resolve(baseConfig.dir.test.unit),
           pathUtil.resolve(baseConfig.dir.test.e2e)
         ],

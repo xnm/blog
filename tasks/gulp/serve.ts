@@ -1,6 +1,6 @@
 import * as logger from 'fancy-log';
 import * as gulp from 'gulp';
-import * as opn from 'opn';
+import * as open from 'open';
 import * as webpack from 'webpack';
 import * as http from 'http';
 import * as handler from 'serve-handler';
@@ -33,7 +33,7 @@ gulp.task('serve', (): void => {
       logger.info('You can visit at below urls:');
       logger.info('Local: ', AUTO_OPEN_URL);
       logger.info('Network:', LAN_URL);
-      opn(AUTO_OPEN_URL);
+      open(AUTO_OPEN_URL);
     });
 });
 
@@ -53,6 +53,6 @@ gulp.task('serve:prod', (): void => {
       logger.info('You can visit at below urls:');
       logger.info('Local: ', AUTO_OPEN_URL);
       logger.info('Network:', LAN_URL);
-      opn(AUTO_OPEN_URL);
+      open(AUTO_OPEN_URL);
     });
 });

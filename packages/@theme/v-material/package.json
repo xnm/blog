@@ -1,0 +1,7 @@
+{
+  "name": "@theme/v-material",
+  "version": "5.0.0-beta.2",
+  "main": "src/index.ts",
+  "esnext": "src/index.ts",
+  "license": "MIT"
+}

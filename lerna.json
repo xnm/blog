@@ -5,6 +5,7 @@
   "packages": [
     "packages/@schemas/*",
     "packages/@blog/*",
+    "packages/@theme/*",
     "packages/@utils/*"
   ]
 }

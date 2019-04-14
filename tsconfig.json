@@ -6,8 +6,11 @@
     "target": "es5",
     "noImplicitAny": false,
     "resolveJsonModule": true,
-    "baseUrl": "./packages",
+    "baseUrl": "./",
     "paths": {
+      "./*": [
+        "./src"
+      ],
       "@schemas/*": [
         "./*/types"
       ],

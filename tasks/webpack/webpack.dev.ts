@@ -4,7 +4,6 @@ import * as merge from 'webpack-merge';
 import * as HtmlWebpackPlugin from 'html-webpack-plugin';
 import * as ExtractTextPlugin from 'extract-text-webpack-plugin';
 import * as FriendlyErrorsPlugin from 'friendly-errors-webpack-plugin';
-import * as OfflinePlugin from 'offline-plugin';
 import * as VueLoaderPlugin from 'vue-loader/lib/plugin';
 
 import pathUtil from '../utils/path-util';
@@ -52,8 +51,7 @@ const webpackDevConfig = merge(webpackBaseConfig, {
     }),
     new webpack.HotModuleReplacementPlugin(),
     new FriendlyErrorsPlugin(),
-    new VueLoaderPlugin(),
-    new OfflinePlugin()
+    new VueLoaderPlugin()
   ],
   devServer: {
     host: LOCAL_IP,
