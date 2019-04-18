@@ -8,8 +8,7 @@
       "es2018",
       "dom"
     ],
-    "module": "commonjs",
-    "jsx": "preserve",
+    "jsx": "react",
     "target": "es5",
     "noImplicitAny": false,
     "resolveJsonModule": true,

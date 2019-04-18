@@ -2,4 +2,4 @@
 import './offline';
 
 /* import theme entry*/
-import '@theme/v-material';
+import '@theme/r-material';

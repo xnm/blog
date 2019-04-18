@@ -10,8 +10,7 @@ const webpackBaseConfig = {
   resolve: {
     extensions: ['.ts', '.tsx', '.js', '.json'],
     alias: {
-      '@': pathUtil.resolve(baseConfig.dir.src),
-      vue$: 'vue/dist/vue.esm.js'
+      '@': pathUtil.resolve(baseConfig.dir.src)
     }
   },
   module: {
@@ -25,8 +24,7 @@ const webpackBaseConfig = {
           pathUtil.resolve(baseConfig.dir.test.e2e)
         ],
         exclude: /node_modules/,
-        loader: 'ts-loader',
-        options: {}
+        loader: 'ts-loader'
       },
       {
         test: /\.(png|jpe?g|gif|svg|ico)$/,
@@ -55,4 +53,4 @@ const webpackBaseConfig = {
   }
 };
 
-export default webpackBaseConfig ;
+export default webpackBaseConfig;
