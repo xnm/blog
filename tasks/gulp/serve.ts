@@ -34,20 +34,6 @@ gulp.task('build:dev-api', (done): void => {
   });
 });
 
-gulp.task('build:dev-config', (done): void => {
-  const configPath = pathUtil.resolve('') + '/' + 'config.yml';
-  const config = configProcessor.read(configPath);
-
-  const injectableConfig = {
-    site: config.site,
-    features: config.features,
-    theme: config.build.theme
-  };
-
-  fs.writeFileSync(pathUtil.resolve(baseConfig.dir.build) + '/' + 'config.json', JSON.stringify(injectableConfig));
-  done();
-});
-
 
 gulp.task('webpack:dev', (): void => {
   logger.info('Webpack building.');
@@ -88,4 +74,4 @@ gulp.task('serve:prod', (): void => {
     });
 });
 
-gulp.task('serve', gulp.series('build:dev-api', 'build:dev-config', 'webpack:dev'));
+gulp.task('serve', gulp.series('build:config', 'build:dev-api', 'webpack:dev'));

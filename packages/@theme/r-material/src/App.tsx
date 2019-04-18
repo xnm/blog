@@ -1,7 +1,6 @@
 import * as React from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
-import { RouteWithSubRoutes } from '@theme/r-material/src/router';
-
+import { RouteWithSubRoutes } from './router';
 
 interface AppProps {
   router: object[]

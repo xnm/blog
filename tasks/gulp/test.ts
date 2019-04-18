@@ -15,10 +15,12 @@ gulp.task('test:api', (done): void => {
   done();
 });
 
-gulp.task('test:ci', (done): void => {
+gulp.task('test:coverage', (done): void => {
   jest.run(['--coverage']).then((): void => {
     done();
   });
 });
 
-gulp.task('test', gulp.series('test:unit', 'test:e2e', 'test:api'));
+
+gulp.task('test', gulp.series('build:config', 'test:unit', 'test:e2e', 'test:api'));
+gulp.task('test:ci', gulp.series('build:config', 'test:coverage'));

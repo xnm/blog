@@ -12,16 +12,11 @@
     "target": "es5",
     "noImplicitAny": false,
     "resolveJsonModule": true,
-    "baseUrl": "packages",
+    "baseUrl": ".",
     "paths": {
-      "@blog/*": [
-        "./*/src"
-      ],
-      "@utils/*": [
-        "./*/src"
-      ],
-      "@theme/*": [
-        "./*/src"
+      "@/*": [
+        "src/*",
+        "build/*"
       ]
     }
   }

@@ -1,3 +1,3 @@
 import * as gulp from 'gulp';
 
-gulp.task('ci', gulp.series('build', 'test:ci'));
+gulp.task('ci', gulp.series('test:ci', 'build'));
