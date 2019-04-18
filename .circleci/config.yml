@@ -17,3 +17,5 @@ jobs:
       - run:
           name: Coverage Report
           command: "bash <(curl -s https://codecov.io/bash) -t $CODECOV_TOKEN"
+      - store_test_results:
+          path: test/unit/coverage
