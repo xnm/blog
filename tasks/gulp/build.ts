@@ -6,7 +6,7 @@ import pathUtil from '../utils/path-util';
 import apiGenerator from '@blog/api-generator';
 import configProcessor from '@blog/config-processor';
 
-import { webpackProdConfig } from '../webpack/webpack.prod';
+import webpackProdConfig from '../webpack/webpack.prod';
 
 
 gulp.task('webpack', (done): void => {
@@ -35,4 +35,4 @@ gulp.task('build:api', (done): void => {
 });
 
 
-gulp.task('build', gulp.series('clean',  'build:api', 'webpack'));
+gulp.task('build', gulp.series('clean', 'build:api', 'webpack'));

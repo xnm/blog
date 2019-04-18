@@ -1,8 +1,8 @@
-import '@/main';
+import '@/offline';
 
-describe('blog: main-flow', (): void => {
+describe('blog: offline', (): void => {
 
-  it('# should load default theme correctly', (): void => {
+  it('# should load offline correctly', (): void => {
 
   });
 });

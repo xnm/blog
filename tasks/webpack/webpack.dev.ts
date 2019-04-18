@@ -4,13 +4,12 @@ import * as merge from 'webpack-merge';
 import * as HtmlWebpackPlugin from 'html-webpack-plugin';
 import * as ExtractTextPlugin from 'extract-text-webpack-plugin';
 import * as FriendlyErrorsPlugin from 'friendly-errors-webpack-plugin';
-import * as VueLoaderPlugin from 'vue-loader/lib/plugin';
 
 import pathUtil from '../utils/path-util';
 
 import * as packageJson from '../../package.json';
 
-import { webpackBaseConfig } from './webpack.base';
+import webpackBaseConfig from './webpack.base';
 
 const baseConfig = packageJson.config.base;
 
@@ -31,13 +30,19 @@ const webpackDevConfig = merge(webpackBaseConfig, {
     rules: [
       {
         test: /\.less$/,
-        include: pathUtil.resolve(baseConfig.dir.src),
-        use: ['vue-style-loader', 'css-loader', 'postcss-loader', 'less-loader']
+        include: [
+          pathUtil.resolve(baseConfig.dir.src),
+          pathUtil.resolve(baseConfig.dir.packages)
+        ],
+        use: ['css-loader', 'postcss-loader', 'less-loader']
       },
       {
         test: /\.css$/,
-        include: pathUtil.resolve(baseConfig.dir.src),
-        use: ['vue-style-loader', 'css-loader', 'postcss-loader']
+        include: [
+          pathUtil.resolve(baseConfig.dir.src),
+          pathUtil.resolve(baseConfig.dir.packages)
+        ],
+        use: ['css-loader', 'postcss-loader']
       }
     ]
   },
@@ -50,8 +55,7 @@ const webpackDevConfig = merge(webpackBaseConfig, {
       favicon: `./${baseConfig.dir.src}/favicon.ico`
     }),
     new webpack.HotModuleReplacementPlugin(),
-    new FriendlyErrorsPlugin(),
-    new VueLoaderPlugin()
+    new FriendlyErrorsPlugin()
   ],
   devServer: {
     host: LOCAL_IP,
@@ -75,4 +79,4 @@ const webpackDevConfig = merge(webpackBaseConfig, {
   }
 });
 
-export { webpackDevConfig };
+export default webpackDevConfig;

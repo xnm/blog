@@ -1,11 +1,15 @@
 {
   "extends": "./node_modules/gts/tsconfig-google.json",
   "compilerOptions": {
+    "experimentalDecorators": true,
     "rootDir": ".",
     "outDir": "tsc-build",
     "lib": [
-      "es2018"
+      "es2018",
+      "dom"
     ],
+    "module": "commonjs",
+    "jsx": "preserve",
     "target": "es5",
     "noImplicitAny": false,
     "resolveJsonModule": true,

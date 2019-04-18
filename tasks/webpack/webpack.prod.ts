@@ -5,9 +5,8 @@ import * as OptimizeCssAssetsPlugin from 'optimize-css-assets-webpack-plugin';
 import * as MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import * as UglifyJsPlugin from 'uglifyjs-webpack-plugin';
 import * as OfflinePlugin from 'offline-plugin';
-import * as VueLoaderPlugin from 'vue-loader/lib/plugin';
 
-import { webpackBaseConfig } from './webpack.base';
+import webpackBaseConfig from './webpack.base';
 
 import pathUtil from '../utils/path-util';
 
@@ -28,12 +27,18 @@ const webpackProdConfig = merge(webpackBaseConfig, {
     rules: [
       {
         test: /\.less$/,
-        include: pathUtil.resolve(baseConfig.dir.src),
+        include: [
+          pathUtil.resolve(baseConfig.dir.src),
+          pathUtil.resolve(baseConfig.dir.packages)
+        ],
         use: [MiniCssExtractPlugin.loader, 'css-loader', 'postcss-loader', 'less-loader']
       },
       {
         test: /\.css$/,
-        include: pathUtil.resolve(baseConfig.dir.src),
+        include: [
+          pathUtil.resolve(baseConfig.dir.src),
+          pathUtil.resolve(baseConfig.dir.packages)
+        ],
         use: [MiniCssExtractPlugin.loader, 'css-loader', 'postcss-loader']
       }
     ]
@@ -58,8 +63,7 @@ const webpackProdConfig = merge(webpackBaseConfig, {
       ServiceWorker: {
         minify: true
       }
-    }),
-    new VueLoaderPlugin()
+    })
   ],
   optimization: {
     splitChunks: {
@@ -108,4 +112,4 @@ const webpackProdConfig = merge(webpackBaseConfig, {
   }
 });
 
-export { webpackProdConfig };
+export default webpackProdConfig;

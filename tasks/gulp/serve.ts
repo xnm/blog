@@ -1,4 +1,5 @@
 import * as logger from 'fancy-log';
+import * as fs from 'fs';
 import * as gulp from 'gulp';
 import * as open from 'open';
 import * as webpack from 'webpack';
@@ -8,17 +9,47 @@ import * as addEntries from 'webpack-dev-server/lib/utils/addEntries';
 
 import * as WebpackDevServer from 'webpack-dev-server';
 
-import { webpackDevConfig } from '../webpack/webpack.dev';
+import webpackDevConfig from '../webpack/webpack.dev';
 import * as packageJson from '../../package.json';
 
 import ipUtil from '../utils/ip-util';
+import pathUtil from '../utils/path-util';
+import apiGenerator from '@blog/api-generator';
+import configProcessor from '@blog/config-processor';
 
 const baseConfig = packageJson.config.base;
 
 const LOCAL_IP = '127.0.0.1';
 const LAN_IP = ipUtil.getLanIp();
 
-gulp.task('serve', (): void => {
+gulp.task('build:dev-api', (done): void => {
+  const configPath = pathUtil.resolve('') + '/' + 'config.yml';
+  const config = configProcessor.read(configPath);
+
+  const mdFilePath = pathUtil.resolve('') + '/' + config.build.directory.posts;
+  const distPath = pathUtil.resolve('') + '/' + baseConfig.dir.build;
+
+  apiGenerator.generate(configPath, mdFilePath, distPath).then((): void => {
+    done();
+  });
+});
+
+gulp.task('build:dev-config', (done): void => {
+  const configPath = pathUtil.resolve('') + '/' + 'config.yml';
+  const config = configProcessor.read(configPath);
+
+  const injectableConfig = {
+    site: config.site,
+    features: config.features,
+    theme: config.build.theme
+  };
+
+  fs.writeFileSync(pathUtil.resolve(baseConfig.dir.build) + '/' + 'config.json', JSON.stringify(injectableConfig));
+  done();
+});
+
+
+gulp.task('webpack:dev', (): void => {
   logger.info('Webpack building.');
   addEntries(webpackDevConfig, webpackDevConfig.devServer);
   const compilerConfig = webpack(webpackDevConfig);
@@ -56,3 +87,5 @@ gulp.task('serve:prod', (): void => {
       open(AUTO_OPEN_URL);
     });
 });
+
+gulp.task('serve', gulp.series('build:dev-api', 'build:dev-config', 'webpack:dev'));

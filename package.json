@@ -67,7 +67,6 @@
     "jest": "^24.5.0",
     "jest-cli": "^24.5.0",
     "jest-raw-loader": "^1.0.1",
-    "jest-serializer-vue": "^2.0.2",
     "js-yaml": "^3.13.1",
     "lerna": "^3.13.2",
     "less": "^3.9.0",
@@ -107,11 +106,6 @@
     "uglifyjs-webpack-plugin": "^2.1.2",
     "url-loader": "^1.1.2",
     "uslug": "^1.0.4",
-    "vue-jest": "^3.0.4",
-    "vue-loader": "^15.7.0",
-    "vue-server-renderer": "^2.6.10",
-    "vue-style-loader": "^4.1.0",
-    "vue-template-compiler": "^2.6.10",
     "webpack": "^4.30.0",
     "webpack-dev-middleware": "^3.6.1",
     "webpack-dev-server": "^3.3.1",
@@ -172,7 +166,8 @@
       "function-paren-newline": [
         "error",
         "never"
-      ]
+      ],
+      "@typescript-eslint/explicit-member-accessibility": "never"
     }
   },
   "prettier": {
@@ -205,20 +200,15 @@
       "ts",
       "tsx",
       "js",
-      "json",
-      "vue"
+      "json"
     ],
     "moduleNameMapper": {
       "^@/(.*)$": "<rootDir>/src/$1"
     },
     "transform": {
       "^.+\\.tsx?$": "ts-jest",
-      ".*\\.(vue)$": "vue-jest",
       ".*\\.md$": "jest-raw-loader"
     },
-    "snapshotSerializers": [
-      "<rootDir>/node_modules/jest-serializer-vue"
-    ],
     "testMatch": [
       "<rootDir>/test/unit/**/*.test.ts",
       "<rootDir>/packages/@blog/**/*.test.ts",
@@ -227,10 +217,12 @@
     ],
     "collectCoverage": false,
     "collectCoverageFrom": [
-      "src/**/*.{ts,tsx,vue}",
+      "src/**/*.{ts,tsx}",
       "packages/@blog/**/lib/**/*.ts",
       "packages/@utils/**/lib/**/*.ts",
       "packages/@theme/**/src/**/*.ts",
+      "!packages/@theme/**/src/index.ts",
+      "!src/main.ts",
       "!**/tasks/**",
       "!**/test/**",
       "!**/node_modules/**"

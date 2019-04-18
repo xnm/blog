@@ -8,7 +8,7 @@ const webpackBaseConfig = {
     main: pathUtil.resolve(baseConfig.dir.src) + '/' + 'main.ts'
   },
   resolve: {
-    extensions: ['.ts', '.js', '.vue', '.json'],
+    extensions: ['.ts', '.tsx', '.js', '.json'],
     alias: {
       '@': pathUtil.resolve(baseConfig.dir.src),
       vue$: 'vue/dist/vue.esm.js'
@@ -16,10 +16,6 @@ const webpackBaseConfig = {
   },
   module: {
     rules: [
-      {
-        test: /\.vue$/,
-        loader: 'vue-loader'
-      },
       {
         test: /\.(ts|tsx)$/,
         include: [
@@ -59,4 +55,4 @@ const webpackBaseConfig = {
   }
 };
 
-export { webpackBaseConfig };
+export default webpackBaseConfig ;

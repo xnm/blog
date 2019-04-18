@@ -1,6 +1,2 @@
-/***
- * @desc theme entry file
- *
- */
 
 
