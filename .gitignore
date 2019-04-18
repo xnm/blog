@@ -24,3 +24,4 @@ dist
 coverage
 test/e2e/videos
 junit.xml
+reports
