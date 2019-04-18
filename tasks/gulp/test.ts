@@ -16,7 +16,7 @@ gulp.task('test:api', (done): void => {
 });
 
 gulp.task('test:coverage', (done): void => {
-  jest.run(['--coverage']).then((): void => {
+  jest.run(['--coverage', '--runInBand']).then((): void => {
     done();
   });
 });

@@ -23,4 +23,4 @@ dist
 # test
 coverage
 test/e2e/videos
-jest-junit.xml
+junit.xml
