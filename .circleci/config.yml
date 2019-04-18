@@ -19,5 +19,5 @@ jobs:
           command: "bash <(curl -s https://codecov.io/bash) -t $CODECOV_TOKEN"
       - store_test_results:
           environment:
-            JEST_JUNIT_OUTPUT: "test/unit/coverage/junit/js-test-results.xml"
-          path: test/unit/coverage/junit/js-test-results.xml
+            JEST_JUNIT_OUTPUT: "test/unit/coverage/js-test-results.xml"
+          path: test/unit/coverage/js-test-results.xml
