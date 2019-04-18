@@ -73,6 +73,7 @@
     "jest-cli": "^24.5.0",
     "jest-environment-enzyme": "^7.0.2",
     "jest-enzyme": "^7.0.2",
+    "jest-junit": "^6.3.0",
     "jest-raw-loader": "^1.0.1",
     "js-yaml": "^3.13.1",
     "lerna": "^3.13.2",
@@ -242,6 +243,10 @@
       "!**/test/**",
       "!**/node_modules/**"
     ],
-    "coverageDirectory": "<rootDir>/test/unit/coverage"
+    "coverageDirectory": "<rootDir>/test/unit/coverage",
+    "reporters": [
+      "default",
+      "jest-junit"
+    ]
   }
 }
