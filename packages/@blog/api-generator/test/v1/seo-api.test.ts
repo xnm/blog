@@ -18,7 +18,7 @@ describe('@blog/api-generator: seo-api', (): void => {
   });
 
   it('# should generate robots.txt correctly', async (): Promise<void> => {
-    const robotsTxtApi = await seoApi.generateRobotsTxt(config, posts);
+    const robotsTxtApi = await seoApi.generateRobotsTxt(config);
     expect(_.head(_.keys(robotsTxtApi))).toEqual('/robots.txt');
     expect(_.keys(robotsTxtApi).length).toEqual(1);
   });

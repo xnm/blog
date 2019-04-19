@@ -1,5 +1,4 @@
 import * as logger from 'fancy-log';
-import * as fs from 'fs';
 import * as gulp from 'gulp';
 import * as open from 'open';
 import * as webpack from 'webpack';

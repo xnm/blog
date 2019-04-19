@@ -60,7 +60,7 @@ describe('@blog/api-generator: persist-util', (): void => {
   });
 
   it('# should persist robots.txt correctly', async (): Promise<void> => {
-    const robotsApi = await seoApi.generateRobotsTxt(config, posts);
+    const robotsApi = await seoApi.generateRobotsTxt(config);
     persistUtil.persist(TMP_DIST_DIR, robotsApi, '');
   });
 });

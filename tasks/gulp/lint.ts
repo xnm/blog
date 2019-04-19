@@ -5,7 +5,13 @@ import * as mkdirp from 'mkdirp';
 import pathUtil from '../utils/path-util';
 
 
-const TS_FILE_PATTERN = '**/*.ts';
+const TS_FILE_PATTERN = [
+  'src/**/*.ts',
+  'test/**/*.ts',
+  'packages/**/*.ts',
+  '!packages/**/dist/**/*.ts',
+  '!packages/**/build/**/*.ts'
+];
 
 gulp.task('lint', (): void => {
   mkdirp.sync(pathUtil.resolve('') + '/reports/junit/');

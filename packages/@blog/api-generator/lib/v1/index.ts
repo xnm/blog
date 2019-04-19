@@ -38,7 +38,7 @@ async function generate(configPath: string, dataPath: string, outputPath: string
   persistUtil.persist(outputPath, postsApiMap);
 
   const seoApiMap = _.merge({},
-    await seoApi.generateRobotsTxt(config.site, posts),
+    await seoApi.generateRobotsTxt(config.site),
     seoApi.generateFeedsApi(config.site, posts),
     seoApi.generateSiteMapApi(config.site, posts));
 

@@ -70,7 +70,7 @@ function generateSiteMapApi(config: Config.Site, data: BlogModel.Post[]): BlogAp
   };
 }
 
-async function generateRobotsTxt(config: Config.Site, data: BlogModel.Post[]): Promise<object> {
+async function generateRobotsTxt(config: Config.Site): Promise<object> {
   const robotsTxtContent = await robotstxt({
     sitemap: config.host + SITEMAP_URL,
     host: config.host

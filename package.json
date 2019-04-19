@@ -13,7 +13,7 @@
     "typescript"
   ],
   "scripts": {
-    "postinstall": "lerna run tsc",
+    "postinstall": "gulp compile",
     "start": "gulp serve",
     "clean": "gulp clean",
     "serve": "gulp serve",
