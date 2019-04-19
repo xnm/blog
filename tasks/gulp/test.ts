@@ -16,7 +16,12 @@ gulp.task('test:api', (done): void => {
 });
 
 gulp.task('test:coverage', (done): void => {
-  jest.run(['--coverage', '--runInBand']).then((): void => {
+  process.env.JEST_JUNIT_OUTPUT = 'reports/junit/js-test-results.xml';
+  jest.run([
+    '--coverage',
+    '--runInBand',
+    '--detectOpenHandles'
+  ]).then((): void => {
     done();
   });
 });

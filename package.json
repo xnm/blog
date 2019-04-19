@@ -23,7 +23,11 @@
     "ci": "gulp ci"
   },
   "dependencies": {
-    "axios": "^0.18.0"
+    "@material-ui/core": "^4.0.0-alpha.8",
+    "axios": "^0.18.0",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "react-router-dom": "^5.0.0"
   },
   "devDependencies": {
     "@types/cheerio": "^0.22.11",
@@ -36,6 +40,7 @@
     "@types/node": "^10.14.4",
     "@types/react": "^16.8.13",
     "@types/react-dom": "^16.8.4",
+    "@types/react-router-dom": "^4.3.2",
     "@types/sinon": "^7.0.10",
     "@types/webpack": "^4.4.26",
     "@typescript-eslint/eslint-plugin": "^1.6.0",
@@ -248,7 +253,7 @@
       "!**/test/**",
       "!**/node_modules/**"
     ],
-    "coverageDirectory": "<rootDir>/test/unit/coverage",
+    "coverageDirectory": "<rootDir>/reports/coverage",
     "reporters": [
       "default",
       "jest-junit"

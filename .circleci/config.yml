@@ -16,8 +16,6 @@ jobs:
           command: yarn lint
       - run:
           name: Unit Test & Build
-          environment:
-            JEST_JUNIT_OUTPUT: "reports/junit/js-test-results.xml"
           command: yarn ci
       - run:
           name: Coverage Report
