@@ -8,11 +8,11 @@ import pathUtil from '../utils/path-util';
 const TS_FILE_PATTERN = '**/*.ts';
 
 gulp.task('lint', (): void => {
-  mkdirp.sync(pathUtil.resolve('') + 'reports/junit/');
+  mkdirp.sync(pathUtil.resolve('') + '/reports/junit/');
   return gulp.src(TS_FILE_PATTERN)
     .pipe(eslint())
     .pipe(eslint.format('junit', (result: string): void => {
-      fs.writeFileSync('reports/junit/js-lint-results.xml', result);
+      fs.writeFileSync(pathUtil.resolve('') + '/reports/junit/js-lint-results.xml', result);
     }))
     .pipe(eslint.failAfterError())
     ;
