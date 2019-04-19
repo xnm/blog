@@ -13,14 +13,14 @@
     "typescript"
   ],
   "scripts": {
-    "postinstall": "gulp compile",
     "start": "gulp serve",
     "clean": "gulp clean",
     "serve": "gulp serve",
     "build": "gulp build",
     "test": "gulp test",
     "lint": "gulp lint",
-    "ci": "gulp ci"
+    "ci": "gulp ci",
+    "postinstall": "lerna run tsc"
   },
   "dependencies": {
     "@material-ui/core": "^4.0.0-alpha.8",
