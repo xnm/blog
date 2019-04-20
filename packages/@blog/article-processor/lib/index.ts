@@ -4,6 +4,7 @@ import * as AnchorPlugin from 'markdown-it-anchor';
 import { DetectImagesPlugin, MetadataPlugin, SummaryPlugin, TOCPlugin } from '@utils/markdown-it-plugins';
 import * as path from 'path';
 import * as fs from 'fs';
+import scanner from './scanner';
 
 const uslugify = (input): string => {
   return uslug(input);
@@ -51,3 +52,7 @@ export default {
   init,
   parse
 };
+
+export {
+  scanner
+}

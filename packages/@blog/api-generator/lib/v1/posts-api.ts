@@ -48,7 +48,7 @@ function generatePostsQuery(data: BlogModel.Post[]): BlogApiModel.PostsPermalink
   _.each(data, (post): void => {
     const permalink = post.permalink;
     if (permalink) {
-      postApiMap[permalink] = post;
+      postApiMap[API_PREFIX + POSTS_API_PREFIX + permalink] = post;
     }
   });
 
@@ -75,7 +75,7 @@ function generateCategoriesQuery(data: BlogModel.Post[]): BlogApiModel.Categorie
 
   return _.groupBy(reduceSizes(data),
     (post): string => {
-      return buildCategoriesQueryLink(post.metadata.category);
+      return API_PREFIX + buildCategoriesQueryLink(post.metadata.category);
     });
 }
 
@@ -109,7 +109,7 @@ function generateTagsQuery(data: BlogModel.Post[]): BlogApiModel.TagsQuery {
   _.each(reduceSizes(data), (post): void => {
     if (post.metadata.tags) {
       _.each(post.metadata.tags, (tag): void => {
-        const tagApiPrefix = buildTagsQueryLink(tag);
+        const tagApiPrefix = API_PREFIX + buildTagsQueryLink(tag);
         if (!tagsQuery.hasOwnProperty(tagApiPrefix)) {
           tagsQuery[tagApiPrefix] = [];
         }
