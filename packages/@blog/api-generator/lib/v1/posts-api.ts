@@ -7,9 +7,9 @@ const CATEGORIES_API_PREFIX = '/categories';
 const TAGS_API_PREFIX = '/tags';
 
 const buildPermalink = (created: string, filename: string): string =>
-  API_PREFIX + POSTS_API_PREFIX + '/' + format(new Date(created), 'YYYY/MM/DD') + '/' + filename;
-const buildCategoriesQueryLink = (category): string => API_PREFIX + CATEGORIES_API_PREFIX + '/' + category;
-const buildTagsQueryLink = (tag): string => API_PREFIX + TAGS_API_PREFIX + '/' + tag;
+  format(new Date(created), '/YYYY/MM/DD') + '/' + filename;
+const buildCategoriesQueryLink = (category): string => CATEGORIES_API_PREFIX + '/' + category;
+const buildTagsQueryLink = (tag): string => TAGS_API_PREFIX + '/' + tag;
 const buildByYearLink = (created: string): string => API_PREFIX + POSTS_API_PREFIX + '/' + format(new Date(_.clone(created)), 'YYYY');
 const buildByMonthLink = (created: string): string => API_PREFIX + POSTS_API_PREFIX + '/' + format(new Date(_.clone(created)), 'YYYY/MM');
 

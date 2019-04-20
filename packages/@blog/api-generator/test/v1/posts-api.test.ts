@@ -35,9 +35,9 @@ describe('@blog/api-generator: posts-api', (): void => {
     const categoriesMap = postsApi.generateCategoriesQuery(posts);
     expect(_.keys(categoriesMap).length).toEqual(posts.length);
     expect(_.keys(categoriesMap)).toEqual([
-      '/api/v1/categories/study',
-      '/api/v1/categories/work',
-      '/api/v1/categories/life'
+      '/categories/study',
+      '/categories/work',
+      '/categories/life'
     ]);
 
     const firstCategoryApiPath = _.keys(categoriesMap)[0];
@@ -61,12 +61,12 @@ describe('@blog/api-generator: posts-api', (): void => {
 
     expect(_.keys(tagsMap).length).toEqual(6);
     expect(_.keys(tagsMap)).toEqual([
-      '/api/v1/tags/javascript',
-      '/api/v1/tags/graphql',
-      '/api/v1/tags/java',
-      '/api/v1/tags/android',
-      '/api/v1/tags/traveling',
-      '/api/v1/tags/memory'
+      '/tags/javascript',
+      '/tags/graphql',
+      '/tags/java',
+      '/tags/android',
+      '/tags/traveling',
+      '/tags/memory'
     ]);
 
     const firstTagApiPath = _.keys(tagsMap)[0];

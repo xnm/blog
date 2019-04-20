@@ -18,7 +18,7 @@ const LOCAL_IP = '127.0.0.1';
 
 const webpackDevConfig = merge(webpackBaseConfig, {
   mode: 'development',
-  devtool: 'eval-source-map',
+  devtool: 'inline-source-map',
   output: {
     path: pathUtil.resolve(baseConfig.dir.build),
     publicPath: PROTOCOL + LOCAL_IP + ':' + baseConfig.dev.port + '/',
@@ -75,7 +75,12 @@ const webpackDevConfig = merge(webpackBaseConfig, {
       chunks: true,
       chunkModules: false
     },
-    publicPath: PROTOCOL + LOCAL_IP + ':' + baseConfig.dev.port
+    publicPath: PROTOCOL + LOCAL_IP + ':' + baseConfig.dev.port,
+    proxy: {
+      '/api': {
+        target: PROTOCOL + LOCAL_IP + ':' + baseConfig.dev.port + '/' + baseConfig.dir.build
+      }
+    }
   }
 });
 

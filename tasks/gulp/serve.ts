@@ -29,6 +29,7 @@ gulp.task('build:dev-api', (done): void => {
   const distPath = pathUtil.resolve('') + '/' + baseConfig.dir.build;
 
   apiGenerator.generate(configPath, mdFilePath, distPath).then((): void => {
+    logger.info('write api complete');
     done();
   });
 });
@@ -73,4 +74,4 @@ gulp.task('serve:prod', (): void => {
     });
 });
 
-gulp.task('serve', gulp.series('build:config', 'build:dev-api', 'webpack:dev'));
+gulp.task('serve', gulp.series('build:dev-api', 'build:config', 'webpack:dev'));
