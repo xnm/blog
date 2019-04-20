@@ -21,7 +21,9 @@ gulp.task('webpack', (done): void => {
       if (error || stats.hasErrors()) {
         logger.error('Webpack build error:', error);
       }
-      logger.info(stats.toString(webpackProdConfig.stats));
+      stats.toString(webpackProdConfig.stats).split('\n').map((line: string): void => {
+        logger.info(line);
+      });
       done();
     });
 });
