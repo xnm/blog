@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { RouteWithSubRoutes } from './router';
+import Navigation from './core/components/Navigation';
 
 interface AppProps {
   router: object[]
@@ -13,6 +14,7 @@ export default class App extends React.Component<AppProps> {
     let $this = this;
     return (
       <Router>
+        <Navigation/>
         <div>
           {$this.props.router.map((route, i): JSX.Element => (
             <RouteWithSubRoutes

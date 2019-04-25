@@ -1,4 +1,5 @@
 import pathUtil from '../utils/path-util';
+import TsconfigPathsPlugin from 'tsconfig-paths-webpack-plugin';
 import * as packageJson from '../../package.json';
 
 const baseConfig = packageJson.config.base;
@@ -11,7 +12,10 @@ const webpackBaseConfig = {
     extensions: ['.ts', '.tsx', '.js', '.json'],
     alias: {
       '@': pathUtil.resolve(baseConfig.dir.src)
-    }
+    },
+    plugins: [
+      new TsconfigPathsPlugin()
+    ]
   },
   module: {
     rules: [

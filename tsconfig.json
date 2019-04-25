@@ -1,5 +1,6 @@
 {
   "extends": "./node_modules/gts/tsconfig-google.json",
+  "compileOnSave": true,
   "compilerOptions": {
     "experimentalDecorators": true,
     "rootDir": ".",
@@ -22,5 +23,9 @@
         "packages/@*"
       ]
     }
-  }
+  },
+  "exclude": [
+    "./dist",
+    "./tsc-build"
+  ]
 }
