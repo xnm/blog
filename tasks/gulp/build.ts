@@ -5,8 +5,6 @@ import * as fs from 'fs';
 import * as mkdirp from 'mkdirp';
 
 import pathUtil from '../utils/path-util';
-import apiGenerator from '@blog/api-generator';
-import configProcessor from '@blog/config-processor';
 
 import * as packageJson from '../../package.json';
 import webpackProdConfig from '../webpack/webpack.prod';
@@ -28,9 +26,12 @@ gulp.task('webpack', (done): void => {
     });
 });
 
-gulp.task('build:config', (done): void => {
+gulp.task('build:config', async (done): Promise<void> => {
   const configPath = pathUtil.resolve('') + '/' + 'config.yml';
-  const config = configProcessor.read(configPath);
+
+
+  const configProcessor = await import('@blog/config-processor');
+  const config = configProcessor.default.read(configPath);
 
   const injectableConfig = {
     site: config.site,
@@ -44,14 +45,16 @@ gulp.task('build:config', (done): void => {
 });
 
 
-gulp.task('build:api', (done): void => {
+gulp.task('build:api', async (done): Promise<void> => {
+  const apiGenerator = await import('@blog/api-generator');
+  const configProcessor = await import('@blog/config-processor');
   const configPath = pathUtil.resolve('') + '/' + 'config.yml';
-  let config = configProcessor.read(configPath);
+  let config = configProcessor.default.read(configPath);
 
   const mdFilePath = pathUtil.resolve('') + '/' + config.build.directory.posts;
   const distPath = pathUtil.resolve('') + '/' + config.build.directory.public;
 
-  apiGenerator.generate(configPath, mdFilePath, distPath).then((): void => {
+  apiGenerator.default.generate(configPath, mdFilePath, distPath).then((): void => {
     done();
   });
 });
