@@ -21,7 +21,7 @@
     "lint": "gulp lint",
     "ci": "gulp ci",
     "compile": "gulp compile",
-    "postinstall": "gulp compile"
+    "postinstall": "lerna run tsc"
   },
   "dependencies": {
     "@material-ui/core": "^4.0.0-alpha.8",
@@ -120,7 +120,6 @@
     "ts-jest": "^24.0.2",
     "ts-loader": "^5.3.3",
     "ts-node": "^8.0.3",
-    "tsconfig-paths-webpack-plugin": "^3.2.0",
     "typescript": "~3.4.3",
     "uglifyjs-webpack-plugin": "^2.1.2",
     "url-loader": "^1.1.2",
@@ -153,7 +152,8 @@
           "css": "static/css",
           "img": "static/img",
           "fonts": "static/fonts",
-          "manifest": "static/manifest"
+          "manifest": "static/manifest",
+          "packages": "packages/**/*/dist"
         },
         "test": {
           "unit": "test/unit",

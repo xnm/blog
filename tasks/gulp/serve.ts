@@ -12,30 +12,14 @@ import webpackDevConfig from '../webpack/webpack.dev';
 import * as packageJson from '../../package.json';
 
 import ipUtil from '../utils/ip-util';
-import pathUtil from '../utils/path-util';
-import apiGenerator from '@blog/api-generator';
-import configProcessor from '@blog/config-processor';
 
 const baseConfig = packageJson.config.base;
 
 const LOCAL_IP = '127.0.0.1';
 const LAN_IP = ipUtil.getLanIp();
 
-gulp.task('build:dev-api', (done): void => {
-  const configPath = pathUtil.resolve('') + '/' + 'config.yml';
-  const config = configProcessor.read(configPath);
 
-  const mdFilePath = pathUtil.resolve('') + '/' + config.build.directory.posts;
-  const distPath = pathUtil.resolve('') + '/' + baseConfig.dir.build;
-
-  apiGenerator.generate(configPath, mdFilePath, distPath).then((): void => {
-    logger.info('write api complete');
-    done();
-  });
-});
-
-
-gulp.task('webpack:dev', (): void => {
+gulp.task('serve:webpack', (): void => {
   logger.info('Webpack building.');
   addEntries(webpackDevConfig, webpackDevConfig.devServer);
   const compilerConfig = webpack(webpackDevConfig);
@@ -74,4 +58,4 @@ gulp.task('serve:prod', (): void => {
     });
 });
 
-gulp.task('serve', gulp.series('build:dev-api', 'build:config', 'webpack:dev'));
+gulp.task('serve', gulp.series('build:dev-api', 'build:config', 'serve:webpack'));

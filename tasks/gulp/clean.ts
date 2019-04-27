@@ -26,4 +26,9 @@ gulp.task('clean:dist', (): void => {
   return gulp.src(pathUtil.resolve(baseConfig.dir.dist.root), SRC_OPTIONS).pipe(rimraf());
 });
 
-gulp.task('clean', gulp.series('clean:build', 'clean:tsc-build', 'clean:dist'));
+gulp.task('clean:packages-dist', (): void => {
+  logger.info('Deleting packages dist');
+  return gulp.src(baseConfig.dir.dist.packages, SRC_OPTIONS).pipe(rimraf());
+});
+
+gulp.task('clean', gulp.series('clean:build', 'clean:tsc-build', 'clean:dist', 'clean:packages-dist'));
