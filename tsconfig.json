@@ -7,8 +7,7 @@
     "outDir": "tsc-build",
     "lib": [
       "es2018",
-      "dom",
-      "esnext"
+      "dom"
     ],
     "jsx": "react",
     "target": "es5",

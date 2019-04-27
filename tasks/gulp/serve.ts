@@ -34,7 +34,7 @@ gulp.task('serve:webpack', (): void => {
       logger.info('You can visit at below urls:');
       logger.info('Local: ', AUTO_OPEN_URL);
       logger.info('Network:', LAN_URL);
-      open(AUTO_OPEN_URL);
+      open(AUTO_OPEN_URL).then();
     });
 });
 
@@ -54,7 +54,7 @@ gulp.task('serve:prod', (): void => {
       logger.info('You can visit at below urls:');
       logger.info('Local: ', AUTO_OPEN_URL);
       logger.info('Network:', LAN_URL);
-      open(AUTO_OPEN_URL);
+      open(AUTO_OPEN_URL).then();
     });
 });
 
