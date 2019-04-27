@@ -1,7 +1,7 @@
 import * as MarkdownIt from 'markdown-it';
 import { MetadataPlugin, TOCPlugin, SummaryPlugin, DetectImagesPlugin } from '../lib';
 
-import * as sample from './fixtures/sample-bundle.md';
+import * as sample from './__fixtures__/sample-bundle.md';
 
 
 describe('@utils/markdown-it-plugins: entry', (): void => {

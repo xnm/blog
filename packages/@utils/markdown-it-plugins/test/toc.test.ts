@@ -1,7 +1,7 @@
 import * as MarkdownIt from 'markdown-it';
 import TOCPlugin from '../lib/toc';
 
-import * as sample from './fixtures/sample-toc.md';
+import * as sample from './__fixtures__/sample-toc.md';
 
 describe('@utils/markdown-it-toc', (): void => {
   it('# should got toc data at env', (): void => {

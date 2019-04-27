@@ -1,7 +1,7 @@
 import * as MarkdownIt from 'markdown-it';
 import DetectImagesPlugin from '../lib/images';
 
-import * as sample from './fixtures/sample-images.md';
+import * as sample from './__fixtures__/sample-images.md';
 
 describe('@utils/markdown-it-images', ():void => {
   it('# should detect images at env', ():void => {

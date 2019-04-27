@@ -1,8 +1,8 @@
 import * as _ from 'lodash';
 import seoApi from '../../lib/v1/seo-api';
 
-import * as posts from './fixtures/json/posts-sample.json';
-import * as config from './fixtures/json/config-sample.json';
+import * as posts from './__fixtures__/json/posts-sample.json';
+import * as config from './__fixtures__/json/config-sample.json';
 
 describe('@blog/api-generator: seo-api', (): void => {
   it('# should generate sitemap.xml correctly', (): void => {

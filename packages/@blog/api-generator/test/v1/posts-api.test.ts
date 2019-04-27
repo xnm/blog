@@ -1,7 +1,7 @@
 import * as _ from 'lodash';
 import postsApi from '../../lib/v1/posts-api';
 
-import * as posts from './fixtures/json/posts-sample.json';
+import * as posts from './__fixtures__/json/posts-sample.json';
 
 describe('@blog/api-generator: posts-api', (): void => {
   it('# should generate posts query by permalink', (): void => {

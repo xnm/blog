@@ -1,13 +1,13 @@
 import parser from '../lib/index';
 import scanner from '../lib/scanner';
 
-import * as sample from './fixtures/normal.md';
+import * as sample from './__fixtures__/normal.md';
 import * as path from 'path';
 import * as _ from 'lodash';
 
 describe('@blog/article-processor: parser', (): void => {
   it('# should init posts with scanned file result', (): void => {
-    const mdFiles = scanner.scan(path.resolve(__dirname, './fixtures'));
+    const mdFiles = scanner.scan(path.resolve(__dirname, './__fixtures__'));
     const postFiles = mdFiles.map((postFile): BlogModel.PostFile => parser.init(postFile));
 
     expect(postFiles.length).toBe(3);

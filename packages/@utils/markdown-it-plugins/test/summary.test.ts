@@ -1,7 +1,7 @@
 import * as MarkdownIt from 'markdown-it';
 import SummaryPlugin from '../lib/summary';
 
-import * as sample from './fixtures/sample-summary.md';
+import * as sample from './__fixtures__/sample-summary.md';
 
 describe('@utils/markdown-it-summary', (): void => {
   it('# should got summary with 100 chars without any options', (): void => {

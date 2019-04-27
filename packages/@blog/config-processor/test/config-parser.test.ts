@@ -4,11 +4,11 @@ import parser from '../lib';
 
 describe('@blog/config-parser: parser', (): void => {
 
-  const CORRECT_CONFIG_PATH = path.join(__dirname, './fixtures/correct-config.yml');
-  const MISSING_BUILD_CONFIG_PATH = path.join(__dirname, './fixtures/missing-build-config.yml');
-  const MISSING_SITE_CONFIG_PATH = path.join(__dirname, './fixtures/missing-site-config.yml');
-  const INVALID_HOST_CONFIG_PATH = path.join(__dirname, './fixtures/invalid-host-format-config.yml');
-  const NO_FEATURE_CONFIG_PATH = path.join(__dirname, './fixtures/no-feature-config.yml');
+  const CORRECT_CONFIG_PATH = path.join(__dirname, './__fixtures__/correct-config.yml');
+  const MISSING_BUILD_CONFIG_PATH = path.join(__dirname, './__fixtures__/missing-build-config.yml');
+  const MISSING_SITE_CONFIG_PATH = path.join(__dirname, './__fixtures__/missing-site-config.yml');
+  const INVALID_HOST_CONFIG_PATH = path.join(__dirname, './__fixtures__/invalid-host-format-config.yml');
+  const NO_FEATURE_CONFIG_PATH = path.join(__dirname, './__fixtures__/no-feature-config.yml');
 
   it('# should read and valid sample ', (): void => {
     const config = parser.read(CORRECT_CONFIG_PATH);

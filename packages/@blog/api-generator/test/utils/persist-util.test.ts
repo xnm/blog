@@ -5,8 +5,8 @@ import persistUtil from '../../lib/utils/persist-util';
 import postsApi from '../../lib/v1/posts-api';
 import seoApi from '../../lib/v1/seo-api';
 
-import * as posts from '../v1/fixtures/json/posts-sample.json';
-import * as config from '../v1/fixtures/json/config-sample.json';
+import * as posts from '../v1/__fixtures__/json/posts-sample.json';
+import * as config from '../v1/__fixtures__/json/config-sample.json';
 
 describe('@blog/api-generator: persist-util', (): void => {
 

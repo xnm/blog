@@ -1,7 +1,7 @@
 import * as MarkdownIt from 'markdown-it';
 import MetadataPlugin from '../lib/metadata';
 
-import * as sample from './fixtures/sample-metadata.md';
+import * as sample from './__fixtures__/sample-metadata.md';
 
 describe('@utils/markdown-it-metadata', ():void  => {
   it('# detect metadata and add parsed metadata at tokens', ():void  => {

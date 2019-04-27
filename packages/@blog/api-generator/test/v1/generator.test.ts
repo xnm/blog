@@ -6,8 +6,8 @@ import generator from '../../lib/v1/index';
 
 describe('@blog/api-generator:entry', (): void => {
 
-  const TEST_CONFIG_PATH = path.join(__dirname, './fixtures/config-sample.yml');
-  const TEST_MD_DIR = path.join(__dirname, './fixtures/posts');
+  const TEST_CONFIG_PATH = path.join(__dirname, './__fixtures__/config-sample.yml');
+  const TEST_MD_DIR = path.join(__dirname, './__fixtures__/posts');
 
   const TMP_BUILD_DIR = path.join(__dirname, '/build/');
   const TMP_DIST_DIR = path.join(__dirname, '/dist/');
