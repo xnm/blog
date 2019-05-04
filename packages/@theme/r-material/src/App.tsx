@@ -3,9 +3,13 @@ import { BrowserRouter as Router } from 'react-router-dom';
 import { RouteWithSubRoutes } from './router';
 import Navigation from './core/components/Navigation';
 
+import * as config from '@/config.json';
+
 interface AppProps {
   router: object[]
 }
+
+const site = config.site;
 
 export default class App extends React.Component<AppProps> {
 
@@ -14,7 +18,9 @@ export default class App extends React.Component<AppProps> {
     let $this = this;
     return (
       <Router>
-        <Navigation/>
+        <Navigation
+          title={site.title}
+        />
         <div>
           {$this.props.router.map((route, i): JSX.Element => (
             <RouteWithSubRoutes
