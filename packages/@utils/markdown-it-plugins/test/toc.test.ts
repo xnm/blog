@@ -12,4 +12,10 @@ describe('@utils/markdown-it-toc', (): void => {
     md.parse(sample, context);
     expect(context).toHaveProperty('toc');
   });
+
+
+  it('# should have no toc when no context', (): void => {
+    const md = MarkdownIt().use(TOCPlugin);
+    md.parse(sample);
+  });
 });

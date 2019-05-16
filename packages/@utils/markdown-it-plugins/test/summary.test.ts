@@ -24,4 +24,9 @@ describe('@utils/markdown-it-summary', (): void => {
     expect(context).toHaveProperty('summary');
     expect(context['summary'].length).toBeLessThanOrEqual(options.len);
   });
+
+  it('# should got no summary when no context', (): void => {
+    const md = MarkdownIt().use(SummaryPlugin);
+    md.parse(sample);
+  });
 });
