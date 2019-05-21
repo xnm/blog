@@ -47,9 +47,7 @@ function generatePostsQuery(data: BlogModel.Post[]): BlogApiModel.PostsPermalink
   const postApiMap = {};
   _.each(data, (post): void => {
     const permalink = post.permalink;
-    if (permalink) {
-      postApiMap[API_PREFIX + POSTS_API_PREFIX + permalink] = post;
-    }
+    postApiMap[API_PREFIX + POSTS_API_PREFIX + permalink] = post;
   });
 
   return postApiMap;

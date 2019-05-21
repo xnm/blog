@@ -2,6 +2,7 @@ import * as _ from 'lodash';
 import postsApi from '../../lib/v1/posts-api';
 
 import * as posts from './__fixtures__/json/posts-sample.json';
+import * as invalidPosts from './__fixtures__/json/invalid-posts-sample.json';
 
 describe('@blog/api-generator: posts-api', (): void => {
   it('# should generate posts query by permalink', (): void => {
@@ -72,5 +73,23 @@ describe('@blog/api-generator: posts-api', (): void => {
     const firstTagApiPath = _.keys(tagsMap)[0];
     expect(tagsMap[firstTagApiPath][0].md).toEqual('');
     expect(tagsMap[firstTagApiPath][0].html).toEqual('');
+  });
+
+  it('# should not generate when no metadata.tags', (): void => {
+    const postsMap = postsApi.generatePostsQuery(invalidPosts);
+    expect(_.keys(postsMap).length).toBe(3);
+    expect(postsMap[_.keys(postsMap)[0]].metadata).not.toHaveProperty('tags');
+  });
+
+  it('# should not generate tags query when no metadata.tags', (): void => {
+    const tagsMap = postsApi.generateTagsQuery(invalidPosts);
+    expect(_.keys(tagsMap).length).toEqual(4);
+  });
+
+
+  it('# should not generate tags overview query when no metadata.tags', (): void => {
+    const tagsOverviewQuery = postsApi.generateTagsOverview(invalidPosts);
+    const tagsOverview = tagsOverviewQuery[_.keys(tagsOverviewQuery)[0]];
+    expect(tagsOverview.length).toEqual(4);
   });
 });
