@@ -10,6 +10,8 @@
 
 ### Same Level as Third-Level Heading
 
+### Same Level as last Third-Level Heading
+
 ## Third
 
 # Second Section

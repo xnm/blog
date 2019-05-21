@@ -3,8 +3,8 @@ import MetadataPlugin from '../lib/metadata';
 
 import * as sample from './__fixtures__/sample-metadata.md';
 
-describe('@utils/markdown-it-metadata', ():void  => {
-  it('# detect metadata and add parsed metadata at tokens', ():void  => {
+describe('@utils/markdown-it-metadata', (): void => {
+  it('# detect metadata and add parsed metadata at tokens', (): void => {
     const md = MarkdownIt().use(MetadataPlugin);
 
     const context = {};
@@ -16,7 +16,7 @@ describe('@utils/markdown-it-metadata', ():void  => {
     expect(context['metadata']).toHaveProperty('updated');
   });
 
-  it('# detect metadata and will not appear in renderer', ():void  => {
+  it('# detect metadata and will not appear in renderer', (): void => {
     const md = MarkdownIt().use(MetadataPlugin);
 
     const context = {};
@@ -24,5 +24,10 @@ describe('@utils/markdown-it-metadata', ():void  => {
 
     expect(html).not.toContain('created');
     expect(html).not.toContain('updated');
+  });
+
+  it('# detect no metadata when no env', (): void => {
+    const md = MarkdownIt().use(MetadataPlugin);
+    md.parse(sample);
   });
 });

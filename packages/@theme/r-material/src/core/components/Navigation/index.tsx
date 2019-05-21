@@ -123,7 +123,11 @@ const Navigation: React.ComponentType<NavigationProps> = (props: NavigationProps
         }}
       >
         <div className={classes.drawerHeader}>
-          <IconButton onClick={handleDrawerClose} href=''>
+          <IconButton
+            aria-label="Close drawer"
+            onClick={handleDrawerClose}
+            href=''
+          >
             {theme.direction === 'ltr' ? <ChevronLeftIcon/> : <ChevronRightIcon/>}
           </IconButton>
         </div>

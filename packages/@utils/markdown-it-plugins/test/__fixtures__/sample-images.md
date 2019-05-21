@@ -6,6 +6,11 @@
 ![image description](https://img.blog.com/1.png)
 
 
+other inlines value
+
+
+Term 2 with *inline markup*
+
 
 ## Third Title
 

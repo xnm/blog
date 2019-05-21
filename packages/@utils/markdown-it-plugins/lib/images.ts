@@ -7,7 +7,7 @@ function detectImages(md): void {
 
     tokens.map((token): void => {
       if (token.type === 'inline') {
-        if (token.children && _.isArray(token.children)) {
+        if (token.children) {
           token.children.map((childToken): void => {
             if (childToken.type === 'image') {
               childToken.attrs.map((imageAttr): void => {
