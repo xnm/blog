@@ -128,7 +128,7 @@ const Navigation: React.ComponentType<NavigationProps> = (props: NavigationProps
             onClick={handleDrawerClose}
             href=''
           >
-            {theme.direction === 'ltr' ? <ChevronLeftIcon/> : <ChevronRightIcon/>}
+            <ChevronLeftIcon/>
           </IconButton>
         </div>
 
