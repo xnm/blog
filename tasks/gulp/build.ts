@@ -39,7 +39,8 @@ gulp.task('build:config', async (done): Promise<void> => {
   const injectableConfig = {
     site: config.site,
     features: config.features,
-    theme: config.build.theme
+    theme: config.build.theme,
+    colors: config.build.colors
   };
 
   mkdirp.sync(pathUtil.resolve(baseConfig.dir.build));

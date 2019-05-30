@@ -2,6 +2,7 @@ import * as sm from 'sitemap';
 import robotstxt from 'generate-robotstxt';
 import { Feed } from 'feed';
 import { format } from 'date-fns';
+import { Item } from 'feed/lib/typings';
 
 const POSTS_URL_PREFIX = '/posts';
 

@@ -101,6 +101,7 @@ declare namespace Config {
 
     favicon?: string;
     theme: string;
+    colors: object;
   }
 
   export interface Bundle {

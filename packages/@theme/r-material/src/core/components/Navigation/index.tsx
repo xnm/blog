@@ -9,7 +9,6 @@ import Typography from '@material-ui/core/Typography';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
-import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 
 
 interface NavigationProps {
@@ -76,8 +75,10 @@ const useStyles = makeStyles((theme: Theme): StyleRules => ({
 }));
 
 const Navigation: React.ComponentType<NavigationProps> = (props: NavigationProps): JSX.Element => {
-  const classes = useStyles();
   const theme: Theme = useTheme();
+  console.log('theme:', theme);
+  const classes = useStyles(theme);
+
   const [open, setOpen] = React.useState(false);
 
   function handleDrawerOpen(): void {
