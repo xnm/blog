@@ -9,10 +9,12 @@ import Typography from '@material-ui/core/Typography';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
+import RoutingItemList from '../RoutingItemList';
 
 
 interface NavigationProps {
-  title: string
+  title: string;
+  menus?: [];
 }
 
 
@@ -76,7 +78,6 @@ const useStyles = makeStyles((theme: Theme): StyleRules => ({
 
 const Navigation: React.ComponentType<NavigationProps> = (props: NavigationProps): JSX.Element => {
   const theme: Theme = useTheme();
-  console.log('theme:', theme);
   const classes = useStyles(theme);
 
   const [open, setOpen] = React.useState(false);
@@ -133,6 +134,12 @@ const Navigation: React.ComponentType<NavigationProps> = (props: NavigationProps
           </IconButton>
         </div>
 
+        <RoutingItemList icon="menu" name="Categories" routes={[
+          {
+            name: 'Category Name',
+            link: '/categories/book'
+          }
+        ]}/>
       </Drawer>
       <main
         className={classnames(classes.content, {

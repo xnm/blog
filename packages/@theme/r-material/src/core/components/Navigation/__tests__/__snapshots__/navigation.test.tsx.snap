@@ -51,6 +51,18 @@ exports[`@theme/r-material: core/components: Navigation # should mount Navigatio
         <ChevronLeftIcon />
       </WithStyles(ForwardRef(IconButton))>
     </div>
+    <RoutingItemList
+      icon="menu"
+      name="Categories"
+      routes={
+        Array [
+          Object {
+            "link": "/categories/book",
+            "name": "Category Name",
+          },
+        ]
+      }
+    />
   </WithStyles(ForwardRef(Drawer))>
   <main
     className="makeStyles-content-9"
@@ -113,6 +125,18 @@ exports[`@theme/r-material: core/components: Navigation # should show SideBar wh
         <ChevronLeftIcon />
       </WithStyles(ForwardRef(IconButton))>
     </div>
+    <RoutingItemList
+      icon="menu"
+      name="Categories"
+      routes={
+        Array [
+          Object {
+            "link": "/categories/book",
+            "name": "Category Name",
+          },
+        ]
+      }
+    />
   </WithStyles(ForwardRef(Drawer))>
   <main
     className="makeStyles-content-9 makeStyles-contentShift-10"

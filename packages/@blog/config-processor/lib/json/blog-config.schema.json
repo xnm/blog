@@ -95,6 +95,11 @@
           "type": "string",
           "description": "Your blog theme package name, not implementation now",
           "default": "vue"
+        },
+        "colors": {
+          "type": "object",
+          "description": "Your blog theme color preset from material color customization",
+          "default": {}
         }
       },
       "required": []
