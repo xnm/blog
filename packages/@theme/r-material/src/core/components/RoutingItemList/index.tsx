@@ -7,18 +7,9 @@ import Icon from '@material-ui/core/Icon';
 import { ExpandLess, ExpandMore } from '@material-ui/icons';
 import ListItemText from '@material-ui/core/ListItemText';
 import Collapse from '@material-ui/core/Collapse';
-import RoutingItem from '../RoutingItem';
+import { NavMenu } from '../../store/reducer';
 
-interface RoutingItemListProps {
-  icon: string;
-  name: string;
-
-  routes: {
-    name: string;
-    link: string;
-    description?: string;
-  }[]
-}
+type RoutingItemListProps = NavMenu;
 
 const useStyles = makeStyles((theme: Theme): StyleRules => ({
   root: {
@@ -57,23 +48,12 @@ const RoutingItemList: React.ComponentType<RoutingItemListProps> = (props: Routi
         {open ? <ExpandLess/> : <ExpandMore/>}
         <Collapse in={open} timeout="auto" unmountOnExit>
           <List component="div" disablePadding>
-            <ListItem  button className={classes.nested}>
+            <ListItem button className={classes.nested}>
               <ListItemIcon>
                 <Icon/>
               </ListItemIcon>
               <ListItemText primary="Starred"/>
             </ListItem>
-            {/*{*/}
-            {/*  props.routes.map((route, i): JSX.Element => (<ListItem*/}
-            {/*    component="div"*/}
-            {/*    button*/}
-            {/*    key={i}*/}
-            {/*    className={classes.nested}>*/}
-            {/*    <RoutingItem*/}
-            {/*      {...route}*/}
-            {/*    />)*/}
-            {/*  </ListItem>))*/}
-            {/*}*/}
           </List>
         </Collapse>
       </ListItem>

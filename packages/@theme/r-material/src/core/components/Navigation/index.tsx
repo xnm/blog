@@ -134,12 +134,17 @@ const Navigation: React.ComponentType<NavigationProps> = (props: NavigationProps
           </IconButton>
         </div>
 
-        <RoutingItemList icon="menu" name="Categories" routes={[
-          {
-            name: 'Category Name',
-            link: '/categories/book'
-          }
-        ]}/>
+        <RoutingItemList
+          icon="menu"
+          name="Categories"
+          link="/categories"
+          child={[
+            {
+              name: 'Category Name',
+              link: '/categories/book'
+            }
+          ]}
+        />
       </Drawer>
       <main
         className={classnames(classes.content, {

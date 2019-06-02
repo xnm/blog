@@ -2,12 +2,9 @@ import * as React from 'react';
 import { Theme, useTheme } from '@material-ui/core';
 import { StyleRules } from '@material-ui/core/styles';
 import makeStyles from '@material-ui/core/styles/makeStyles';
+import { NavMenuItem } from '../../store/reducer';
 
-interface RoutingItemProps {
-  name: string;
-  link: string;
-  description?: string;
-}
+type RoutingItemProps = NavMenuItem;
 
 const useStyles = makeStyles((theme: Theme): StyleRules => ({
   root: {

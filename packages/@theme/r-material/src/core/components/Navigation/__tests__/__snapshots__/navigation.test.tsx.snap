@@ -52,9 +52,7 @@ exports[`@theme/r-material: core/components: Navigation # should mount Navigatio
       </WithStyles(ForwardRef(IconButton))>
     </div>
     <RoutingItemList
-      icon="menu"
-      name="Categories"
-      routes={
+      child={
         Array [
           Object {
             "link": "/categories/book",
@@ -62,6 +60,9 @@ exports[`@theme/r-material: core/components: Navigation # should mount Navigatio
           },
         ]
       }
+      icon="menu"
+      link="/categories"
+      name="Categories"
     />
   </WithStyles(ForwardRef(Drawer))>
   <main
@@ -126,9 +127,7 @@ exports[`@theme/r-material: core/components: Navigation # should show SideBar wh
       </WithStyles(ForwardRef(IconButton))>
     </div>
     <RoutingItemList
-      icon="menu"
-      name="Categories"
-      routes={
+      child={
         Array [
           Object {
             "link": "/categories/book",
@@ -136,6 +135,9 @@ exports[`@theme/r-material: core/components: Navigation # should show SideBar wh
           },
         ]
       }
+      icon="menu"
+      link="/categories"
+      name="Categories"
     />
   </WithStyles(ForwardRef(Drawer))>
   <main
