@@ -1,15 +1,14 @@
-import { registerRoutes } from '../router';
-import { registerReducer } from '../reducers';
 import store from '../store';
 import routes from './routes';
-import postReducer from '../post/store/reducer';
-import { loadTags } from './store/actions';
+
+import categoryStore from './stores/category.store';
+import tagStore from './stores/tag.store';
+import { registerRoutes } from '../router';
 
 registerRoutes(routes);
-registerReducer('post', postReducer);
 
-// perform a action to register categories menus and tag menus
+store.registerStore('categoryStore', categoryStore);
+store.registerStore('tagStore', tagStore);
 
-// store.dispatch(loadTags());
-
-// store.dispatch();
+categoryStore.loadCategories();
+tagStore.loadTags();

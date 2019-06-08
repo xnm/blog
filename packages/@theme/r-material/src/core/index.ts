@@ -1,6 +1,5 @@
-import coreReducer from './store/reducer';
-import { registerReducer } from '../reducers';
+import store from '../store';
 
+import navigationStore from './stores/navigation.store';
 
-
-registerReducer('core', coreReducer);
+store.registerStore('navigationStore', navigationStore);

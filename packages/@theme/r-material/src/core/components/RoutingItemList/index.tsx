@@ -7,21 +7,22 @@ import Icon from '@material-ui/core/Icon';
 import { ExpandLess, ExpandMore } from '@material-ui/icons';
 import ListItemText from '@material-ui/core/ListItemText';
 import Collapse from '@material-ui/core/Collapse';
-import { NavMenu } from '../../store/reducer';
+import { NavMenu } from '../../stores/navigation.store';
 
 type RoutingItemListProps = NavMenu;
 
-const useStyles = makeStyles((theme: Theme): StyleRules => ({
-  root: {
-    width: '100%',
-    maxWidth: 360,
-    backgroundColor: theme.palette.background.paper
-  },
-  nested: {
-    paddingLeft: theme.spacing(4)
-  }
-}));
-
+const useStyles = makeStyles(
+  (theme: Theme): StyleRules => ({
+    root: {
+      width: '100%',
+      maxWidth: 360,
+      backgroundColor: theme.palette.background.paper
+    },
+    nested: {
+      paddingLeft: theme.spacing(4)
+    }
+  })
+);
 
 const RoutingItemList: React.ComponentType<RoutingItemListProps> = (props: RoutingItemListProps): JSX.Element => {
   const theme: Theme = useTheme();
@@ -34,32 +35,19 @@ const RoutingItemList: React.ComponentType<RoutingItemListProps> = (props: Routi
   }
 
   return (
-    <List
-      component="nav"
-      className={classes.root}
-    >
-      <ListItem
-        component="div"
-        button onClick={toggleOpen}>
+    <List component="nav" className={classes.root}>
+      <ListItem component="div" button onClick={toggleOpen}>
         <ListItemIcon>
-          <Icon/>
+          <Icon />
         </ListItemIcon>
-        <ListItemText primary={props.name}/>
-        {open ? <ExpandLess/> : <ExpandMore/>}
+        <ListItemText primary={props.name} />
+        {open ? <ExpandLess /> : <ExpandMore />}
         <Collapse in={open} timeout="auto" unmountOnExit>
-          <List component="div" disablePadding>
-            <ListItem button className={classes.nested}>
-              <ListItemIcon>
-                <Icon/>
-              </ListItemIcon>
-              <ListItemText primary="Starred"/>
-            </ListItem>
-          </List>
+          <List component="div" disablePadding />
         </Collapse>
       </ListItem>
     </List>
   );
 };
-
 
 export default RoutingItemList;

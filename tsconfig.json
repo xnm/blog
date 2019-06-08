@@ -5,27 +5,17 @@
     "experimentalDecorators": true,
     "rootDir": ".",
     "outDir": "tsc-build",
-    "lib": [
-      "es2018",
-      "dom"
-    ],
+    "lib": ["es2018", "dom"],
     "jsx": "react",
     "target": "es5",
+    "skipLibCheck": true,
     "noImplicitAny": false,
     "resolveJsonModule": true,
     "baseUrl": ".",
     "paths": {
-      "@/*": [
-        "src/*",
-        "build/*"
-      ],
-      "@*": [
-        "packages/@*"
-      ]
+      "@/*": ["src/*", "build/*"],
+      "@*": ["packages/@*"]
     }
   },
-  "exclude": [
-    "./dist",
-    "./tsc-build"
-  ]
+  "exclude": ["./dist", "./tsc-build"]
 }

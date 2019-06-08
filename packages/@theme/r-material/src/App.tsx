@@ -1,39 +1,39 @@
 import * as React from 'react';
+import { inject, observer } from 'mobx-react';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { RouteWithSubRoutes } from './router';
 
 import Navigation from './core/components/Navigation';
 
-
 import * as config from '@/config.json';
+import { NavigationStore, NavMenu } from './core/stores/navigation.store';
 
 interface AppProps {
-  router: object[]
+  router: object[];
+  navigationStore?: NavigationStore;
 }
 
 const site = config.site;
 
+@inject('navigationStore')
+@observer
 export default class App extends React.Component<AppProps> {
-
-
   render(): React.ReactNode {
     let $this = this;
+
+    const menus: NavMenu[] = $this.props.navigationStore ? $this.props.navigationStore.menus : [];
+
     return (
-        <Router>
-          <Navigation
-            title={site.title}
-            menus={[]}
-          />
-          <div>
-            {$this.props.router.map((route, i): JSX.Element => (
-              <RouteWithSubRoutes
-                key={i}
-                {...route}
-              />
-            ))}
-          </div>
-        </Router>
+      <Router>
+        <Navigation title={site.title} menus={menus} />
+        <div>
+          {$this.props.router.map(
+            (route, i): JSX.Element => (
+              <RouteWithSubRoutes key={i} {...route} />
+            )
+          )}
+        </div>
+      </Router>
     );
   }
 }
-

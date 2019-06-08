@@ -31,12 +31,11 @@
     "@material-ui/icons": "^4.0.1",
     "axios": "^0.19.0",
     "classnames": "^2.2.6",
+    "mobx": "^5.10.0",
+    "mobx-react": "^6.0.3",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
-    "react-redux": "^7.0.3",
     "react-router-dom": "^5.0.0",
-    "redux": "^4.0.1",
-    "redux-thunk": "^2.3.0",
     "typeface-roboto": "^0.0.54"
   },
   "devDependencies": {
@@ -211,7 +210,7 @@
     "arrowParens": "always",
     "proseWrap": "never",
     "singleQuote": true,
-    "printWidth": 80
+    "printWidth": 120
   },
   "lint-staged": {
     "linters": {

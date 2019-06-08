@@ -10,71 +10,72 @@ import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import RoutingItemList from '../RoutingItemList';
-
+import { NavMenu } from '../../stores/navigation.store';
 
 interface NavigationProps {
   title: string;
-  menus?: [];
+  menus: NavMenu[];
 }
-
 
 const drawerWidth = 240;
 
-const useStyles = makeStyles((theme: Theme): StyleRules => ({
-  root: {
-    display: 'flex'
-  },
-  appBar: {
-    transition: theme.transitions.create(['margin', 'width'], {
-      easing: theme.transitions.easing.sharp,
-      duration: theme.transitions.duration.leavingScreen
-    })
-  },
-  appBarShift: {
-    width: `calc(100% - ${drawerWidth}px)`,
-    marginLeft: drawerWidth,
-    transition: theme.transitions.create(['margin', 'width'], {
-      easing: theme.transitions.easing.easeOut,
-      duration: theme.transitions.duration.enteringScreen
-    })
-  },
-  menuButton: {
-    marginRight: theme.spacing(2)
-  },
-  hide: {
-    display: 'none'
-  },
-  drawer: {
-    width: drawerWidth,
-    flexShrink: 0
-  },
-  drawerPaper: {
-    width: drawerWidth
-  },
-  drawerHeader: {
-    display: 'flex',
-    alignItems: 'center',
-    padding: '0 8px',
-    ...theme.mixins.toolbar,
-    justifyContent: 'flex-end'
-  },
-  content: {
-    flexGrow: 1,
-    padding: theme.spacing(3),
-    transition: theme.transitions.create('margin', {
-      easing: theme.transitions.easing.sharp,
-      duration: theme.transitions.duration.leavingScreen
-    }),
-    marginLeft: -drawerWidth
-  },
-  contentShift: {
-    transition: theme.transitions.create('margin', {
-      easing: theme.transitions.easing.easeOut,
-      duration: theme.transitions.duration.enteringScreen
-    }),
-    marginLeft: 0
-  }
-}));
+const useStyles = makeStyles(
+  (theme: Theme): StyleRules => ({
+    root: {
+      display: 'flex'
+    },
+    appBar: {
+      transition: theme.transitions.create(['margin', 'width'], {
+        easing: theme.transitions.easing.sharp,
+        duration: theme.transitions.duration.leavingScreen
+      })
+    },
+    appBarShift: {
+      width: `calc(100% - ${drawerWidth}px)`,
+      marginLeft: drawerWidth,
+      transition: theme.transitions.create(['margin', 'width'], {
+        easing: theme.transitions.easing.easeOut,
+        duration: theme.transitions.duration.enteringScreen
+      })
+    },
+    menuButton: {
+      marginRight: theme.spacing(2)
+    },
+    hide: {
+      display: 'none'
+    },
+    drawer: {
+      width: drawerWidth,
+      flexShrink: 0
+    },
+    drawerPaper: {
+      width: drawerWidth
+    },
+    drawerHeader: {
+      display: 'flex',
+      alignItems: 'center',
+      padding: '0 8px',
+      ...theme.mixins.toolbar,
+      justifyContent: 'flex-end'
+    },
+    content: {
+      flexGrow: 1,
+      padding: theme.spacing(3),
+      transition: theme.transitions.create('margin', {
+        easing: theme.transitions.easing.sharp,
+        duration: theme.transitions.duration.leavingScreen
+      }),
+      marginLeft: -drawerWidth
+    },
+    contentShift: {
+      transition: theme.transitions.create('margin', {
+        easing: theme.transitions.easing.easeOut,
+        duration: theme.transitions.duration.enteringScreen
+      }),
+      marginLeft: 0
+    }
+  })
+);
 
 const Navigation: React.ComponentType<NavigationProps> = (props: NavigationProps): JSX.Element => {
   const theme: Theme = useTheme();
@@ -92,7 +93,7 @@ const Navigation: React.ComponentType<NavigationProps> = (props: NavigationProps
 
   return (
     <div className={classes.root}>
-      <CssBaseline/>
+      <CssBaseline />
       <AppBar
         position="fixed"
         className={classnames(classes.appBar, {
@@ -105,10 +106,10 @@ const Navigation: React.ComponentType<NavigationProps> = (props: NavigationProps
             aria-label="Open drawer"
             onClick={handleDrawerOpen}
             edge="start"
-            href=''
+            href=""
             className={classnames(classes.menuButton, open && classes.hide)}
           >
-            <MenuIcon/>
+            <MenuIcon />
           </IconButton>
           <Typography variant="h6" color="inherit" noWrap>
             {props.title}
@@ -125,35 +126,23 @@ const Navigation: React.ComponentType<NavigationProps> = (props: NavigationProps
         }}
       >
         <div className={classes.drawerHeader}>
-          <IconButton
-            aria-label="Close drawer"
-            onClick={handleDrawerClose}
-            href=''
-          >
-            <ChevronLeftIcon/>
+          <IconButton aria-label="Close drawer" onClick={handleDrawerClose} href="">
+            <ChevronLeftIcon />
           </IconButton>
         </div>
 
-        <RoutingItemList
-          icon="menu"
-          name="Categories"
-          link="/categories"
-          child={[
-            {
-              name: 'Category Name',
-              link: '/categories/book'
-            }
-          ]}
-        />
+        {props.menus.map(
+          (menu, index): JSX.Element => (
+            <RoutingItemList key={index} icon="menu" name={menu.name} link={menu.link} />
+          )
+        )}
       </Drawer>
       <main
         className={classnames(classes.content, {
           [classes.contentShift]: open
         })}
       >
-        <div className={classes.drawerHeader}/>
-
-
+        <div className={classes.drawerHeader} />
       </main>
     </div>
   );

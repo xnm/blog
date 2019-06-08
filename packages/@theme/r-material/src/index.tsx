@@ -1,21 +1,23 @@
 import './index.css';
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
-import { Provider } from 'react-redux';
+import { Provider } from 'mobx-react';
 import { ThemeProvider } from '@material-ui/styles';
-
-import theme from './theme';
-import store from './store';
+import { attachRoutes } from './router';
 
 import './core';
 import './post';
 
-import { attachRoutes } from './router';
+import theme from './theme';
+import store from './store';
 
 import App from './App';
 
+// For easier debugging
+window['_____APP_STATE_____'] = store;
+
 ReactDOM.render(
-  <Provider store={store}>
+  <Provider {...store}>
     <ThemeProvider theme={theme}>
       <App router={attachRoutes()} />
     </ThemeProvider>

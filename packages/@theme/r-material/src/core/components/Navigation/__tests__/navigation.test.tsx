@@ -9,18 +9,16 @@ Enzyme.configure({ adapter: new Adapter() });
 
 describe('@theme/r-material: core/components: Navigation', (): void => {
   it('# should mount Navigation with props.title correctly', (): void => {
-
     const mockTitle = 'title';
-    const wrapper = Enzyme.shallow(<Navigation title={mockTitle}/>);
+    const wrapper = Enzyme.shallow(<Navigation title={mockTitle} menus={[]} />);
 
     expect(wrapper).toMatchSnapshot();
   });
 
-
   it('# should show SideBar when state.open is true', (): void => {
     const mockTitle = 'title';
 
-    let wrapper = Enzyme.shallow(<Navigation title={mockTitle}/>);
+    let wrapper = Enzyme.shallow(<Navigation title={mockTitle} menus={[]} />);
 
     // simulate on drawer button will trigger sidebar class change
     wrapper.find('[aria-label="Open drawer"]').simulate('click');
@@ -31,12 +29,11 @@ describe('@theme/r-material: core/components: Navigation', (): void => {
   it('# should show SideBar when click twice menu', (): void => {
     const mockTitle = 'title';
 
-    let wrapper = Enzyme.shallow(<Navigation title={mockTitle}/>);
+    let wrapper = Enzyme.shallow(<Navigation title={mockTitle} menus={[]} />);
 
     // simulate on drawer button will trigger sidebar class change
     wrapper.find('[aria-label="Open drawer"]').simulate('click');
 
     wrapper.find('[aria-label="Close drawer"]').simulate('click');
-
   });
 });
