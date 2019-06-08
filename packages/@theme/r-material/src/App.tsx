@@ -10,7 +10,7 @@ import { NavigationStore, NavMenu } from './core/stores/navigation.store';
 
 interface AppProps {
   router: object[];
-  navigationStore?: NavigationStore;
+  navigationStore: NavigationStore;
 }
 
 const site = config.site;
@@ -21,7 +21,7 @@ export default class App extends React.Component<AppProps> {
   render(): React.ReactNode {
     let $this = this;
 
-    const menus: NavMenu[] = $this.props.navigationStore ? $this.props.navigationStore.menus : [];
+    const menus: NavMenu[] = $this.props.navigationStore.menus;
 
     return (
       <Router>

@@ -6,7 +6,7 @@ export interface NavMenu {
   icon?: string;
   priority?: number;
   description?: string;
-  child?: NavMenuItem[];
+  child: NavMenuItem[];
 }
 export interface NavMenuItem {
   name: string;

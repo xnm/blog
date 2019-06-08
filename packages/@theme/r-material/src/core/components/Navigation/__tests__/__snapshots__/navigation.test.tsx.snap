@@ -18,7 +18,9 @@ exports[`@theme/r-material: core/components: Navigation # should mount Navigatio
         href=""
         onClick={[Function]}
       >
-        <MenuIcon />
+        <BundledIcon
+          type="menu"
+        />
       </WithStyles(ForwardRef(IconButton))>
       <WithStyles(ForwardRef(Typography))
         color="inherit"
@@ -48,22 +50,11 @@ exports[`@theme/r-material: core/components: Navigation # should mount Navigatio
         href=""
         onClick={[Function]}
       >
-        <ChevronLeftIcon />
+        <BundledIcon
+          type="chevronLeft"
+        />
       </WithStyles(ForwardRef(IconButton))>
     </div>
-    <RoutingItemList
-      child={
-        Array [
-          Object {
-            "link": "/categories/book",
-            "name": "Category Name",
-          },
-        ]
-      }
-      icon="menu"
-      link="/categories"
-      name="Categories"
-    />
   </WithStyles(ForwardRef(Drawer))>
   <main
     className="makeStyles-content-9"
@@ -93,7 +84,9 @@ exports[`@theme/r-material: core/components: Navigation # should show SideBar wh
         href=""
         onClick={[Function]}
       >
-        <MenuIcon />
+        <BundledIcon
+          type="menu"
+        />
       </WithStyles(ForwardRef(IconButton))>
       <WithStyles(ForwardRef(Typography))
         color="inherit"
@@ -123,22 +116,11 @@ exports[`@theme/r-material: core/components: Navigation # should show SideBar wh
         href=""
         onClick={[Function]}
       >
-        <ChevronLeftIcon />
+        <BundledIcon
+          type="chevronLeft"
+        />
       </WithStyles(ForwardRef(IconButton))>
     </div>
-    <RoutingItemList
-      child={
-        Array [
-          Object {
-            "link": "/categories/book",
-            "name": "Category Name",
-          },
-        ]
-      }
-      icon="menu"
-      link="/categories"
-      name="Categories"
-    />
   </WithStyles(ForwardRef(Drawer))>
   <main
     className="makeStyles-content-9 makeStyles-contentShift-10"

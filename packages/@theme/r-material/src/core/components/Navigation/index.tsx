@@ -7,10 +7,9 @@ import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import IconButton from '@material-ui/core/IconButton';
-import MenuIcon from '@material-ui/icons/Menu';
-import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import RoutingItemList from '../RoutingItemList';
 import { NavMenu } from '../../stores/navigation.store';
+import BundledIcon from '../../components/BundledIcon';
 
 interface NavigationProps {
   title: string;
@@ -109,7 +108,7 @@ const Navigation: React.ComponentType<NavigationProps> = (props: NavigationProps
             href=""
             className={classnames(classes.menuButton, open && classes.hide)}
           >
-            <MenuIcon />
+            <BundledIcon type="menu" />
           </IconButton>
           <Typography variant="h6" color="inherit" noWrap>
             {props.title}
@@ -127,13 +126,13 @@ const Navigation: React.ComponentType<NavigationProps> = (props: NavigationProps
       >
         <div className={classes.drawerHeader}>
           <IconButton aria-label="Close drawer" onClick={handleDrawerClose} href="">
-            <ChevronLeftIcon />
+            <BundledIcon type="chevronLeft" />
           </IconButton>
         </div>
 
         {props.menus.map(
           (menu, index): JSX.Element => (
-            <RoutingItemList key={index} icon="menu" name={menu.name} link={menu.link} />
+            <RoutingItemList key={index} {...menu} />
           )
         )}
       </Drawer>
