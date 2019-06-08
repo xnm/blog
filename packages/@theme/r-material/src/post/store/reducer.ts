@@ -1,4 +1,6 @@
-import { PostActionTypes } from './action-types';
+import {PostActionTypes} from './action-types';
+
+
 
 
 const initialState = {};
