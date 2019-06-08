@@ -82,3 +82,39 @@ exports[`@theme/r-material: core/components: RoutingItemList # should mount rout
   </WithStyles(ForwardRef(Collapse))>
 </WithStyles(ForwardRef(List))>
 `;
+
+exports[`@theme/r-material: core/components: RoutingItemList # should mount routing item component without icon correctly 1`] = `
+<WithStyles(ForwardRef(List))
+  className="makeStyles-root-1"
+  component="nav"
+>
+  <WithStyles(ForwardRef(ListItem))
+    aria-label="Toggle Menu"
+    button={true}
+    component="div"
+    onClick={[Function]}
+  >
+    <WithStyles(ForwardRef(ListItemIcon))>
+      <BundledIcon
+        type="menu"
+      />
+    </WithStyles(ForwardRef(ListItemIcon))>
+    <WithStyles(ForwardRef(ListItemText))
+      primary="mockName"
+    />
+    <BundledIcon
+      type="expandMore"
+    />
+  </WithStyles(ForwardRef(ListItem))>
+  <WithStyles(ForwardRef(Collapse))
+    in={false}
+    timeout="auto"
+    unmountOnExit={true}
+  >
+    <WithStyles(ForwardRef(List))
+      component="div"
+      disablePadding={true}
+    />
+  </WithStyles(ForwardRef(Collapse))>
+</WithStyles(ForwardRef(List))>
+`;

@@ -36,4 +36,45 @@ describe('@theme/r-material: core/components: Navigation', (): void => {
 
     wrapper.find('[aria-label="Close drawer"]').simulate('click');
   });
+
+  it('# should show menus when have non-empty menus props', (): void => {
+    const mockTitle = 'title';
+    const menus = [
+      {
+        name: 'Categories',
+        link: '/to/somewhere',
+        icon: 'category',
+        priority: 3,
+        child: [
+          {
+            name: 'mock-sub-name',
+            link: '/to/some-else'
+          },
+          {
+            name: 'mock-other-sub-name',
+            link: '/to/bar'
+          }
+        ]
+      },
+      {
+        name: 'Tags',
+        link: '/to/somewhere',
+        icon: 'bookmark',
+        priority: 3,
+        child: [
+          {
+            name: 'mock-sub-name',
+            link: '/to/some-else'
+          },
+          {
+            name: 'mock-other-sub-name',
+            link: '/to/bar'
+          }
+        ]
+      }
+    ];
+
+    let wrapper = Enzyme.shallow(<Navigation title={mockTitle} menus={menus} />);
+    expect(wrapper).toMatchSnapshot();
+  });
 });
