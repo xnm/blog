@@ -22,6 +22,7 @@ export class TagStore {
     return {
       name: 'Tags',
       link: '/tags',
+      icon: 'bookmark',
       priority: 5,
       child: this.tags.map(
         (item: BlogApiModel.Overview): NavMenuItem => ({

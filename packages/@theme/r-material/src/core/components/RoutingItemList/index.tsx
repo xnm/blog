@@ -35,9 +35,9 @@ const RoutingItemList: React.ComponentType<RoutingItemListProps> = (props: Routi
 
   return (
     <List component="nav" className={classes.root}>
-      <ListItem component="div" button onClick={toggleOpen}>
+      <ListItem component="div" button onClick={toggleOpen} aria-label="Toggle Menu">
         <ListItemIcon>
-          <BundledIcon type="menu" />
+          <BundledIcon type={props.icon || 'menu'} />
         </ListItemIcon>
         <ListItemText primary={props.name} />
         {open ? <BundledIcon type="expandLess" /> : <BundledIcon type="expandMore" />}

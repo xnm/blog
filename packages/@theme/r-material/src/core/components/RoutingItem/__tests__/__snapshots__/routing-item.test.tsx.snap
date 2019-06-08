@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`@theme/r-material: core/components: RoutingItem # should mount routing item component correctly 1`] = `
+<WithStyles(ForwardRef(ListItem))
+  button={true}
+  className="makeStyles-nested-3"
+  component={[Function]}
+  to="/to/somewhere"
+>
+  <WithStyles(ForwardRef(ListItemIcon))>
+    <BundledIcon
+      type="starBorder"
+    />
+  </WithStyles(ForwardRef(ListItemIcon))>
+  <WithStyles(ForwardRef(ListItemText))
+    primary="routing menu"
+  />
+</WithStyles(ForwardRef(ListItem))>
+`;

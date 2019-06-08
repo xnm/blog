@@ -23,6 +23,7 @@ export class CategoryStore {
     return {
       name: 'Categories',
       link: '/categories',
+      icon: 'category',
       priority: 5,
       child: this.categories.map(
         (item: BlogApiModel.Overview): NavMenuItem => ({

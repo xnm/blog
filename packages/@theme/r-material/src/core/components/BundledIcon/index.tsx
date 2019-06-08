@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { ChevronLeft, ExpandLess, ExpandMore, Menu, StarBorder } from '@material-ui/icons';
+import { ChevronLeft, ExpandLess, ExpandMore, Menu, StarBorder, Category, Bookmark } from '@material-ui/icons';
 
 interface BundleIconProps {
   type: string;
@@ -18,7 +18,9 @@ const BundledIcon: React.ComponentType<BundleIconProps> = (props: BundleIconProp
     chevronLeft: <ChevronLeft />,
     starBorder: <StarBorder />,
     expandLess: <ExpandLess />,
-    expandMore: <ExpandMore />
+    expandMore: <ExpandMore />,
+    category: <Category />,
+    bookmark: <Bookmark />
   };
 
   const detectIconType = (): string => {
