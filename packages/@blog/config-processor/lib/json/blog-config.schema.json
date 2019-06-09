@@ -19,11 +19,7 @@
       "$ref": "#/definitions/features"
     }
   },
-  "required": [
-    "version",
-    "site",
-    "build"
-  ],
+  "required": ["version", "site", "build"],
   "definitions": {
     "site": {
       "type": "object",
@@ -37,6 +33,10 @@
           "type": "string",
           "description": "Your blog title."
         },
+        "avatar": {
+          "type": "string",
+          "description": "Your profile picture"
+        },
         "subtitle": {
           "type": "string",
           "description": "Your blog sub title"
@@ -48,10 +48,7 @@
         "language": {
           "type": "string",
           "description": "Your prefer language",
-          "enum": [
-            "zh",
-            "en"
-          ],
+          "enum": ["zh", "en"],
           "default": "zh"
         },
         "copyright": {
@@ -60,12 +57,7 @@
           "default": "copyright 2019 aquariuslt blog"
         }
       },
-      "required": [
-        "host",
-        "title",
-        "subtitle",
-        "description"
-      ]
+      "required": ["host", "title", "subtitle", "description"]
     },
     "build": {
       "type": "object",
@@ -116,8 +108,7 @@
           "description": "Your disqus short id"
         }
       },
-      "required": [
-      ]
+      "required": []
     }
   }
 }
