@@ -8,12 +8,15 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import IconButton from '@material-ui/core/IconButton';
 import RoutingItemList from '../RoutingItemList';
-import { NavMenu } from '../../stores/navigation.store';
 import BundledIcon from '../../components/BundledIcon';
+
+import { NavMenu } from '../../stores/navigation.store';
+import { ReactNode } from 'react';
 
 interface NavigationProps {
   title: string;
   menus: NavMenu[];
+  profile?: ReactNode;
 }
 
 const drawerWidth = 240;
@@ -56,6 +59,9 @@ const useStyles = makeStyles(
       padding: '0 8px',
       ...theme.mixins.toolbar,
       justifyContent: 'flex-end'
+    },
+    drawerButton: {
+      padding: '8px'
     },
     content: {
       flexGrow: 1,
@@ -125,7 +131,8 @@ const Navigation: React.ComponentType<NavigationProps> = (props: NavigationProps
         }}
       >
         <div className={classes.drawerHeader}>
-          <IconButton aria-label="Close drawer" onClick={handleDrawerClose} href="">
+          {props.profile}
+          <IconButton aria-label="Close drawer" onClick={handleDrawerClose} href="" className={classes.drawerButton}>
             <BundledIcon type="chevronLeft" />
           </IconButton>
         </div>

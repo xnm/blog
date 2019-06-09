@@ -33,6 +33,10 @@
           "type": "string",
           "description": "Your blog title."
         },
+        "author": {
+          "type": "string",
+          "description": "Your name"
+        },
         "avatar": {
           "type": "string",
           "description": "Your profile picture"

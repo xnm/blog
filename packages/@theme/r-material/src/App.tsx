@@ -7,6 +7,7 @@ import Navigation from './core/components/Navigation';
 
 import * as config from '@/config.json';
 import { NavigationStore, NavMenu } from './core/stores/navigation.store';
+import Profile from './core/components/Profile';
 
 interface AppProps {
   router: object[];
@@ -25,7 +26,13 @@ export default class App extends React.Component<AppProps> {
 
     return (
       <Router>
-        <Navigation title={site.title} menus={menus} />
+        <Navigation
+          title={site.title}
+          menus={menus}
+          profile={
+            <Profile name={site.author} avatar={site.avatar} description={site.description} subtitle={site.subtitle} />
+          }
+        />
         <div>
           {$this.props.router.map(
             (route, i): JSX.Element => (
