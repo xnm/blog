@@ -5,3 +5,4 @@ import './tasks/gulp/test';
 import './tasks/gulp/lint';
 import './tasks/gulp/ci';
 import './tasks/gulp/compile';
+import './tasks/gulp/analyze';

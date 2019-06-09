@@ -27,18 +27,12 @@ const webpackProdConfig = merge(webpackBaseConfig, {
     rules: [
       {
         test: /\.less$/,
-        include: [
-          pathUtil.resolve(baseConfig.dir.src),
-          pathUtil.resolve(baseConfig.dir.packages)
-        ],
+        include: [pathUtil.resolve(baseConfig.dir.src), pathUtil.resolve(baseConfig.dir.packages)],
         use: [MiniCssExtractPlugin.loader, 'css-loader', 'postcss-loader', 'less-loader']
       },
       {
         test: /\.css$/,
-        include: [
-          pathUtil.resolve(baseConfig.dir.src),
-          pathUtil.resolve(baseConfig.dir.packages)
-        ],
+        include: [pathUtil.resolve(baseConfig.dir.src), pathUtil.resolve(baseConfig.dir.packages)],
         use: [MiniCssExtractPlugin.loader, 'css-loader', 'postcss-loader']
       }
     ]

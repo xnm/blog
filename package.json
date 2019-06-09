@@ -21,6 +21,7 @@
     "lint": "gulp lint",
     "ci": "gulp ci",
     "compile": "gulp compile",
+    "analyze": "gulp analyze",
     "postinstall": "lerna run tsc"
   },
   "resolutions": {
@@ -135,6 +136,7 @@
     "url-loader": "^2.0.0",
     "uslug": "^1.0.4",
     "webpack": "^4.33.0",
+    "webpack-bundle-analyzer": "^3.3.2",
     "webpack-dev-middleware": "^3.6.1",
     "webpack-dev-server": "^3.7.1",
     "webpack-hot-middleware": "^2.24.4",

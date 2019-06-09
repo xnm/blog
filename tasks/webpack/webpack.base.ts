@@ -14,9 +14,7 @@ const webpackBaseConfig = {
     alias: {
       '@': pathUtil.resolve(baseConfig.dir.src)
     },
-    plugins: [
-      new TsconfigPathsPlugin()
-    ]
+    plugins: [new TsconfigPathsPlugin()]
   },
   module: {
     rules: [
@@ -28,9 +26,7 @@ const webpackBaseConfig = {
           pathUtil.resolve(baseConfig.dir.test.unit),
           pathUtil.resolve(baseConfig.dir.test.e2e)
         ],
-        exclude: [
-          /node_modules/
-        ],
+        exclude: [/node_modules/],
         loader: 'ts-loader'
       },
       {

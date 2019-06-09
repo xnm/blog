@@ -1,6 +1,12 @@
 import * as React from 'react';
 
-import { ChevronLeft, ExpandLess, ExpandMore, Menu, StarBorder, Category, Bookmark } from '@material-ui/icons';
+import ChevronLeft from '@material-ui/icons/ChevronLeft';
+import ExpandLess from '@material-ui/icons/ExpandLess';
+import ExpandMore from '@material-ui/icons/ExpandMore';
+import Menu from '@material-ui/icons/Menu';
+import StarBorder from '@material-ui/icons/StarBorder';
+import Category from '@material-ui/icons/Category';
+import Bookmark from '@material-ui/icons/Bookmark';
 
 interface BundleIconProps {
   type: string;
