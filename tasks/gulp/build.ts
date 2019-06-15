@@ -87,7 +87,7 @@ gulp.task(
 
     apiGenerator.generate(configPath, mdFilePath, distPath).then(
       (): void => {
-        logger.info('write api complete');
+        logger.info('Write api complete');
         done();
       }
     );

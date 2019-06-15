@@ -42,7 +42,7 @@ describe('@theme/r-material: core/components: Navigation', (): void => {
     const mockTitle = 'title';
     const menus = [
       {
-        name: 'Categories',
+        name: 'Postlist',
         link: '/to/somewhere',
         icon: 'category',
         priority: 3,
@@ -83,7 +83,7 @@ describe('@theme/r-material: core/components: Navigation', (): void => {
     const mockTitle = 'title';
     const menus = [
       {
-        name: 'Categories',
+        name: 'Postlist',
         link: '/to/somewhere',
         icon: 'category',
         priority: 3,

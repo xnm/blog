@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { inject, observer } from 'mobx-react';
 import { BrowserRouter as Router } from 'react-router-dom';
-import { RouteWithSubRoutes } from './router';
+import { RouteConfig, RouteWithSubRoutes } from './router';
 
 import Navigation from './core/components/Navigation';
 
@@ -10,7 +10,7 @@ import { NavigationStore, NavMenu } from './core/stores/navigation.store';
 import Profile from './core/components/Profile';
 
 interface AppProps {
-  router: object[];
+  routes: RouteConfig[];
   navigationStore?: NavigationStore;
 }
 
@@ -34,7 +34,7 @@ export default class App extends React.Component<AppProps> {
           }
         />
         <div>
-          {$this.props.router.map(
+          {$this.props.routes.map(
             (route, i): JSX.Element => (
               <RouteWithSubRoutes key={i} {...route} />
             )

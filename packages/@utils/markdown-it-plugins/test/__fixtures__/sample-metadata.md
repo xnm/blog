@@ -14,3 +14,13 @@ tags:
  - memory
 cover: https://pic-mysite.io/somepic.png
 ```
+
+
+
+## MainContent
+
+
+```other language
+
+// other language content
+```

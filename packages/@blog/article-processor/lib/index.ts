@@ -4,6 +4,7 @@ import * as AnchorPlugin from 'markdown-it-anchor';
 import { DetectImagesPlugin, MetadataPlugin, SummaryPlugin, TOCPlugin } from '@utils/markdown-it-plugins';
 import * as path from 'path';
 import * as fs from 'fs';
+import * as logger from 'fancy-log';
 import scanner from './scanner';
 
 const uslugify = (input): string => {
@@ -25,6 +26,7 @@ function createInstance(): MarkdownIt {
 function parse(filename: string, md: string): BlogModel.Post {
   const markdownIt = createInstance();
 
+  logger.info('Parsing filename:', filename);
   const context: BlogModel.Post = {
     filename,
     md,

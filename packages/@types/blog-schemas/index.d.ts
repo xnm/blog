@@ -3,9 +3,7 @@ declare module '*.md' {
   export = value;
 }
 
-
 declare namespace BlogApiModel {
-
   interface ApiQuery {
     [path: string]: string | object | object[];
   }
@@ -77,6 +75,8 @@ declare namespace Config {
     host: string;
     title: string;
     subtitle?: string;
+    author?: string;
+    avatar?: string;
     description?: string;
     language?: string | 'en' | 'zh';
     copyright: string;
@@ -105,12 +105,10 @@ declare namespace Config {
   }
 
   export interface Bundle {
-    site: Config.Site,
-    build: Config.Build,
-    features: Config.Features
+    site: Config.Site;
+    build: Config.Build;
+    features: Config.Features;
   }
-
-
 }
 
 /**
@@ -150,4 +148,3 @@ declare namespace BlogModel {
     children: ContentItem[];
   }
 }
-

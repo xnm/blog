@@ -206,7 +206,7 @@ exports[`@theme/r-material: core/components: Navigation # should show menus when
       icon="category"
       key="0"
       link="/to/somewhere"
-      name="Categories"
+      name="Postlist"
       priority={3}
     />
     <RoutingItemList
@@ -317,7 +317,7 @@ exports[`@theme/r-material: core/components: Navigation # should show profile wh
       icon="category"
       key="0"
       link="/to/somewhere"
-      name="Categories"
+      name="Postlist"
       priority={3}
     />
     <RoutingItemList

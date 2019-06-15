@@ -7,6 +7,7 @@ import Menu from '@material-ui/icons/Menu';
 import StarBorder from '@material-ui/icons/StarBorder';
 import Category from '@material-ui/icons/Category';
 import Bookmark from '@material-ui/icons/Bookmark';
+import Info from '@material-ui/icons/Info';
 
 interface BundleIconProps {
   type: string;
@@ -26,7 +27,8 @@ const BundledIcon: React.ComponentType<BundleIconProps> = (props: BundleIconProp
     expandLess: <ExpandLess />,
     expandMore: <ExpandMore />,
     category: <Category />,
-    bookmark: <Bookmark />
+    bookmark: <Bookmark />,
+    info: <Info />
   };
 
   const detectIconType = (): string => {
