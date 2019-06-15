@@ -1,29 +1,27 @@
 import * as React from 'react';
-import {createStyles, makeStyles} from '@material-ui/core';
+import {PostStore} from '../../stores/post.store';
+import {createStyles, makeStyles, Theme} from '@material-ui/core';
 import {inject, observer} from 'mobx-react';
 import {useEffect} from 'react';
 import {StyleRules} from '@material-ui/core/styles';
 
 
-import {PostStore} from '../../stores/post.store';
 import PostCard from '../../components/PostCard';
 import Grid from '@material-ui/core/Grid';
 
-interface PostsProps {
+type PostsProps = {} & {
   postStore: PostStore;
 }
 
 const useStyles = makeStyles(
-  (): StyleRules =>
+  (theme: Theme): StyleRules =>
     createStyles({
-      root: {},
-      gridList: {
-        width: '100%',
-        height: '100%',
-        flexGrow: 1
-      },
-      icon: {
-        color: 'rgba(255, 255, 255, 0.54)'
+      root: {
+        display: 'flex',
+        flexWrap: 'wrap',
+        justifyContent: 'space-around',
+        overflow: 'hidden',
+        backgroundColor: theme.palette.background.paper
       }
     })
 );

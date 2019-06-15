@@ -2163,12 +2163,10 @@ Apache Shiro 是一款Java的安全框架,通常用作Web应用的权限校验,�
         className="makeStyles-root-1"
       >
         <WithStyles(ForwardRef(Grid))
-          className="makeStyles-gridList-2"
           container={true}
           spacing={1}
         >
           <ForwardRef(Grid)
-            className="makeStyles-gridList-2"
             classes={
               Object {
                 "align-content-xs-center": "MuiGrid-align-content-xs-center",
@@ -2280,7 +2278,7 @@ Apache Shiro 是一款Java的安全框架,通常用作Web应用的权限校验,�
             spacing={1}
           >
             <div
-              className="MuiGrid-root makeStyles-gridList-2 MuiGrid-container MuiGrid-spacing-xs-1"
+              className="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-1"
             />
           </ForwardRef(Grid)>
         </WithStyles(ForwardRef(Grid))>
