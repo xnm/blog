@@ -47,7 +47,7 @@ exports[`@theme/r-material: core/components: Navigation # should mount Navigatio
     >
       <WithStyles(ForwardRef(IconButton))
         aria-label="Close drawer"
-        className="makeStyles-drawerButton-9"
+        className="makeStyles-drawerButton-10"
         href=""
         onClick={[Function]}
       >
@@ -58,10 +58,10 @@ exports[`@theme/r-material: core/components: Navigation # should mount Navigatio
     </div>
   </WithStyles(ForwardRef(Drawer))>
   <main
-    className="makeStyles-content-10"
+    className="makeStyles-content-11"
   >
     <div
-      className="makeStyles-drawerHeader-8"
+      className="makeStyles-drawerSpace-9"
     />
   </main>
 </div>
@@ -114,7 +114,7 @@ exports[`@theme/r-material: core/components: Navigation # should show SideBar wh
     >
       <WithStyles(ForwardRef(IconButton))
         aria-label="Close drawer"
-        className="makeStyles-drawerButton-9"
+        className="makeStyles-drawerButton-10"
         href=""
         onClick={[Function]}
       >
@@ -125,10 +125,10 @@ exports[`@theme/r-material: core/components: Navigation # should show SideBar wh
     </div>
   </WithStyles(ForwardRef(Drawer))>
   <main
-    className="makeStyles-content-10 makeStyles-contentShift-11"
+    className="makeStyles-content-11 makeStyles-contentShift-12"
   >
     <div
-      className="makeStyles-drawerHeader-8"
+      className="makeStyles-drawerSpace-9"
     />
   </main>
 </div>
@@ -181,7 +181,7 @@ exports[`@theme/r-material: core/components: Navigation # should show menus when
     >
       <WithStyles(ForwardRef(IconButton))
         aria-label="Close drawer"
-        className="makeStyles-drawerButton-9"
+        className="makeStyles-drawerButton-10"
         href=""
         onClick={[Function]}
       >
@@ -230,10 +230,10 @@ exports[`@theme/r-material: core/components: Navigation # should show menus when
     />
   </WithStyles(ForwardRef(Drawer))>
   <main
-    className="makeStyles-content-10"
+    className="makeStyles-content-11"
   >
     <div
-      className="makeStyles-drawerHeader-8"
+      className="makeStyles-drawerSpace-9"
     />
   </main>
 </div>
@@ -292,7 +292,7 @@ exports[`@theme/r-material: core/components: Navigation # should show profile wh
       />
       <WithStyles(ForwardRef(IconButton))
         aria-label="Close drawer"
-        className="makeStyles-drawerButton-9"
+        className="makeStyles-drawerButton-10"
         href=""
         onClick={[Function]}
       >
@@ -341,10 +341,10 @@ exports[`@theme/r-material: core/components: Navigation # should show profile wh
     />
   </WithStyles(ForwardRef(Drawer))>
   <main
-    className="makeStyles-content-10"
+    className="makeStyles-content-11"
   >
     <div
-      className="makeStyles-drawerHeader-8"
+      className="makeStyles-drawerSpace-9"
     />
   </main>
 </div>

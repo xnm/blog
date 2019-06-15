@@ -1,36 +1,26 @@
 import * as React from 'react';
-import {PostStore} from 'packages/@theme/r-material/src/post/stores/post.store';
-import {createStyles, makeStyles, Theme} from '@material-ui/core';
+import {createStyles, makeStyles} from '@material-ui/core';
 import {inject, observer} from 'mobx-react';
 import {useEffect} from 'react';
-import GridList from '@material-ui/core/GridList';
-import GridListTile from '@material-ui/core/GridListTile';
-import ListSubheader from '@material-ui/core/ListSubheader';
-import GridListTileBar from '@material-ui/core/GridListTileBar';
-import IconButton from '@material-ui/core/IconButton';
 import {StyleRules} from '@material-ui/core/styles';
-import BundledIcon from '../../../core/components/BundledIcon';
 
 
+import {PostStore} from '../../stores/post.store';
 import PostCard from '../../components/PostCard';
+import Grid from '@material-ui/core/Grid';
 
-type PostsProps = BlogApiModel.PostsOverview & {
+interface PostsProps {
   postStore: PostStore;
-};
+}
 
 const useStyles = makeStyles(
-  (theme: Theme): StyleRules =>
+  (): StyleRules =>
     createStyles({
-      root: {
-        display: 'flex',
-        flexWrap: 'wrap',
-        justifyContent: 'space-around',
-        overflow: 'hidden',
-        backgroundColor: theme.palette.background.paper
-      },
+      root: {},
       gridList: {
-        width: 500,
-        height: 450
+        width: '100%',
+        height: '100%',
+        flexGrow: 1
       },
       icon: {
         color: 'rgba(255, 255, 255, 0.54)'
@@ -45,17 +35,21 @@ const Posts: React.ComponentType<PostsProps> = inject('postStore')(
 
       useEffect((): void => {
         props.postStore.loadPosts();
-      });
+      }, []);
 
       return (
         <div className={classes.root}>
-          <GridList cellHeight={180} className={classes.gridList}>
+          <Grid
+            container
+            spacing={1}
+            className={classes.gridList}
+          >
             {props.postStore.posts.map(
               (post: BlogModel.Post): JSX.Element => (
                 <PostCard key={post.filename} {...post} />
               )
             )}
-          </GridList>
+          </Grid>
         </div>
       );
     }

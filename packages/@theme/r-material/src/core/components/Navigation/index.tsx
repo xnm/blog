@@ -1,6 +1,6 @@
 import * as React from 'react';
 import classnames from 'classnames';
-import { makeStyles, useTheme, Theme, StyleRules } from '@material-ui/core/styles';
+import {makeStyles, useTheme, Theme, StyleRules} from '@material-ui/core/styles';
 import Drawer from '@material-ui/core/Drawer';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import AppBar from '@material-ui/core/AppBar';
@@ -10,8 +10,9 @@ import IconButton from '@material-ui/core/IconButton';
 import RoutingItemList from '../RoutingItemList';
 import BundledIcon from '../../components/BundledIcon';
 
-import { NavMenu } from '../../stores/navigation.store';
-import { ReactNode } from 'react';
+import {NavMenu} from '../../stores/navigation.store';
+import {ReactNode} from 'react';
+import {PropsWithChildren} from 'react';
 
 interface NavigationProps {
   title: string;
@@ -60,12 +61,15 @@ const useStyles = makeStyles(
       ...theme.mixins.toolbar,
       justifyContent: 'flex-end'
     },
+    drawerSpace: {
+      ...theme.mixins.toolbar,
+      marginBottom: '4px'
+    },
     drawerButton: {
       padding: '8px'
     },
     content: {
       flexGrow: 1,
-      padding: theme.spacing(3),
       transition: theme.transitions.create('margin', {
         easing: theme.transitions.easing.sharp,
         duration: theme.transitions.duration.leavingScreen
@@ -82,7 +86,9 @@ const useStyles = makeStyles(
   })
 );
 
-const Navigation: React.ComponentType<NavigationProps> = (props: NavigationProps): JSX.Element => {
+const Navigation: React.ComponentType<NavigationProps> = (
+  props: PropsWithChildren<NavigationProps>
+): JSX.Element => {
   const theme: Theme = useTheme();
   const classes = useStyles(theme);
 
@@ -98,7 +104,7 @@ const Navigation: React.ComponentType<NavigationProps> = (props: NavigationProps
 
   return (
     <div className={classes.root}>
-      <CssBaseline />
+      <CssBaseline/>
       <AppBar
         position="fixed"
         className={classnames(classes.appBar, {
@@ -114,7 +120,7 @@ const Navigation: React.ComponentType<NavigationProps> = (props: NavigationProps
             href=""
             className={classnames(classes.menuButton, open && classes.hide)}
           >
-            <BundledIcon type="menu" />
+            <BundledIcon type="menu"/>
           </IconButton>
           <Typography variant="h6" color="inherit" noWrap>
             {props.title}
@@ -133,7 +139,7 @@ const Navigation: React.ComponentType<NavigationProps> = (props: NavigationProps
         <div className={classes.drawerHeader}>
           {props.profile}
           <IconButton aria-label="Close drawer" onClick={handleDrawerClose} href="" className={classes.drawerButton}>
-            <BundledIcon type="chevronLeft" />
+            <BundledIcon type="chevronLeft"/>
           </IconButton>
         </div>
 
@@ -148,7 +154,8 @@ const Navigation: React.ComponentType<NavigationProps> = (props: NavigationProps
           [classes.contentShift]: open
         })}
       >
-        <div className={classes.drawerHeader} />
+        <div className={classes.drawerSpace}/>
+        {props.children}
       </main>
     </div>
   );

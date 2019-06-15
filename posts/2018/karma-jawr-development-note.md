@@ -1,20 +1,16 @@
 # 基于Karma的非分离式前端单元测试基础方案
 
 ```metadata
-title: 基于Karma的非分离式前端单元测试基础方案
-created: 2018-03-04
-updated: 2018-03-04
+title: 'A Karma Plugin: Karma-JAWR Development Note'
+created: 2018-04-01
+updated: 2018-04-01
 category: Blog
 tags:
-- Java
-- JAWR
 - Karma
+- Node
+- AngularJS
 - JavaScript
-- Webpack
-- ExtJS
-- Spring
-- JSF
-- SpringMVC
+- JAWR
 
 ```
 

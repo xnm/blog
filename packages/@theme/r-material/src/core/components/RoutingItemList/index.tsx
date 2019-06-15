@@ -7,7 +7,7 @@ import ListItemText from '@material-ui/core/ListItemText';
 import Collapse from '@material-ui/core/Collapse';
 import { NavMenu } from '../../stores/navigation.store';
 import BundledIcon from '../../components/BundledIcon';
-import RoutingItem from '@theme/r-material/src/core/components/RoutingItem';
+import RoutingItem from '../../components/RoutingItem';
 
 type RoutingItemListProps = NavMenu;
 
