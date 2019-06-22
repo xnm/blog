@@ -1,7 +1,12 @@
 import createInstance from '../lib';
+import fetch from 'node-fetch';
 
 
 describe('@utils/unsplash-api', (): void => {
+
+  beforeAll((): void => {
+    global['fetch'] = fetch;
+  });
 
   it('# should use demo app id and secret as sample', async (): Promise<void> => {
 
@@ -12,7 +17,6 @@ describe('@utils/unsplash-api', (): void => {
 
     let randomPhoto = await unsplash.photos.getRandomPhoto();
 
-    console.log(randomPhoto);
     expect(randomPhoto).not.toBeUndefined();
   });
 });
