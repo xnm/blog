@@ -14,6 +14,7 @@ tags:
 
 
 ## Background
+
 最近一个项目中需要用到`Redis`和Node.js操作OracleDB,而Windows下开发就是屁事多.
 恰好用到的这两个东西,都写明了官方不支持Windows,`Redis`在Widnows下的版本是由微软的工程师们在维护.
 在Windows下搭建好了环境之后,发现`Redis`在Windows下会有一些常见的崩溃情况,上网搜了下估计是Windows才会有的情况.
@@ -31,6 +32,7 @@ tags:
 ## Linux下Redis的安装与配置
 
 ### 下载
+
 从官方地址
 [https://github.com/antirez/redis/archive/2.8.23.tar.gz](https://github.com/antirez/redis/archive/2.8.23.tar.gz)
 下载.
@@ -80,6 +82,7 @@ $ make
 
 
 ### 以服务运行
+
 在`Redis`安装目录下有一些脚本,执行之后,帮助以Service运行
 ```
 
@@ -125,11 +128,13 @@ Ubuntu 安装`Node.js`可以分成如下步骤
 3. 通过`npm`再更新一次`Node.js`
 
 ### 更新Ubuntu的包管理器
+
 ```
 $apt-get update
 ```
 
 ### 通过包管理器安装Node.js
+
 ```
 $apt-get install nodejs-legacy
 ```
@@ -163,6 +168,7 @@ $n v4.2.3
 
 
 ## Linux下Node-OracleDB的配置
+
 Linux 下搭建好node-oracledb 也是相当操蛋.
 大概需要做下面几个工作:
 
@@ -170,6 +176,7 @@ Linux 下搭建好node-oracledb 也是相当操蛋.
 * 设置环境变量,供构建npm install oracledb 构建使用
 
 ### 下载 OracleInstantClient for Linux
+
 官网还要登陆下载,太过傻逼.所以放出了个某度的链接
 [https://pan.baidu.com/s/1boxV2iV](https://pan.baidu.com/s/1boxV2iV)
 
@@ -205,6 +212,7 @@ $npm install oracledb
 ```
 
 ## Ubuntu下IntelliJ IDEA的配置
+
 终于到重头戏了.其实我就是想说这个
 在GNOME下安装Idea遵循下面几步
 
@@ -213,6 +221,7 @@ $npm install oracledb
 3. 一些关于Idea在Linux下与Widnows/Mac不同的特殊配置
 
 ### 安装JDK
+
 从Oracle 官网下载Linux版本jdk,解压到`/usr/lib/jvm/jdk8`下.
 > 该路径也是个人喜好,官网推荐这么做就照做了
 > 因为Idea启动的时候需要检查 Java的安装.且是按照`IDEA_JDK`,

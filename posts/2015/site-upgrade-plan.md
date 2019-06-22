@@ -42,6 +42,7 @@ tags:
 
 
 ## Plan
+
 从目前的域名的管理情况来看,应该是打算 这样
 > A域名`aquariuslt.com`作为导航主站,纯手工MEAN.
 > CNAME`blog.aquariuslt.com`作为主要的博客站,放Post
@@ -53,6 +54,7 @@ tags:
 当然日后也可能考虑`httpd`转发or`nginx`.
 
 ## Source
+
 所有代码都放在Github上.
 
 Home:[https://github.com/Aquariuslt/Site-SourceCode](https://github.com/Aquariuslt/Site-SourceCode)

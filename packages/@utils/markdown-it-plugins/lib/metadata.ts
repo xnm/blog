@@ -19,6 +19,7 @@ function detectMetadata(md): void {
       return false;
     }
 
+
     state.src = state.src.replace(METADATA_RE, '');
 
     if (state.env) {
@@ -32,7 +33,7 @@ function detectMetadata(md): void {
       state.env.metadata = metadata;
     }
 
-    return true;
+    return false;
   });
 }
 

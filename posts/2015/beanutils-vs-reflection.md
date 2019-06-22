@@ -13,6 +13,7 @@ tags:
 
 
 ## Background
+
 最近老大分配了个性能优化的任务,因为主要页面在Production上打开的时间太长,(大概7s?卧槽 第一次听到的时候还以为我听错了).
 居然这么慢..
 其实是有主程序大大带着我做,所以在扫了一遍前端ExtJS的结构之后,发现错综复杂四年以来不同技术层次的人都在同一个页面上添油加醋,
@@ -20,17 +21,20 @@ tags:
 
 
 ### 使用 JProfiler 分析 代码性能
+
 > 通过网上找来的资料,比较了一份周围的资料
 > IBM的 [常用 Java Profiling 工具的分析与比较](https://www.ibm.com/developerworks/cn/java/j-lo-profiling/)
 > 最后决定使用JProfiler进行性能分析
 
 #### IntelliJ IDEA集成 JProfiler 监控 Weblogic 实例
+
 idea 集成了 (应该是JProfiler本身就带了idea的插件安装) 安装之后就会 在启动服务器运行的 按钮多出一个 使用JProfiler 运行.
 > 由于JProfiler 本身也是通过javaagent的方法更改一些类加载运行时策略,所以会跟Jrebel冲突.
 > 所以在使用JProfiler监控性能的时候,如果之前在weblogic服务器运行配置的过程中添加了jrebel.jar 作为javaagent的参数,务必删掉
 > 其余配置 与之前的[Jrebel插件结合weblogic](https://blog.aquariuslt.com/2015/10/08/jrebel-configuration-with-weblogic-in-idea/)一样
 
 #### 通过JProfiler 分析方法执行时间
+
 通过JProfiler插件启动weblogic服务器实例之后,JProfiler的GUI界面将会启动,并成功监听到对应的实例进程.
 实例成功启动之后,下面会有一个CPU Time的标签页,选中并点击`record`.
 触发任意次目标方法,即可看到所有方法的执行时间
@@ -39,6 +43,7 @@ idea 集成了 (应该是JProfiler本身就带了idea的插件安装) 安装之�
 
 
 ### 正文:性能优化部分
+
 言归正传,在看到性能分析记录的时候,一个叫做
 `ReflectionUtil.convertObjectWithSameFields()`
 的方法,方法体如下
@@ -106,6 +111,7 @@ public static void convertObjectToObjectWithSameFields(Object target, Object sou
 
 
 ## Summary
+
 实现不同的JavaBean(常见场景是Entity,DTO,VO)之间相同属性名的转化过程,可以利用BeanUtils.copyProperties来实现.
 
 

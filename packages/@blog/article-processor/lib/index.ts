@@ -1,7 +1,7 @@
 import * as uslug from 'uslug';
 import * as MarkdownIt from 'markdown-it';
 import * as AnchorPlugin from 'markdown-it-anchor';
-import { DetectImagesPlugin, MetadataPlugin, SummaryPlugin, TOCPlugin } from '@utils/markdown-it-plugins';
+import {DetectImagesPlugin, MetadataPlugin, SummaryPlugin, TOCPlugin} from '@utils/markdown-it-plugins';
 import * as path from 'path';
 import * as fs from 'fs';
 import * as logger from 'fancy-log';
@@ -14,8 +14,8 @@ const uslugify = (input): string => {
 function createInstance(): MarkdownIt {
   return MarkdownIt()
     .use(MetadataPlugin)
-    .use(TOCPlugin)
     .use(SummaryPlugin)
+    .use(TOCPlugin)
     .use(DetectImagesPlugin)
     .use(AnchorPlugin, {
       slugify: uslugify

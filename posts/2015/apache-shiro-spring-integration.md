@@ -13,9 +13,8 @@ tags:
 ```
 
 
-
-
 ## Background
+
 前几个月在做一个常规的权限隔离功能的时候,恰好使用过Apache Shiro.
 Apache Shiro 是一款Java的安全框架,通常用作Web应用的权限校验,身份验证.
 

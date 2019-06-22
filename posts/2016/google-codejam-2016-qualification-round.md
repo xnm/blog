@@ -11,27 +11,19 @@ tags:
 
 ```
 
+今早结束的 Google CodeJam 2016 资格赛. 由于智商问题和加班了一天,所以只能水出前面两道水题. 但是还是稍微涨了点姿势. 记录下解题的过程和一些小彩蛋.
 
-
-
-今早结束的Google CodeJam 2016资格赛.
-由于智商问题和加班了一天,所以只能水出前面两道水题.
-但是还是稍微涨了点姿势.
-记录下解题的过程和一些小彩蛋.
-
-将我的A和B的Solution放在[Github](https://github.com/Aquariuslt/CodeJam)上了.
+将我的 A 和 B 的 Solution 放在[Github](https://github.com/Aquariuslt/CodeJam)上了.
 
 ## A: Counting Sheep
 
 ### Problem Description
+
 Bleatrix Trotter the sheep has devised a strategy that helps her fall asleep faster. First, she picks a number N. Then she starts naming N, 2 × N, 3 × N, and so on. Whenever she names a number, she thinks about all of the digits in that number. She keeps track of which digits (0, 1, 2, 3, 4, 5, 6, 7, 8, and 9) she has seen at least once so far as part of any number she has named. Once she has seen each of the ten digits at least once, she will fall asleep.
 
 Bleatrix must start with N and must always name (i + 1) × N directly after i × N. For example, suppose that Bleatrix picks N = 1692. She would count as follows:
 
-N = 1692. Now she has seen the digits 1, 2, 6, and 9.
-2N = 3384. Now she has seen the digits 1, 2, 3, 4, 6, 8, and 9.
-3N = 5076. Now she has seen all ten digits, and falls asleep.
-What is the last number that she will name before falling asleep? If she will count forever, print INSOMNIA instead.
+N = 1692. Now she has seen the digits 1, 2, 6, and 9. 2N = 3384. Now she has seen the digits 1, 2, 3, 4, 6, 8, and 9. 3N = 5076. Now she has seen all ten digits, and falls asleep. What is the last number that she will name before falling asleep? If she will count forever, print INSOMNIA instead.
 
 Input
 
@@ -43,17 +35,14 @@ For each test case, output one line containing Case #x: y, where x is the test c
 
 Limits
 
-1 ≤ T ≤ 100.
-Small dataset
+1 ≤ T ≤ 100. Small dataset
 
-0 ≤ N ≤ 200.
-Large dataset
+0 ≤ N ≤ 200. Large dataset
 
-0 ≤ N ≤ 10^6.
-Sample
-
+0 ≤ N ≤ 10^6. Sample
 
 Input
+
 ```
 5
 0
@@ -64,6 +53,7 @@ Input
 ```
 
 Output
+
 ```
 Case #1: INSOMNIA
 Case #2: 10
@@ -72,26 +62,18 @@ Case #4: 110
 Case #5: 5076
 ```
 
-In Case #1, since 2 × 0 = 0, 3 × 0 = 0, and so on, Bleatrix will never see any digit other than 0, and so she will count forever and never fall asleep. Poor sheep!
-In Case #2, Bleatrix will name 1, 2, 3, 4, 5, 6, 7, 8, 9, 10. The 0 will be the last digit needed, and so she will fall asleep after 10.
-In Case #3, Bleatrix will name 2, 4, 6... and so on. She will not see the digit 9 in any number until 90, at which point she will fall asleep. By that point, she will have already seen the digits 0, 1, 2, 3, 4, 5, 6, 7, and 8, which will have appeared for the first time in the numbers 10, 10, 2, 30, 4, 50, 6, 70, and 8, respectively.
-In Case #4, Bleatrix will name 11, 22, 33, 44, 55, 66, 77, 88, 99, 110 and then fall asleep.
-Case #5 is the one described in the problem statement. Note that it would only show up in the Large dataset, and not in the Small dataset.
+In Case #1, since 2 × 0 = 0, 3 × 0 = 0, and so on, Bleatrix will never see any digit other than 0, and so she will count forever and never fall asleep. Poor sheep! In Case #2, Bleatrix will name 1, 2, 3, 4, 5, 6, 7, 8, 9, 10. The 0 will be the last digit needed, and so she will fall asleep after 10. In Case #3, Bleatrix will name 2, 4, 6... and so on. She will not see the digit 9 in any number until 90, at which point she will fall asleep. By that point, she will have already seen the digits 0, 1, 2, 3, 4, 5, 6, 7, and 8, which will have appeared for the first time in the numbers 10, 10, 2, 30, 4, 50, 6, 70, and 8, respectively. In Case #4, Bleatrix will name 11, 22, 33, 44, 55, 66, 77, 88, 99, 110 and then fall asleep. Case #5 is the one described in the problem statement. Note that it would only show up in the Large dataset, and not in the Small dataset.
 
 ### Translation
-这道题相当容易读懂,表面意思就是:
-一个叫`Bleatrix`的家伙睡觉之前喜欢数羊咩,但是他要数到一定条件才睡得着.
-他每次会从一个数字`N`开始数.第一下数`N`,第二下数`2*N`...第M下数`M*N`.
-当从开始数到后面,一直到出现过的数字包含了`1234567890`所有数字的时候就会睡着了.
-求的是数字`N`对应的让他能够睡着的那个数.
+
+这道题相当容易读懂,表面意思就是: 一个叫`Bleatrix`的家伙睡觉之前喜欢数羊咩,但是他要数到一定条件才睡得着. 他每次会从一个数字`N`开始数.第一下数`N`,第二下数`2*N`...第 M 下数`M*N`. 当从开始数到后面,一直到出现过的数字包含了`1234567890`所有数字的时候就会睡着了. 求的是数字`N`对应的让他能够睡着的那个数.
 
 ### Solution
-做法是用一个从N开始枚举.
-出现过的数字用`HashSet`来保存,每出现一个数字的时候,将该数字按照每一位拆分,打进这个`HashSet`里面.
-当`HashSet`的长度大于等于10的时候跳出循环.
 
+做法是用一个从 N 开始枚举. 出现过的数字用`HashSet`来保存,每出现一个数字的时候,将该数字按照每一位拆分,打进这个`HashSet`里面. 当`HashSet`的长度大于等于 10 的时候跳出循环.
 
 ### Source Code
+
 ```java
 package com.aquariuslt.codejam;
 
@@ -183,6 +165,7 @@ public class CountingSheep {
 ## B: Revenge of the Pancakes
 
 ### Problem Description
+
 The Infinite House of Pancakes has just introduced a new kind of pancake! It has a happy face made of chocolate chips on one side (the "happy side"), and nothing on the other side (the "blank side").
 
 You are the head waiter on duty, and the kitchen has just given you a stack of pancakes to serve to a customer. Like any good pancake server, you have X-ray pancake vision, and you can see whether each pancake in the stack has the happy side up or the blank side up. You think the customer will be happiest if every pancake is happy side up when you serve them.
@@ -203,17 +186,13 @@ For each test case, output one line containing Case #x: y, where x is the test c
 
 Limits
 
-1 ≤ T ≤ 100.
-Every character in S is either + or -.
+1 ≤ T ≤ 100. Every character in S is either + or -.
 
 Small dataset
 
-1 ≤ length of S ≤ 10.
-Large dataset
+1 ≤ length of S ≤ 10. Large dataset
 
-1 ≤ length of S ≤ 100.
-Sample
-
+1 ≤ length of S ≤ 100. Sample
 
 Input
 
@@ -227,6 +206,7 @@ Input
 ```
 
 Output
+
 ```
 Case #1: 1
 Case #2: 1
@@ -235,35 +215,24 @@ Case #4: 0
 Case #5: 3
 ```
 
-In Case #1, you only need to execute the maneuver once, flipping the first (and only) pancake.
-In Case #2, you only need to execute the maneuver once, flipping only the first pancake.
-In Case #3, you must execute the maneuver twice. One optimal solution is to flip only the first pancake, changing the stack to --, and then flip both pancakes, changing the stack to ++. Notice that you cannot just flip the bottom pancake individually to get a one-move solution; every time you execute the maneuver, you must select a stack starting from the top.
-In Case #4, all of the pancakes are already happy side up, so there is no need to do anything.(这里他们打错成`anthing`了.)
-In Case #5, one valid solution is to first flip the entire stack of pancakes to get +-++, then flip the top pancake to get --++, then finally flip the top two pancakes to get ++++.
+In Case #1, you only need to execute the maneuver once, flipping the first (and only) pancake. In Case #2, you only need to execute the maneuver once, flipping only the first pancake. In Case #3, you must execute the maneuver twice. One optimal solution is to flip only the first pancake, changing the stack to --, and then flip both pancakes, changing the stack to ++. Notice that you cannot just flip the bottom pancake individually to get a one-move solution; every time you execute the maneuver, you must select a stack starting from the top. In Case #4, all of the pancakes are already happy side up, so there is no need to do anything.(这里他们打错成`anthing`了.) In Case #5, one valid solution is to first flip the entire stack of pancakes to get +-++, then flip the top pancake to get --++, then finally flip the top two pancakes to get ++++.
 
 ### Translation
-这道题原意是这样子的:
-大概就是翻蛋糕.给出一个字符串,只包含`-`和`+`两个部分 分别代表正面和反面.
-如果给出的字符串是`--+-`
-那么在实际中,蛋糕的摆放会是这样子的:
 
-反面朝上
-反面朝上
-正面朝上
-反面朝上
-*---我是底盘---*
-*-我是伺应的手-*
+这道题原意是这样子的: 大概就是翻蛋糕.给出一个字符串,只包含`-`和`+`两个部分 分别代表正面和反面. 如果给出的字符串是`--+-` 那么在实际中,蛋糕的摆放会是这样子的:
 
-有一个铲子每次都能够在两层蛋糕之间插入,然后将这个铲上面的所有蛋糕一次铲起来!
-接着将这些铲起来的蛋糕连着一起反过来,再放回盘子上.
+反面朝上反面朝上正面朝上反面朝上 _---我是底盘---_ _-我是伺应的手-_
+
+有一个铲子每次都能够在两层蛋糕之间插入,然后将这个铲上面的所有蛋糕一次铲起来! 接着将这些铲起来的蛋糕连着一起反过来,再放回盘子上.
 
 目标是给出一个这样排列的蛋糕序列,求用铲子操作多少次能够将蛋糕全部变成向上的状态.
 
 ### Solution
-有一种思路就是从右往左开始遍历,当遇到目前一个层次是反面的时候,就进行一次`翻面`操作.
-为了记录当前一个蛋糕的面实际是向上还是向下,我设定了一个flag与最原先输入的当前蛋糕面状态进行异或操作,得到当前面的状态.
+
+有一种思路就是从右往左开始遍历,当遇到目前一个层次是反面的时候,就进行一次`翻面`操作. 为了记录当前一个蛋糕的面实际是向上还是向下,我设定了一个 flag 与最原先输入的当前蛋糕面状态进行异或操作,得到当前面的状态.
 
 即
+
 ```
 private int solveSingleCase(int[] pancakeArray) {
     int revengeCount = 0;
@@ -372,18 +341,13 @@ public class RevengePancakes {
  */
 ```
 
-
-
 ## Java Reader in ACM
-本来一直在用`Java的Scanner做input`.
-但是一直没想过如果正式比赛还真的有人用Java去提交,那么`Scanner`的性能到底如何呢.
-很久之前看过一篇文章比较`cin`和`scanf`的性能.
-然后看到了这篇文章,通过数据比较高呼`Java Scanner is Slooooow`
+
+本来一直在用`Java的Scanner做input`. 但是一直没想过如果正式比赛还真的有人用 Java 去提交,那么`Scanner`的性能到底如何呢. 很久之前看过一篇文章比较`cin`和`scanf`的性能. 然后看到了这篇文章,通过数据比较高呼`Java Scanner is Slooooow`
 
 [Faster Input for Java](https://www.cpe.ku.ac.th/~jim/java-io.html)
 
-通过比较Java的`Scanner`与`BufferedReader` + `StringTokenizer`来比较性能的话.
-证明了`Scanner`读入输入流相对要慢4倍.
+通过比较 Java 的`Scanner`与`BufferedReader` + `StringTokenizer`来比较性能的话. 证明了`Scanner`读入输入流相对要慢 4 倍.
 
 所以我在代码里面第一次使用了这种方式
 
@@ -417,8 +381,9 @@ public class Reader {
     }
 }
 ```
-然后将输入文件放在resource里面,将输入流直接改成resource即可.
-Usage:
+
+然后将输入文件放在 resource 里面,将输入流直接改成 resource 即可. Usage:
+
 ```java
 public class CountingSheep{
 
@@ -439,5 +404,3 @@ public class CountingSheep{
     }
 }
 ```
-
-

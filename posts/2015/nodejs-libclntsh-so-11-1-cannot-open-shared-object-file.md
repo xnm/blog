@@ -25,6 +25,7 @@ tags:
 
 
 ## RootCause
+
 `LD_LIBRARY_PATH`没有设置好.
 我将OracleInstantClient的安装目录的路径,释放在当前用户的环境变量中.
 即将`export LD_LIBRARY_PATH=XXXX`写在当前user的`.bashrc`中
@@ -36,4 +37,5 @@ locate libclntsh.so.11.1
 
 
 ## Solutions
+
 将环境变量设置在`/etc/profile`中,问题解决.
