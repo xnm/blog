@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "@blog/article-processor": "5.0.0-beta.2",
-    "@blog/config-processor": "5.0.0-beta.2"
+    "@blog/config-processor": "5.0.0-beta.2",
+    "@utils/gallery-api": "5.0.0-beta.2"
   }
 }

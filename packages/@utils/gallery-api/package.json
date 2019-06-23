@@ -1,7 +1,8 @@
 {
-  "name": "@utils/unsplash-api",
+  "name": "@utils/gallery-api",
   "version": "5.0.0-beta.2",
-  "description": "unsplash api match blog generation",
+  "description": "picsum api match blog generation",
+  "typings": "dist/index.d.ts",
   "main": "lib/index.ts",
   "author": "Aquariuslt<superaquariuslt@gmail.com>",
   "license": "MIT",

@@ -8,9 +8,29 @@ import persistUtil from '../utils/persist-util';
 import postsApi from './posts-api';
 import seoApi from './seo-api';
 
-import {scanner as articleScanner} from '@blog/article-processor';
-import articleProcessor from '@blog/article-processor';
+import articleProcessor, { scanner as articleScanner } from '@blog/article-processor';
 import configParser from '@blog/config-processor';
+
+import GalleryApi from '@utils/gallery-api';
+
+
+async function handleFeatures(posts: BlogModel.Post[], features: Config.Features): Promise<void> {
+  if (features.gallery) {
+    const galleryApi = new GalleryApi({});
+
+    const allTasks = posts.map((post): Function => {
+      return async function(): Promise<BlogModel.Post> {
+        if (_.isUndefined(post.metadata.cover)) {
+          post.metadata.cover = await galleryApi.getPhoto(post.filename);
+        }
+        return post;
+      };
+    });
+
+    await Promise.all(allTasks.map((func): BlogModel.Post => func()));
+  }
+}
+
 
 /**
  * @param configPath: extra injected config filepath
@@ -26,6 +46,8 @@ async function generate(configPath: string, dataPath: string, outputPath: string
     return articleProcessor.parse(filename, mdContent);
   });
 
+
+  await handleFeatures(posts, config.features);
 
   const postsApiMap = _.merge({},
     postsApi.generateTagsOverview(posts),

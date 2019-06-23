@@ -91,6 +91,7 @@ declare namespace Config {
   export interface Features {
     ga?: string;
     disqus?: string;
+    gallery?: boolean;
   }
 
   export interface Build {

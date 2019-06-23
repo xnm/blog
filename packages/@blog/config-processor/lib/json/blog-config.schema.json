@@ -19,7 +19,11 @@
       "$ref": "#/definitions/features"
     }
   },
-  "required": ["version", "site", "build"],
+  "required": [
+    "version",
+    "site",
+    "build"
+  ],
   "definitions": {
     "site": {
       "type": "object",
@@ -52,7 +56,10 @@
         "language": {
           "type": "string",
           "description": "Your prefer language",
-          "enum": ["zh", "en"],
+          "enum": [
+            "zh",
+            "en"
+          ],
           "default": "zh"
         },
         "copyright": {
@@ -61,7 +68,12 @@
           "default": "copyright 2019 aquariuslt blog"
         }
       },
-      "required": ["host", "title", "subtitle", "description"]
+      "required": [
+        "host",
+        "title",
+        "subtitle",
+        "description"
+      ]
     },
     "build": {
       "type": "object",
@@ -110,6 +122,10 @@
         "disqus": {
           "type": "string",
           "description": "Your disqus short id"
+        },
+        "gallery": {
+          "type": "boolean",
+          "description": "Enable gallery to auto generate a cover image when not set"
         }
       },
       "required": []

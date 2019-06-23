@@ -25,3 +25,4 @@ build:
 features:
   ga: s3PYm0fCo0ImPqqXoPLiUb_bFdlYODKw54VGSkcFgyE
   disqus: aquariuslt
+  gallery: true

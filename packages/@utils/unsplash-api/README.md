@@ -1,7 +1,0 @@
-# @utils/unsplash-api
-
-
-
-
-
-
