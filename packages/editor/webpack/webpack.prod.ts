@@ -5,12 +5,10 @@ import TerserJSPlugin from 'terser-webpack-plugin';
 import UglifyJsPlugin from 'uglifyjs-webpack-plugin';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
-import FaviconsWebpackPlugin from 'favicons-webpack-plugin';
 import PreloadPlugin from 'preload-webpack-plugin';
-import RobotsTxtPlugin from 'robotstxt-webpack-plugin';
 
 import { resolve } from './path.util';
-import { BASE_DIR, BASE_TITLE, webpackBaseConfig } from './webpack.base';
+import { BASE_DIR, webpackBaseConfig } from './webpack.base';
 
 const THEME_DIST_DIR = resolve(`dist`);
 const NODE_MODULES = resolve(`node_modules`);
@@ -54,33 +52,10 @@ export const webpackProdConfig = merge(webpackBaseConfig, {
         removeAttributeQuotes: false,
       },
     }),
-    new FaviconsWebpackPlugin({
-      prefix: `static/img`,
-      outputPath: `static/img`,
-      logo: BASE_DIR + `/favicon.png`,
-      cache: true,
-      inject: true,
-      favicons: {
-        start_url: '/',
-        appName: BASE_TITLE,
-        appShortName: BASE_TITLE,
-        appDescription: ``,
-        theme_color: `#FFFFFF`,
-        background: `#FFFFFF`,
-        icons: {
-          android: true,
-          appleIcon: true,
-          appleStartup: true,
-          firefox: true,
-          windows: true,
-        },
-      },
-    }),
     new PreloadPlugin({
       rel: 'preload',
       include: 'allChunks',
     }),
-    new RobotsTxtPlugin(),
   ],
   optimization: {
     splitChunks: {
