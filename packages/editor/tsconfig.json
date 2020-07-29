@@ -13,7 +13,7 @@
     "noImplicitAny": false,
     "baseUrl": "./",
     "paths": {
-      "@theme-react/*": ["src/*"]
+      "@editor/*": ["src/*"]
     },
     "lib": ["es2018", "es6", "esnext", "dom", "dom.iterable", "scripthost"]
   },
