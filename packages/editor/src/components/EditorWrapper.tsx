@@ -49,8 +49,6 @@ const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     root: {
       maxWidth: '50em',
-      marginTop: `64px`,
-      minHeight: `calc(100vh - 64px)`,
       marginLeft: 'auto',
       marginRight: 'auto',
       padding: 20,
