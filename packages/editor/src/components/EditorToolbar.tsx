@@ -87,7 +87,7 @@ export const EditorToolbar: React.FC = (props) => {
           </Typography>
 
           <div className={classes.grow} />
-          <div className={classes.sectionDesktop}></div>
+          <div className={classes.sectionDesktop} />
         </Toolbar>
         <main>{props.children}</main>
       </AppBar>

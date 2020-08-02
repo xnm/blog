@@ -86,6 +86,11 @@
     "webpack-hot-middleware": "2.25.0",
     "webpack-merge": "4.2.2"
   },
+  "postcss": {
+    "plugins": {
+      "autoprefixer": {}
+    }
+  },
   "jest": {
     "moduleFileExtensions": [
       "js",
